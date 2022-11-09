@@ -1,0 +1,1927 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="http://docs.opentripplanner.org/2.1/RouterConfiguration/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
+    
+    
+      
+        <title>Router - OpenTripPlanner 2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.815d1a91.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#router-configuration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenTripPlanner 2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Router
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="http://github.com/opentripplanner/OpenTripPlanner" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Governance/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Basic-Tutorial/" class="md-tabs__link md-tabs__link--active">
+        Usage
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Developers-Guide/" class="md-tabs__link">
+        Development
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../SandboxExtension/" class="md-tabs__link">
+        Sandbox
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OpenTripPlanner 2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="http://github.com/opentripplanner/OpenTripPlanner" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Governance/" class="md-nav__link">
+        Governance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../History/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployments/" class="md-nav__link">
+        Deployments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Version-Comparison/" class="md-nav__link">
+        Comparing OTP2 to OTP1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OTP2-MigrationGuide/" class="md-nav__link">
+        OTP2 migration guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visual-Identity/" class="md-nav__link">
+        Visual Identity
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Usage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-Tutorial/" class="md-nav__link">
+        Basic Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting-OTP/" class="md-nav__link">
+        Getting OTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Configuration/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BuildConfiguration/" class="md-nav__link">
+        Build
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Router
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Router
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#routing-defaults" class="md-nav__link">
+    Routing defaults
+  </a>
+  
+    <nav class="md-nav" aria-label="Routing defaults">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuning-transfer-optimization" class="md-nav__link">
+    Tuning transfer optimization
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning transfer optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-optimization-configuration" class="md-nav__link">
+    Transfer optimization configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-itinerary-filtering" class="md-nav__link">
+    Tuning itinerary filtering
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning itinerary filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-by-similarity-filters" class="md-nav__link">
+    Group by similarity filters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drive-to-transit-routing-defaults" class="md-nav__link">
+    Drive-to-transit routing defaults
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boarding-and-alighting-times" class="md-nav__link">
+    Boarding and alighting times
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeout" class="md-nav__link">
+    Timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maxaccessegressdurationsecondsformode" class="md-nav__link">
+    maxAccessEgressDurationSecondsForMode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-incoming-requests" class="md-nav__link">
+    Logging incoming requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-transit-routing" class="md-nav__link">
+    Tuning transit routing
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning transit routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuning-transit-routing-dynamic-search-window" class="md-nav__link">
+    Tuning transit routing - Dynamic search window
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-transit-routing-stop-transfer-cost" class="md-nav__link">
+    Tuning transit routing - Stop transfer cost
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transit-example" class="md-nav__link">
+    Transit example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-data" class="md-nav__link">
+    Real-time data
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-time data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gtfs-realtime" class="md-nav__link">
+    GTFS-Realtime
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle-rental-systems-using-gbfs" class="md-nav__link">
+    Vehicle rental systems using GBFS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle-parking-sandbox-feature" class="md-nav__link">
+    Vehicle parking (sandbox feature)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-real-time-updaters" class="md-nav__link">
+    Configuring real-time updaters
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring real-time updaters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gbfs-configuration" class="md-nav__link">
+    GBFS Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="GBFS Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arriving-with-rental-bikes-at-the-destination" class="md-nav__link">
+    Arriving with rental bikes at the destination
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle-rental-service-directory-configuration-sandbox-feature" class="md-nav__link">
+    Vehicle Rental Service Directory configuration (sandbox feature)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Preparing-OSM/" class="md-nav__link">
+        Preparing OSM Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Netex-Norway/" class="md-nav__link">
+        Netex and SIRI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Security/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting-Routing/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developers-Guide/" class="md-nav__link">
+        Developers' Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interfaces-Data-Sources/" class="md-nav__link">
+        Interfaces and Data Sources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bibliography/" class="md-nav__link">
+        Bibliography
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Codestyle/" class="md-nav__link">
+        Codestyle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxExtension/" class="md-nav__link">
+        Sandbox development
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Sandbox
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sandbox" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Sandbox
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxExtension/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
+        Actuator API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
+        Direct transfer analyzer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
+        Google Cloud Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/LegacyGraphQLApi/" class="md-nav__link">
+        HSL Legacy GraphQL API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/TransmodelApi/" class="md-nav__link">
+        Transmodel(NeTEx) GraphQL API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/SiriUpdator/" class="md-nav__link">
+        SIRI Updater
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
+        Vehicle Rental Service Directory API support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
+        Smoove Bike Rental Updator Support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
+        Mapbox Vector Tiles API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Flex/" class="md-nav__link">
+        Flex Routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ReportApi/" class="md-nav__link">
+        Report API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
+        Interactive OTP Launcher
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Examples/" class="md-nav__link">
+        Sandbox Extension Example
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
+        Park and Ride API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/DataOverlay/" class="md-nav__link">
+        Data Overlay
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleParking/" class="md-nav__link">
+        Vehicle Parking Updaters
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="http://github.com/opentripplanner/OpenTripPlanner/edit/master/docs/RouterConfiguration.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="router-configuration">Router configuration</h1>
+<p>This section covers all options that can be set for each router using the <code>router-config.json</code> file.
+These options can be applied by the OTP server without rebuilding the graph.</p>
+<table>
+<thead>
+<tr>
+<th>config key</th>
+<th>description</th>
+<th>value type</th>
+<th>value default</th>
+<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>routingDefaults</code></td>
+<td>Default routing parameters, which will be applied to every request</td>
+<td>object</td>
+<td></td>
+<td>see <a href="#routing-defaults">routing defaults</a></td>
+</tr>
+<tr>
+<td><code>streetRoutingTimeout</code></td>
+<td>maximum time limit for street route queries</td>
+<td>double</td>
+<td>null</td>
+<td>units: seconds; see <a href="#timeout">timeout</a></td>
+</tr>
+<tr>
+<td><code>requestLogFile</code></td>
+<td>Path to a plain-text file where requests will be logged</td>
+<td>string</td>
+<td>null</td>
+<td>see <a href="#logging-incoming-requests">logging incoming requests</a></td>
+</tr>
+<tr>
+<td><code>transit</code></td>
+<td>Transit tuning parameters</td>
+<td><code>TransitRoutingConfig</code></td>
+<td></td>
+<td>see <a href="#Tuning-transit-routing">Tuning transit routing</a></td>
+</tr>
+<tr>
+<td><code>updaters</code></td>
+<td>configure real-time updaters, such as GTFS-realtime feeds</td>
+<td>object</td>
+<td>null</td>
+<td>see <a href="#configuring-real-time-updaters">configuring real-time updaters</a></td>
+</tr>
+<tr>
+<td><code>transmodelApi</code></td>
+<td>configure Entur Transmodel API (<strong>Sandbox</strong>)</td>
+<td>object</td>
+<td>null</td>
+<td>See the code for parameters, no doc provided.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="routing-defaults">Routing defaults</h2>
+<p>There are many trip planning options used in the OTP web API, and more exist
+internally that are not exposed via the API. You may want to change the default value for some of these parameters,
+i.e. the value which will be applied unless it is overridden in a web API request.</p>
+<p>A full list of them can be found in the <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/v2.1.0/src/main/java/org/opentripplanner/routing/api/request/RoutingRequest.java">RoutingRequest</a>.
+Any public field or setter method in this class can be given a default value using the routingDefaults section of
+<code>router-config.json</code> as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;routingDefaults&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="nt">&quot;walkSpeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&quot;carDropoffTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="tuning-transfer-optimization">Tuning transfer optimization</h3>
+<p>The main purpose of transfer optimization is to handle cases where it is possible to transfer between two routes at more than one point (pair of stops). The transfer optimization ensures that transfers occur at the best possible location. By post-processing all paths returned by the router, OTP can apply sophisticated calculations that are too slow or not algorithmically valid within Raptor. Transfers are optimized before the paths are passed to the itinerary-filter-chain.</p>
+<p>For a detailed description of the design and the optimization calculations see the <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/src/main/java/org/opentripplanner/routing/algorithm/transferoptimization/package.md">design documentation</a> (dev-2.x latest).</p>
+<h4 id="transfer-optimization-configuration">Transfer optimization configuration</h4>
+<p>To toggle transfer optimization on or off use the OTPFeature <code>OptimizeTransfers</code> (default is on).
+You should leave this on unless there is a critical issue with it. The OTPFeature <code>GuaranteedTransfers</code> will toggle on and off the priority optimization (part of OptimizeTransfers).</p>
+<p>The optimized transfer service will try to, in order:</p>
+<ol>
+<li>Use transfer priority. This includes stay-seated and guaranteed transfers.</li>
+<li>Use the transfers with the best distribution of the wait-time, and avoid very short transfers.</li>
+<li>Avoid back-travel</li>
+<li>Boost stop-priority to select preferred and recommended stops.</li>
+</ol>
+<p>If two paths have the same transfer priority level, then we break the tie by looking at waiting
+times. The goal is to maximize the wait-time for each stop, avoiding situations where there is
+little time available to make the transfer. This is balanced with the generalized-cost. The cost is
+adjusted with a new cost for wait-time (optimized-wait-time-cost).</p>
+<p>The defaults should work fine, but if you have results with short wait-times dominating a better
+option or "back-travel", then try to increase the <code>minSafeWaitTimeFactor</code>,
+<code>backTravelWaitTimeFactor</code> and/or <code>extraStopBoardAlightCostsFactor</code>.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;routingDefaults&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;transferOptimization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;optimizeTransferWaitTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;minSafeWaitTimeFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;backTravelWaitTimeFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;extraStopBoardAlightCostsFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+See the <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/src/main/java/org/opentripplanner/routing/algorithm/transferoptimization/api/TransferOptimizationParameters.java">TransferOptimizationParameters</a> (dev-2.x latest) for a description of these parameters.</p>
+<h3 id="tuning-itinerary-filtering">Tuning itinerary filtering</h3>
+<p>Nested inside <code>routingDefaults { itineraryFilters{...} }</code> in <code>router-config.json</code>.</p>
+<p>The purpose of the itinerary filter chain is to post process the result returned by the routing
+search. The filters may modify itineraries, sort them, and filter away less preferable results.</p>
+<p>OTP2 may produce numerous <em>pareto-optimal</em> results when using <code>time</code>, <code>number-of-transfers</code> and
+<code>generalized-cost</code> as criteria. Use the parameters listed here to reduce/filter the itineraries
+return by the search engine before returning the results to client. There is also a few mandatory
+none configurable filters removing none optimal results. You may see these filters pop-up in the
+filter debugging.</p>
+<table>
+<thead>
+<tr>
+<th>config key</th>
+<th>description</th>
+<th>value type</th>
+<th>value default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>debug</code></td>
+<td>Enable this to attach a system notice to itineraries instead of removing them. This is very convenient when tuning the filters.</td>
+<td>boolean</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>groupSimilarityKeepOne</code></td>
+<td>Pick ONE itinerary from each group after putting itineraries that is 85% similar together.</td>
+<td>double</td>
+<td><code>0.85</code> (85%)</td>
+</tr>
+<tr>
+<td><code>groupSimilarityKeepThree</code></td>
+<td>Reduce the number of itineraries to three itineraries by reducing each group of itineraries grouped by 68% similarity.</td>
+<td>double</td>
+<td><code>0.68</code> (68%)</td>
+</tr>
+<tr>
+<td><code>groupedOtherThanSameLegsMaxCostMultiplier</code></td>
+<td>Filter grouped itineraries, where the non-grouped legs are more expensive than in the lowest cost one.</td>
+<td>double</td>
+<td><code>2.0</code> (2x cost)</td>
+</tr>
+<tr>
+<td><code>transitGeneralizedCostLimit</code></td>
+<td>A relative maximum limit for the generalized cost for transit itineraries. The limit is a linear function of the minimum generalized-cost. The function is used to calculate a max-limit. The max-limit is then used to to filter by generalized-cost. Transit itineraries with a cost higher than the max-limit is dropped from the result set. None transit itineraries is excluded from the filter. To set a filter to be <em>1 hour plus 2 times the best cost</em> use: <code>3600 + 2.0 x</code>. To set an absolute value(3000s) use: <code>3000 + 0x</code></td>
+<td>linear function</td>
+<td><code>3600 + 2.0 x</code></td>
+</tr>
+<tr>
+<td><code>nonTransitGeneralizedCostLimit</code></td>
+<td>A relative maximum limit for the generalized cost for non-transit itineraries. The max limit is calculated using ALL itineraries, but only non-transit itineraries will be filtered out. The limit is a linear function of the minimum generalized-cost. The function is used to calculate a max-limit. The max-limit is then used to to filter by generalized-cost. Non-transit itineraries with a cost higher than the max-limit is dropped from the result set. To set a filter to be <em>1 hour plus 2 times the best cost</em> use: <code>3600 + 2.0 x</code>. To set an absolute value(3000s) use: <code>3000 + 0x</code></td>
+<td>linear function</td>
+<td><code>3600 + 2.0 x</code></td>
+</tr>
+<tr>
+<td><code>bikeRentalDistanceRatio</code></td>
+<td>For routes that consist only of bike rental and walking what is the minimum fraction of <em>distance</em> of the bike rental leg. This filters out results that consist of a long walk plus a relatively short bike rental leg. A value of <code>0.3</code> means that a minimum of 30% of the total distance must be spent on the bike in order for the result to be included.</td>
+<td>double</td>
+<td><code>0.0</code></td>
+</tr>
+<tr>
+<td><code>parkAndRideDurationRatio</code></td>
+<td>For P+R routes that consist only of driving and walking what is the minimum fraction of <em>time</em> of the driving leg. This filters out results that consist of driving plus a very long walk leg at the end. A value of <code>0.3</code> means that a minimum of 30% of the total time must be spent in the car in order for the result to be included. However, if there is only a single result, it is never filtered.</td>
+<td>double</td>
+<td><code>0.0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="group-by-similarity-filters">Group by similarity filters</h4>
+<p>The group-by-filter is a bit complex, but should be simple to use. Set <code>debug=true</code> and experiment
+with <code>searchWindow</code> and the three group-by parameters(<code>groupSimilarityKeepOne</code>,
+<code>groupSimilarityKeepThree</code> and <code>groupedOtherThanSameLegsMaxCostMultiplier</code>).</p>
+<p>The group-by-filter work by grouping itineraries together and then reducing the number of
+itineraries in each group, keeping the itinerary/itineraries with the best itinerary
+<em>generalized-cost</em>. The group-by function first pick all transit legs that account for more than N%
+of the itinerary based on distance traveled. This become the group-key. Two keys are the same if all
+legs in one of the keys also exist in the other. Note, one key may have a lager set of legs than
+the other, but they can still be the same. When comparing two legs we compare the <code>tripId</code> and make
+sure the legs overlap in place and time. Two legs are the same if both legs ride at least a common
+subsection of the same trip. The <code>keepOne</code> filter will keep ONE itinerary in each group. The
+<code>keepThree</code> keeps 3 itineraries for each group.</p>
+<p>The grouped itineraries can be further reduced by using <code>groupedOtherThanSameLegsMaxCostMultiplier</code>.
+This parameter filters out itineraries, where the legs that are not common for all the grouped
+itineraries have a much higher cost, than the lowest in the group. By default, it filters out
+itineraries that are at least double in cost for the non-grouped legs.</p>
+<h3 id="drive-to-transit-routing-defaults">Drive-to-transit routing defaults</h3>
+<p>When using the "park and ride" or "kiss and ride" modes (drive to transit), the initial driving time to reach a transit
+stop or park and ride facility is constrained. You can set a drive time limit in seconds by adding a line like
+<code>maxPreTransitTime = 1200</code> to the routingDefaults section. If the limit is too high on a very large street graph, routing
+performance may suffer.</p>
+<h2 id="boarding-and-alighting-times">Boarding and alighting times</h2>
+<p>Sometimes there is a need to configure a longer ride or alighting times for specific modes, such as airplanes or ferries,
+where the check-in process needs to be done in good time before ride. The ride time is added to the time when going
+from the stop (offboard) vertex to the onboard vertex, and the alight time is added vice versa. The times are configured as
+seconds needed for the ride and alighting processes in <code>router-config.json</code> as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;routingDefaults&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;boardSlackForMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;AIRPLANE&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2700</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;alightSlackForMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;AIRPLANE&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="timeout">Timeout</h2>
+<p>In OTP1 path searches sometimes toke a long time to complete. With the new Raptor algorithm this not
+the case anymore. The street part of the routing may still take a long time if searching very long
+distances. You can set the street routing timeout to avoid tying up server resources on pointless
+searches and ensure that your users receive a timely response. You can also limit the max distance
+to search for WALK, BIKE and CAR. When a search times out, a WARN level log entry is made with
+information that can help identify problematic searches and improve our routing methods. There are
+no timeouts for the transit part of the routing search, instead configure a reasonable dynamic
+search-window. To set the street routing timeout use the following config:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;streetRoutingTimeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.5</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>This specifies a timeout in (optionally fractional) seconds. The search abort after this many seconds and any paths found are returned to the client.</p>
+<h2 id="maxaccessegressdurationsecondsformode">maxAccessEgressDurationSecondsForMode</h2>
+<p>Override the settings in maxAccessEgressDurationSeconds for specific street modes. This is done because
+some street modes searches are much more resource intensive than others.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">&quot;maxAccessEgressDurationSecondsForMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;BIKE_RENTAL&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>This will limit only the BIKE_RENTAL mode to 1200 seconds, while keeping the default limit for all
+other access/egress modes.</p>
+<h2 id="logging-incoming-requests">Logging incoming requests</h2>
+<p>You can log some characteristics of trip planning requests in a file for later analysis. Some transit agencies and
+operators find this information useful for identifying existing or unmet transportation demand. Logging will be
+performed only if you specify a log file name in the router config:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;requestLogFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/var/otp/request.log&quot;</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Each line in the resulting log file will look like this:</p>
+<p><code>2016-04-19T18:23:13.486 0:0:0:0:0:0:0:1 ARRIVE 2016-04-07T00:17 WALK,BUS,CABLE_CAR,TRANSIT,BUSISH 45.559737193889966 -122.64999389648438 45.525592487765635 -122.39044189453124 6095 3 5864 3 6215 3</code></p>
+<p>The fields separated by whitespace are (in order):</p>
+<ol>
+<li>Date and time the request was received</li>
+<li>IP address of the user</li>
+<li>Arrive or depart search</li>
+<li>The arrival or departure time</li>
+<li>A comma-separated list of all transport modes selected</li>
+<li>Origin latitude and longitude</li>
+<li>Destination latitude and longitude</li>
+</ol>
+<p>Finally, for each itinerary returned to the user, there is a travel duration in seconds and the number of transit vehicles used in that itinerary.</p>
+<h2 id="tuning-transit-routing">Tuning transit routing</h2>
+<p>Nested inside <code>transit {...}</code> in <code>router-config.json</code>.</p>
+<p>Some of these parameters for tuning transit routing is only available through configuration and cannot be set in the routing request. These parameters work together with the default routing request and the actual routing request.</p>
+<table>
+<thead>
+<tr>
+<th>config key</th>
+<th>description</th>
+<th>value type</th>
+<th>value default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maxNumberOfTransfers</code></td>
+<td>Use this parameter to allocate enough space for Raptor. Set it to the maximum number of transfers for any given itinerary expected to be found within the entire transit network. The memory overhead of setting this higher than the maximum number of transfers is very little so it is better to set it too high then to low.</td>
+<td>int</td>
+<td><code>12</code></td>
+</tr>
+<tr>
+<td><code>scheduledTripBinarySearchThreshold</code></td>
+<td>The threshold is used to determine when to perform a binary trip schedule search to reduce the number of trips departure time lookups and comparisons. When testing with data from Entur and all of Norway as a Graph, the optimal value was around 50. Changing this may improve the performance with just a few percent.</td>
+<td>int</td>
+<td><code>50</code></td>
+</tr>
+<tr>
+<td><code>iterationDepartureStepInSeconds</code></td>
+<td>Step for departure times between each RangeRaptor iterations. A transit network usually uses minute resolution for its depature and arrival times. To match that, set this variable to 60 seconds.</td>
+<td>int</td>
+<td><code>60</code></td>
+</tr>
+<tr>
+<td><code>searchThreadPoolSize</code></td>
+<td>Split a travel search in smaller jobs and run them in parallel to improve performance. Use this parameter to set the total number of executable threads available across all searches. Multiple searches can run in parallel - this parameter have no effect with regard to that. If 0, no extra threads are started and the search is done in one thread.</td>
+<td>int</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>dynamicSearchWindow</code></td>
+<td>The dynamic search window coefficients used to calculate the EDT(earliest-departure-time), LAT(latest-arrival-time) and SW(raptor-search-window) using heuristics.</td>
+<td>object</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>stopTransferCost</code></td>
+<td>Use this to set a stop transfer cost for the given <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/v2.1.0/src/main/java/org/opentripplanner/model/TransferPriority.java">TransferPriority</a>. The cost is applied to boarding and alighting at all stops. All stops have a transfer cost priority set, the default is <code>ALLOWED</code>. The <code>stopTransferCost</code> parameter is optional, but if listed all values must be set.</td>
+<td>enum map</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>transferCacheMaxSize</code></td>
+<td>The maximum number of distinct transfers parameters (<code>RoutingRequest</code>s) to cache pre-calculated transfers for. If too low, requests may be slower. If too high, more memory may be used then required.</td>
+<td>int</td>
+<td><code>25</code></td>
+</tr>
+<tr>
+<td><code>pagingSearchWindowAdjustments</code></td>
+<td>The provided array of durations is used to increase the search-window for the next/previous page when the current page return few options. If ZERO results is returned the first duration in the list is used, if ONE result is returned then the second duration is used and so on. The duration is added to the existing search-window and inserted into the next and previous page cursor. See JavaDoc for <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/v2.1.0/src/main/java/org/opentripplanner/routing/algorithm/raptor/transit/TransitTuningParameters.java">TransitTuningParameters#pagingSearchWindowAdjustments</a> for more info.</td>
+<td>duration[]</td>
+<td><code>["4h", "2h", "1h", "30m", "20m", "10m"]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="tuning-transit-routing-dynamic-search-window">Tuning transit routing - Dynamic search window</h3>
+<p>Nested inside <code>transit : { dynamicSearchWindow : { ... } }</code> in <code>router-config.json</code>.</p>
+<table>
+<thead>
+<tr>
+<th>config key</th>
+<th>description</th>
+<th>value type</th>
+<th>value default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>minTransitTimeCoefficient</code></td>
+<td>The coefficient to multiply with minimum transit time found using a heuristic search. This scaled value is added to the <code>minWinTimeMinutes</code>. A value between <code>0.0</code> to <code>3.0</code> is expected to give ok results.</td>
+<td>double</td>
+<td><code>0.5</code></td>
+</tr>
+<tr>
+<td><code>minWaitTimeCoefficient</code></td>
+<td>The coefficient to multiply with a minimum wait time estimated based on the heuristic search. This will increase the search-window in low transit frequency areas. This value is added to the <code>minWinTimeMinutes</code>. A value between <code>0.0</code> to <code>1.0</code> is expected to give ok results.</td>
+<td>double</td>
+<td><code>0.5</code></td>
+</tr>
+<tr>
+<td><code>minWinTimeMinutes</code></td>
+<td>The constant minimum number of minutes for a raptor search window. Use a value between 20-180 minutes in a normal deployment.</td>
+<td>int</td>
+<td><code>40</code></td>
+</tr>
+<tr>
+<td><code>maxWinTimeMinutes</code></td>
+<td>Set an upper limit to the calculation of the dynamic search window to prevent exceptionable cases to cause very long search windows. Long search windows consumes a lot of resources and may take a long time. Use this parameter to tune the desired maximum search time.</td>
+<td>int</td>
+<td><code>180</code> (3 hours)</td>
+</tr>
+<tr>
+<td><code>stepMinutes</code></td>
+<td>The search window is rounded of to the closest multiplication of N minutes. If N=10 minutes, the search-window can be 10, 20, 30 ... minutes. It the computed search-window is 5 minutes and 17 seconds it will be rounded up to 10 minutes.</td>
+<td>int</td>
+<td><code>10</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="tuning-transit-routing-stop-transfer-cost">Tuning transit routing - Stop transfer cost</h3>
+<p>Nested inside <code>transit : { stopTransferCost : { ... } }</code> in <code>router-config.json</code>.</p>
+<p>This <em>cost</em> is in addition to other costs like <code>boardCost</code> and indirect cost from waiting (board-/alight-/transfer slack). You should account for this when you tune the routing search parameters.</p>
+<p>If not set the <code>stopTransferCost</code> is ignored. This is only available for NeTEx imported Stops.</p>
+<p>The cost is a scalar, but is equivalent to the felt cost of riding a transit trip for 1 second.</p>
+<table>
+<thead>
+<tr>
+<th>config key</th>
+<th>description</th>
+<th>value type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DISCOURAGED</code></td>
+<td>Use a very high cost like <code>72 000</code> to eliminate transfers ath the stop if not the only option.</td>
+<td>int</td>
+</tr>
+<tr>
+<td><code>ALLOWED</code></td>
+<td>Allowed, but not recommended. Use something like <code>150</code>.</td>
+<td>int</td>
+</tr>
+<tr>
+<td><code>RECOMMENDED</code></td>
+<td>Use a small cost penalty like <code>60</code>.</td>
+<td>int</td>
+</tr>
+<tr>
+<td><code>PREFERRED</code></td>
+<td>The best place to do transfers. Should be set to <code>0</code>(zero).</td>
+<td>int</td>
+</tr>
+</tbody>
+</table>
+<p>Use values in a range from <code>0</code> to <code>100 000</code>. <strong>All key/value pairs are required if the <code>stopTransferCost</code> is listed.</strong></p>
+<h3 id="transit-example">Transit example</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&quot;transit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="nt">&quot;maxNumberOfTransfers&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="nt">&quot;scheduledTripBinarySearchThreshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="nt">&quot;iterationDepartureStepInSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="nt">&quot;searchThreadPoolSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="nt">&quot;dynamicSearchWindow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">            </span><span class="nt">&quot;minTransitTimeCoefficient&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">            </span><span class="nt">&quot;minWaitTimeCoefficient&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">            </span><span class="nt">&quot;minTimeMinutes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">            </span><span class="nt">&quot;maxLengthMinutes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">360</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">            </span><span class="nt">&quot;stepMinutes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="nt">&quot;stopTransferCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">            </span><span class="nt">&quot;DISCOURAGED&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">72000</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">            </span><span class="nt">&quot;ALLOWED&quot;</span><span class="p">:</span><span class="w">       </span><span class="mi">150</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">            </span><span class="nt">&quot;RECOMMENDED&quot;</span><span class="p">:</span><span class="w">    </span><span class="mi">60</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">            </span><span class="nt">&quot;PREFERRED&quot;</span><span class="p">:</span><span class="w">       </span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="real-time-data">Real-time data</h2>
+<p>GTFS feeds contain <em>schedule</em> data that is is published by an agency or operator in advance. The feed does not account
+for unexpected service changes or traffic disruptions that occur from day to day. Thus, this kind of data is also
+referred to as 'static' data or 'theoretical' arrival and departure times.</p>
+<h3 id="gtfs-realtime">GTFS-Realtime</h3>
+<p>The <a href="https://developers.google.com/transit/gtfs-realtime/">GTFS-RT spec</a> complements GTFS with three additional kinds of
+feeds. In contrast to the base GTFS schedule feed, they provide <em>real-time</em> updates (<em>'dynamic'</em> data) and are are
+updated from minute to minute.</p>
+<ul>
+<li>
+<p><strong>Alerts</strong> are text messages attached to GTFS objects, informing riders of disruptions and changes.</p>
+</li>
+<li>
+<p><strong>TripUpdates</strong> report on the status of scheduled trips as they happen, providing observed and predicted arrival and
+  departure times for the remainder of the trip.</p>
+</li>
+<li>
+<p><strong>VehiclePositions</strong> give the location of some or all vehicles currently in service, in terms of geographic coordinates
+  or position relative to their scheduled stops.</p>
+</li>
+</ul>
+<h3 id="vehicle-rental-systems-using-gbfs">Vehicle rental systems using GBFS</h3>
+<p>Besides GTFS-RT transit data, OTP can also fetch real-time data about vehicle rental networks including the number
+of bikes and free parking spaces at each station. We support vehicle rental systems from using GBFS feed format.</p>
+<h3 id="vehicle-parking-sandbox-feature">Vehicle parking (sandbox feature)</h3>
+<p>Vehicle parking options and configuration is documented in its <a href="../sandbox/VehicleParking/">sandbox documentation</a>.</p>
+<h3 id="configuring-real-time-updaters">Configuring real-time updaters</h3>
+<p>Real-time data can be provided using either a pull or push system. In a pull configuration, the GTFS-RT consumer polls the
+real-time provider over HTTP. That is to say, OTP fetches a file from a web server every few minutes. In the push
+configuration, the consumer opens a persistent connection to the GTFS-RT provider, which then sends incremental updates
+immediately as they become available. OTP can use both approaches. The <a href="https://github.com/OneBusAway/onebusaway-gtfs-realtime-exporter">OneBusAway GTFS-realtime exporter project</a> provides this kind of streaming, incremental updates over a websocket rather than a single large file.</p>
+<p>Real-time data sources are configured in <code>router-config.json</code>. The <code>updaters</code> section is an array of JSON objects, each
+of which has a <code>type</code> field and other configuration fields specific to that type. Common to all updater entries that
+connect to a network resource is the <code>url</code> field.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Routing defaults are any public field or setter in the Java class</span><span class="w"></span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="c1">// org.opentripplanner.routing.api.request.RoutingRequest</span><span class="w"></span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">&quot;routingDefaults&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="nt">&quot;numItineraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="nt">&quot;walkSpeed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="nt">&quot;carDropoffTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="w"></span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="nt">&quot;updaters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="c1">// GTFS-RT service alerts (frequent polling)</span><span class="w"></span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;real-time-alerts&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">            </span><span class="nt">&quot;frequencySec&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://developer.trimet.org/ws/V1/FeedSpecAlerts/appID/0123456789ABCDEF&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">            </span><span class="nt">&quot;feedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TriMet&quot;</span><span class="w"></span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">        </span><span class="c1">//&lt;!--- Tampa Area GBFS bike share --&gt;</span><span class="w"></span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-rental&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">          </span><span class="nt">&quot;frequencySec&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">          </span><span class="nt">&quot;sourceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gbfs&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">          </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://coast.socialbicycles.com/opendata/gbfs.json&quot;</span><span class="w"></span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">        </span><span class="c1">// Vehicle parking availability</span><span class="w"></span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="w"></span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">        </span><span class="c1">// Polling for GTFS-RT TripUpdates)</span><span class="w"></span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stop-time-updater&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">            </span><span class="nt">&quot;frequencySec&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">            </span><span class="c1">// this is either http or file... shouldn&#39;t it default to http or guess from the presence of a URL?</span><span class="w"></span>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">            </span><span class="nt">&quot;sourceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gtfs-http&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://developer.trimet.org/ws/V1/TripUpdate/appID/0123456789ABCDEF&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">            </span><span class="nt">&quot;feedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TriMet&quot;</span><span class="w"></span>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="w">        </span><span class="c1">// Streaming differential GTFS-RT TripUpdates over websockets</span><span class="w"></span>
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;websocket-gtfs-rt-updater&quot;</span><span class="w"></span>
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="w">    </span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="gbfs-configuration">GBFS Configuration</h4>
+<p><a href="https://github.com/NABSA/gbfs">GBFS</a> is used for a variety of shared mobility services, with partial support for both v1 and v2.2 (<a href="https://github.com/NABSA/gbfs/blob/master/systems.csv">list of known GBFS feeds</a>).</p>
+<p>To add a GBFS feed to the router add one entry in the <code>updater</code> field of <code>router-config.json</code> in the format:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-rental&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">   </span><span class="nt">&quot;sourceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gbfs&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">   </span><span class="c1">// frequency in seconds in which the GBFS service will be polled</span><span class="w"></span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">   </span><span class="nt">&quot;frequencySec&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">   </span><span class="c1">// The URL of the GBFS feed auto-discovery file</span><span class="w"></span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://coast.socialbicycles.com/opendata/gbfs.json&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">   </span><span class="c1">// Optionally specify the language version of the feed to use. If no language is set, the first language in the feed is used. </span><span class="w"></span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">   </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">   </span><span class="c1">// if it should be possible to arrive at the destination with a rented bicycle, without dropping it off</span><span class="w"></span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">   </span><span class="nt">&quot;allowKeepingRentedBicycleAtDestination&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h5 id="arriving-with-rental-bikes-at-the-destination">Arriving with rental bikes at the destination</h5>
+<p>In some cases it may be useful to not drop off the rented bicycle before arriving at the
+destination. This is useful if bicycles may only be rented for round trips, or the destination is an
+intermediate place.</p>
+<p>For this to be possible three things need to be configured:</p>
+<ol>
+<li>
+<p>In the updater configuration <code>allowKeepingRentedBicycleAtDestination</code> should be set to <code>true</code>.</p>
+</li>
+<li>
+<p><code>allowKeepingRentedBicycleAtDestination</code> should also be set for each request, either using
+   <a href="#routing-defaults">routing defaults</a>, or per-request.</p>
+</li>
+<li>
+<p>If keeping the bicycle at the destination should be discouraged, then
+   <code>keepingRentedBicycleAtDestinationCost</code> (default: <code>0</code>) may also be set in the
+   <a href="#routing-defaults">routing defaults</a>.</p>
+</li>
+</ol>
+<h4 id="vehicle-rental-service-directory-configuration-sandbox-feature">Vehicle Rental Service Directory configuration (sandbox feature)</h4>
+<p>To configure and url for the <a href="../sandbox/VehicleRentalServiceDirectory/">VehicleRentalServiceDirectory</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;vehicleRentalServiceDirectory&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.dev.entur.io/mobility/v1/bikes&quot;</span><span class="w"></span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h1 id="configure-using-command-line-arguments">Configure using command-line arguments</h1>
+<p>Certain settings can be provided on the command line, when starting OpenTripPlanner. See the <code>CommandLineParameters</code> class for <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/v2.1.0/src/main/java/org/opentripplanner/standalone/config/CommandLineParameters.java">a full list of arguments</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../BuildConfiguration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Build" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Build
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Preparing-OSM/" class="md-footer__link md-footer__link--next" aria-label="Next: Preparing OSM Data" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Preparing OSM Data
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
