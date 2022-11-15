@@ -1,212 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Basic-Tutorial/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Basic-Tutorial/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Bibliography/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Bibliography/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/BuildConfiguration/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/BuildConfiguration/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Changelog/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Changelog/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Codestyle/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Codestyle/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Configuration/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Configuration/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Deployments/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Deployments/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Developers-Guide/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Developers-Guide/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Getting-OTP/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Getting-OTP/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Governance/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Governance/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/History/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/History/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Interfaces-Data-Sources/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Interfaces-Data-Sources/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Localization/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Localization/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Netex-Norway/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Netex-Norway/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/OTP2-MigrationGuide/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/OTP2-MigrationGuide/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Preparing-OSM/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Preparing-OSM/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/RouterConfiguration/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/RouterConfiguration/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/RoutingModes/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/RoutingModes/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/SandboxExtension/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/SandboxExtension/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Security/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Security/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Troubleshooting-Routing/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Troubleshooting-Routing/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Version-Comparison/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Version-Comparison/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/Visual-Identity/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/Visual-Identity/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/examples/Readme/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/examples/Readme/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/examples/entur/Readme/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/examples/entur/Readme/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/ActuatorAPI/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/ActuatorAPI/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/DataOverlay/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/DataOverlay/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/Examples/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/Examples/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/Flex/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/Flex/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/GoogleCloudStorage/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/GoogleCloudStorage/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/InteractiveOtpMain/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/InteractiveOtpMain/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/LegacyGraphQLApi/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/LegacyGraphQLApi/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/MapboxVectorTilesApi/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/MapboxVectorTilesApi/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/ParkAndRideApi/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/ParkAndRideApi/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/ReportApi/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/ReportApi/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/SiriUpdator/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/SiriUpdator/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/SmooveBikeRental/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/SmooveBikeRental/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/TransmodelApi/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/TransmodelApi/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/VehicleParking/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/VehicleParking/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/VehicleRentalServiceDirectory/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/VehicleRentalServiceDirectory/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.opentripplanner.org/2.1/sandbox/transferanalyzer/</loc>
+         <loc>https://docs.opentripplanner.org/en/v2.1.0/sandbox/transferanalyzer/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
