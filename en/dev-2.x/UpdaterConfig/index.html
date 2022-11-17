@@ -694,19 +694,6 @@
     Vehicle parking (sandbox feature)
   </a>
   
-    <nav class="md-nav" aria-label="Vehicle parking (sandbox feature)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#details_3" class="md-nav__link">
-    Details
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1454,7 +1441,7 @@ predicted arrival and departure times for the remainder of the trip.</p>
 <td align="center">na</td>
 </tr>
 <tr>
-<td><a href="#u__3__backwardsDelayPropagationType">backwardsDelayPropagationType</a></td>
+<td><a href="#u__5__backwardsDelayPropagationType">backwardsDelayPropagationType</a></td>
 <td align="center"><code>enum</code></td>
 <td>How backwards propagation should be handled.</td>
 <td align="center"><em>Optional</em></td>
@@ -1486,22 +1473,6 @@ predicted arrival and departure times for the remainder of the trip.</p>
 <td align="center">na</td>
 </tr>
 <tr>
-<td>maxSnapshotFrequencyMs</td>
-<td align="center"><code>integer</code></td>
-<td>TODO</td>
-<td align="center"><em>Optional</em></td>
-<td><code>-1</code></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td>purgeExpiredData</td>
-<td align="center"><code>boolean</code></td>
-<td>Should expired data removed from the snapshot.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>false</code></td>
-<td align="center">na</td>
-</tr>
-<tr>
 <td>url</td>
 <td align="center"><code>string</code></td>
 <td>The URL of the GTFS-RT resource.</td>
@@ -1512,10 +1483,10 @@ predicted arrival and departure times for the remainder of the trip.</p>
 </tbody>
 </table>
 <h4 id="details">Details</h4>
-<h4 id="u__3__backwardsDelayPropagationType">backwardsDelayPropagationType</h4>
+<h4 id="u__5__backwardsDelayPropagationType">backwardsDelayPropagationType</h4>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"required-no-data"</code>  \
-<strong>Path:</strong> /updaters/[3]  \
+<strong>Path:</strong> /updaters/[5]  \
 <strong>Enum values:</strong> <code>required-no-data</code> | <code>required</code> | <code>always</code></p>
 <p>How backwards propagation should be handled.</p>
 <p>REQUIRED_NO_DATA:
@@ -1569,7 +1540,7 @@ predicted arrival and departure times for the remainder of the trip.</p>
 <td align="center">na</td>
 </tr>
 <tr>
-<td><a href="#u__5__backwardsDelayPropagationType">backwardsDelayPropagationType</a></td>
+<td><a href="#u__7__backwardsDelayPropagationType">backwardsDelayPropagationType</a></td>
 <td align="center"><code>enum</code></td>
 <td>TODO</td>
 <td align="center"><em>Optional</em></td>
@@ -1603,10 +1574,10 @@ predicted arrival and departure times for the remainder of the trip.</p>
 </tbody>
 </table>
 <h4 id="details_1">Details</h4>
-<h4 id="u__5__backwardsDelayPropagationType">backwardsDelayPropagationType</h4>
+<h4 id="u__7__backwardsDelayPropagationType">backwardsDelayPropagationType</h4>
 
 <p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"required-no-data"</code>  \
-<strong>Path:</strong> /updaters/[5]  \
+<strong>Path:</strong> /updaters/[7]  \
 <strong>Enum values:</strong> <code>required-no-data</code> | <code>required</code> | <code>always</code></p>
 <p>TODO</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
@@ -1814,7 +1785,7 @@ can be configured as a json. Any header key, value can be inserted.</p>
 
 <p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code>  \
 <strong>Path:</strong> /updaters/[1]  \
-<strong>Enum values:</strong> <code>gbfs</code> | <code>smoove</code> | <code>vilkku</code> | <code>kml</code> | <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code></p>
+<strong>Enum values:</strong> <code>gbfs</code> | <code>smoove</code> | <code>vilkku</code></p>
 <p>What source of vehicle rental updater to use.</p>
 <h4 id="u_1_headers">headers</h4>
 
@@ -1846,126 +1817,7 @@ can be configured as a json. Any header key, value can be inserted.</p>
 <h3 id="vehicle-parking-sandbox-feature">Vehicle parking (sandbox feature)</h3>
 <p>Vehicle parking options and configuration is documented in
 its <a href="../sandbox/VehicleParking/">sandbox documentation</a>.</p>
-<!-- vehicle-parking BEGIN -->
-<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
-
-<table>
-<thead>
-<tr>
-<th>Config Parameter</th>
-<th align="center">Type</th>
-<th>Summary</th>
-<th align="center">Req./Opt.</th>
-<th>Default Value</th>
-<th align="center">Since</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type = "VEHICLE_PARKING"</td>
-<td align="center"><code>enum</code></td>
-<td>The type of the updater.</td>
-<td align="center"><em>Required</em></td>
-<td></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td>facilitiesFrequencySec</td>
-<td align="center"><code>integer</code></td>
-<td>How often the facilities should be updated.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>3600</code></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td>facilitiesUrl</td>
-<td align="center"><code>string</code></td>
-<td>URL of the facilities.</td>
-<td align="center"><em>Optional</em></td>
-<td></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td><a href="#u__2__feedId">feedId</a></td>
-<td align="center"><code>string</code></td>
-<td>The name of the data source.</td>
-<td align="center"><em>Optional</em></td>
-<td></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td>hubsUrl</td>
-<td align="center"><code>string</code></td>
-<td>Hubs URL</td>
-<td align="center"><em>Optional</em></td>
-<td></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td><a href="#u__2__sourceType">sourceType</a></td>
-<td align="center"><code>enum</code></td>
-<td>The source of the vehicle updates.</td>
-<td align="center"><em>Required</em></td>
-<td></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td><a href="#u__2__timeZone">timeZone</a></td>
-<td align="center"><code>time-zone</code></td>
-<td>The time zone of the feed.</td>
-<td align="center"><em>Optional</em></td>
-<td></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td>utilizationsFrequencySec</td>
-<td align="center"><code>integer</code></td>
-<td>How often the utilization should be updated.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>600</code></td>
-<td align="center">na</td>
-</tr>
-<tr>
-<td>utilizationsUrl</td>
-<td align="center"><code>string</code></td>
-<td>URL of the utilization data.</td>
-<td align="center"><em>Optional</em></td>
-<td></td>
-<td align="center">na</td>
-</tr>
-</tbody>
-</table>
-<h4 id="details_3">Details</h4>
-<h4 id="u__2__feedId">feedId</h4>
-
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
-<strong>Path:</strong> /updaters/[2] </p>
-<p>The name of the data source.</p>
-<p>This will end up in the API responses as the feed id of of the parking lot.</p>
-<h4 id="u__2__sourceType">sourceType</h4>
-
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code>  \
-<strong>Path:</strong> /updaters/[2]  \
-<strong>Enum values:</strong> <code>gbfs</code> | <code>smoove</code> | <code>vilkku</code> | <code>kml</code> | <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code></p>
-<p>The source of the vehicle updates.</p>
-<h4 id="u__2__timeZone">timeZone</h4>
-
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>time-zone</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
-<strong>Path:</strong> /updaters/[2] </p>
-<p>The time zone of the feed.</p>
-<p>Used for converting abstract opening hours into concrete points in time.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;updaters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hsl-park&quot;</span><span class="w"></span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<!-- vehicle-parking END -->
+<!-- INSERT: vehicle-parking -->
 
 <h3 id="siri-sx-updater-for-azure-service-bus-sandbox-feature">SIRI SX updater for Azure Service Bus (sandbox feature)</h3>
 <p>This is a Sandbox updater se <a href="../sandbox/SiriAzureUpdater/">sandbox documentation</a>.</p>

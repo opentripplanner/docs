@@ -1591,6 +1591,12 @@ managed in this one file. </p>
 <td align="center">✓️</td>
 </tr>
 <tr>
+<td><code>RealtimeResolver</code></td>
+<td>When routing with ignoreRealtimeUpdates=true, add an extra step which populates results with realtime data</td>
+<td align="center"></td>
+<td align="center">✓️</td>
+</tr>
+<tr>
 <td><code>ReportApi</code></td>
 <td>Enable the report API.</td>
 <td align="center"></td>
@@ -1667,13 +1673,11 @@ See <a href="https://kstefanj.github.io/2021/05/19/large-pages-and-java.html">La
 The main optimization goal for the OTP server is minimizing response time.</p>
 <h3 id="garbage-collector">Garbage collector</h3>
 <ul>
-<li></li>
 <li>The G1 garbage collector (default since Java 9) offers a good compromise between low latency (i.e. low GC pause time) and GC overhead.</li>
 <li>If latency spikes are an issue, the ZGC garbage collector is an alternative. It produces in general more overhead than G1.  </li>
 </ul>
 <h3 id="memory-settings">Memory settings</h3>
 <ul>
-<li></li>
 <li>Using Large Memory Pages can reduce pressure on the TLB cache and increase performance.  </li>
 <li>It is in general not recommended to use large memory page in <em>Transparent Huge Page</em> mode (<code>-XX:+UseTransparentHugePages</code>) for latency-sensitive applications, since memory is allocated on-demand and this can induce latency spikes if the memory is fragmented.<br />
   Thus <em>TLBFS</em> mode (<code>-XX:+UseHugeTLBFS</code>) should be the first choice.</li>
@@ -1686,14 +1690,12 @@ Example: <code>-Xms18g -Xmx18g -XX:+UseTransparentHugePages -XX:+AlwaysPreTouch<
 The main optimization goal for the Graph Builder is minimizing total build time.  </p>
 <h3 id="garbage-collector_1">Garbage collector</h3>
 <ul>
-<li></li>
 <li>In theory, the Parallel garbage collector offers the best throughput.<br />
 In practice, it can be challenging to optimize the Parallel GC to build both a street graph and a transit graph, the memory usage patterns being different. </li>
 <li>The G1 garbage collector provides in general a good compromise.  </li>
 </ul>
 <h3 id="memory-settings_1">Memory settings</h3>
 <ul>
-<li></li>
 <li>Using Large Memory Pages can reduce pressure on the TLB cache and increase performance.  </li>
 <li>Since latency is not an issue, Large Memory Pages can be used indifferently in <em>TLBFS</em> mode (<code>-XX:+UseHugeTLBFS</code>) or <em>Transparent Huge Page</em> mode (<code>-XX:+UseTransparentHugePages</code>)</li>
 </ul>
