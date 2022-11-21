@@ -1891,6 +1891,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td align="center">na</td>
 </tr>
 <tr>
+<td>      <a href="#tf_0_stationTransferPreference">stationTransferPreference</a></td>
+<td align="center"><code>enum</code></td>
+<td>Should there be some preference or aversion for transfers at stops that are part of a station.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>"allowed"</code></td>
+<td align="center">2.3</td>
+</tr>
+<tr>
 <td>   { object }</td>
 <td align="center"><code>object</code></td>
 <td>Nested object in array. The object type is determined by the parameters.</td>
@@ -2586,6 +2594,14 @@ You can specify data located outside the local filesystem (including cloud stora
 or at various different locations around the local filesystem.</p>
 <p>When a feed of a particular type (<code>netex</code> or <code>gtfs</code>) is specified in the transitFeeds
 section, auto-scanning in the base directory for this feed type will be disabled.</p>
+<h3 id="tf_0_stationTransferPreference">stationTransferPreference</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"allowed"</code>  \
+<strong>Path:</strong> /transitFeeds/[0]  \
+<strong>Enum values:</strong> <code>discouraged</code> | <code>allowed</code> | <code>recommended</code> | <code>preferred</code></p>
+<p>Should there be some preference or aversion for transfers at stops that are part of a station.</p>
+<p>This parameter sets the generic level of preference. What is the actual cost can be changed
+with the <code>stopTransferCost</code> parameter in the router configuration.</p>
 <h3 id="tf_1_groupFilePattern">groupFilePattern</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})_.*\.xml"</code>  \
