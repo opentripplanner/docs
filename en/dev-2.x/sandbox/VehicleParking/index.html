@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vehicle-parking-updaters-otp-sandbox-extension" class="md-skip">
+        <a href="#vehicle-parking-updaters" class="md-skip">
           Skip to content
         </a>
       
@@ -1296,7 +1296,7 @@
   </a>
 
 
-<h1 id="vehicle-parking-updaters-otp-sandbox-extension">Vehicle Parking Updaters - OTP Sandbox Extension</h1>
+<h1 id="vehicle-parking-updaters">Vehicle Parking Updaters</h1>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li>For HSL Park and Ride updater: Digitransit team, HSL, Helsinki, Finland</li>
@@ -1412,19 +1412,19 @@ the <code>router-config.json</code> according to the following examples.</p>
 <h4 id="details">Details</h4>
 <h4 id="u__2__feedId">feedId</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[2] </p>
 <p>The name of the data source.</p>
 <p>This will end up in the API responses as the feed id of of the parking lot.</p>
 <h4 id="u__2__sourceType">sourceType</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code>  \
-<strong>Path:</strong> /updaters/[2]  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[2] <br />
 <strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__2__timeZone">timeZone</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>time-zone</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>time-zone</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[2] </p>
 <p>The time zone of the feed.</p>
 <p>Used for converting abstract opening hours into concrete points in time.</p>
@@ -1534,30 +1534,30 @@ the <code>router-config.json</code> according to the following examples.</p>
 <h4 id="details_1">Details</h4>
 <h4 id="u__3__feedId">feedId</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[3] </p>
 <p>The name of the data source.</p>
 <p>This will end up in the API responses as the feed id of of the parking lot.</p>
 <h4 id="u__3__sourceType">sourceType</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code>  \
-<strong>Path:</strong> /updaters/[3]  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[3] <br />
 <strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__3__timeZone">timeZone</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>time-zone</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>time-zone</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[3] </p>
 <p>The time zone of the feed.</p>
 <p>Used for converting abstract opening hours into concrete points in time.</p>
 <h4 id="u__3__headers">headers</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[3] </p>
 <p>HTTP headers to add.</p>
 <h4 id="u__3__tags">tags</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[3] </p>
 <p>Tags to add to the parking lots.</p>
 <h5 id="example-configuration_1">Example configuration</h5>
@@ -1651,19 +1651,19 @@ the <code>router-config.json</code> according to the following examples.</p>
 <h4 id="details_2">Details</h4>
 <h4 id="u__4__feedId">feedId</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[4] </p>
 <p>The name of the data source.</p>
 <p>This will end up in the API responses as the feed id of of the parking lot.</p>
 <h4 id="u__4__sourceType">sourceType</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code>  \
-<strong>Path:</strong> /updaters/[4]  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[4] <br />
 <strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__4__headers">headers</h4>
 
-<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[4] </p>
 <p>HTTP headers to add.</p>
 <h5 id="example-configuration_2">Example configuration</h5>

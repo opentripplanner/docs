@@ -1416,9 +1416,9 @@ version the configuration in a deployment pipeline. The <code>configVersion</cod
 way, but is logged at startup and is available as part of the <em>server-info</em> data in the REST API.
 The intended usage is to be able to check which version of the configuration the graph was build
 with and which version the router uses. In an deployment with many OTP instances it can be useful to
-ask an instance about the version, instead of tracking the deployment pipline backwards to find the
+ask an instance about the version, instead of tracking the deployment pipeline backwards to find the
 version used. How you inject a version into the configuration file is up to you, but you can do it
-in your build-pipline, at deployment time or use system environment variable substituton.</p>
+in your build-pipeline, at deployment time or use system environment variable substitution.</p>
 <h2 id="otp-serialization-version-id-and-graphobj-file-header">OTP Serialization version id and <em>Graph.obj</em> file header</h2>
 <p>OTP has a <em>OTP Serialization Version Id</em> maintained in the pom.xml_ file. OTP store the id in the
 serialized <em>Graph.obj</em> file header, allowing OTP the check for compatibility issues when loading the
@@ -1429,8 +1429,8 @@ graph. The header info is available to configuration substitution:</p>
 </ul>
 <p>The intended usage is to be able to have a graph build pipeline which "knows" which graph that
 matches OTP planner instances. For example, you may build new graphs for every OTP serialization
-version id in use by the planning OPT instances you have deploied and plan to deploy. This way you
-can roll forward and backward new OTP instances without worring about building new graphs.</p>
+version id in use by the planning OTP instances you have deployed and plan to deploy. This way you
+can roll forward and backward new OTP instances without worrying about building new graphs.</p>
 <p>There are various ways to access this information. To get the <code>Graph.obj</code> serialization version id
 you can run the following bash command:</p>
 <ul>

@@ -1485,8 +1485,8 @@ predicted arrival and departure times for the remainder of the trip.</p>
 <h4 id="details">Details</h4>
 <h4 id="u__5__backwardsDelayPropagationType">backwardsDelayPropagationType</h4>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"required-no-data"</code>  \
-<strong>Path:</strong> /updaters/[5]  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"required-no-data"</code> <br />
+<strong>Path:</strong> /updaters/[5] <br />
 <strong>Enum values:</strong> <code>required-no-data</code> | <code>required</code> | <code>always</code></p>
 <p>How backwards propagation should be handled.</p>
 <p>REQUIRED_NO_DATA:
@@ -1576,8 +1576,8 @@ predicted arrival and departure times for the remainder of the trip.</p>
 <h4 id="details_1">Details</h4>
 <h4 id="u__7__backwardsDelayPropagationType">backwardsDelayPropagationType</h4>
 
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"required-no-data"</code>  \
-<strong>Path:</strong> /updaters/[7]  \
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"required-no-data"</code> <br />
+<strong>Path:</strong> /updaters/[7] <br />
 <strong>Enum values:</strong> <code>required-no-data</code> | <code>required</code> | <code>always</code></p>
 <p>TODO</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span><span class="w"></span>
@@ -1771,25 +1771,25 @@ can be configured as a json. Any header key, value can be inserted.</p>
 <h4 id="details_2">Details</h4>
 <h4 id="u_1_allowKeepingRentedBicycleAtDestination">allowKeepingRentedBicycleAtDestination</h4>
 
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code>  \
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> /updaters/[1] </p>
 <p>If a vehicle should be allowed to be kept at the end of a station-based rental.</p>
 <p>This behaviour is useful in towns that have only a single rental station. Without it you would need see any results as you would have to always bring it back to the station.</p>
 <h4 id="u_1_network">network</h4>
 
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[1] </p>
 <p>The name of the network to override the one derived from the source data.</p>
 <p>GBFS feeds must include a system_id which will be used as the default <code>network</code>. These ids are sometimes not helpful so setting this property will override it.</p>
 <h4 id="u_1_sourceType">sourceType</h4>
 
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code>  \
-<strong>Path:</strong> /updaters/[1]  \
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[1] <br />
 <strong>Enum values:</strong> <code>gbfs</code> | <code>smoove</code> | <code>vilkku</code></p>
 <p>What source of vehicle rental updater to use.</p>
 <h4 id="u_1_headers">headers</h4>
 
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[1] </p>
 <p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// router-config.json</span><span class="w"></span>

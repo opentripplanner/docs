@@ -1765,7 +1765,7 @@ Sections follow that describe particular settings in more depth.</p>
 <tr>
 <td>   <a href="#nd_ferryIdsNotAllowedForBicycle">ferryIdsNotAllowedForBicycle</a></td>
 <td align="center"><code>string[]</code></td>
-<td>List ferries witch do not allow bikes.</td>
+<td>List ferries which do not allow bikes.</td>
 <td align="center"><em>Optional</em></td>
 <td></td>
 <td align="center">2.0</td>
@@ -1981,7 +1981,7 @@ Sections follow that describe particular settings in more depth.</p>
 <tr>
 <td>      <a href="#tf_1_ferryIdsNotAllowedForBicycle">ferryIdsNotAllowedForBicycle</a></td>
 <td align="center"><code>string[]</code></td>
-<td>List ferries witch do not allow bikes.</td>
+<td>List ferries which do not allow bikes.</td>
 <td align="center"><em>Optional</em></td>
 <td></td>
 <td align="center">2.0</td>
@@ -2221,21 +2221,21 @@ See <a href="#writeCachedElevations">writeCachedElevations</a> for details.</p>
 
 <h3 id="areaVisibility">areaVisibility</h3>
 
-<p><strong>Since version:</strong> <code>1.5</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code>  \
+<p><strong>Since version:</strong> <code>1.5</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> / </p>
 <p>Perform visibility calculations.</p>
 <p>If this is <code>true</code> OTP attempts to calculate a path straight through an OSM area using the
 shortest way rather than around the edge of it. (These calculations can be time consuming).</p>
 <h3 id="buildReportDir">buildReportDir</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>URI to the directory where the graph build report should be written to.</p>
 <p>The html report is written into this directory. If the directory exist, any existing files are deleted.
 If it does not exist, it is created.</p>
 <h3 id="configVersion">configVersion</h3>
 
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>Deployment version of the <em>build-config.json</em>.</p>
 <p>The config-version is a parameter which each OTP deployment may set to be able to query the
@@ -2247,26 +2247,26 @@ or format check on the version and it can be any string.</p>
 <p>Be aware that OTP uses the config embedded in the loaded graph if no new config is provided.</p>
 <h3 id="dataImportReport">dataImportReport</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> / </p>
 <p>Generate nice HTML report of Graph errors/warnings</p>
 <p>The reports are stored in the same location as the graph.</p>
 <h3 id="discardMinTransferTimes">discardMinTransferTimes</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> / </p>
 <p>Should minimum transfer times in GTFS files be discarded.</p>
 <p>This is useful eg. when the minimum transfer time is only set for ticketing purposes,
 but we want to calculate the transfers always from OSM data.</p>
 <h3 id="distanceBetweenElevationSamples">distanceBetweenElevationSamples</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>10.0</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>10.0</code> <br />
 <strong>Path:</strong> / </p>
 <p>The distance between elevation samples in meters.</p>
 <p>The default is the approximate resolution of 1/3 arc-second NED data. This should not be smaller than the horizontal resolution of the height data used.</p>
 <h3 id="elevationUnitMultiplier">elevationUnitMultiplier</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
 <strong>Path:</strong> / </p>
 <p>Specify a multiplier to convert elevation units from source to meters.</p>
 <p>Unit conversion multiplier for elevation values. No conversion needed if the elevation
@@ -2274,13 +2274,13 @@ values are defined in meters in the source data. If, for example, decimetres are
 in the source data, this should be set to 0.1.</p>
 <h3 id="graph">graph</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>URI to the graph object file for reading and writing.</p>
 <p>The file is created or overwritten if OTP saves the graph to the file.</p>
 <h3 id="gsCredentials">gsCredentials</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>Local file system path to Google Cloud Platform service accounts credentials file.</p>
 <p>The credentials is used to access GCS urls. When using GCS from outside of Google Cloud you
@@ -2289,7 +2289,7 @@ resolved.</p>
 <p>This is a path to a file on the local file system, not an URI.</p>
 <h3 id="includeEllipsoidToGeoidDifference">includeEllipsoidToGeoidDifference</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> / </p>
 <p>Include the Ellipsoid to Geoid difference in the calculations of every point along every StreetWithElevationEdge.</p>
 <p>When set to true (it is false by default), the elevation module will include the Ellipsoid to
@@ -2300,28 +2300,28 @@ graph.</p>
 all of the elevation values in the street edges.</p>
 <h3 id="islandWithStopsMaxSize">islandWithStopsMaxSize</h3>
 
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>5</code>  \
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>5</code> <br />
 <strong>Path:</strong> / </p>
 <p>When a graph island with stops in it should be pruned.</p>
 <p>This field indicates the pruning threshold for islands with stops. Any such island under this
 size will be pruned.</p>
 <h3 id="islandWithoutStopsMaxSize">islandWithoutStopsMaxSize</h3>
 
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>40</code>  \
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>40</code> <br />
 <strong>Path:</strong> / </p>
 <p>When a graph island without stops should be pruned.</p>
 <p>This field indicates the pruning threshold for islands without stops. Any such island under
 this size will be pruned.</p>
 <h3 id="maxDataImportIssuesPerFile">maxDataImportIssuesPerFile</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1000</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1000</code> <br />
 <strong>Path:</strong> / </p>
 <p>When to split the import report.</p>
 <p>If the number of issues is larger then <code>maxDataImportIssuesPerFile</code>, then the files will
   be split in multiple files. Since browsers have problems opening large HTML files.</p>
 <h3 id="maxStopToShapeSnapDistance">maxStopToShapeSnapDistance</h3>
 
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>150.0</code>  \
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>150.0</code> <br />
 <strong>Path:</strong> / </p>
 <p>Maximum distance between route shapes and their stops.</p>
 <p>This field is used for mapping routes geometry shapes. It determines max distance between shape
@@ -2329,7 +2329,7 @@ points and their stop sequence. If mapper cannot find any stops within this radi
 default to simple stop-to-stop geometry instead.</p>
 <h3 id="multiThreadElevationCalculations">multiThreadElevationCalculations</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> / </p>
 <p>Configuring multi-threading during elevation calculations.</p>
 <p>For unknown reasons that seem to depend on data and machine settings, it might be faster
@@ -2337,7 +2337,7 @@ default to simple stop-to-stop geometry instead.</p>
   to calculate the elevations.</p>
 <h3 id="osmCacheDataInMem">osmCacheDataInMem</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> / </p>
 <p>If OSM data should be cached in memory during processing.</p>
 <p>When loading OSM data, the input is streamed 3 times - one phase for processing RELATIONS, one
@@ -2348,7 +2348,7 @@ deployment depending on your infrastructure. Set the parameter to <code>true</co
 data, and to <code>false</code> to read the stream from the source each time.</p>
 <h3 id="readCachedElevations">readCachedElevations</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>true</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>true</code> <br />
 <strong>Path:</strong> / </p>
 <p>Whether to read cached elevation data.</p>
 <p>When set to true, the elevation module will attempt to read this file in
@@ -2356,13 +2356,13 @@ order to reuse calculations of elevation data for various coordinate sequences i
 recalculating them all over again.</p>
 <h3 id="streetGraph">streetGraph</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>URI to the street graph object file for reading and writing.</p>
 <p>The file is created or overwritten if OTP saves the graph to the file</p>
 <h3 id="subwayAccessTime">subwayAccessTime</h3>
 
-<p><strong>Since version:</strong> <code>1.5</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>2.0</code>  \
+<p><strong>Since version:</strong> <code>1.5</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>2.0</code> <br />
 <strong>Path:</strong> / </p>
 <p>Minutes necessary to reach stops served by trips on routes of route_type=1 (subway) from the street.</p>
 <p>Note! The preferred way to do this is to update the OSM data.
@@ -2377,13 +2377,13 @@ to check in to a flight (2-3 hours for international flights) than to alight and
 <a href="../RouteRequest/#rd_alightSlackForMode"><code>alightSlackForMode</code></a> for this.</p>
 <h3 id="transitModelTimeZone">transitModelTimeZone</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>time-zone</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>time-zone</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>Time zone for the graph.</p>
 <p>This is used to store the timetables in the transit model, and to interpret times in incoming requests.</p>
 <h3 id="transitServiceEnd">transitServiceEnd</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"P3Y"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"P3Y"</code> <br />
 <strong>Path:</strong> / </p>
 <p>Limit the import of transit services to the given end date.</p>
 <p>See <a href="#limit-transit-service-period">Limit the transit service period</a> for an introduction.</p>
@@ -2393,7 +2393,7 @@ build(BUILD_DAY).</p>
 <p>Use an empty string to make it unbounded.</p>
 <h3 id="transitServiceStart">transitServiceStart</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"-P1Y"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"-P1Y"</code> <br />
 <strong>Path:</strong> / </p>
 <p>Limit the import of transit services to the given START date.</p>
 <p>See <a href="#limit-transit-service-period">Limit the transit service period</a> for an introduction.</p>
@@ -2403,7 +2403,7 @@ build(BUILD_DAY).</p>
 <p>Use an empty string to make unbounded.</p>
 <h3 id="writeCachedElevations">writeCachedElevations</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> / </p>
 <p>Reusing elevation data from previous builds</p>
 <p>When set to true, the elevation module will create a file cache for calculated elevation data.
@@ -2426,13 +2426,13 @@ become stale and not include new OSM ways. Therefore, periodic update of this ca
 recommended.</p>
 <h3 id="boardingLocationTags">boardingLocationTags</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>What OSM tags should be looked on for the source of matching stops to platforms and stops.</p>
 <p><a href="../BoardingLocations/">Detailed documentation</a></p>
 <h3 id="dem">dem</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>Specify parameters for DEM extracts.</p>
 <p>The dem section allows you to override the default behavior of scanning for elevation
@@ -2443,7 +2443,7 @@ different locations around the local filesystem.</p>
 the command line.</p>
 <h3 id="dem_0_elevationUnitMultiplier">elevationUnitMultiplier</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /dem/[0] </p>
 <p>Specify a multiplier to convert elevation units from source to meters.</p>
 <p>Unit conversion multiplier for elevation values. No conversion needed if the elevation
@@ -2452,7 +2452,7 @@ the command line.</p>
   <a href="#elevationUnitMultiplier"><code>elevationUnitMultiplier</code></a> in the build config at root level.</p>
 <h3 id="elevationBucket">elevationBucket</h3>
 
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>Used to download NED elevation tiles from the given AWS S3 bucket.</p>
 <p>In the United States, a high resolution <a href="http://ned.usgs.gov/">National Elevation Dataset</a> is
@@ -2472,7 +2472,7 @@ for the next graph build operation. You should add the <code>--cache &lt;directo
 to specify your NED tile cache location.</p>
 <h3 id="localFileNamePatterns">localFileNamePatterns</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>Patterns for matching OTP file types in the base directory</p>
 <p>When scanning the base directory for inputs, each file's name is checked against patterns to
@@ -2484,35 +2484,35 @@ detected from a filename pattern. It is not sufficient to look for the <code>.zi
 Netex data is also often supplied in a ZIP file.</p>
 <h3 id="lfp_dem">dem</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(?i)\.tiff?$"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(?i)\.tiff?$"</code> <br />
 <strong>Path:</strong> /localFileNamePatterns </p>
 <p>Pattern for matching elevation DEM files.</p>
 <p>If the filename contains the given pattern it is
 considered a match. Any legal Java Regular expression is allowed.</p>
 <h3 id="lfp_gtfs">gtfs</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(?i)gtfs"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(?i)gtfs"</code> <br />
 <strong>Path:</strong> /localFileNamePatterns </p>
 <p>Patterns for matching GTFS zip-files or directories.</p>
 <p>If the filename contains the given pattern it is considered a match.
 Any legal Java Regular expression is allowed.</p>
 <h3 id="lfp_netex">netex</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(?i)netex"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(?i)netex"</code> <br />
 <strong>Path:</strong> /localFileNamePatterns </p>
 <p>Patterns for matching NeTEx zip files or directories.</p>
 <p>If the filename contains the given
 pattern it is considered a match. Any legal Java Regular expression is allowed.</p>
 <h3 id="lfp_osm">osm</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(?i)(\.pbf|\.osm|\.osm\.xml)$"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(?i)(\.pbf|\.osm|\.osm\.xml)$"</code> <br />
 <strong>Path:</strong> /localFileNamePatterns </p>
 <p>Pattern for matching Open Street Map input files.</p>
 <p>If the filename contains the given pattern
 it is considered a match. Any legal Java Regular expression is allowed.</p>
 <h3 id="nd_groupFilePattern">groupFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})-.*\.xml"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})-.*\.xml"</code> <br />
 <strong>Path:</strong> /netexDefaults </p>
 <p>Pattern for matching group NeTEx files.</p>
 <p>This field is used to match <em>group files</em> in the module file(zip file entries).
@@ -2522,14 +2522,14 @@ The pattern <code>"(\w{3})-.*\.xml"</code> matches <code>"RUT-Line-208-Hagalia-N
 with group <code>"RUT"</code>.</p>
 <h3 id="nd_ignoreFilePattern">ignoreFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"$^"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"$^"</code> <br />
 <strong>Path:</strong> /netexDefaults </p>
 <p>Pattern for matching ignored files in a NeTEx bundle.</p>
 <p>This field is used to exclude matching <em>files</em> in the module file(zip file entries).
 The <em>ignored</em> files are <em>not</em> loaded.</p>
 <h3 id="nd_sharedFilePattern">sharedFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"shared-data\.xml"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"shared-data\.xml"</code> <br />
 <strong>Path:</strong> /netexDefaults </p>
 <p>Pattern for matching shared NeTEx files in a NeTEx bundle.</p>
 <p>This field is used to match <em>shared files</em>(zip file entries) in the module file. Shared
@@ -2544,7 +2544,7 @@ files are loaded first. Then the rest of the files are grouped and loaded.</p>
 </ul>
 <h3 id="nd_sharedGroupFilePattern">sharedGroupFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})-.*-shared\.xml"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})-.*-shared\.xml"</code> <br />
 <strong>Path:</strong> /netexDefaults </p>
 <p>Pattern for matching shared group NeTEx files in a NeTEx bundle.</p>
 <p>This field is used to match <em>shared group files</em> in the module file(zip file entries).
@@ -2555,16 +2555,16 @@ files. Each <em>group</em> of files are loaded as a unit, followed by next group
 <p>The pattern <code>"(\w{3})-.*-shared\.xml"</code> matches <code>"RUT-shared.xml"</code> with group <code>"RUT"</code>.</p>
 <h3 id="nd_ferryIdsNotAllowedForBicycle">ferryIdsNotAllowedForBicycle</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /netexDefaults </p>
-<p>List ferries witch do not allow bikes.</p>
-<p>Bicycles are allowed on most ferries however Nordic profile doesn't contain a place
+<p>List ferries which do not allow bikes.</p>
+<p>Bicycles are allowed on most ferries however the Nordic profile doesn't contain a place
 where bicycle conveyance can be defined.</p>
 <p>For this reason we allow bicycles on ferries by default and allow to override the rare
 case where this is not the case.</p>
 <h3 id="osm">osm</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>Configure properties for a given OpenStreetMap feed.</p>
 <p>The osm section of build-config.json allows you to override the default behavior of scanning
@@ -2573,19 +2573,19 @@ local filesystem (including cloud storage services) or at various different loca
 the local filesystem.</p>
 <h3 id="osm_0_osmTagMapping">osmTagMapping</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"default"</code>  \
-<strong>Path:</strong> /osm/[0]  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"default"</code> <br />
+<strong>Path:</strong> /osm/[0] <br />
 <strong>Enum values:</strong> <code>default</code> | <code>norway</code> | <code>uk</code> | <code>finland</code> | <code>germany</code> | <code>atlanta</code> | <code>houston</code></p>
 <p>The named set of mapping rules applied when parsing OSM tags.</p>
 <h3 id="od_osmTagMapping">osmTagMapping</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"default"</code>  \
-<strong>Path:</strong> /osmDefaults  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"default"</code> <br />
+<strong>Path:</strong> /osmDefaults <br />
 <strong>Enum values:</strong> <code>default</code> | <code>norway</code> | <code>uk</code> | <code>finland</code> | <code>germany</code> | <code>atlanta</code> | <code>houston</code></p>
 <p>The named set of mapping rules applied when parsing OSM tags.</p>
 <h3 id="transitFeeds">transitFeeds</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>Scan for transit data files</p>
 <p>The transitFeeds section of <code>build-config.json</code> allows you to override the default behavior
@@ -2596,15 +2596,15 @@ or at various different locations around the local filesystem.</p>
 section, auto-scanning in the base directory for this feed type will be disabled.</p>
 <h3 id="tf_0_stationTransferPreference">stationTransferPreference</h3>
 
-<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"allowed"</code>  \
-<strong>Path:</strong> /transitFeeds/[0]  \
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"allowed"</code> <br />
+<strong>Path:</strong> /transitFeeds/[0] <br />
 <strong>Enum values:</strong> <code>discouraged</code> | <code>allowed</code> | <code>recommended</code> | <code>preferred</code></p>
 <p>Should there be some preference or aversion for transfers at stops that are part of a station.</p>
 <p>This parameter sets the generic level of preference. What is the actual cost can be changed
 with the <code>stopTransferCost</code> parameter in the router configuration.</p>
 <h3 id="tf_1_groupFilePattern">groupFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})_.*\.xml"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})_.*\.xml"</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
 <p>Pattern for matching group NeTEx files.</p>
 <p>This field is used to match <em>group files</em> in the module file(zip file entries).
@@ -2614,14 +2614,14 @@ The pattern <code>"(\w{3})-.*\.xml"</code> matches <code>"RUT-Line-208-Hagalia-N
 with group <code>"RUT"</code>.</p>
 <h3 id="tf_1_ignoreFilePattern">ignoreFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(temp|tmp)"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(temp|tmp)"</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
 <p>Pattern for matching ignored files in a NeTEx bundle.</p>
 <p>This field is used to exclude matching <em>files</em> in the module file(zip file entries).
 The <em>ignored</em> files are <em>not</em> loaded.</p>
 <h3 id="tf_1_sharedFilePattern">sharedFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"_stops.xml"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"_stops.xml"</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
 <p>Pattern for matching shared NeTEx files in a NeTEx bundle.</p>
 <p>This field is used to match <em>shared files</em>(zip file entries) in the module file. Shared
@@ -2636,7 +2636,7 @@ files are loaded first. Then the rest of the files are grouped and loaded.</p>
 </ul>
 <h3 id="tf_1_sharedGroupFilePattern">sharedGroupFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"_(\w{3})_shared_data.xml"</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"_(\w{3})_shared_data.xml"</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
 <p>Pattern for matching shared group NeTEx files in a NeTEx bundle.</p>
 <p>This field is used to match <em>shared group files</em> in the module file(zip file entries).
@@ -2647,10 +2647,10 @@ files. Each <em>group</em> of files are loaded as a unit, followed by next group
 <p>The pattern <code>"(\w{3})-.*-shared\.xml"</code> matches <code>"RUT-shared.xml"</code> with group <code>"RUT"</code>.</p>
 <h3 id="tf_1_ferryIdsNotAllowedForBicycle">ferryIdsNotAllowedForBicycle</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code>  \
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
-<p>List ferries witch do not allow bikes.</p>
-<p>Bicycles are allowed on most ferries however Nordic profile doesn't contain a place
+<p>List ferries which do not allow bikes.</p>
+<p>Bicycles are allowed on most ferries however the Nordic profile doesn't contain a place
 where bicycle conveyance can be defined.</p>
 <p>For this reason we allow bicycles on ferries by default and allow to override the rare
 case where this is not the case.</p>
