@@ -1198,6 +1198,12 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
   published documentation is associated with the release tag </li>
 </ul>
 </li>
+<li>Update the variable MASTER_BRANCH_VERSION in <code>cibuild.yml</code><ul>
+<li>This tells the GH Action that pushes the documentation on master what the name of the 
+  current version is. 
+  For version 2.3.0 Leonard has already done it: <a href="https://github.com/opentripplanner/OpenTripPlanner/commit/3cb061ab1e4253c3977a5d08fa5abab1b0baefd7">Example commit</a></li>
+</ul>
+</li>
 <li>Check <a href="https://github.com/opentripplanner/OpenTripPlanner/actions/workflows/">on GH Actions</a> that
   the build is currently passing</li>
 <li>Switch to the HEAD of master branch, and ensure it's up to date with no uncommitted changes<ul>
@@ -1290,18 +1296,10 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 <li><code>git push</code></li>
 </ul>
 </li>
-<li>Make sure the main documentation is built<ul>
-<li>For some reason it doesn't always build automatically</li>
-<li>Go
-  to <a href="http://readthedocs.org/projects/opentripplanner/builds/">builds of docs.opentripplanner.org</a></li>
-<li>Click "build version: latest"</li>
-</ul>
-</li>
 <li>Email the OTP dev and users mailing lists<ul>
 <li>Mention the new version number.</li>
 <li>Provide links to the new developer documentation.</li>
 <li>Provide links to the artifacts directory on Maven Central.</li>
-<li>Trigger build of latest OTP documentation on Readthedocs.</li>
 </ul>
 </li>
 </ul>
