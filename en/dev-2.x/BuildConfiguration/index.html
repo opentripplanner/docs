@@ -1935,7 +1935,7 @@ Sections follow that describe particular settings in more depth.</p>
 <td align="center"><code>regexp</code></td>
 <td>Pattern for matching group NeTEx files.</td>
 <td align="center"><em>Optional</em></td>
-<td><code>"(\w{3})_.*\.xml"</code></td>
+<td><code>"(\w{3})-.*\.xml"</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -1951,7 +1951,7 @@ Sections follow that describe particular settings in more depth.</p>
 <td align="center"><code>regexp</code></td>
 <td>Pattern for matching ignored files in a NeTEx bundle.</td>
 <td align="center"><em>Optional</em></td>
-<td><code>"(temp¦tmp)"</code></td>
+<td><code>"$^"</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -1967,7 +1967,7 @@ Sections follow that describe particular settings in more depth.</p>
 <td align="center"><code>regexp</code></td>
 <td>Pattern for matching shared NeTEx files in a NeTEx bundle.</td>
 <td align="center"><em>Optional</em></td>
-<td><code>"_stops.xml"</code></td>
+<td><code>"shared-data\.xml"</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -1975,7 +1975,7 @@ Sections follow that describe particular settings in more depth.</p>
 <td align="center"><code>regexp</code></td>
 <td>Pattern for matching shared group NeTEx files in a NeTEx bundle.</td>
 <td align="center"><em>Optional</em></td>
-<td><code>"_(\w{3})_shared_data.xml"</code></td>
+<td><code>"(\w{3})-.*-shared\.xml"</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -2611,7 +2611,7 @@ section, auto-scanning in the base directory for this feed type will be disabled
 with the <code>stopTransferCost</code> parameter in the router configuration.</p>
 <h3 id="tf_1_groupFilePattern">groupFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})_.*\.xml"</code> <br />
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})-.*\.xml"</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
 <p>Pattern for matching group NeTEx files.</p>
 <p>This field is used to match <em>group files</em> in the module file(zip file entries).
@@ -2621,14 +2621,14 @@ The pattern <code>"(\w{3})-.*\.xml"</code> matches <code>"RUT-Line-208-Hagalia-N
 with group <code>"RUT"</code>.</p>
 <h3 id="tf_1_ignoreFilePattern">ignoreFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(temp|tmp)"</code> <br />
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"$^"</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
 <p>Pattern for matching ignored files in a NeTEx bundle.</p>
 <p>This field is used to exclude matching <em>files</em> in the module file(zip file entries).
 The <em>ignored</em> files are <em>not</em> loaded.</p>
 <h3 id="tf_1_sharedFilePattern">sharedFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"_stops.xml"</code> <br />
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"shared-data\.xml"</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
 <p>Pattern for matching shared NeTEx files in a NeTEx bundle.</p>
 <p>This field is used to match <em>shared files</em>(zip file entries) in the module file. Shared
@@ -2643,7 +2643,7 @@ files are loaded first. Then the rest of the files are grouped and loaded.</p>
 </ul>
 <h3 id="tf_1_sharedGroupFilePattern">sharedGroupFilePattern</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"_(\w{3})_shared_data.xml"</code> <br />
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})-.*-shared\.xml"</code> <br />
 <strong>Path:</strong> /transitFeeds/[1] </p>
 <p>Pattern for matching shared group NeTEx files in a NeTEx bundle.</p>
 <p>This field is used to match <em>shared group files</em> in the module file(zip file entries).
