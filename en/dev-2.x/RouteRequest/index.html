@@ -1595,6 +1595,14 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.0</td>
 </tr>
 <tr>
+<td><a href="#rd_relaxTransitSearchGeneralizedCostAtDestination">relaxTransitSearchGeneralizedCostAtDestination</a></td>
+<td align="center"><code>double</code></td>
+<td>Whether non-optimal transit paths at the destination should be returned</td>
+<td align="center"><em>Optional</em></td>
+<td><code>-1.0</code></td>
+<td align="center">2.3</td>
+</tr>
+<tr>
 <td><a href="#rd_searchWindow">searchWindow</a></td>
 <td align="center"><code>duration</code></td>
 <td>The duration of the search-window.</td>
@@ -2129,6 +2137,16 @@ search, hence, making it a bit slower. Recommended values would be from 12 hours
 <strong>Path:</strong> /routingDefaults </p>
 <p>Penalty added for using every route that is not preferred if user set any route as preferred.</p>
 <p>We return number of seconds that we are willing to wait for preferred route.</p>
+<h3 id="rd_relaxTransitSearchGeneralizedCostAtDestination">relaxTransitSearchGeneralizedCostAtDestination</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>-1.0</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>Whether non-optimal transit paths at the destination should be returned</p>
+<p>Let c be the existing minimum pareto optimal generalized cost to beat. Then a trip
+with cost c' is accepted if the following is true:
+<code>c' &lt; Math.round(c * relaxRaptorCostCriteria)</code>.</p>
+<p>If the value is less than 0.0 a normal '&lt;' comparison is performed.</p>
+<p>Values greater than 2.0 are not supported, due to performance reasons.</p>
 <h3 id="rd_searchWindow">searchWindow</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
