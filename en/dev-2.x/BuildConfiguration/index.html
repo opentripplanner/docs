@@ -2140,20 +2140,10 @@ walkable in Norway, but forbidden in some other countries. This might lead to OT
 snap stops to these roads, or by giving you poor routing results for walking and biking. You can
 adjust which road types that are accessible by foot, car &amp; bicycle as well as speed limits,
 suitability for biking and walking. It's possible to define "safety" values for cycling and walking which are used in routing.</p>
-<p>There are currently following OSM tag mapping defined;</p>
-<ul>
-<li><code>default</code> which is based on California/US mapping standard</li>
-<li><code>finland</code> which is adjusted to rules and speeds in Finland</li>
-<li><code>norway</code> which is adjusted to rules and speeds in Norway</li>
-<li><code>uk</code> which is adjusted to rules and speed in the UK</li>
-<li><code>germany</code> which is adjusted to rules and speed in Germany</li>
-<li><code>atlanta</code> which is adjusted to rules in Atlanta</li>
-<li><code>houston</code> which is adjusted to rules in Houston</li>
-</ul>
 <p>To add your own OSM tag mapping have a look
-at <code>org.opentripplanner.graph_builder.module.osm.NorwayWayPropertySet</code>
-and <code>org.opentripplanner.graph_builder.module.osm.DefaultWayPropertySet</code>. If you choose to mainly
-rely on the default rules, make sure you add your own rules first before applying the default ones.
+at <code>org.opentripplanner.graph_builder.module.osm.tagmapping.NorwayTagMapper</code>
+and <code>org.opentripplanner.graph_builder.module.osm.tagmapping.DefaultMapper</code> as examples. 
+If you choose to mainly rely on the default rules, make sure you add your own rules first before applying the default ones.
 The mechanism is that for any two identical tags, OTP will use the first one.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// build-config.json</span><span class="w"></span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span><span class="w"></span>
@@ -2638,13 +2628,13 @@ the local filesystem.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"default"</code> <br />
 <strong>Path:</strong> /osm/[0] <br />
-<strong>Enum values:</strong> <code>default</code> | <code>norway</code> | <code>uk</code> | <code>finland</code> | <code>germany</code> | <code>atlanta</code> | <code>houston</code></p>
+<strong>Enum values:</strong> <code>default</code> | <code>norway</code> | <code>uk</code> | <code>finland</code> | <code>germany</code> | <code>atlanta</code> | <code>houston</code> | <code>portland</code></p>
 <p>The named set of mapping rules applied when parsing OSM tags. Overrides the value specified in <code>osmDefaults</code>.</p>
 <h3 id="od_osmTagMapping">osmTagMapping</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"default"</code> <br />
 <strong>Path:</strong> /osmDefaults <br />
-<strong>Enum values:</strong> <code>default</code> | <code>norway</code> | <code>uk</code> | <code>finland</code> | <code>germany</code> | <code>atlanta</code> | <code>houston</code></p>
+<strong>Enum values:</strong> <code>default</code> | <code>norway</code> | <code>uk</code> | <code>finland</code> | <code>germany</code> | <code>atlanta</code> | <code>houston</code> | <code>portland</code></p>
 <p>The named set of mapping rules applied when parsing OSM tags.</p>
 <h3 id="transitFeeds">transitFeeds</h3>
 
