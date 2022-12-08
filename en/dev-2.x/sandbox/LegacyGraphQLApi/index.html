@@ -895,12 +895,18 @@
     Contact Info
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    Changelog
+    <nav class="md-nav" aria-label="Contact Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -926,15 +932,15 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
+  </a>
   
 </li>
       
@@ -1217,32 +1223,15 @@
 <li>Digitransit team, HSL, Helsinki, Finland</li>
 <li>Kyyti, Helsinki, Finland</li>
 </ul>
-<h2 id="changelog">Changelog</h2>
-<ul>
-<li>Initial version of Legacy Graph QL API (September 2020)</li>
-<li>Added ids parameter to bikeRentalStations query (May 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3450)</li>
-<li>Added capacity and allowOverloading fields to bike rental stations (not yet properly implemented) (May 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3450)</li>
-<li>Updated documentation and process for generating Java code from GraphQL schema definition (May 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3450)</li>
-<li>Implemented modeWeight and added debugItineraryFilter to plan query. Added systemNotices to itineraries (May 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3503)</li>
-<li>Updated to ignore modes which are not valid in OTP2 (June 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3464)</li>
-<li>Add Leg#walkingBike (June 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3550)</li>
-<li>Add GBFS bike rental URIs to bike rental stations (June 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3543)</li>
-<li>Properly implement all bike rental station fields and add allowPickup, allowPickupNow, allowDropoffNow and operative fields (October 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3632)</li>
-<li>Create RentalVehicle, VehicleRentalStation and VehicleRentalUris types. Deprecate BikeRentalStation and BikeRentalStationUris types (October 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3632)</li>
-<li>Create VehicleParking type. Deprecate BikePark and CarPark types (November 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3480)</li>
-<li>Update and implement Alert type and alerts query. Add ACCESSIBILITY_ISSUE to AlertEffectType enum (November 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3747)</li>
-<li>Add geometries for stops (December 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3757)</li>
-<li>Add RouteType and Unknown entities and implement alerts fields (add add alerts field to Feed) (December 2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3780)</li>
-<li>Take free-floating vehicles into account when computing state (February 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/3857)</li>
-<li>Fix issue with GraphQL code generator (February 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/3881)</li>
-<li>Add GBFS form factors for <code>rentalVehicle</code> (April 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/4062)</li>
-<li>Implement allowedBikeRentalNetworks while deprecating it and add allowedVehicleRentalNetworks and bannedVehicleRentalNetworks. (July 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/4279)</li>
-<li>Filters place types in legacy GraphQL API so that a bike park type is not returned if a vehicle parking has no bicycle spaces and car park type is not returned if a parking has no car spaces. (July 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/4296)</li>
-<li>Include departures with skipped stops in the Stop type's stopTimesForPattern query. (July 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/4299)</li>
-<li>Add built-in GraphQL client. (October 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/4499)</li>
-<li>Implement support for omitCanceled parameter in some stop's stoptime queries (October 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/4504)</li>
-<li>Rename unpreferredRouteCost to unpreferredCost (October 2022, https://github.com/opentripplanner/OpenTripPlanner/pull/4543)</li>
-</ul>
+<h3 id="configuration">Configuration</h3>
+<p>To enable this you need to add the feature <code>SandboxAPILegacyGraphQLApi</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// otp-config.json
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>{
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  &quot;otpFeatures&quot; : {
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    &quot;SandboxAPILegacyGraphQLApi&quot;: true
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  }
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>}
+</code></pre></div>
 <h2 id="documentation">Documentation</h2>
 <p>This is a copy of HSL's GraphQL API used by the Digitransit project. The API is used to run OTP2
 together with the <a href="https://github.com/HSLdevcom/digitransit-ui">digitransit-ui</a>.</p>
@@ -1252,27 +1241,45 @@ together with the <a href="https://github.com/HSLdevcom/digitransit-ui">digitran
 <li>batch query: <code>http://localhost:8080/otp/routers/default/index/graphql/batch</code></li>
 </ul>
 <p>A complete example that fetches the list of all stops from OTP is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl --request POST \
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  --url http://localhost:8080/otp/routers/default/index/graphql \
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  --header &#39;Content-Type: application/json&#39; \
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  --header &#39;OTPTimeout: 180000&#39; \
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  --data &#39;{&quot;query&quot;:&quot;query stops {\n  stops {\n    gtfsId\n    name\n  }\n}\n&quot;,&quot;operationName&quot;:&quot;stops&quot;}&#39;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl --request POST \
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  --url http://localhost:8080/otp/routers/default/index/graphql \
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  --header &#39;Content-Type: application/json&#39; \
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  --header &#39;OTPTimeout: 180000&#39; \
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  --data &#39;{&quot;query&quot;:&quot;query stops {\n  stops {\n    gtfsId\n    name\n  }\n}\n&quot;,&quot;operationName&quot;:&quot;stops&quot;}&#39;
 </code></pre></div>
 <h2 id="built-in-api-client">Built-in API client</h2>
 <p>A browser based GraphQL API client is available at <code>http://localhost:8080/legacygraphql/graphiql</code> </p>
+<p><img alt="GraphiQL" src="../../images/graphiql.png" /></p>
 <h3 id="otp2-official-graphql-api-not-available">OTP2 Official GraphQL API (Not available)</h3>
 <p>We <strong>plan</strong> to make a new offical OTP2 API, replacing the REST API. The plan is to base the new API
 on this API and the <a href="./">Legacy GraphQL Api</a>. The new API will most likely have 2
 "translations": A GTFS version and a Transmodel version, we will try to keep the semantics the same.</p>
-<h3 id="configuration">Configuration</h3>
-<p>To enable this you need to add the feature <code>SandboxAPILegacyGraphQLApi</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// otp-config.json
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>{
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  &quot;otpFeatures&quot; : {
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    &quot;SandboxAPILegacyGraphQLApi&quot;: true
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  }
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>}
-</code></pre></div>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>Initial version of Legacy Graph QL API (September 2020)</li>
+<li>Added ids parameter to bikeRentalStations query (May 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3450">#3450</a>)</li>
+<li>Added capacity and allowOverloading fields to bike rental stations (not yet properly implemented) (May 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3450">#3450</a>)</li>
+<li>Updated documentation and process for generating Java code from GraphQL schema definition (May 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3450">#3450</a>)</li>
+<li>Implemented modeWeight and added debugItineraryFilter to plan query. Added systemNotices to itineraries (May 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3503">#3503</a>)</li>
+<li>Updated to ignore modes which are not valid in OTP2 (June 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3464">#3464</a>)</li>
+<li>Add Leg#walkingBike (June 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3550">#3550</a>)</li>
+<li>Add GBFS bike rental URIs to bike rental stations (June 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3543">#3543</a>)</li>
+<li>Properly implement all bike rental station fields and add allowPickup, allowPickupNow, allowDropoffNow and operative fields (October 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3632">#3632</a>)</li>
+<li>Create RentalVehicle, VehicleRentalStation and VehicleRentalUris types. Deprecate BikeRentalStation and BikeRentalStationUris types (October 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3632">#3632</a>)</li>
+<li>Create VehicleParking type. Deprecate BikePark and CarPark types (November 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3480">#3480</a>)</li>
+<li>Update and implement Alert type and alerts query. Add ACCESSIBILITY_ISSUE to AlertEffectType enum (November 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3747">#3747</a>)</li>
+<li>Add geometries for stops (December 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3757">#3757</a>)</li>
+<li>Add RouteType and Unknown entities and implement alerts fields (add add alerts field to Feed) (December 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3780">#3780</a>)</li>
+<li>Take free-floating vehicles into account when computing state (February 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3857">#3857</a>)</li>
+<li>Fix issue with GraphQL code generator (February 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3881">#3881</a>)</li>
+<li>Add GBFS form factors for <code>rentalVehicle</code> (April 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4062">#4062</a>)</li>
+<li>Implement allowedBikeRentalNetworks while deprecating it and add allowedVehicleRentalNetworks and bannedVehicleRentalNetworks. (July 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4279">#4279</a>)</li>
+<li>Filters place types in legacy GraphQL API so that a bike park type is not returned if a vehicle parking has no bicycle spaces and car park type is not returned if a parking has no car spaces. (July 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4296">#4296</a>)</li>
+<li>Include departures with skipped stops in the Stop type's stopTimesForPattern query. (July 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4299">#4299</a>)</li>
+<li>Add built-in GraphQL client. (October 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4499">#4499</a>)</li>
+<li>Implement support for omitCanceled parameter in some stop's stoptime queries (October 2022, <a href="[#4504](https://github.com/opentripplanner/OpenTripPlanner/pull/4504)">#4504</a>)</li>
+<li>Rename unpreferredRouteCost to unpreferredCost (October 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4543">#4543</a>)</li>
+</ul>
 
 
 
