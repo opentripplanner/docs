@@ -1819,6 +1819,14 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.1</td>
 </tr>
 <tr>
+<td>   <a href="#rd_if_minBikeParkingDistance">minBikeParkingDistance</a></td>
+<td align="center"><code>double</code></td>
+<td>Filter out bike park+ride results that have fewer meters of cycling than this value.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td align="center">2.3</td>
+</tr>
+<tr>
 <td>   <a href="#rd_if_nonTransitGeneralizedCostLimit">nonTransitGeneralizedCostLimit</a></td>
 <td align="center"><code>linear-function</code></td>
 <td>The function define a max-limit for generalized-cost for non-transit itineraries.</td>
@@ -2303,6 +2311,12 @@ removed from list.</p>
 <p>Of the itineraries grouped to maximum of three itineraries, how much worse can the non-grouped legs
 be compared to the lowest cost. 2.0 means that they can be double the cost, and any itineraries
 having a higher cost will be filtered.</p>
+<h3 id="rd_if_minBikeParkingDistance">minBikeParkingDistance</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Filter out bike park+ride results that have fewer meters of cycling than this value.</p>
+<p>Useful if you want to exclude those routes which have only a few meters of cycling before parking the bike and taking public transport.</p>
 <h3 id="rd_if_nonTransitGeneralizedCostLimit">nonTransitGeneralizedCostLimit</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"f(x) = 3,600 + 2.0 x"</code> <br />
