@@ -1258,10 +1258,12 @@ the <a href="https://github.com/MobilityData/gtfs-flex/blob/master/spec/referenc
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;flex&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;maxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5m&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;maxFlexTripDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="w"></span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;maxFlexTripDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;maxAccessWalkDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;maxEgressWalkDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m&quot;</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h3 id="overview">Overview</h3>
 <table>
@@ -1276,6 +1278,22 @@ the <a href="https://github.com/MobilityData/gtfs-flex/blob/master/spec/referenc
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="#flex_maxAccessWalkDuration">maxAccessWalkDuration</a></td>
+<td align="center"><code>duration</code></td>
+<td>The maximum duration the passenger will be allowed to walk to reach a flex stop or zone.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>"PT45M"</code></td>
+<td align="center">2.3</td>
+</tr>
+<tr>
+<td><a href="#flex_maxEgressWalkDuration">maxEgressWalkDuration</a></td>
+<td align="center"><code>duration</code></td>
+<td>The maximum duration the passenger will be allowed to walk after leaving the flex vehicle at the final destination.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>"PT45M"</code></td>
+<td align="center">2.3</td>
+</tr>
 <tr>
 <td><a href="#flex_maxFlexTripDuration">maxFlexTripDuration</a></td>
 <td align="center"><code>duration</code></td>
@@ -1295,6 +1313,28 @@ the <a href="https://github.com/MobilityData/gtfs-flex/blob/master/spec/referenc
 </tbody>
 </table>
 <h3 id="details">Details</h3>
+<h4 id="flex_maxAccessWalkDuration">maxAccessWalkDuration</h4>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT45M"</code> <br />
+<strong>Path:</strong> /flex </p>
+<p>The maximum duration the passenger will be allowed to walk to reach a flex stop or zone.</p>
+<p>If you have multiple overlapping flex zones the high default value can lead to performance problems.
+A lower value means faster routing.</p>
+<p>Depending on your service this might be what you want to do anyway: many flex services are used
+by passengers with mobility problems so offering a long walk might be problematic. In other words,
+if you can walk 45 minutes to a flex stop/zone you're unlikely to be the target audience for those
+services.</p>
+<h4 id="flex_maxEgressWalkDuration">maxEgressWalkDuration</h4>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT45M"</code> <br />
+<strong>Path:</strong> /flex </p>
+<p>The maximum duration the passenger will be allowed to walk after leaving the flex vehicle at the final destination.</p>
+<p>If you have multiple overlapping flex zones the high default value can lead to performance problems.
+A lower value means faster routing.</p>
+<p>Depending on your service this might be what you want to do anyway: many flex services are used
+by passengers with mobility problems so offering a long walk might be problematic. In other words,
+if you can walk 45 minutes to a flex stop/zone you're unlikely to be the target audience for those
+services.</p>
 <h4 id="flex_maxFlexTripDuration">maxFlexTripDuration</h4>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT45M"</code> <br />
