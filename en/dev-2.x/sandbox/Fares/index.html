@@ -1136,13 +1136,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    Changelog
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
     Documentation
   </a>
@@ -1177,6 +1170,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fares-configuration" class="md-nav__link">
+    Fares configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#removed-fare-calculators" class="md-nav__link">
     Removed fare calculators
   </a>
@@ -1184,8 +1184,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fares-configuration" class="md-nav__link">
-    Fares configuration
+  <a href="#changelog" class="md-nav__link">
+    Changelog
   </a>
   
 </li>
@@ -1229,13 +1229,6 @@
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li>Leonard Ehrenfried (<a href="mailto:mail@leonard.io">mail@leonard.io</a>)</li>
-</ul>
-<h2 id="changelog">Changelog</h2>
-<ul>
-<li>Initial move into sandbox <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4241">#4241</a></li>
-<li>Add HighestFareInFreeTransferWindowFareService <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4267">#4267</a></li>
-<li>Add Fares V2 <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4338">#4338</a></li>
-<li>Add CombineInterlinedLegsFareService <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4509">#4509</a></li>
 </ul>
 <h2 id="documentation">Documentation</h2>
 <p>The code in this sandbox used to be part of OTP core but to allow more experimentation - in 
@@ -1283,24 +1276,11 @@ which are also part of the sandbox code.</p>
 <td>HSL (<a href="mailto:viljami.nurminen@cgi.com">Viljami Nurminen</a>)</td>
 </tr>
 <tr>
-<td>NycFareServiceImpl</td>
-<td>unmaintained</td>
-</tr>
-<tr>
 <td>SFBayFareServiceImpl</td>
 <td>unmaintained</td>
 </tr>
 </tbody>
 </table>
-<h2 id="removed-fare-calculators">Removed fare calculators</h2>
-<p>The following calculators used to be part of the OTP codebase but since their maintainership
-was unclear and no-one <a href="https://groups.google.com/g/opentripplanner-users/c/ZPzx1lhZ9HU">offered to maintain</a>, 
-they were <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4273">removed</a> in July 2022.</p>
-<ul>
-<li>SeattleFareServiceImpl</li>
-<li>DutchFareServiceImpl</li>
-</ul>
-<p>If you were using these calculators, you're welcome to re-add them to the code base.</p>
 <h2 id="fares-configuration">Fares configuration</h2>
 <p>By default OTP will compute fares according to the GTFS specification if fare data is provided in
 your GTFS input. It is possible to turn off this by setting the fare to "off". For more complex
@@ -1359,8 +1339,6 @@ vehicle-rental) by defining a <code>combinationStrategy</code> parameter, and a 
 </ul>
 </li>
 <li><code>san-francisco</code> (no parameters)</li>
-<li><code>new-york</code> (no parameters)</li>
-<li><code>seattle</code> (no parameters)</li>
 <li><code>highest-fare-in-free-transfer-window</code> Will apply the highest observed transit fare (across all
   operators) within a free transfer window, adding to the cost if a trip is boarded outside the free
   transfer window. It accepts the following parameters:<ul>
@@ -1384,6 +1362,24 @@ vehicle-rental) by defining a <code>combinationStrategy</code> parameter, and a 
 <p>The current list of <code>combinationStrategy</code> is:</p>
 <ul>
 <li><code>additive</code> - simply adds all sub-fares.</li>
+</ul>
+<h2 id="removed-fare-calculators">Removed fare calculators</h2>
+<p>The following calculators used to be part of the OTP codebase but since their maintainership
+was unclear and no-one <a href="https://groups.google.com/g/opentripplanner-users/c/ZPzx1lhZ9HU">offered to maintain</a>,
+they were <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4273">removed</a> in July 2022.</p>
+<ul>
+<li>SeattleFareServiceImpl</li>
+<li>DutchFareServiceImpl</li>
+</ul>
+<p>The NYC fare calculator was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4694">#4694</a>.</p>
+<p>If you were using these calculators, you're welcome to re-add them to the code base and become their
+maintainer.</p>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>Initial move into sandbox <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4241">#4241</a></li>
+<li>Add HighestFareInFreeTransferWindowFareService <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4267">#4267</a></li>
+<li>Add Fares V2 <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4338">#4338</a></li>
+<li>Add CombineInterlinedLegsFareService <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4509">#4509</a></li>
 </ul>
 
 
