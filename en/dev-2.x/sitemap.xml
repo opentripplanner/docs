@@ -81,6 +81,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.opentripplanner.org/dev-2.x/IslandPruning/</loc>
+         <lastmod>2023-01-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.opentripplanner.org/dev-2.x/Localization/</loc>
          <lastmod>2023-01-19</lastmod>
          <changefreq>daily</changefreq>
