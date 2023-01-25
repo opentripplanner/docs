@@ -1878,6 +1878,22 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.1</td>
 </tr>
 <tr>
+<td>      <a href="#rd_if_transitGeneralizedCostLimit_costLimitFunction">costLimitFunction</a></td>
+<td align="center"><code>linear-function</code></td>
+<td>The base function used by the filter.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>"f(x) = 900 + 1.5 x"</code></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
+<td>      <a href="#rd_if_transitGeneralizedCostLimit_intervalRelaxFactor">intervalRelaxFactor</a></td>
+<td align="center"><code>double</code></td>
+<td>How much the filter should be relaxed for itineraries that do not overlap in time.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>0.4</code></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
 <td><a href="#rd_maxAccessEgressDurationForMode">maxAccessEgressDurationForMode</a></td>
 <td align="center"><code>enum map of duration</code></td>
 <td>Limit access/egress per street mode.</td>
@@ -2375,6 +2391,20 @@ dropped. The <code>transitGeneralizedCostLimit</code> is calculated using the <c
 <em>relative cost</em> for the distance in time between the itineraries. The <em>relative cost</em> is the
 <code>intervalRelaxFactor</code> multiplied with the interval in seconds. To set the <code>costLimitFunction</code> to be
 <em>1 hour plus 2 times cost</em> use: <code>3600 + 2.0 x</code>. To set an absolute value(3000s) use: <code>3000 + 0x</code></p>
+<h3 id="rd_if_transitGeneralizedCostLimit_costLimitFunction">costLimitFunction</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"f(x) = 900 + 1.5 x"</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters/transitGeneralizedCostLimit </p>
+<p>The base function used by the filter.</p>
+<p>This function calculates the threshold for the filter, when the itineraries have exactly the same arrival and departure times.</p>
+<h3 id="rd_if_transitGeneralizedCostLimit_intervalRelaxFactor">intervalRelaxFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.4</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters/transitGeneralizedCostLimit </p>
+<p>How much the filter should be relaxed for itineraries that do not overlap in time.</p>
+<p>This value is used to increase the filter threshold for itineraries further away in
+time, compared to those, that have exactly the same arrival and departure times.</p>
+<p>The unit is cost unit per second of time difference.</p>
 <h3 id="rd_maxAccessEgressDurationForMode">maxAccessEgressDurationForMode</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
