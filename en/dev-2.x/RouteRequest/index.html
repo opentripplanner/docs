@@ -1736,7 +1736,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <tr>
 <td><a href="#rd_alightSlackForMode">alightSlackForMode</a></td>
 <td align="center"><code>enum map of duration</code></td>
-<td>How much time alighting a vehicle takes for each given mode.</td>
+<td>How much extra time should be given when alighting a vehicle for each given mode.</td>
 <td align="center"><em>Optional</em></td>
 <td></td>
 <td align="center">2.0</td>
@@ -1768,7 +1768,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <tr>
 <td><a href="#rd_boardSlackForMode">boardSlackForMode</a></td>
 <td align="center"><code>enum map of duration</code></td>
-<td>How much time ride a vehicle takes for each given mode.</td>
+<td>How much extra time should be given when boarding a vehicle for each given mode.</td>
 <td align="center"><em>Optional</em></td>
 <td></td>
 <td align="center">2.0</td>
@@ -2262,7 +2262,7 @@ high values.</p>
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults <br />
 <strong>Enum keys:</strong> <code>rail</code> | <code>coach</code> | <code>subway</code> | <code>bus</code> | <code>tram</code> | <code>ferry</code> | <code>airplane</code> | <code>cable-car</code> | <code>gondola</code> | <code>funicular</code> | <code>trolleybus</code> | <code>monorail</code> | <code>carpool</code> | <code>taxi</code></p>
-<p>How much time alighting a vehicle takes for each given mode.</p>
+<p>How much extra time should be given when alighting a vehicle for each given mode.</p>
 <p>Sometimes there is a need to configure a longer alighting times for specific modes, such as airplanes or ferries.</p>
 <h3 id="rd_allowedVehicleRentalNetworks">allowedVehicleRentalNetworks</h3>
 
@@ -2284,7 +2284,7 @@ high values.</p>
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults <br />
 <strong>Enum keys:</strong> <code>rail</code> | <code>coach</code> | <code>subway</code> | <code>bus</code> | <code>tram</code> | <code>ferry</code> | <code>airplane</code> | <code>cable-car</code> | <code>gondola</code> | <code>funicular</code> | <code>trolleybus</code> | <code>monorail</code> | <code>carpool</code> | <code>taxi</code></p>
-<p>How much time ride a vehicle takes for each given mode.</p>
+<p>How much extra time should be given when boarding a vehicle for each given mode.</p>
 <p>Sometimes there is a need to configure a board times for specific modes, such as airplanes or
 ferries, where the check-in process needs to be done in good time before ride.</p>
 <h3 id="rd_itineraryFilters">itineraryFilters</h3>
