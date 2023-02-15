@@ -1974,6 +1974,22 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.2</td>
 </tr>
 <tr>
+<td>   <a href="#rd_unpreferred_agencies">agencies</a></td>
+<td align="center"><code>feed-scoped-id[]</code></td>
+<td>The ids of the agencies that incur an extra cost when being used. Format: <code>FeedId:AgencyId</code></td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#rd_unpreferred_routes">routes</a></td>
+<td align="center"><code>feed-scoped-id[]</code></td>
+<td>The ids of the routes that incur an extra cost when being used. Format: <code>FeedId:RouteId</code></td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
 <td>wheelchairAccessibility</td>
 <td align="center"><code>object</code></td>
 <td>See <a href="../Accessibility/">Wheelchair Accessibility</a></td>
@@ -2503,6 +2519,18 @@ doubled. Stop priority is only supported by the NeTEx import, not GTFS.</p>
 cost function. The cost function (<code>unpreferredCost</code>) is defined as a linear function of the form
 <code>A + B x</code>, where <code>A</code> is a fixed cost (in seconds) and <code>B</code> is reluctance multiplier for transit leg
 travel time <code>x</code> (in seconds).</p>
+<h3 id="rd_unpreferred_agencies">agencies</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>feed-scoped-id[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/unpreferred </p>
+<p>The ids of the agencies that incur an extra cost when being used. Format: <code>FeedId:AgencyId</code></p>
+<p>How much cost is added is configured in <code>unpreferredCost</code>.</p>
+<h3 id="rd_unpreferred_routes">routes</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>feed-scoped-id[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/unpreferred </p>
+<p>The ids of the routes that incur an extra cost when being used. Format: <code>FeedId:RouteId</code></p>
+<p>How much cost is added is configured in <code>unpreferredCost</code>.</p>
 <h3 id="rd_wheelchairAccessibility_maxSlope">maxSlope</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.083</code> <br />
