@@ -106,6 +106,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.opentripplanner.org/dev-2.x/Presentations/</loc>
+         <lastmod>2023-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.opentripplanner.org/dev-2.x/ReleaseChecklist/</loc>
          <lastmod>2023-02-21</lastmod>
          <changefreq>daily</changefreq>
