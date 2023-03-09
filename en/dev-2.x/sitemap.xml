@@ -141,6 +141,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.opentripplanner.org/dev-2.x/System-Requirements/</loc>
+         <lastmod>2023-03-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.opentripplanner.org/dev-2.x/Troubleshooting-Routing/</loc>
          <lastmod>2023-03-09</lastmod>
          <changefreq>daily</changefreq>
