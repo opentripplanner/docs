@@ -1666,13 +1666,13 @@ affect the performance and should be tuned to match the deployment.</p>
 <p>The <code>round_N(...)</code> method rounds the input to the closest multiplication of N.</p>
 <p>The 3 coefficients above are:</p>
 <ul>
-<li><code>C</code> is parameter: <code>minWinTimeMinutes</code></li>
+<li><code>C</code> is parameter: <code>minWindow</code></li>
 <li><code>T</code> is parameter: <code>minTransitTimeCoefficient</code></li>
 <li><code>W</code> is parameter: <code>minWaitTimeCoefficient</code></li>
 <li><code>N</code> is parameter: <code>stepMinutes</code></li>
 </ul>
 <p>In addition there is an upper bound on the calculation of the search window:
-<code>maxWinTimeMinutes</code>.</p>
+<code>maxWindow</code>.</p>
 <h3 id="transit_dynamicSearchWindow_maxWindow">maxWindow</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT3H"</code> <br />
