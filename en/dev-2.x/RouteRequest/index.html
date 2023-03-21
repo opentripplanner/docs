@@ -2082,6 +2082,30 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.2</td>
 </tr>
 <tr>
+<td>      inaccessibleCost</td>
+<td align="center"><code>integer</code></td>
+<td>The cost to add when traversing an entity which is know to be inaccessible.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>3600</code></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
+<td>      onlyConsiderAccessible</td>
+<td align="center"><code>boolean</code></td>
+<td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>false</code></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
+<td>      unknownCost</td>
+<td align="center"><code>integer</code></td>
+<td>The cost to add when traversing an entity with unknown accessibility information.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>20</code></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
 <td>   stop</td>
 <td align="center"><code>object</code></td>
 <td>Configuration for when to use inaccessible stops.</td>
