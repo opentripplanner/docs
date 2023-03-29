@@ -1004,8 +1004,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/SiriUpdator/" class="md-nav__link">
-        SIRI Updater (Google Cloud)
+      <a href="../sandbox/SiriUpdater/" class="md-nav__link">
+        SIRI Updaters
       </a>
     </li>
   
@@ -2048,20 +2048,29 @@ values must be set.</p>
 <a id="__codelineno-2-260" name="__codelineno-2-260" href="#__codelineno-2-260"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;websocket-gtfs-rt-updater&quot;</span>
 <a id="__codelineno-2-261" name="__codelineno-2-261" href="#__codelineno-2-261"></a><span class="w">    </span><span class="p">},</span>
 <a id="__codelineno-2-262" name="__codelineno-2-262" href="#__codelineno-2-262"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-263" name="__codelineno-2-263" href="#__codelineno-2-263"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-azure-sx-updater&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-264" name="__codelineno-2-264" href="#__codelineno-2-264"></a><span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some_topic&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-265" name="__codelineno-2-265" href="#__codelineno-2-265"></a><span class="w">      </span><span class="nt">&quot;servicebus-url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;service_bus_url&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-266" name="__codelineno-2-266" href="#__codelineno-2-266"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-267" name="__codelineno-2-267" href="#__codelineno-2-267"></a><span class="w">      </span><span class="nt">&quot;customMidnight&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-2-268" name="__codelineno-2-268" href="#__codelineno-2-268"></a><span class="w">      </span><span class="nt">&quot;history&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-269" name="__codelineno-2-269" href="#__codelineno-2-269"></a><span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endpoint_url&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-270" name="__codelineno-2-270" href="#__codelineno-2-270"></a><span class="w">        </span><span class="nt">&quot;fromDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-P1D&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-271" name="__codelineno-2-271" href="#__codelineno-2-271"></a><span class="w">        </span><span class="nt">&quot;toDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P1D&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-272" name="__codelineno-2-272" href="#__codelineno-2-272"></a><span class="w">        </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300000</span>
-<a id="__codelineno-2-273" name="__codelineno-2-273" href="#__codelineno-2-273"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-2-274" name="__codelineno-2-274" href="#__codelineno-2-274"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-275" name="__codelineno-2-275" href="#__codelineno-2-275"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-2-276" name="__codelineno-2-276" href="#__codelineno-2-276"></a><span class="p">}</span>
+<a id="__codelineno-2-263" name="__codelineno-2-263" href="#__codelineno-2-263"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-264" name="__codelineno-2-264" href="#__codelineno-2-264"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-265" name="__codelineno-2-265" href="#__codelineno-2-265"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-266" name="__codelineno-2-266" href="#__codelineno-2-266"></a><span class="w">      </span><span class="nt">&quot;timeoutSec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-2-267" name="__codelineno-2-267" href="#__codelineno-2-267"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-268" name="__codelineno-2-268" href="#__codelineno-2-268"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Some-Token&quot;</span>
+<a id="__codelineno-2-269" name="__codelineno-2-269" href="#__codelineno-2-269"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-270" name="__codelineno-2-270" href="#__codelineno-2-270"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-271" name="__codelineno-2-271" href="#__codelineno-2-271"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-272" name="__codelineno-2-272" href="#__codelineno-2-272"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-azure-sx-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-273" name="__codelineno-2-273" href="#__codelineno-2-273"></a><span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some_topic&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-274" name="__codelineno-2-274" href="#__codelineno-2-274"></a><span class="w">      </span><span class="nt">&quot;servicebus-url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;service_bus_url&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-275" name="__codelineno-2-275" href="#__codelineno-2-275"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-276" name="__codelineno-2-276" href="#__codelineno-2-276"></a><span class="w">      </span><span class="nt">&quot;customMidnight&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-2-277" name="__codelineno-2-277" href="#__codelineno-2-277"></a><span class="w">      </span><span class="nt">&quot;history&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-278" name="__codelineno-2-278" href="#__codelineno-2-278"></a><span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endpoint_url&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-279" name="__codelineno-2-279" href="#__codelineno-2-279"></a><span class="w">        </span><span class="nt">&quot;fromDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-P1D&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-280" name="__codelineno-2-280" href="#__codelineno-2-280"></a><span class="w">        </span><span class="nt">&quot;toDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P1D&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-281" name="__codelineno-2-281" href="#__codelineno-2-281"></a><span class="w">        </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300000</span>
+<a id="__codelineno-2-282" name="__codelineno-2-282" href="#__codelineno-2-282"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-283" name="__codelineno-2-283" href="#__codelineno-2-283"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-284" name="__codelineno-2-284" href="#__codelineno-2-284"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-285" name="__codelineno-2-285" href="#__codelineno-2-285"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 

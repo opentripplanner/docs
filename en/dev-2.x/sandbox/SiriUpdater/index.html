@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/VehicleToStopHeuristics/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/SiriUpdater/">
       
       
-        <link rel="prev" href="../VehicleParking/">
+        <link rel="prev" href="../TransmodelApi/">
       
       
-        <link rel="next" href="../GeocoderAPI/">
+        <link rel="next" href="../SiriAzureUpdater/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Vehicle-to-stop Heuristics - OpenTripPlanner 2</title>
+        <title>SIRI Updaters - OpenTripPlanner 2</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vehicle-to-stop-heuristics-otp-sandbox-extension" class="md-skip">
+        <a href="#siri-updater" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vehicle-to-stop Heuristics
+              SIRI Updaters
             
           </span>
         </div>
@@ -931,11 +931,106 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../SiriUpdater/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SIRI Updaters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         SIRI Updaters
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contact-info" class="md-nav__link">
+    Contact Info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#siri-et-via-https" class="md-nav__link">
+    Siri-ET via HTTPS
+  </a>
+  
+    <nav class="md-nav" aria-label="Siri-ET via HTTPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-details" class="md-nav__link">
+    Parameter details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration" class="md-nav__link">
+    Example configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1085,100 +1180,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Vehicle-to-stop Heuristics
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../VehicleToStopHeuristics/" class="md-nav__link">
         Vehicle-to-stop Heuristics
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contact-info" class="md-nav__link">
-    Contact Info
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    Changelog
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vehicle-to-stop-heuristic" class="md-nav__link">
-    Vehicle-to-stop heuristic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bicycle-on-transit-heuristic" class="md-nav__link">
-    Bicycle-on-transit heuristic
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collaborators-wanted" class="md-nav__link">
-    Collaborators wanted
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1265,67 +1271,151 @@
 
 
 
-<h1 id="vehicle-to-stop-heuristics-otp-sandbox-extension">Vehicle-to-Stop heuristics - OTP Sandbox Extension</h1>
+<h1 id="siri-updater">Siri Updater</h1>
+<p>Support for consuming SIRI ET and SX messages. The updater is developed to support the Nordic
+SIRI profile which is a subset of the SIRI specification.</p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
-<li>Leonard Ehrenfried (<a href="mailto:mail@leonard.io">mail@leonard.io</a>)</li>
-</ul>
-<h2 id="changelog">Changelog</h2>
-<ul>
-<li>Create initial
-  implementation <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3906">#3906</a></li>
+<li>Lasse Tyrihjell, Entur, Norway</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>This feature is meant to improve the performance and result quality for routing requests where a
-vehicle (car, bike, scooter) is ridden to a stop where transit is boarded.</p>
-<p>Before this feature existed a search for nearby stops was executed finding all candidate stops for
-boarding transit. For walking this yields a low number of stops but when driving a car this can
-easily mean to an entire city of stops, since the default was a drive of 45 minutes.</p>
-<p>Having a very long driving time has several problems:</p>
-<ul>
-<li>the access search itself is comparatively slow</li>
-<li>having many candidate stops slows down the transit search as many routes have to be checked</li>
-<li>often the quickest route would be to drive almost all the way to the destination and board transit
-  for a single stop</li>
-</ul>
-<p>We did not want to lower the maximum access time since in rural regions 45 minutes might be a useful
-maximum, but we want it to scale with the density of well-connected stops.</p>
-<h3 id="vehicle-to-stop-heuristic">Vehicle-to-stop heuristic</h3>
-<p>In order to improve the Park+Ride and Bike+Ride results we reduced the number of candidate stops
-with the following heuristic:</p>
-<ol>
-<li>When a stop is encountered check which routes depart from it</li>
-<li>Each route adds to an "importance score"</li>
-<li>Modes which are fast (RAIL, SUBWAY, FERRY) have a higher score than for example BUS</li>
-<li>Once a maximum score is reached, the search is complete</li>
-</ol>
-<p>The code for this is located in <code>VehicleToStopSkipEdgeStrategy.java</code>.</p>
-<h3 id="bicycle-on-transit-heuristic">Bicycle-on-transit heuristic</h3>
-<p>This heuristic works slightly differently in that it doesn't assign a score but simply stops the
-access search when a certain number of routes were encountered that allow you to take your bike onto
-transit.</p>
-<p>The code for this is located in <code>BikeToStopSkipEdgeStrategy.java</code>.</p>
-<h3 id="configuration">Configuration</h3>
-<p>Enable the feature by adding it to the <code>otp-config.json</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// otp-config.json</span>
+<p>This updater consumes SIRI real time information. It is developed by Entur and supports the Nordic
+Profile for SIRI. It should be possible to develop it further to support a broader set of the SIRI
+specification.</p>
+<p>For more documentation goto
+the <a href="https://developer.entur.org/pages-real-time-intro">Entur Real-Time Data</a> documentation and
+the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Norwegian+SIRI+profile">Norwegian SIRI profile</a>
+.</p>
+<h2 id="configuration">Configuration</h2>
+<p>To enable the SIRI updater you need to add it to the updaters section of the <code>router-config.json</code>.</p>
+<h3 id="siri-et-via-https">Siri-ET via HTTPS</h3>
+<!-- siri-et-updater BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th align="center">Type</th>
+<th>Summary</th>
+<th align="center">Req./Opt.</th>
+<th>Default Value</th>
+<th align="center">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "SIRI_ET_UPDATER"</td>
+<td align="center"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td align="center"><em>Required</em></td>
+<td></td>
+<td align="center">1.5</td>
+</tr>
+<tr>
+<td>blockReadinessUntilInitialized</td>
+<td align="center"><code>boolean</code></td>
+<td>Whether catching up with the updates should block the readiness check from returning a 'ready' result.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>false</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>feedId</td>
+<td align="center"><code>string</code></td>
+<td>The ID of the feed to apply the updates to.</td>
+<td align="center"><em>Required</em></td>
+<td></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>frequencySec</td>
+<td align="center"><code>integer</code></td>
+<td>How often the updates should be retrieved.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>60</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>fuzzyTripMatching</td>
+<td align="center"><code>boolean</code></td>
+<td>If the fuzzy trip matcher should be used to match trips.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>false</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>previewIntervalMinutes</td>
+<td align="center"><code>integer</code></td>
+<td>TODO</td>
+<td align="center"><em>Optional</em></td>
+<td><code>-1</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>requestorRef</td>
+<td align="center"><code>string</code></td>
+<td>The requester reference.</td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>timeoutSec</td>
+<td align="center"><code>integer</code></td>
+<td>The HTTP timeout to download the updates.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>15</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>url</td>
+<td align="center"><code>string</code></td>
+<td>The URL to send the HTTP requests to.</td>
+<td align="center"><em>Required</em></td>
+<td></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td><a href="#u__8__headers">headers</a></td>
+<td align="center"><code>map of string</code></td>
+<td>HTTP headers to add to the request</td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.3</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-details">Parameter details</h5>
+<h4 id="u__8__headers">headers</h4>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[8] </p>
+<p>HTTP headers to add to the request</p>
+<h5 id="example-configuration">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;otpFeatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;VehicleToStopHeuristics&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;timeoutSec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Some-Token&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="collaborators-wanted">Collaborators wanted</h3>
-<p>Since the current settings, scores and weights are hardcoded in the source code we are looking for
-collaborators that can help to make it more adaptable for different environments.</p>
-<p>These are some the goals for the future:</p>
+<!-- siri-et-updater END -->
+
+<h2 id="changelog">Changelog</h2>
 <ul>
-<li>make the scores that are assigned for routes of a certain mode configurable in JSON</li>
-<li>pre-calculate stop importance scores during the graph build</li>
+<li>Initial version of SIRI updater (October 2019)</li>
+<li>Include situations with no or no handled entity selectors with Unknown EntitySelector (December
+  2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3780)</li>
 </ul>
-<p>If you want to help making this feature more flexible, please
-contact <a href="mailto:mail@leonard.io">Leonard Ehrenfried</a>
-or use the regular channels of communication outlined
-in <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CONTRIBUTING.md#primary-channels-of-communication">CONTRIBUTING.md</a></p>
 
 
 
