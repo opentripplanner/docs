@@ -524,6 +524,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../IslandPruning/" class="md-nav__link">
+        Street Graph Pruning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../RouterConfiguration/" class="md-nav__link">
         Router
       </a>
@@ -594,8 +608,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../IslandPruning/" class="md-nav__link">
-        Street Graph Pruning
+      <a href="../Logging/" class="md-nav__link">
+        Logging
       </a>
     </li>
   
@@ -752,19 +766,6 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debug-logging" class="md-nav__link">
-    Debug logging
-  </a>
-  
-    <nav class="md-nav" aria-label="Debug logging">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#transit-search" class="md-nav__link">
@@ -1456,23 +1457,11 @@ the <a href="./#Debug-layers">debug layers</a>.</p>
 <p>OTP users in Helsinki have documented their best practices for coding railway platforms in
 OpenStreetMap. These guidelines are
 available <a href="https://wiki.openstreetmap.org/wiki/Digitransit#Editing_railway_platforms">in the OSM Wiki.</a></p>
-<h2 id="debug-logging">Debug logging</h2>
-<p>OTP use <a href="http://logback.qos.ch/">logback</a> and <a href="http://www.slf4j.org/">slj4j</a> as a logging framework.
-Logging is configured in the <em>logback.xml</em> file inside the OTP jar file. See these frameworks for
-more documentation on log configuration.</p>
-<p>For developers, starting OTP using the <code>InteractiveOtpMain</code> is an easy way to configure debug
-logging.</p>
-<p>Some useful loggers</p>
-<ul>
-<li><code>TRANSFERS_EXPORT</code> Dump transfers to <em>transfers-debug.csv</em> file.</li>
-<li><code>DATA_IMPORT_ISSUES</code> Write issues to debug lag as well as to the issue report.</li>
-<li><code>REQ_LOG</code> Router request log. Enable with <code>requestLogFile</code> config parameter in build config.</li>
-<li><code>org.opentripplanner.raptor.RaptorService</code> Debug Raptor request and response</li>
-</ul>
 <h3 id="transit-search">Transit search</h3>
 <p>The Raptor implementation support instrumentation of ACCEPT, REJECT, and DROP events for
 stop-arrivals and trip boardings. Use the SpeedTest to pass in a set of stops and/or a specific path
 to debug. This is useful when debugging why you do (not) get a particular result.</p>
+<p>Read the <a href="../Logging/">logging page</a> for more information.</p>
 <h3 id="gtfs-transferstxt-and-netex-interchange-import">GTFS Transfers.txt and NeTEx Interchange import</h3>
 <p>Transfers may have effects on the routing which may be difficult to predict. OTP can dump all
 imported transfers to file - <em>transfers-debug.csv</em>. This may help verify the result of the import or

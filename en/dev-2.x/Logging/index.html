@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/InteractiveOtpMain/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/Logging/">
       
       
-        <link rel="prev" href="../ReportApi/">
+        <link rel="prev" href="../RoutingModes/">
       
       
-        <link rel="next" href="../ParkAndRideApi/">
+        <link rel="next" href="../Preparing-OSM/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
-        <title>Interactive OTP Launcher - OpenTripPlanner 2</title>
+        <title>Logging - OpenTripPlanner 2</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7a7fce14.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#interactive-otp-launcher" class="md-skip">
+        <a href="#logging" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Interactive OTP Launcher
+              Logging
             
           </span>
         </div>
@@ -191,7 +191,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -222,7 +222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Home
       </a>
     </li>
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Product-Overview/" class="md-nav__link">
+      <a href="../Product-Overview/" class="md-nav__link">
         Product Overview
       </a>
     </li>
@@ -278,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Governance/" class="md-nav__link">
+      <a href="../Governance/" class="md-nav__link">
         Governance
       </a>
     </li>
@@ -292,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../History/" class="md-nav__link">
+      <a href="../History/" class="md-nav__link">
         History
       </a>
     </li>
@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Presentations/" class="md-nav__link">
+      <a href="../Presentations/" class="md-nav__link">
         Presentations
       </a>
     </li>
@@ -320,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Deployments/" class="md-nav__link">
+      <a href="../Deployments/" class="md-nav__link">
         Deployments
       </a>
     </li>
@@ -334,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Changelog/" class="md-nav__link">
+      <a href="../Changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -348,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Visual-Identity/" class="md-nav__link">
+      <a href="../Visual-Identity/" class="md-nav__link">
         Visual Identity
       </a>
     </li>
@@ -368,14 +368,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -384,7 +386,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Usage
@@ -397,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Basic-Tutorial/" class="md-nav__link">
+      <a href="../Basic-Tutorial/" class="md-nav__link">
         Basic Tutorial
       </a>
     </li>
@@ -411,7 +413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Getting-OTP/" class="md-nav__link">
+      <a href="../Getting-OTP/" class="md-nav__link">
         Getting OTP
       </a>
     </li>
@@ -425,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container-Image/" class="md-nav__link">
+      <a href="../Container-Image/" class="md-nav__link">
         Container Image
       </a>
     </li>
@@ -439,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../System-Requirements/" class="md-nav__link">
+      <a href="../System-Requirements/" class="md-nav__link">
         System Requirements and Suggestions
       </a>
     </li>
@@ -451,14 +453,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
       
       
       
@@ -467,7 +471,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           Configuration
@@ -480,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Configuration/" class="md-nav__link">
+      <a href="../Configuration/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -494,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BuildConfiguration/" class="md-nav__link">
+      <a href="../BuildConfiguration/" class="md-nav__link">
         Build
       </a>
     </li>
@@ -508,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BoardingLocations/" class="md-nav__link">
+      <a href="../BoardingLocations/" class="md-nav__link">
         Boarding Locations
       </a>
     </li>
@@ -522,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IslandPruning/" class="md-nav__link">
+      <a href="../IslandPruning/" class="md-nav__link">
         Street Graph Pruning
       </a>
     </li>
@@ -536,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RouterConfiguration/" class="md-nav__link">
+      <a href="../RouterConfiguration/" class="md-nav__link">
         Router
       </a>
     </li>
@@ -550,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Accessibility/" class="md-nav__link">
+      <a href="../Accessibility/" class="md-nav__link">
         Accessibility
       </a>
     </li>
@@ -564,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RouteRequest/" class="md-nav__link">
+      <a href="../RouteRequest/" class="md-nav__link">
         Route Request
       </a>
     </li>
@@ -578,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UpdaterConfig/" class="md-nav__link">
+      <a href="../UpdaterConfig/" class="md-nav__link">
         Realtime Updaters
       </a>
     </li>
@@ -592,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RoutingModes/" class="md-nav__link">
+      <a href="../RoutingModes/" class="md-nav__link">
         Routing Modes
       </a>
     </li>
@@ -604,11 +608,72 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Logging/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Logging
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Logging
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    Format
+  </a>
+  
+    <nav class="md-nav" aria-label="Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    Complete example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-customization" class="md-nav__link">
+    Further customization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -627,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Preparing-OSM/" class="md-nav__link">
+      <a href="../Preparing-OSM/" class="md-nav__link">
         Preparing OSM Data
       </a>
     </li>
@@ -641,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Netex-Norway/" class="md-nav__link">
+      <a href="../Netex-Norway/" class="md-nav__link">
         Netex and SIRI
       </a>
     </li>
@@ -655,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Security/" class="md-nav__link">
+      <a href="../Security/" class="md-nav__link">
         Security
       </a>
     </li>
@@ -669,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Troubleshooting-Routing/" class="md-nav__link">
+      <a href="../Troubleshooting-Routing/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -683,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Version-Comparison/" class="md-nav__link">
+      <a href="../Version-Comparison/" class="md-nav__link">
         Comparing OTP2 to OTP1
       </a>
     </li>
@@ -697,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OTP2-MigrationGuide/" class="md-nav__link">
+      <a href="../OTP2-MigrationGuide/" class="md-nav__link">
         OTP2 Migration Guide
       </a>
     </li>
@@ -746,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Developers-Guide/" class="md-nav__link">
+      <a href="../Developers-Guide/" class="md-nav__link">
         Developers' Guide
       </a>
     </li>
@@ -760,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Interfaces-Data-Sources/" class="md-nav__link">
+      <a href="../Interfaces-Data-Sources/" class="md-nav__link">
         Interfaces and Data Sources
       </a>
     </li>
@@ -774,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Localization/" class="md-nav__link">
+      <a href="../Localization/" class="md-nav__link">
         Localization
       </a>
     </li>
@@ -788,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Bibliography/" class="md-nav__link">
+      <a href="../Bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -802,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Codestyle/" class="md-nav__link">
+      <a href="../Codestyle/" class="md-nav__link">
         Codestyle
       </a>
     </li>
@@ -816,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SandboxExtension/" class="md-nav__link">
+      <a href="../SandboxExtension/" class="md-nav__link">
         Sandbox Development
       </a>
     </li>
@@ -830,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ReleaseChecklist/" class="md-nav__link">
+      <a href="../ReleaseChecklist/" class="md-nav__link">
         Release Checklist
       </a>
     </li>
@@ -850,16 +915,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
       
@@ -868,7 +931,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Sandbox
@@ -881,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SandboxExtension/" class="md-nav__link">
+      <a href="../SandboxExtension/" class="md-nav__link">
         About
       </a>
     </li>
@@ -895,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ActuatorAPI/" class="md-nav__link">
+      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
         Actuator API
       </a>
     </li>
@@ -909,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transferanalyzer/" class="md-nav__link">
+      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
         Direct Transfer Analyzer
       </a>
     </li>
@@ -923,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GoogleCloudStorage/" class="md-nav__link">
+      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
         Google Cloud Storage
       </a>
     </li>
@@ -937,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../LegacyGraphQLApi/" class="md-nav__link">
+      <a href="../sandbox/LegacyGraphQLApi/" class="md-nav__link">
         HSL Legacy GraphQL API
       </a>
     </li>
@@ -951,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TransmodelApi/" class="md-nav__link">
+      <a href="../sandbox/TransmodelApi/" class="md-nav__link">
         Transmodel(NeTEx) GraphQL API
       </a>
     </li>
@@ -965,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SiriUpdater/" class="md-nav__link">
+      <a href="../sandbox/SiriUpdater/" class="md-nav__link">
         SIRI Updaters
       </a>
     </li>
@@ -979,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SiriAzureUpdater/" class="md-nav__link">
+      <a href="../sandbox/SiriAzureUpdater/" class="md-nav__link">
         SIRI Updater (Azure)
       </a>
     </li>
@@ -993,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
         Vehicle Rental Service Directory API support
       </a>
     </li>
@@ -1007,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SmooveBikeRental/" class="md-nav__link">
+      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
         Smoove Bike Rental Updator Support
       </a>
     </li>
@@ -1021,7 +1084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
         Mapbox Vector Tiles API
       </a>
     </li>
@@ -1035,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Flex/" class="md-nav__link">
+      <a href="../sandbox/Flex/" class="md-nav__link">
         Flex Routing
       </a>
     </li>
@@ -1049,7 +1112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ReportApi/" class="md-nav__link">
+      <a href="../sandbox/ReportApi/" class="md-nav__link">
         Report API
       </a>
     </li>
@@ -1061,66 +1124,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Interactive OTP Launcher
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
         Interactive OTP Launcher
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contact-info" class="md-nav__link">
-    Contact Info
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    Changelog
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1132,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ParkAndRideApi/" class="md-nav__link">
+      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
         Park and Ride API
       </a>
     </li>
@@ -1146,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DataOverlay/" class="md-nav__link">
+      <a href="../sandbox/DataOverlay/" class="md-nav__link">
         Data Overlay
       </a>
     </li>
@@ -1160,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleParking/" class="md-nav__link">
+      <a href="../sandbox/VehicleParking/" class="md-nav__link">
         Vehicle Parking Updaters
       </a>
     </li>
@@ -1174,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleToStopHeuristics/" class="md-nav__link">
+      <a href="../sandbox/VehicleToStopHeuristics/" class="md-nav__link">
         Vehicle-to-stop Heuristics
       </a>
     </li>
@@ -1188,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GeocoderAPI/" class="md-nav__link">
+      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
         Geocoder API
       </a>
     </li>
@@ -1202,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TravelTime/" class="md-nav__link">
+      <a href="../sandbox/TravelTime/" class="md-nav__link">
         Travel Time Isochrones
       </a>
     </li>
@@ -1216,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
         IBI Accessibility Score
       </a>
     </li>
@@ -1230,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Fares/" class="md-nav__link">
+      <a href="../sandbox/Fares/" class="md-nav__link">
         Fares
       </a>
     </li>
@@ -1262,20 +1270,63 @@
   
 
 
-<h1 id="interactive-otp-launcher">Interactive OTP Launcher</h1>
-<p>A GUI popup window to which help you to start OTP Main interactively.</p>
-<h2 id="contact-info">Contact Info</h2>
+<h1 id="logging">Logging</h1>
+<p>OTP uses <a href="http://logback.qos.ch/">logback</a> and <a href="http://www.slf4j.org/">slj4j</a> as a logging framework.
+Logging is configured in the <code>logback.xml</code> file inside the OTP jar file. See these frameworks for
+more documentation on log configuration.</p>
+<p>For developers, starting OTP using the <code>InteractiveOtpMain</code> is an easy way to configure debug
+logging.</p>
+<p>Some loggers useful for debugging.</p>
 <ul>
-<li>Thomas Gran, Norway</li>
+<li><code>TRANSFERS_EXPORT</code>: Dump transfers to <em>transfers-debug.csv</em> file.</li>
+<li><code>DATA_IMPORT_ISSUES</code>: Write issues to debug lag as well as to the issue report.</li>
+<li><code>REQ_LOG</code>: Router request log. Enable with <code>requestLogFile</code> config parameter in build config.</li>
+<li><code>org.opentripplanner.raptor.RaptorService</code>: Debug Raptor request and response</li>
 </ul>
-<h2 id="changelog">Changelog</h2>
+<h2 id="format">Format</h2>
+<p>By default, OTP logs in plain text to the console. However, it is possible to also log in JSON format.</p>
+<p>To enable it, set the Java property <code>otp.logging.format</code> to one of these values:</p>
 <ul>
-<li>Initial version (October 2020)</li>
+<li><code>plain</code>: regular plain text logging (default, no need to configure it)</li>
+<li><code>json</code>: Logstash-encoded JSON format understood by many log ingestion tools (Datadog, Loggly, Loki...)</li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<p>This is a simple GUI to help launch OTP Main. It is useful if you frequently launch OTP with data
-set and/or configuration. The <code>InteractiveOtpMain</code> search for all OTP data configurations
-directories available and help the user configure and start OTP.  </p>
+<h3 id="complete-example">Complete example</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java -Dotp.logging.format=json -jar otp.jar --load --serve data
+</code></pre></div>
+<h3 id="further-customization">Further customization</h3>
+<p>If you want to customize the exact log output even further you can use your own logback configuration 
+by starting OTP with the following parameter:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>java -Dlogback.configurationFile=/path/to/logback.xml -jar otp.jar --load --serve data
+</code></pre></div>
+<p>For example, Entur has their own custom log format configured as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- Entur&#39;s custom log format  --&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;entur&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&lt;encoder</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">     </span><span class="nt">&lt;providers&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="cm">&lt;!-- provides the timestamp &lt;timestamp/&gt; --&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="cm">&lt;!-- provides the version &lt;version/&gt; --&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="cm">&lt;!-- provides the fields in the configured pattern --&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&lt;pattern&gt;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">           </span><span class="cm">&lt;!-- the pattern that defines what to include --&gt;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">           </span><span class="nt">&lt;pattern&gt;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">           </span>{
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">             </span>&quot;serviceContext&quot;:<span class="w"> </span>{
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">               </span>&quot;service&quot;:<span class="w"> </span>&quot;otp2&quot;
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">             </span>},
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">             </span>&quot;message&quot;:<span class="w"> </span>&quot;%message\n%ex{full}&quot;,
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">             </span>&quot;severity&quot;:<span class="w"> </span>&quot;%level&quot;,
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">             </span>&quot;reportLocation&quot;:<span class="w"> </span>{
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">               </span>&quot;filePath&quot;:<span class="w"> </span>&quot;%logger&quot;,
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">               </span>&quot;lineNumber&quot;:<span class="w"> </span>&quot;%line&quot;,
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">               </span>&quot;functionName&quot;:<span class="w"> </span>&quot;%method&quot;
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">              </span>}
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">            </span>}
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">            </span><span class="nt">&lt;/pattern&gt;</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="nt">&lt;/pattern&gt;</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">     </span><span class="nt">&lt;/providers&gt;</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span><span class="nt">&lt;/encoder&gt;</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="nt">&lt;/appender&gt;</span>
+</code></pre></div>
 
 
 
@@ -1313,10 +1364,10 @@ directories available and help the user configure and start OTP.  </p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
+      <script src="../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
