@@ -1254,6 +1254,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/RideHailing/" class="md-nav__link">
+        Ride Hailing
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1336,7 +1350,7 @@ value which will be applied unless it is overridden in a web API request.</p>
 <td>The maximum time a street routing request is allowed to take before returning a timeout.</td>
 <td align="center"><em>Optional</em></td>
 <td><code>"PT5S"</code></td>
-<td align="center">na</td>
+<td align="center">2.2</td>
 </tr>
 <tr>
 <td><a href="../sandbox/Flex/">flex</a></td>
@@ -1345,6 +1359,14 @@ value which will be applied unless it is overridden in a web API request.</p>
 <td align="center"><em>Optional</em></td>
 <td></td>
 <td align="center">2.1</td>
+</tr>
+<tr>
+<td><a href="../sandbox/RideHailing/">rideHailingServices</a></td>
+<td align="center"><code>object[]</code></td>
+<td>Configuration for interfaces to external ride hailing services like Uber.</td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.3</td>
 </tr>
 <tr>
 <td><a href="../RouteRequest/">routingDefaults</a></td>
@@ -1488,7 +1510,7 @@ value which will be applied unless it is overridden in a web API request.</p>
 <td>Configuration for the Transmodel GraphQL API.</td>
 <td align="center"><em>Optional</em></td>
 <td></td>
-<td align="center">na</td>
+<td align="center">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#transmodelApi_hideFeedId">hideFeedId</a></td>
@@ -1624,7 +1646,7 @@ config.</p>
 number of transit vehicles used in that itinerary.</p>
 <h3 id="streetRoutingTimeout">streetRoutingTimeout</h3>
 
-<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT5S"</code> <br />
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT5S"</code> <br />
 <strong>Path:</strong> / </p>
 <p>The maximum time a street routing request is allowed to take before returning a timeout.</p>
 <p>In OTP1 path searches sometimes took a long time to complete. With the new Raptor algorithm this is not
@@ -2137,8 +2159,16 @@ values must be set.</p>
 <a id="__codelineno-3-292" name="__codelineno-3-292" href="#__codelineno-3-292"></a><span class="w">        </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300000</span>
 <a id="__codelineno-3-293" name="__codelineno-3-293" href="#__codelineno-3-293"></a><span class="w">      </span><span class="p">}</span>
 <a id="__codelineno-3-294" name="__codelineno-3-294" href="#__codelineno-3-294"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-295" name="__codelineno-3-295" href="#__codelineno-3-295"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-3-296" name="__codelineno-3-296" href="#__codelineno-3-296"></a><span class="p">}</span>
+<a id="__codelineno-3-295" name="__codelineno-3-295" href="#__codelineno-3-295"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-3-296" name="__codelineno-3-296" href="#__codelineno-3-296"></a><span class="w">  </span><span class="nt">&quot;rideHailingServices&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-297" name="__codelineno-3-297" href="#__codelineno-3-297"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-298" name="__codelineno-3-298" href="#__codelineno-3-298"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uber-car-hailing&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-299" name="__codelineno-3-299" href="#__codelineno-3-299"></a><span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret-id&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-300" name="__codelineno-3-300" href="#__codelineno-3-300"></a><span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;very-secret&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-301" name="__codelineno-3-301" href="#__codelineno-3-301"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibleRideType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;car&quot;</span>
+<a id="__codelineno-3-302" name="__codelineno-3-302" href="#__codelineno-3-302"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-303" name="__codelineno-3-303" href="#__codelineno-3-303"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-3-304" name="__codelineno-3-304" href="#__codelineno-3-304"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
