@@ -1230,6 +1230,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#example-request" class="md-nav__link">
+    Example Request
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1334,11 +1341,11 @@ be fetched either as a set of isochrones or a raster map.</p>
 <h3 id="api-parameters">API parameters</h3>
 <ul>
 <li><code>location</code> Origin of the search, can be either <code>latitude,longitude</code> or a stop id</li>
-<li><code>time</code> Departure time as a ISO-8601 time and date. The dafault value is the current time.</li>
+<li><code>time</code> Departure time as a ISO-8601 time and date (example <code>2023-04-24T15:40:12+02:00</code>). The default value is the current time.</li>
 <li><code>cutoff</code> The maximum travel duration as a ISO-8601 duration. The <code>PT</code> can be dropped to simplify the value. 
   This parameter can be given multiple times to include multiple isochrones in a single request.
   The default value is one hour.</li>
-<li><code>modes</code> A list of travel modes.</li>
+<li><code>modes</code> A list of travel modes. WALK is not implemented, use <code>WALK, TRANSIT</code> instead.</li>
 <li><code>arriveBy</code> Set to <code>false</code> when searching from the location and <code>true</code> when searching to the 
   location</li>
 </ul>
@@ -1349,6 +1356,9 @@ be fetched either as a set of isochrones or a raster map.</p>
 <p><code>/otp/traveltime/surface</code></p>
 <p>The travel time as a GeoTIFF raster file. The file has a single 32-bit int band, which contains the 
 travel time in seconds.</p>
+<h3 id="example-request">Example Request</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>http://localhost:8080/otp/traveltime/isochrone?batch=true&amp;location=52.499959,13.388803&amp;time=2023-04-12T10:19:03%2B02:00&amp;modes=WALK,TRANSIT&amp;arriveBy=false&amp;cutoff=30M17S
+</code></pre></div>
 
 
 
