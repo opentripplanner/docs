@@ -1719,6 +1719,14 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.1</td>
 </tr>
 <tr>
+<td><a href="#rd_streetRoutingTimeout">streetRoutingTimeout</a></td>
+<td align="center"><code>duration</code></td>
+<td>The maximum time a street routing request is allowed to take before returning the results.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>"PT5S"</code></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
 <td><a href="#rd_transferPenalty">transferPenalty</a></td>
 <td align="center"><code>integer</code></td>
 <td>An additional penalty added to boardings after the first.</td>
@@ -2338,6 +2346,16 @@ increase/decrease the search-window when paging to match the requested number of
 <p>How much more time does it take to walk a flight of stairs compared to walking a similar horizontal length.</p>
 <p>Default value is based on: Fujiyama, T., &amp; Tyler, N. (2010). Predicting the walking
 speed of pedestrians on stairs. Transportation Planning and Technology, 33(2), 177–202.</p>
+<h3 id="rd_streetRoutingTimeout">streetRoutingTimeout</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT5S"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>The maximum time a street routing request is allowed to take before returning the results.</p>
+<p>The street search(AStar) aborts after this duration and any paths found are returned to the client.
+The street part of the routing may take a long time if searching very long distances. You can set
+the street routing timeout to avoid tying up server resources on pointless searches and ensure that
+your users receive a timely response. You can also limit the max duration. There are is also a
+'apiProcessingTimeout'. Make sure the street timeout is less than the 'apiProcessingTimeout'.</p>
 <h3 id="rd_transferPenalty">transferPenalty</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
