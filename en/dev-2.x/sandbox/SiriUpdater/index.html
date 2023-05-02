@@ -1047,6 +1047,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#siri-sx-via-https" class="md-nav__link">
+    Siri-SX via HTTPS
+  </a>
+  
+    <nav class="md-nav" aria-label="Siri-SX via HTTPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-details_1" class="md-nav__link">
+    Parameter details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration_1" class="md-nav__link">
+    Example configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1454,6 +1481,120 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
 </code></pre></div>
 <!-- siri-et-updater END -->
+
+<h3 id="siri-sx-via-https">Siri-SX via HTTPS</h3>
+<!-- siri-sx-updater BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th align="center">Type</th>
+<th>Summary</th>
+<th align="center">Req./Opt.</th>
+<th>Default Value</th>
+<th align="center">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "siri-sx-updater"</td>
+<td align="center"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td align="center"><em>Required</em></td>
+<td></td>
+<td align="center">1.5</td>
+</tr>
+<tr>
+<td>blockReadinessUntilInitialized</td>
+<td align="center"><code>boolean</code></td>
+<td>Whether catching up with the updates should block the readiness check from returning a 'ready' result.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>false</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>earlyStartSec</td>
+<td align="center"><code>integer</code></td>
+<td>TODO</td>
+<td align="center"><em>Optional</em></td>
+<td><code>-1</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>feedId</td>
+<td align="center"><code>string</code></td>
+<td>The ID of the feed to apply the updates to.</td>
+<td align="center"><em>Required</em></td>
+<td></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>frequencySec</td>
+<td align="center"><code>integer</code></td>
+<td>How often the updates should be retrieved.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>60</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>requestorRef</td>
+<td align="center"><code>string</code></td>
+<td>The requester reference.</td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>timeoutSec</td>
+<td align="center"><code>integer</code></td>
+<td>The HTTP timeout to download the updates.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>15</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>url</td>
+<td align="center"><code>string</code></td>
+<td>The URL to send the HTTP requests to.</td>
+<td align="center"><em>Required</em></td>
+<td></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td><a href="#u__9__headers">headers</a></td>
+<td align="center"><code>map of string</code></td>
+<td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.3</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-details_1">Parameter details</h5>
+<h4 id="u__9__headers">headers</h4>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[9] </p>
+<p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
+<h5 id="example-configuration_1">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-sx-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;timeoutSec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">&quot;Key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Value&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</code></pre></div>
+<!-- siri-sx-updater END -->
 
 <h2 id="changelog">Changelog</h2>
 <ul>
