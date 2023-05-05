@@ -17,7 +17,7 @@
         <link rel="next" href="../RouterConfiguration/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.5">
     
     
       
@@ -1292,13 +1292,13 @@ within the island or continuing from a ferry stop on it works as expected. Even 
 routing to an island a lot, because coordinate based itinerary searches find something to project onto.</p>
 <p><img alt="" src="../images/badprojection.png" /><br />
 <em>Removing a small subgraph from an island causes poor routing. A ferry stop on the island links directly to mainland.</em></p>
-<p>Disconnected part can also represent a strictly forbidden area, such as connections within an industrial unit, roads of a military base or another
+<p>Disconnected parts can also represent a strictly forbidden area, such as connections within an industrial unit, roads of a military base or another
 region which cannot and should not be accessed when using door to door routing of a public transit journey planner. Existence
 of such graph sections is harmful, because start and end points of an itinerary search request may accidentally get projected to such a private pathway.
-As a result, user does not receive any itineraries and gets no explanation for the routing problem.</p>
+As a result, a user does not receive any itineraries and gets no explanation for the routing problem.</p>
 <p>In most cases, connectivity problems are caused by incorrect modeling of OSM data. The number of such errors is usually very large,
-and the problem cannot be solved  by simply fixing OSM data as soon as errors  get detected. The OSM street network in Finland contains
-over 10 000 detected walk connectivity issues. An algorithmic solution is needed to address a problem of such magnitude.</p>
+and the problem cannot be solved by simply fixing OSM data as soon as errors are detected - the OSM street network in Finland contains
+over 10 000 detected walk connectivity issues! An algorithmic solution is needed to address a problem of such magnitude.</p>
 <p><img alt="" src="../images/osmislands.png" /><br />
 <em>A typical error: bus platforms are not connected to the street network at all</em></p>
 <p>A simple and efficient solution is to detect harmful disconnected parts and remove them from the street graph. Routing then uses the properly connected
@@ -1308,7 +1308,7 @@ but at least transfers will work.</p>
 <p><img alt="" src="../images/stopislandproblem.png" /><br />
 <em>A disconnected railway platform breaks routing. Traveler is guided to take a round trip around the country although there is one hour direct train connection.</em></p>
 <h2 id="access-restriction-islands">Access restriction islands</h2>
-<p>One common reason for OSM connectivity problems is access tagging. It is perfectly OK to tag a front yard of a private residence using access=private or access=destination tags, so that
+<p>One common reason for OSM connectivity problems is access tagging. It is perfectly OK to tag a front yard of a private residence using <code>access=private</code> or <code>access=destination</code> tags, so that
 strangers are not guided to travel through the private area. Routing will still use the private streets if a trip starts or ends there - only pass through traversal gets prohibited.
 However, sometimes OSM contributors try to block the traffic by tagging only entrance segments of streets leading to a restricted area. Unfortunately this totally
 prevents access to the interior part of the network, because OTP interprets it as pass through traffic. Pruning handles such problems by converting streets behind an access restriction
@@ -1320,7 +1320,7 @@ The image on the right shows that pruning added walk nothrough restricition to t
 <p>Pruning analyses the three traverse modes - walk, bike and car - separately. For example, a resting area by a motorway may include some walking paths, but the only way to get there is
 to use car. Therefore, it represents a disconnected 'island' when considering the walk mode. Pruning does not erase disconnected graph geometry as long as it
 can be reached using any of the traverse modes. Instead, pruning removes traversal permission for each disconnected mode from the island.</p>
-<p>Pruning uses four parameters and some heuristics to decide if a disconnected sub graph is a real island to be retained, or a harmulf data error:</p>
+<p>Pruning uses four parameters and some heuristics to decide if a disconnected sub graph is a real island to be retained, or a harmful data error:</p>
 <ul>
 <li><code>islandWithStopsMaxSize</code> defines the threshold for graph islands, which include public transit stops. All stop islands which have less graph edges than this get pruned. Default value is 2.  </li>
 <li><code>islandWithoutStopsMaxSize</code> defines the threshold for graph islands, which do not have public transit stops. All stopless islands which have less edges than this get pruned. Defaults to 10.  </li>
@@ -1329,7 +1329,7 @@ can be reached using any of the traverse modes. Instead, pruning removes travers
 </ul>
 <p>Pruning thresholds are increased adaptively so that if the distance between an examined sub graph and the other graph is zero, the threshold is multiplied by a full adaptivePruningFactor value.
 The idea is that if a sub graph is closely entangled with another graph, it is likely to be a harmful modeling error, not a remote place like a true geographic island.
-If distance is more than adaptivePruningDistance, the actual nominal threshold values will be used. So, adaptiveness prunes much larger disconnected graphs in places where they
+If the distance is more than <code>adaptivePruningDistance</code>, the actual nominal threshold values will be used. So, adaptiveness prunes much larger disconnected graphs in places where they
 have potential to cause routing errors.</p>
 <p>Adaptive pruning can be disabled by setting adaptivePruningFactor to 1. Constant pruning thresholds will then be applied.</p>
 <p>Pruning also examines the transport modes of graph islands with stops. If land transportation modes are not found (only ferry or no modes at all), the graph is retained.
@@ -1345,10 +1345,10 @@ Itineraries can guide traveler quite close to the removed streets.</em></p>
 <em>The platform structure of a bus station is disconnected from the other graph. Most bus traffic of a medium size city becomes unusable.
 Despite of the complexity of the sub graph (54 edges and 21 stops), it must be removed in pruning, so that stops get linked to reachable and well connected streets.</em></p>
 <h2 id="issue-reports">Issue reports</h2>
-<p>Pruning creates a 'GraphIsland' issue every time it prunes a sub graph. Issues may show up as duplicates, because pruning is run for each traverse mode.</p>
-<p>A 'PrunedStopIsland' issue is added for every pruned graph island which has stops linked to it. Such islands are particularly
+<p>Pruning creates a <code>GraphIsland</code> issue every time it prunes a sub graph. Issues may show up as duplicates, because pruning is run for each traverse mode.</p>
+<p>A <code>PrunedStopIsland</code> issue is added for every pruned graph island which has stops linked to it. Such islands are particularly
 harmful, because they are places where public transit transfers take place and hence are frequently used. Pruned stop island issues should be studied
-frequently and undelying OSM errors fixed, especially if the island has many stops and edges (i.e it is most likely a public transit station,
+frequently and underlying OSM errors fixed, especially if the island has many stops and edges (i.e it is most likely a public transit station,
 see station island example above).</p>
 
 
