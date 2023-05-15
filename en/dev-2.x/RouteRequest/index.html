@@ -1879,11 +1879,11 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.1</td>
 </tr>
 <tr>
-<td>   debug</td>
-<td align="center"><code>boolean</code></td>
-<td>Enable this to attach a system notice to itineraries instead of removing them. This is very convenient when tuning the filters.</td>
+<td>   <a href="#rd_if_debug">debug</a></td>
+<td align="center"><code>enum</code></td>
+<td>Enable this to attach a system notice to itineraries instead of removing them. This is very convenient when tuning the itinerary-filter-chain.</td>
 <td align="center"><em>Optional</em></td>
-<td><code>false</code></td>
+<td><code>"off"</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -2475,6 +2475,23 @@ itineraries that are at least double in cost for the non-grouped legs.</p>
 <p>This filters out results that consist of a long walk plus a relatively short bike rental leg. A
 value of <code>0.3</code> means that a minimum of 30% of the total distance must be spent on the bike in order
 for the result to be included.</p>
+<h3 id="rd_if_debug">debug</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"off"</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters <br />
+<strong>Enum values:</strong> <code>off</code> | <code>list-all</code> | <code>limit-to-search-window</code> | <code>limit-to-num-of-itineraries</code></p>
+<p>Enable this to attach a system notice to itineraries instead of removing them. This is very
+convenient when tuning the itinerary-filter-chain.</p>
+<ul>
+<li><code>off</code> By default, the debug itinerary filters is turned off.</li>
+<li><code>list-all</code> List all itineraries, including all deleted itineraries.</li>
+<li><code>limit-to-search-window</code> Return all itineraries, including deleted ones, inside the actual search-window used
+   (the requested search-window may differ).</li>
+<li><code>limit-to-num-of-itineraries</code> Only return the requested number of itineraries, counting both actual and deleted ones.
+   The top <code>numItineraries</code> using the request sort order is returned. This does not work
+   with paging, itineraries after the limit, but inside the search-window are skipped when
+   moving to the next page.</li>
+</ul>
 <h3 id="rd_if_filterItinerariesWithSameFirstOrLastTrip">filterItinerariesWithSameFirstOrLastTrip</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
