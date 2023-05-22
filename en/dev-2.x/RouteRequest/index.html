@@ -1311,14 +1311,6 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.0</td>
 </tr>
 <tr>
-<td>allowKeepingRentedBicycleAtDestination</td>
-<td align="center"><code>boolean</code></td>
-<td>If a vehicle should be allowed to be kept at the end of a station-based rental.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>false</code></td>
-<td align="center">2.2</td>
-</tr>
-<tr>
 <td>arriveBy</td>
 <td align="center"><code>boolean</code></td>
 <td>Whether the trip should depart or arrive at the specified date and time.</td>
@@ -1356,38 +1348,6 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td>A multiplier for how bad biking is, compared to being in transit for equal lengths of time.</td>
 <td align="center"><em>Optional</em></td>
 <td><code>2.0</code></td>
-<td align="center">2.0</td>
-</tr>
-<tr>
-<td>bikeRentalDropoffCost</td>
-<td align="center"><code>integer</code></td>
-<td>Cost to drop-off a rented bike.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>30</code></td>
-<td align="center">2.0</td>
-</tr>
-<tr>
-<td>bikeRentalDropoffTime</td>
-<td align="center"><code>integer</code></td>
-<td>Time to drop-off a rented bike.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>30</code></td>
-<td align="center">2.0</td>
-</tr>
-<tr>
-<td>bikeRentalPickupCost</td>
-<td align="center"><code>integer</code></td>
-<td>Cost to rent a bike.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>120</code></td>
-<td align="center">2.0</td>
-</tr>
-<tr>
-<td>bikeRentalPickupTime</td>
-<td align="center"><code>integer</code></td>
-<td>Time to rent a bike.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>60</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -1607,14 +1567,6 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.2</td>
 </tr>
 <tr>
-<td>keepingRentedBicycleAtDestinationCost</td>
-<td align="center"><code>double</code></td>
-<td>The cost of arriving at the destination with the rented bicycle, to discourage doing so.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>0.0</code></td>
-<td align="center">2.2</td>
-</tr>
-<tr>
 <td>locale</td>
 <td align="center"><code>locale</code></td>
 <td>TODO</td>
@@ -1767,14 +1719,6 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.3</td>
 </tr>
 <tr>
-<td>useBikeRentalAvailabilityInformation</td>
-<td align="center"><code>boolean</code></td>
-<td>Whether or not bike rental availability information will be used to plan bike rental trips.</td>
-<td align="center"><em>Optional</em></td>
-<td><code>false</code></td>
-<td align="center">2.0</td>
-</tr>
-<tr>
 <td>waitReluctance</td>
 <td align="center"><code>double</code></td>
 <td>How much worse is waiting for a transit vehicle than being on a transit vehicle, as a multiplier.</td>
@@ -1823,25 +1767,9 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center">2.0</td>
 </tr>
 <tr>
-<td><a href="#rd_allowedVehicleRentalNetworks">allowedVehicleRentalNetworks</a></td>
-<td align="center"><code>string[]</code></td>
-<td>The vehicle rental networks which may be used. If empty all networks may be used.</td>
-<td align="center"><em>Optional</em></td>
-<td></td>
-<td align="center">2.1</td>
-</tr>
-<tr>
 <td><a href="#rd_bannedVehicleParkingTags">bannedVehicleParkingTags</a></td>
 <td align="center"><code>string[]</code></td>
 <td>Tags with which a vehicle parking will not be used. If empty, no tags are banned.</td>
-<td align="center"><em>Optional</em></td>
-<td></td>
-<td align="center">2.1</td>
-</tr>
-<tr>
-<td><a href="#rd_bannedVehicleRentalNetworks">bannedVehicleRentalNetworks</a></td>
-<td align="center"><code>string[]</code></td>
-<td>he vehicle rental networks which may not be used. If empty, no networks are banned.</td>
 <td align="center"><em>Optional</em></td>
 <td></td>
 <td align="center">2.1</td>
@@ -2077,6 +2005,86 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td align="center"><em>Optional</em></td>
 <td></td>
 <td align="center">2.2</td>
+</tr>
+<tr>
+<td>vehicleRental</td>
+<td align="center"><code>object</code></td>
+<td>Vehicle rental options</td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.3</td>
+</tr>
+<tr>
+<td>   allowKeepingAtDestination</td>
+<td align="center"><code>boolean</code></td>
+<td>If a vehicle should be allowed to be kept at the end of a station-based rental.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>false</code></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
+<td>   dropOffCost</td>
+<td align="center"><code>integer</code></td>
+<td>Cost to drop-off a rented vehicle.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>30</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>   dropOffTime</td>
+<td align="center"><code>integer</code></td>
+<td>Time to drop-off a rented vehicle.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>30</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>   keepingAtDestinationCost</td>
+<td align="center"><code>double</code></td>
+<td>The cost of arriving at the destination with the rented vehicle, to discourage doing so.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td align="center">2.2</td>
+</tr>
+<tr>
+<td>   pickupCost</td>
+<td align="center"><code>integer</code></td>
+<td>Cost to rent a vehicle.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>120</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>   pickupTime</td>
+<td align="center"><code>integer</code></td>
+<td>Time to rent a vehicle.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>60</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>   useAvailabilityInformation</td>
+<td align="center"><code>boolean</code></td>
+<td>Whether or not vehicle rental availability information will be used to plan vehicle rental trips.</td>
+<td align="center"><em>Optional</em></td>
+<td><code>false</code></td>
+<td align="center">2.0</td>
+</tr>
+<tr>
+<td>   <a href="#rd_vehicleRental_allowedNetworks">allowedNetworks</a></td>
+<td align="center"><code>string[]</code></td>
+<td>The vehicle rental networks which may be used. If empty all networks may be used.</td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_vehicleRental_bannedNetworks">bannedNetworks</a></td>
+<td align="center"><code>string[]</code></td>
+<td>The vehicle rental networks which may not be used. If empty, no networks are banned.</td>
+<td align="center"><em>Optional</em></td>
+<td></td>
+<td align="center">2.1</td>
 </tr>
 <tr>
 <td>wheelchairAccessibility</td>
@@ -2409,21 +2417,11 @@ high values.</p>
 <strong>Enum keys:</strong> <code>rail</code> | <code>coach</code> | <code>subway</code> | <code>bus</code> | <code>tram</code> | <code>ferry</code> | <code>airplane</code> | <code>cable-car</code> | <code>gondola</code> | <code>funicular</code> | <code>trolleybus</code> | <code>monorail</code> | <code>carpool</code> | <code>taxi</code></p>
 <p>How much extra time should be given when alighting a vehicle for each given mode.</p>
 <p>Sometimes there is a need to configure a longer alighting times for specific modes, such as airplanes or ferries.</p>
-<h3 id="rd_allowedVehicleRentalNetworks">allowedVehicleRentalNetworks</h3>
-
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /routingDefaults </p>
-<p>The vehicle rental networks which may be used. If empty all networks may be used.</p>
 <h3 id="rd_bannedVehicleParkingTags">bannedVehicleParkingTags</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
 <p>Tags with which a vehicle parking will not be used. If empty, no tags are banned.</p>
-<h3 id="rd_bannedVehicleRentalNetworks">bannedVehicleRentalNetworks</h3>
-
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /routingDefaults </p>
-<p>he vehicle rental networks which may not be used. If empty, no networks are banned.</p>
 <h3 id="rd_boardSlackForMode">boardSlackForMode</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -2682,6 +2680,16 @@ travel time <code>x</code> (in seconds).</p>
 <strong>Path:</strong> /routingDefaults/unpreferred </p>
 <p>The ids of the routes that incur an extra cost when being used. Format: <code>FeedId:RouteId</code></p>
 <p>How much cost is added is configured in <code>unpreferredCost</code>.</p>
+<h3 id="rd_vehicleRental_allowedNetworks">allowedNetworks</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/vehicleRental </p>
+<p>The vehicle rental networks which may be used. If empty all networks may be used.</p>
+<h3 id="rd_vehicleRental_bannedNetworks">bannedNetworks</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/vehicleRental </p>
+<p>The vehicle rental networks which may not be used. If empty, no networks are banned.</p>
 <h3 id="rd_wheelchairAccessibility_maxSlope">maxSlope</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.083</code> <br />
