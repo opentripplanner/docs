@@ -1398,33 +1398,11 @@ vehicle-rental) by defining a <code>combinationStrategy</code> parameter, and a 
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
 </code></pre></div>
+<p>Turning the fare service <em>off</em>, this will ignore any fare data in the provided GTFS data.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// build-config.json</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="c1">// Combine two fares by simply adding them</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;combinationStrategy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;additive&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">// First fare to combine</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;fare0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new-york&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">// Second fare to combine</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">&quot;fare1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-rental-time-based&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">&quot;prices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">          </span><span class="c1">// For trip shorter than 30&#39;, $4 fare</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">          </span><span class="nt">&quot;30&quot;</span><span class="p">:</span><span class="w">   </span><span class="mf">4.00</span><span class="p">,</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">          </span><span class="c1">// For trip shorter than 1h, $6 fare</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">          </span><span class="nt">&quot;1:00&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">6.00</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="c1">// We could also add fareFoo, fareBar...</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">}</span>
-</code></pre></div>
-<p>Turning the fare service <em>off</em>, this will ignore any fare data in the provided GTFS data.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
 </code></pre></div>
 <p>The current list of custom fare type is:</p>
 <ul>
@@ -1456,10 +1434,6 @@ vehicle-rental) by defining a <code>combinationStrategy</code> parameter, and a 
 <li><code>orca</code> (no parameters)</li>
 <li><code>off</code> (no parameters)</li>
 </ul>
-<p>The current list of <code>combinationStrategy</code> is:</p>
-<ul>
-<li><code>additive</code> - simply adds all sub-fares.</li>
-</ul>
 <h2 id="removed-fare-calculators">Removed fare calculators</h2>
 <p>The following calculators used to be part of the OTP codebase but since their maintainership
 was unclear and no-one <a href="https://groups.google.com/g/opentripplanner-users/c/ZPzx1lhZ9HU">offered to maintain</a>,
@@ -1469,6 +1443,7 @@ they were <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4273"
 <li>DutchFareServiceImpl</li>
 </ul>
 <p>The NYC fare calculator was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4694">#4694</a>.</p>
+<p>The <code>MultipleFareService</code> was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5100">#5100</a>.</p>
 <p>If you were using these calculators, you're welcome to re-add them to the code base and become their
 maintainer.</p>
 <h2 id="changelog">Changelog</h2>
