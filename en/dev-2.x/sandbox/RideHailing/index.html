@@ -1244,9 +1244,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#example-configuration" class="md-nav__link">
     Example configuration
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1343,15 +1356,36 @@
 <td align="center">2.3</td>
 </tr>
 <tr>
-<td>wheelchairAccessibleRideType</td>
+<td><a href="#rideHailingServices_0_wheelchairAccessibleProductId">wheelchairAccessibleProductId</a></td>
 <td align="center"><code>string</code></td>
-<td>The id of the requested wheelchair accessible ride type.</td>
+<td>The id of the requested wheelchair-accessible product ID.</td>
 <td align="center"><em>Required</em></td>
+<td></td>
+<td align="center">2.3</td>
+</tr>
+<tr>
+<td><a href="#rideHailingServices_0_bannedProductIds">bannedProductIds</a></td>
+<td align="center"><code>string[]</code></td>
+<td>The IDs of those product ids that should not be used for estimates.</td>
+<td align="center"><em>Optional</em></td>
 <td></td>
 <td align="center">2.3</td>
 </tr>
 </tbody>
 </table>
+<h4 id="details">Details</h4>
+<h4 id="rideHailingServices_0_wheelchairAccessibleProductId">wheelchairAccessibleProductId</h4>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /rideHailingServices/[0] </p>
+<p>The id of the requested wheelchair-accessible product ID.</p>
+<p>See <code>bannedProductIds</code> for a list of product IDs.</p>
+<h4 id="rideHailingServices_0_bannedProductIds">bannedProductIds</h4>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /rideHailingServices/[0] </p>
+<p>The IDs of those product ids that should not be used for estimates.</p>
+<p>See the current <a href="https://gist.github.com/leonardehrenfried/70f1346b045ad58224a6f43e4ef9ce7c">list of Uber product ids</a>.</p>
 <h5 id="example-configuration">Example configuration</h5>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
@@ -1360,10 +1394,14 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uber-car-hailing&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret-id&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;very-secret&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibleRideType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;car&quot;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibleProductId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;545de0c4-659f-49c6-be65-0d5e448dffd5&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;bannedProductIds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="s2">&quot;1196d0dd-423b-4a81-a1d8-615367d3a365&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="s2">&quot;f58761e5-8dd5-4940-a472-872f1236c596&quot;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
 </code></pre></div>
 <!-- uber-car-hailing END -->
 
