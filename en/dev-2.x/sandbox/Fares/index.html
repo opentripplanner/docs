@@ -1369,10 +1369,6 @@ which are also part of the sandbox code.</p>
 <td>HSL (<a href="mailto:viljami.nurminen@cgi.com">Viljami Nurminen</a>)</td>
 </tr>
 <tr>
-<td>SFBayFareServiceImpl</td>
-<td>unmaintained</td>
-</tr>
-<tr>
 <td>OrcaFareService</td>
 <td>IBI Group (<a href="mailto:daniel.heppner@ibigroup.com">Daniel Heppner</a>)</td>
 </tr>
@@ -1407,13 +1403,6 @@ vehicle-rental) by defining a <code>combinationStrategy</code> parameter, and a 
 </code></pre></div>
 <p>The current list of custom fare type is:</p>
 <ul>
-<li><code>vehicle-rental-time-based</code> - accepting the following parameters:<ul>
-<li><code>currency</code> - the ISO 4217 currency code to use, such as <code>"EUR"</code> or <code>"USD"</code>,</li>
-<li><code>prices</code> - a list of {time, price}. The resulting cost is the smallest cost where the elapsed
-  time of vehicle rental is lower than the defined time.</li>
-</ul>
-</li>
-<li><code>san-francisco</code> (no parameters)</li>
 <li><code>highest-fare-in-free-transfer-window</code> Will apply the highest observed transit fare (across all
   operators) within a free transfer window, adding to the cost if a trip is boarded outside the free
   transfer window. It accepts the following parameters:<ul>
@@ -1445,6 +1434,7 @@ they were <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4273"
 </ul>
 <p>The NYC fare calculator was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4694">#4694</a>.</p>
 <p>The <code>MultipleFareService</code> was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5100">#5100</a>.</p>
+<p>The <code>SFBayFareServiceImpl</code> and <code>TimeBasedVehicleRentalFareService</code> were removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5145">#5145</a>.</p>
 <p>If you were using these calculators, you're welcome to re-add them to the code base and become their
 maintainer.</p>
 <h2 id="changelog">Changelog</h2>
