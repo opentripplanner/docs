@@ -1418,11 +1418,11 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <td align="center">2.0</td>
 </tr>
 <tr>
-<td>previewIntervalMinutes</td>
-<td align="center"><code>integer</code></td>
+<td>previewInterval</td>
+<td align="center"><code>duration</code></td>
 <td>TODO</td>
 <td align="center"><em>Optional</em></td>
-<td><code>-1</code></td>
+<td></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -1434,11 +1434,11 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <td align="center">2.0</td>
 </tr>
 <tr>
-<td>timeoutSec</td>
-<td align="center"><code>integer</code></td>
+<td>timeout</td>
+<td align="center"><code>duration</code></td>
 <td>The HTTP timeout to download the updates.</td>
 <td align="center"><em>Optional</em></td>
-<td><code>15</code></td>
+<td><code>"PT15S"</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -1473,7 +1473,7 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-updater&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;timeoutSec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Some-Token&quot;</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p">}</span>
@@ -1516,11 +1516,11 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <td align="center">2.0</td>
 </tr>
 <tr>
-<td>earlyStartSec</td>
-<td align="center"><code>integer</code></td>
-<td>TODO</td>
+<td><a href="#u__9__earlyStart">earlyStart</a></td>
+<td align="center"><code>duration</code></td>
+<td>This value is subtracted from the actual validity defined in the message.</td>
 <td align="center"><em>Optional</em></td>
-<td><code>-1</code></td>
+<td><code>"PT0S"</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -1548,11 +1548,11 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <td align="center">2.0</td>
 </tr>
 <tr>
-<td>timeoutSec</td>
-<td align="center"><code>integer</code></td>
+<td>timeout</td>
+<td align="center"><code>duration</code></td>
 <td>The HTTP timeout to download the updates.</td>
 <td align="center"><em>Optional</em></td>
-<td><code>15</code></td>
+<td><code>"PT15S"</code></td>
 <td align="center">2.0</td>
 </tr>
 <tr>
@@ -1574,6 +1574,14 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 </tbody>
 </table>
 <h5 id="parameter-details_1">Parameter details</h5>
+<h4 id="u__9__earlyStart">earlyStart</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /updaters/[9] </p>
+<p>This value is subtracted from the actual validity defined in the message.</p>
+<p>Normally the planned departure time is used, so setting this to 10s will cause the
+SX-message to be included in trip-results 10 seconds before the the planned departure
+time.</p>
 <h4 id="u__9__headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -1587,7 +1595,7 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-sx-updater&quot;</span><span class="p">,</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;timeoutSec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">&quot;Key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Value&quot;</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="p">}</span>
