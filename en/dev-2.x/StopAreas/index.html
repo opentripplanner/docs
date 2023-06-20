@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/Fares/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/StopAreas/">
       
       
-        <link rel="prev" href="../IBIAccessibilityScore/">
+        <link rel="prev" href="../BoardingLocations/">
       
       
-        <link rel="next" href="../RideHailing/">
+        <link rel="next" href="../IslandPruning/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.5">
     
     
       
-        <title>Fares - OpenTripPlanner 2</title>
+        <title>Stop Area Relations - OpenTripPlanner 2</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7a7fce14.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fares" class="md-skip">
+        <a href="#stop-areas" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fares
+              Stop Area Relations
             
           </span>
         </div>
@@ -191,7 +191,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -222,7 +222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Home
       </a>
     </li>
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Product-Overview/" class="md-nav__link">
+      <a href="../Product-Overview/" class="md-nav__link">
         Product Overview
       </a>
     </li>
@@ -278,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Governance/" class="md-nav__link">
+      <a href="../Governance/" class="md-nav__link">
         Governance
       </a>
     </li>
@@ -292,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../History/" class="md-nav__link">
+      <a href="../History/" class="md-nav__link">
         History
       </a>
     </li>
@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Presentations/" class="md-nav__link">
+      <a href="../Presentations/" class="md-nav__link">
         Presentations
       </a>
     </li>
@@ -320,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Deployments/" class="md-nav__link">
+      <a href="../Deployments/" class="md-nav__link">
         Deployments
       </a>
     </li>
@@ -334,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Changelog/" class="md-nav__link">
+      <a href="../Changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -348,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Visual-Identity/" class="md-nav__link">
+      <a href="../Visual-Identity/" class="md-nav__link">
         Visual Identity
       </a>
     </li>
@@ -397,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Basic-Tutorial/" class="md-nav__link">
+      <a href="../Basic-Tutorial/" class="md-nav__link">
         Basic Tutorial
       </a>
     </li>
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Getting-OTP/" class="md-nav__link">
+      <a href="../Getting-OTP/" class="md-nav__link">
         Getting OTP
       </a>
     </li>
@@ -425,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container-Image/" class="md-nav__link">
+      <a href="../Container-Image/" class="md-nav__link">
         Container Image
       </a>
     </li>
@@ -439,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../System-Requirements/" class="md-nav__link">
+      <a href="../System-Requirements/" class="md-nav__link">
         System Requirements and Suggestions
       </a>
     </li>
@@ -453,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Preparing-OSM/" class="md-nav__link">
+      <a href="../Preparing-OSM/" class="md-nav__link">
         Preparing OSM Data
       </a>
     </li>
@@ -467,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Netex-Norway/" class="md-nav__link">
+      <a href="../Netex-Norway/" class="md-nav__link">
         Netex and SIRI
       </a>
     </li>
@@ -481,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Security/" class="md-nav__link">
+      <a href="../Security/" class="md-nav__link">
         Security
       </a>
     </li>
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Troubleshooting-Routing/" class="md-nav__link">
+      <a href="../Troubleshooting-Routing/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -509,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Version-Comparison/" class="md-nav__link">
+      <a href="../Version-Comparison/" class="md-nav__link">
         Comparing OTP2 to OTP1
       </a>
     </li>
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OTP2-MigrationGuide/" class="md-nav__link">
+      <a href="../OTP2-MigrationGuide/" class="md-nav__link">
         OTP2 Migration Guide
       </a>
     </li>
@@ -543,14 +543,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -559,7 +561,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Configuration
@@ -572,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Configuration/" class="md-nav__link">
+      <a href="../Configuration/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -586,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BuildConfiguration/" class="md-nav__link">
+      <a href="../BuildConfiguration/" class="md-nav__link">
         Build
       </a>
     </li>
@@ -600,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BoardingLocations/" class="md-nav__link">
+      <a href="../BoardingLocations/" class="md-nav__link">
         Boarding Locations
       </a>
     </li>
@@ -612,11 +614,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../StopAreas/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Stop Area Relations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Stop Area Relations
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    Instructions:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -628,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IslandPruning/" class="md-nav__link">
+      <a href="../IslandPruning/" class="md-nav__link">
         Street Graph Pruning
       </a>
     </li>
@@ -642,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RouterConfiguration/" class="md-nav__link">
+      <a href="../RouterConfiguration/" class="md-nav__link">
         Router
       </a>
     </li>
@@ -656,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Accessibility/" class="md-nav__link">
+      <a href="../Accessibility/" class="md-nav__link">
         Accessibility
       </a>
     </li>
@@ -670,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RouteRequest/" class="md-nav__link">
+      <a href="../RouteRequest/" class="md-nav__link">
         Route Request
       </a>
     </li>
@@ -684,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UpdaterConfig/" class="md-nav__link">
+      <a href="../UpdaterConfig/" class="md-nav__link">
         Realtime Updaters
       </a>
     </li>
@@ -698,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RoutingModes/" class="md-nav__link">
+      <a href="../RoutingModes/" class="md-nav__link">
         Routing Modes
       </a>
     </li>
@@ -712,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Logging/" class="md-nav__link">
+      <a href="../Logging/" class="md-nav__link">
         Logging
       </a>
     </li>
@@ -761,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Developers-Guide/" class="md-nav__link">
+      <a href="../Developers-Guide/" class="md-nav__link">
         Developers' Guide
       </a>
     </li>
@@ -775,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Interfaces-Data-Sources/" class="md-nav__link">
+      <a href="../Interfaces-Data-Sources/" class="md-nav__link">
         Interfaces and Data Sources
       </a>
     </li>
@@ -789,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Localization/" class="md-nav__link">
+      <a href="../Localization/" class="md-nav__link">
         Localization
       </a>
     </li>
@@ -803,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Bibliography/" class="md-nav__link">
+      <a href="../Bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -817,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Codestyle/" class="md-nav__link">
+      <a href="../Codestyle/" class="md-nav__link">
         Codestyle
       </a>
     </li>
@@ -831,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SandboxExtension/" class="md-nav__link">
+      <a href="../SandboxExtension/" class="md-nav__link">
         Sandbox Development
       </a>
     </li>
@@ -845,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ReleaseChecklist/" class="md-nav__link">
+      <a href="../ReleaseChecklist/" class="md-nav__link">
         Release Checklist
       </a>
     </li>
@@ -865,16 +908,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
       
@@ -883,7 +924,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Sandbox
@@ -896,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SandboxExtension/" class="md-nav__link">
+      <a href="../SandboxExtension/" class="md-nav__link">
         About
       </a>
     </li>
@@ -910,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ActuatorAPI/" class="md-nav__link">
+      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
         Actuator API
       </a>
     </li>
@@ -924,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transferanalyzer/" class="md-nav__link">
+      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
         Direct Transfer Analyzer
       </a>
     </li>
@@ -938,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GoogleCloudStorage/" class="md-nav__link">
+      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
         Google Cloud Storage
       </a>
     </li>
@@ -952,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../LegacyGraphQLApi/" class="md-nav__link">
+      <a href="../sandbox/LegacyGraphQLApi/" class="md-nav__link">
         HSL Legacy GraphQL API
       </a>
     </li>
@@ -966,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TransmodelApi/" class="md-nav__link">
+      <a href="../sandbox/TransmodelApi/" class="md-nav__link">
         Transmodel(NeTEx) GraphQL API
       </a>
     </li>
@@ -980,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SiriUpdater/" class="md-nav__link">
+      <a href="../sandbox/SiriUpdater/" class="md-nav__link">
         SIRI Updaters
       </a>
     </li>
@@ -994,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SiriAzureUpdater/" class="md-nav__link">
+      <a href="../sandbox/SiriAzureUpdater/" class="md-nav__link">
         SIRI Updater (Azure)
       </a>
     </li>
@@ -1008,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
         Vehicle Rental Service Directory API support
       </a>
     </li>
@@ -1022,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SmooveBikeRental/" class="md-nav__link">
+      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
         Smoove Bike Rental Updator Support
       </a>
     </li>
@@ -1036,7 +1077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
         Mapbox Vector Tiles API
       </a>
     </li>
@@ -1050,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Flex/" class="md-nav__link">
+      <a href="../sandbox/Flex/" class="md-nav__link">
         Flex Routing
       </a>
     </li>
@@ -1064,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ReportApi/" class="md-nav__link">
+      <a href="../sandbox/ReportApi/" class="md-nav__link">
         Report API
       </a>
     </li>
@@ -1078,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../InteractiveOtpMain/" class="md-nav__link">
+      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
         Interactive OTP Launcher
       </a>
     </li>
@@ -1092,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ParkAndRideApi/" class="md-nav__link">
+      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
         Park and Ride API
       </a>
     </li>
@@ -1106,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DataOverlay/" class="md-nav__link">
+      <a href="../sandbox/DataOverlay/" class="md-nav__link">
         Data Overlay
       </a>
     </li>
@@ -1120,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleParking/" class="md-nav__link">
+      <a href="../sandbox/VehicleParking/" class="md-nav__link">
         Vehicle Parking Updaters
       </a>
     </li>
@@ -1134,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleToStopHeuristics/" class="md-nav__link">
+      <a href="../sandbox/VehicleToStopHeuristics/" class="md-nav__link">
         Vehicle-to-stop Heuristics
       </a>
     </li>
@@ -1148,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GeocoderAPI/" class="md-nav__link">
+      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
         Geocoder API
       </a>
     </li>
@@ -1162,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TravelTime/" class="md-nav__link">
+      <a href="../sandbox/TravelTime/" class="md-nav__link">
         Travel Time Isochrones
       </a>
     </li>
@@ -1176,7 +1217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
         IBI Accessibility Score
       </a>
     </li>
@@ -1188,107 +1229,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Fares
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sandbox/Fares/" class="md-nav__link">
         Fares
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contact-info" class="md-nav__link">
-    Contact Info
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fares-v2" class="md-nav__link">
-    Fares V2
-  </a>
-  
-    <nav class="md-nav" aria-label="Fares V2">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-fares-v2-fields" class="md-nav__link">
-    Supported Fares V2 fields
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#custom-fare-calculators" class="md-nav__link">
-    Custom fare calculators
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fares-configuration" class="md-nav__link">
-    Fares configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#removed-fare-calculators" class="md-nav__link">
-    Removed fare calculators
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    Changelog
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1300,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RideHailing/" class="md-nav__link">
+      <a href="../sandbox/RideHailing/" class="md-nav__link">
         Ride Hailing
       </a>
     </li>
@@ -1332,131 +1277,25 @@
   
 
 
-<h1 id="fares">Fares</h1>
-<h2 id="contact-info">Contact Info</h2>
+<h1 id="stop-areas">Stop Areas</h1>
+<p>Public transit stations and stops can be modeled using a relation tagged with <code>public_transport=stop_area</code>.
+Description of such relations can be found from this <a href="https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_area">OSM wiki page</a>.</p>
+<p>OpenTripPlanner detects such relations and applies some special logic to them.
+Nodes, which are linked to street network, and are located within platform areas, are interpreted as connection points
+from the street network to the platform. OTP automatically links such points with the platform geometry in order to improve
+walk routing.</p>
+<p>For example, an elevator or stairs can connect a normal street to a railway platform above it. There is
+no need to add an explicit edge, which connects the entrance point with the actual geometry of the platform.</p>
+<p>An  example: <a href="https://www.openstreetmap.org/relation/6815620">Huopalahti railway station in Helsinki</a></p>
+<h4 id="instructions">Instructions:</h4>
 <ul>
-<li>Leonard Ehrenfried (<a href="mailto:mail@leonard.io">mail@leonard.io</a>)</li>
-</ul>
-<h2 id="documentation">Documentation</h2>
-<p>The code in this sandbox used to be part of OTP core but to allow more experimentation - in 
-particular regarding GTFS Fares V2 - it was moved into a sandbox.</p>
-<h2 id="fares-v2">Fares V2</h2>
-<p>In 2022 the GTFS spec was extended to contain a powerful new model, called Fares V2, to describe fares, prices and
-products for public transport tickets. A baseline effort was <a href="https://github.com/google/transit/pull/286">merged into the main
-spec</a> in May.</p>
-<p>OTP experimentally supports the merged baseline plus a few extensions from the <a href="http://bit.ly/gtfs-fares">larger, unmerged spec</a>.</p>
-<p>To enable Fares V2 support, add the following to <code>otp-config.json</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;otpFeatures&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;FaresV2&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="supported-fares-v2-fields">Supported Fares V2 fields</h3>
-<p>A full list of the fields that OTP supports is available in the <a href="https://docs.google.com/spreadsheets/d/1jpKjz6MbCD2XPhmIP11EDi-P2jMh7x2k-oHS-pLf2vI">Fares V2 Adoption Google Sheet</a>.</p>
-<h2 id="custom-fare-calculators">Custom fare calculators</h2>
-<p>When the GTFS Fares V1 spec was not enough, some organizations have developed their own calculators
-which are also part of the sandbox code.</p>
-<p>The classes and their maintainers are as follows:</p>
-<table>
-<thead>
-<tr>
-<th>class</th>
-<th>maintainer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HighestFareInFreeTransferWindowFareService</td>
-<td>IBI Group (<a href="mailto:david.emory@ibigroup.com">David Emory</a>)</td>
-</tr>
-<tr>
-<td>AtlantaFareService</td>
-<td>IBI Group (<a href="mailto:david.emory@ibigroup.com">David Emory</a>)</td>
-</tr>
-<tr>
-<td>CombinedInterlinedLegsFareService</td>
-<td>IBI Group (<a href="mailto:david.emory@ibigroup.com">David Emory</a>)</td>
-</tr>
-<tr>
-<td>HSLFareServiceImpl</td>
-<td>HSL (<a href="mailto:viljami.nurminen@cgi.com">Viljami Nurminen</a>)</td>
-</tr>
-<tr>
-<td>OrcaFareService</td>
-<td>IBI Group (<a href="mailto:daniel.heppner@ibigroup.com">Daniel Heppner</a>)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="fares-configuration">Fares configuration</h2>
-<p>By default OTP will compute fares according to the GTFS specification if fare data is provided in
-your GTFS input. It is possible to turn off this by setting the fare to "off". For more complex
-scenarios or to handle vehicle rental fares, it is necessary to manually configure fares using the
-<code>fares</code> section in <code>build-config.json</code>. You can combine different fares (for example transit and
-vehicle-rental) by defining a <code>combinationStrategy</code> parameter, and a list of sub-fares to combine
-(all fields starting with <code>fare</code> are considered to be sub-fares).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="c1">// Select the custom fare &quot;seattle&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seattle&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
-</code></pre></div>
-<p>Or this alternative form that could allow additional configuration</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seattle&quot;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
-</code></pre></div>
-<p>Turning the fare service <em>off</em>, this will ignore any fare data in the provided GTFS data.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
-</code></pre></div>
-<p>The current list of custom fare type is:</p>
-<ul>
-<li><code>highest-fare-in-free-transfer-window</code> Will apply the highest observed transit fare (across all
-  operators) within a free transfer window, adding to the cost if a trip is boarded outside the free
-  transfer window. It accepts the following parameters:<ul>
-<li><code>freeTransferWindow</code> the duration (in ISO8601-ish notation) that free transfers are
-  possible after the board time of the first transit leg. Default: <code>2h30m</code>.</li>
-<li><code>analyzeInterlinedTransfers</code> If true, will treat interlined transfers as actual transfers.
-  This is merely a work-around for transit agencies that choose to code their fares in a
-  route-based fashion instead of a zone-based fashion. Default: <code>false</code></li>
-</ul>
-</li>
-<li><code>atlanta</code> (no parameters)</li>
-<li><code>combine-interlined-legs</code> Will treat two interlined legs (those with a stay-seated transfer in
-  between them) as a single leg for the purpose of fare calculation.
-  It has a single parameter <code>mode</code> which controls when exactly the combination should happen:<ul>
-<li><code>ALWAYS</code>: All interlined legs are combined. (default)</li>
-<li><code>SAME_ROUTE</code>: Only interlined legs whose route ID are identical are combined.</li>
-</ul>
-</li>
-<li><code>orca</code> (no parameters)</li>
-<li><code>off</code> (no parameters)</li>
-</ul>
-<h2 id="removed-fare-calculators">Removed fare calculators</h2>
-<p>The following calculators used to be part of the OTP codebase but since their maintainership
-was unclear and no-one <a href="https://groups.google.com/g/opentripplanner-users/c/ZPzx1lhZ9HU">offered to maintain</a>,
-they were <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4273">removed</a> in July 2022.</p>
-<ul>
-<li>SeattleFareServiceImpl</li>
-<li>DutchFareServiceImpl</li>
-</ul>
-<p>The NYC fare calculator was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4694">#4694</a>.</p>
-<p>The <code>MultipleFareService</code> was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5100">#5100</a>.</p>
-<p>The <code>SFBayFareServiceImpl</code> and <code>TimeBasedVehicleRentalFareService</code> were removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5145">#5145</a>.</p>
-<p>If you were using these calculators, you're welcome to re-add them to the code base and become their
-maintainer.</p>
-<h2 id="changelog">Changelog</h2>
-<ul>
-<li>Initial move into sandbox <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4241">#4241</a></li>
-<li>Add HighestFareInFreeTransferWindowFareService <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4267">#4267</a></li>
-<li>Add Fares V2 <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4338">#4338</a></li>
-<li>Add CombineInterlinedLegsFareService <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4509">#4509</a></li>
+<li>Add platforms, which need special linking, as members of a <code>stop_area</code> tagged relation</li>
+<li>Set role=platform to these platform members</li>
+<li>Platforms must be also proper areas, tagged as routable highways and <code>area=yes</code>. Also a single tag <code>public_transport=platform</code> will do.</li>
+<li>Model required entrance points inside platform geometry and make them relation members, too. No special tagging or role is required.</li>
+<li>Connect entrance points to the street network</li>
+<li>Platform and its entrance point must have the same <code>level</code> tag value. Also matching by default value zero is accepted.</li>
+<li>If <code>level</code> tag is not set, <code>layer</code> tag is also considered</li>
 </ul>
 
 
@@ -1495,10 +1334,10 @@ maintainer.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
+      <script src="../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
