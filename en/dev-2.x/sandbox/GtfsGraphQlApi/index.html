@@ -8,27 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/Accessibility/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/GtfsGraphQlApi/">
       
       
-        <link rel="prev" href="../RouterConfiguration/">
+        <link rel="prev" href="../GoogleCloudStorage/">
       
       
-        <link rel="next" href="../RouteRequest/">
+        <link rel="next" href="../TransmodelApi/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.5">
     
     
       
-        <title>Accessibility - OpenTripPlanner 2</title>
+        <title>GTFS GraphQL API - OpenTripPlanner 2</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7a7fce14.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#accessibility" class="md-skip">
+        <a href="#gtfs-graphql-api" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href="../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Accessibility
+              GTFS GraphQL API
             
           </span>
         </div>
@@ -191,7 +191,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href="../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -222,7 +222,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Product-Overview/" class="md-nav__link">
+      <a href="../../Product-Overview/" class="md-nav__link">
         Product Overview
       </a>
     </li>
@@ -278,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Governance/" class="md-nav__link">
+      <a href="../../Governance/" class="md-nav__link">
         Governance
       </a>
     </li>
@@ -292,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../History/" class="md-nav__link">
+      <a href="../../History/" class="md-nav__link">
         History
       </a>
     </li>
@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Presentations/" class="md-nav__link">
+      <a href="../../Presentations/" class="md-nav__link">
         Presentations
       </a>
     </li>
@@ -320,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Deployments/" class="md-nav__link">
+      <a href="../../Deployments/" class="md-nav__link">
         Deployments
       </a>
     </li>
@@ -334,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Changelog/" class="md-nav__link">
+      <a href="../../Changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -348,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Visual-Identity/" class="md-nav__link">
+      <a href="../../Visual-Identity/" class="md-nav__link">
         Visual Identity
       </a>
     </li>
@@ -397,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic-Tutorial/" class="md-nav__link">
+      <a href="../../Basic-Tutorial/" class="md-nav__link">
         Basic Tutorial
       </a>
     </li>
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Apis-Data-Sources/" class="md-nav__link">
+      <a href="../../Apis-Data-Sources/" class="md-nav__link">
         APIs and Data Sources
       </a>
     </li>
@@ -425,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Getting-OTP/" class="md-nav__link">
+      <a href="../../Getting-OTP/" class="md-nav__link">
         Getting OTP
       </a>
     </li>
@@ -439,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Container-Image/" class="md-nav__link">
+      <a href="../../Container-Image/" class="md-nav__link">
         Container Image
       </a>
     </li>
@@ -453,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../System-Requirements/" class="md-nav__link">
+      <a href="../../System-Requirements/" class="md-nav__link">
         System Requirements and Suggestions
       </a>
     </li>
@@ -467,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Preparing-OSM/" class="md-nav__link">
+      <a href="../../Preparing-OSM/" class="md-nav__link">
         Preparing OSM Data
       </a>
     </li>
@@ -481,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Netex-Norway/" class="md-nav__link">
+      <a href="../../Netex-Norway/" class="md-nav__link">
         Netex and SIRI
       </a>
     </li>
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Security/" class="md-nav__link">
+      <a href="../../Security/" class="md-nav__link">
         Security
       </a>
     </li>
@@ -509,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Troubleshooting-Routing/" class="md-nav__link">
+      <a href="../../Troubleshooting-Routing/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Version-Comparison/" class="md-nav__link">
+      <a href="../../Version-Comparison/" class="md-nav__link">
         Comparing OTP2 to OTP1
       </a>
     </li>
@@ -537,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../OTP2-MigrationGuide/" class="md-nav__link">
+      <a href="../../OTP2-MigrationGuide/" class="md-nav__link">
         OTP2 Migration Guide
       </a>
     </li>
@@ -557,16 +557,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
@@ -575,7 +573,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Configuration
@@ -588,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Configuration/" class="md-nav__link">
+      <a href="../../Configuration/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -602,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BuildConfiguration/" class="md-nav__link">
+      <a href="../../BuildConfiguration/" class="md-nav__link">
         Build
       </a>
     </li>
@@ -616,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BoardingLocations/" class="md-nav__link">
+      <a href="../../BoardingLocations/" class="md-nav__link">
         Boarding Locations
       </a>
     </li>
@@ -630,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../StopAreas/" class="md-nav__link">
+      <a href="../../StopAreas/" class="md-nav__link">
         Stop Area Relations
       </a>
     </li>
@@ -644,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IslandPruning/" class="md-nav__link">
+      <a href="../../IslandPruning/" class="md-nav__link">
         Street Graph Pruning
       </a>
     </li>
@@ -658,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RouterConfiguration/" class="md-nav__link">
+      <a href="../../RouterConfiguration/" class="md-nav__link">
         Router
       </a>
     </li>
@@ -670,80 +668,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Accessibility
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Accessibility/" class="md-nav__link">
         Accessibility
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preamble" class="md-nav__link">
-    Preamble
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unknown-data" class="md-nav__link">
-    Unknown data
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#accessible-transfers" class="md-nav__link">
-    Accessible transfers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -755,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RouteRequest/" class="md-nav__link">
+      <a href="../../RouteRequest/" class="md-nav__link">
         Route Request
       </a>
     </li>
@@ -769,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../UpdaterConfig/" class="md-nav__link">
+      <a href="../../UpdaterConfig/" class="md-nav__link">
         Realtime Updaters
       </a>
     </li>
@@ -783,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RoutingModes/" class="md-nav__link">
+      <a href="../../RoutingModes/" class="md-nav__link">
         Routing Modes
       </a>
     </li>
@@ -797,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Logging/" class="md-nav__link">
+      <a href="../../Logging/" class="md-nav__link">
         Logging
       </a>
     </li>
@@ -846,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Developers-Guide/" class="md-nav__link">
+      <a href="../../Developers-Guide/" class="md-nav__link">
         Developers' Guide
       </a>
     </li>
@@ -860,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Localization/" class="md-nav__link">
+      <a href="../../Localization/" class="md-nav__link">
         Localization
       </a>
     </li>
@@ -874,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Bibliography/" class="md-nav__link">
+      <a href="../../Bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -888,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Codestyle/" class="md-nav__link">
+      <a href="../../Codestyle/" class="md-nav__link">
         Codestyle
       </a>
     </li>
@@ -902,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SandboxExtension/" class="md-nav__link">
+      <a href="../../SandboxExtension/" class="md-nav__link">
         Sandbox Development
       </a>
     </li>
@@ -916,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ReleaseChecklist/" class="md-nav__link">
+      <a href="../../ReleaseChecklist/" class="md-nav__link">
         Release Checklist
       </a>
     </li>
@@ -936,14 +865,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
       
       
       
@@ -952,7 +883,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Sandbox
@@ -965,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SandboxExtension/" class="md-nav__link">
+      <a href="../../SandboxExtension/" class="md-nav__link">
         About
       </a>
     </li>
@@ -979,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
+      <a href="../ActuatorAPI/" class="md-nav__link">
         Actuator API
       </a>
     </li>
@@ -993,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
+      <a href="../transferanalyzer/" class="md-nav__link">
         Direct Transfer Analyzer
       </a>
     </li>
@@ -1007,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
+      <a href="../GoogleCloudStorage/" class="md-nav__link">
         Google Cloud Storage
       </a>
     </li>
@@ -1019,11 +950,106 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../sandbox/GtfsGraphQlApi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GTFS GraphQL API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         GTFS GraphQL API
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contact-info" class="md-nav__link">
+    Contact Info
+  </a>
+  
+    <nav class="md-nav" aria-label="Contact Info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-documentation" class="md-nav__link">
+    Schema documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-api-client" class="md-nav__link">
+    Built-in API client
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in API client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#otp2-official-graphql-api-not-available" class="md-nav__link">
+    OTP2 Official GraphQL API (Not available)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1035,7 +1061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/TransmodelApi/" class="md-nav__link">
+      <a href="../TransmodelApi/" class="md-nav__link">
         Transmodel(NeTEx) GraphQL API
       </a>
     </li>
@@ -1049,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/SiriUpdater/" class="md-nav__link">
+      <a href="../SiriUpdater/" class="md-nav__link">
         SIRI Updaters
       </a>
     </li>
@@ -1063,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/SiriAzureUpdater/" class="md-nav__link">
+      <a href="../SiriAzureUpdater/" class="md-nav__link">
         SIRI Updater (Azure)
       </a>
     </li>
@@ -1077,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
         Vehicle Rental Service Directory API support
       </a>
     </li>
@@ -1091,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
+      <a href="../SmooveBikeRental/" class="md-nav__link">
         Smoove Bike Rental Updator Support
       </a>
     </li>
@@ -1105,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
         Mapbox Vector Tiles API
       </a>
     </li>
@@ -1119,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Flex/" class="md-nav__link">
+      <a href="../Flex/" class="md-nav__link">
         Flex Routing
       </a>
     </li>
@@ -1133,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/ReportApi/" class="md-nav__link">
+      <a href="../ReportApi/" class="md-nav__link">
         Report API
       </a>
     </li>
@@ -1147,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
+      <a href="../InteractiveOtpMain/" class="md-nav__link">
         Interactive OTP Launcher
       </a>
     </li>
@@ -1161,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
+      <a href="../ParkAndRideApi/" class="md-nav__link">
         Park and Ride API
       </a>
     </li>
@@ -1175,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/DataOverlay/" class="md-nav__link">
+      <a href="../DataOverlay/" class="md-nav__link">
         Data Overlay
       </a>
     </li>
@@ -1189,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/VehicleParking/" class="md-nav__link">
+      <a href="../VehicleParking/" class="md-nav__link">
         Vehicle Parking Updaters
       </a>
     </li>
@@ -1203,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/VehicleToStopHeuristics/" class="md-nav__link">
+      <a href="../VehicleToStopHeuristics/" class="md-nav__link">
         Vehicle-to-stop Heuristics
       </a>
     </li>
@@ -1217,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
+      <a href="../GeocoderAPI/" class="md-nav__link">
         Geocoder API
       </a>
     </li>
@@ -1231,7 +1257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/TravelTime/" class="md-nav__link">
+      <a href="../TravelTime/" class="md-nav__link">
         Travel Time Isochrones
       </a>
     </li>
@@ -1245,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../IBIAccessibilityScore/" class="md-nav__link">
         IBI Accessibility Score
       </a>
     </li>
@@ -1259,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Fares/" class="md-nav__link">
+      <a href="../Fares/" class="md-nav__link">
         Fares
       </a>
     </li>
@@ -1273,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/RideHailing/" class="md-nav__link">
+      <a href="../RideHailing/" class="md-nav__link">
         Ride Hailing
       </a>
     </li>
@@ -1305,114 +1331,72 @@
   
 
 
-<h1 id="accessibility">Accessibility</h1>
-<h2 id="preamble">Preamble</h2>
-<p>GTFS and Netex define accessibility primarily in terms of binary access for wheelchair users: it's
-either on or off. Whilst it is the desire of the OTP developers to broaden the scope of
-accessibility the lack of data limits us to use this definition in the implementation and in this
-document.</p>
-<h2 id="unknown-data">Unknown data</h2>
-<p>Many agencies have the same problem: data on wheelchair-accessibility is, if it exists at all,
-patchy. If you only included trips and stops that are explicitly set to be wheelchair-accessible
-rather than unknown, it would be hard to get any result at all. For this reason OTP allows you to
-configure which sort of unknown information should be taken into account.</p>
-<h2 id="configuration">Configuration</h2>
-<p>If you want to allow trips and stops of unknown wheelchair-accessibility then add the following to
-<code>router-config.json</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;routingDefaults&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;trip&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="nt">&quot;elevator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="nt">&quot;inaccessibleStreetReluctance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="nt">&quot;maxSlope&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08333</span><span class="p">,</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="nt">&quot;slopeExceededReluctance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="p">}</span>
-</code></pre></div>
-<p>The parameters for <code>stop</code>, <code>trip</code> and <code>elevator</code> mean the following:</p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-<th></th>
-<th>default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>onlyConsiderAccessible</code></td>
-<td>Whether to exclude unknown accessibility and inaccessible stops/trips/elevators in the search.</td>
-<td><code>true</code></td>
-</tr>
-<tr>
-<td><code>unknownCost</code></td>
-<td>The cost to add if an entity has unknown wheelchair accessibility</td>
-<td>600</td>
-</tr>
-<tr>
-<td><code>inaccessibleCost</code></td>
-<td>The cost to add if an entity is known to be inaccessible</td>
-<td>3600</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Note</strong>: Unless your accessibility data coverage is complete you will receive much better results
-by setting <code>onlyConsiderAccessible=false</code>, because otherwise you receive barely any results.</p>
-<p>Other parameters are:</p>
+<h1 id="gtfs-graphql-api">GTFS GraphQL API</h1>
+<h2 id="contact-info">Contact Info</h2>
 <ul>
-<li><code>inaccessibleStreetReluctance</code>: if a street is marked as wheelchair-inaccessible this is the
-  penalty that is applied for wheelchair users. This should be quite high so that those are only
-  chosen as a very last resort. default: 25</li>
-<li><code>maxSlope</code>: the maximum slope that a wheelchair user can use without incurring routing penalties (
-  leading to those ways being avoided). default: 0.083 (8.3 %)</li>
-<li><code>slopeExceededReluctance</code>: how steep should the cost increase when you exceed the maximum slope.
-  By default, every percent over the limit doubles the cost of the traversal, so if the regular cost
-  is 100, being 1 percent over the limit will lead to a cost of 200, 2 percent over will lead to 400
-  and so on.
-  If you want an even steeper increase then set a value higher than 1. If you want it shallower use
-  a value between 0 and 1. To disable the penalty set a value below 0. default: 1</li>
-<li><code>stairsReluctance</code>: how much should a wheelchair user avoid stairs. This should be quite high so
-  that they are used only as a last resort. default: 25</li>
+<li>Digitransit team, HSL, Helsinki, Finland</li>
+<li>Kyyti, Helsinki, Finland</li>
+<li>IBI, USA</li>
 </ul>
-<h2 id="accessible-transfers">Accessible transfers</h2>
-<p>By default OTP only pre-calculates transfers between stops for able-bodied walkers. If they have no
-obstacles wheelchair users can use them, too, but there won't be guaranteed to be one.</p>
-<p>If you want OTP to also pre-generate wheelchair-accessible transfers use the following configuration
-in <code>build-config.json</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;transferRequests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">}</span>
+<h3 id="configuration">Configuration</h3>
+<p>The API is enabled by default. </p>
+<p>If you want to disable it, do it in <code>otp-config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// otp-config.json</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;otpFeatures&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;GtfsGraphQlApi&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div>
-<p>This results in OTP calculating an accessible transfer if the default one is found to be
-inaccessible to wheelchair users.</p>
-<h2 id="example">Example</h2>
-<p>A full configuration example is available
-at <a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/docs/examples/ibi"><code>/docs/examples</code></a></p>
+<h2 id="documentation">Documentation</h2>
+<p>This is the GraphQL API used by the Digitransit project. The API is used to run OTP2
+together with the <a href="https://github.com/HSLdevcom/digitransit-ui">digitransit-ui</a>.</p>
+<p>The GraphQL endpoint is available at: <code>http://localhost:8080/otp/routers/default/index/graphql</code></p>
+<p>A complete example that fetches the list of all stops from OTP is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl --request POST \
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  --url http://localhost:8080/otp/routers/default/index/graphql \
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  --header &#39;Content-Type: application/json&#39; \
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  --header &#39;OTPTimeout: 180000&#39; \
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  --data &#39;{&quot;query&quot;:&quot;query stops {\n  stops {\n    gtfsId\n    name\n  }\n}\n&quot;,&quot;operationName&quot;:&quot;stops&quot;}&#39;
+</code></pre></div>
+<h2 id="schema-documentation">Schema documentation</h2>
+<p>Available at <a href="https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/">https://docs.opentripplanner.org/api/</a></p>
+<h2 id="built-in-api-client">Built-in API client</h2>
+<p>A browser based GraphQL API client is available at <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a></p>
+<p><img alt="GraphiQL" src="../../images/graphiql.png" /></p>
+<h3 id="otp2-official-graphql-api-not-available">OTP2 Official GraphQL API (Not available)</h3>
+<p>We <strong>plan</strong> to make a new offical OTP2 API, replacing the REST API. The plan is to base the new API
+on this API and the <a href="./">GTFS GraphQL API</a>. The new API will most likely have two
+"translations": A GTFS version and a Transmodel version, we will try to keep the semantics the same.</p>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>Initial version of Legacy Graph QL API (September 2020)</li>
+<li>Added ids parameter to bikeRentalStations query (May 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3450">#3450</a>)</li>
+<li>Added capacity and allowOverloading fields to bike rental stations (not yet properly implemented) (May 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3450">#3450</a>)</li>
+<li>Updated documentation and process for generating Java code from GraphQL schema definition (May 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3450">#3450</a>)</li>
+<li>Implemented modeWeight and added debugItineraryFilter to plan query. Added systemNotices to itineraries (May 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3503">#3503</a>)</li>
+<li>Updated to ignore modes which are not valid in OTP2 (June 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3464">#3464</a>)</li>
+<li>Add Leg#walkingBike (June 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3550">#3550</a>)</li>
+<li>Add GBFS bike rental URIs to bike rental stations (June 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3543">#3543</a>)</li>
+<li>Properly implement all bike rental station fields and add allowPickup, allowPickupNow, allowDropoffNow and operative fields (October 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3632">#3632</a>)</li>
+<li>Create RentalVehicle, VehicleRentalStation and VehicleRentalUris types. Deprecate BikeRentalStation and BikeRentalStationUris types (October 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3632">#3632</a>)</li>
+<li>Create VehicleParking type. Deprecate BikePark and CarPark types (November 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3480">#3480</a>)</li>
+<li>Update and implement Alert type and alerts query. Add ACCESSIBILITY_ISSUE to AlertEffectType enum (November 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3747">#3747</a>)</li>
+<li>Add geometries for stops (December 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3757">#3757</a>)</li>
+<li>Add RouteType and Unknown entities and implement alerts fields (add add alerts field to Feed) (December 2021, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3780">#3780</a>)</li>
+<li>Take free-floating vehicles into account when computing state (February 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3857">#3857</a>)</li>
+<li>Fix issue with GraphQL code generator (February 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3881">#3881</a>)</li>
+<li>Add GBFS form factors for <code>rentalVehicle</code> (April 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4062">#4062</a>)</li>
+<li>Implement allowedBikeRentalNetworks while deprecating it and add allowedVehicleRentalNetworks and bannedVehicleRentalNetworks. (July 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4279">#4279</a>)</li>
+<li>Filters place types in legacy GraphQL API so that a bike park type is not returned if a vehicle parking has no bicycle spaces and car park type is not returned if a parking has no car spaces. (July 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4296">#4296</a>)</li>
+<li>Include departures with skipped stops in the Stop type's stopTimesForPattern query. (July 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4299">#4299</a>)</li>
+<li>Add built-in GraphQL client. (October 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4499">#4499</a>)</li>
+<li>Implement support for omitCanceled parameter in some stop's stoptime queries (October 2022, <a href="[#4504](https://github.com/opentripplanner/OpenTripPlanner/pull/4504)">#4504</a>)</li>
+<li>Rename unpreferredRouteCost to unpreferredCost (October 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4543">#4543</a>)</li>
+<li>Make plan fetcher async (December 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4676">#4676</a>)</li>
+<li>Fix alerts query severity, effect and cause filters (February 2023, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4909">#4909</a>)</li>
+<li>Use accept-language header instead of the default route request locale in the plan query (March 2023, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4971">#4971</a>)</li>
+</ul>
 
 
 
@@ -1450,10 +1434,10 @@ at <a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/docs
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.407015b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
