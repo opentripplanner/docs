@@ -1534,13 +1534,13 @@ Python program and should run on any major platform. See http://www.mkdocs.org/ 
 how to install it and how to generate a live local preview of the documentation while you're working
 on writing it.</p>
 <p>In short:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ pip install mkdocs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ pip install -r docs/requirements.txt
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$ mkdocs serve
 </code></pre></div>
-<p>The OTP REST API documentation is available online in the format of:</p>
-<p>http://dev.opentripplanner.org/apidoc/x.x.x/index.html</p>
-<p>For example, for v2.3.0:</p>
-<p>http://dev.opentripplanner.org/apidoc/2.3.0/index.html</p>
+<p>The OTP GTFS GraphQL API documentation is available online at </p>
+<p>https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/</p>
+<p>You can also use the interactive GraphQL API client that is built into every instance at</p>
+<p>http://localhost:8080/graphiql</p>
 <h3 id="debug-layers">Debug layers</h3>
 <p>Adding new renderer is very easy. You just need to create new class (preferably in
 <code>org.opentripplanner.inspector</code> package) which implements EdgeVertexRenderer. It is best if class
