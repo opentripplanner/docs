@@ -993,8 +993,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#schema-documentation" class="md-nav__link">
-    Schema documentation
+  <a href="#urls" class="md-nav__link">
+    URLs
   </a>
   
 </li>
@@ -1004,25 +1004,19 @@
     Built-in API client
   </a>
   
-    <nav class="md-nav" aria-label="Built-in API client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#otp2-official-graphql-api-not-available" class="md-nav__link">
     OTP2 Official GraphQL API (Not available)
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1319,15 +1313,26 @@
 
 
 <h1 id="gtfs-graphql-api">GTFS GraphQL API</h1>
+<p>The GTFS GraphQL API was created for the Digitransit project and is used heavily by
+<a href="https://github.com/HSLdevcom/digitransit-ui">digitransit-ui</a>.</p>
+<p>As of 2023 <a href="https://github.com/opentripplanner/otp-react-redux">otp-rr</a> is in the process of 
+migrating to this API.</p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li>Digitransit team, HSL, Helsinki, Finland</li>
 <li>Kyyti, Helsinki, Finland</li>
 <li>IBI, USA</li>
 </ul>
-<p>This is the GraphQL API used by the Digitransit project. The API is used to run OTP2
-together with the <a href="https://github.com/HSLdevcom/digitransit-ui">digitransit-ui</a>.</p>
-<p>The GraphQL endpoint is available at: <code>http://localhost:8080/otp/routers/default/index/graphql</code></p>
+<h2 id="urls">URLs</h2>
+<ul>
+<li>GraphQL endpoint: <code>http://localhost:8080/otp/routers/default/index/graphql</code></li>
+<li>HTML schema documentation: <a href="https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/">https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/</a></li>
+<li>Built-in visual GraphQL client: <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a></li>
+</ul>
+<h2 id="built-in-api-client">Built-in API client</h2>
+<p>A browser based GraphQL API client is available at <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a></p>
+<p><img alt="GraphiQL" src="../../images/graphiql.png" /></p>
+<p><strong><code>curl</code> example</strong></p>
 <p>A complete example that fetches the list of all stops from OTP is:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl --request POST \
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  --url http://localhost:8080/otp/routers/default/index/graphql \
@@ -1335,12 +1340,7 @@ together with the <a href="https://github.com/HSLdevcom/digitransit-ui">digitran
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  --header &#39;OTPTimeout: 180000&#39; \
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  --data &#39;{&quot;query&quot;:&quot;query stops {\n  stops {\n    gtfsId\n    name\n  }\n}\n&quot;,&quot;operationName&quot;:&quot;stops&quot;}&#39;
 </code></pre></div>
-<h2 id="schema-documentation">Schema documentation</h2>
-<p>Available at <a href="https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/">https://docs.opentripplanner.org/api/</a></p>
-<h2 id="built-in-api-client">Built-in API client</h2>
-<p>A browser based GraphQL API client is available at <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a></p>
-<p><img alt="GraphiQL" src="../../images/graphiql.png" /></p>
-<h3 id="configuration">Configuration</h3>
+<h2 id="configuration">Configuration</h2>
 <p>The API is enabled by default.</p>
 <p>If you want to disable it, do it in <code>otp-config.json</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// otp-config.json</span>
@@ -1350,9 +1350,9 @@ together with the <a href="https://github.com/HSLdevcom/digitransit-ui">digitran
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="otp2-official-graphql-api-not-available">OTP2 Official GraphQL API (Not available)</h3>
+<h2 id="otp2-official-graphql-api-not-available">OTP2 Official GraphQL API (Not available)</h2>
 <p>We <strong>plan</strong> to make a new offical OTP2 API, replacing the REST API. The plan is to base the new API
-on this API and the <a href="./">GTFS GraphQL API</a>. The new API will most likely have two
+on this API and the <a href="../TransmodelApi/">Transmodel GraphQL API</a>. The new API will most likely have two
 "translations": A GTFS version and a Transmodel version, we will try to keep the semantics the same.</p>
 <h2 id="changelog">Changelog</h2>
 <ul>
