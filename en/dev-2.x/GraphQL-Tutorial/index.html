@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/StopAreas/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/GraphQL-Tutorial/">
       
       
-        <link rel="prev" href="../BoardingLocations/">
+        <link rel="prev" href="../Apis/">
       
       
-        <link rel="next" href="../IslandPruning/">
+        <link rel="next" href="../Configuration/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Stop Area Relations - OpenTripPlanner 2</title>
+        <title>GraphQL Tutorial - OpenTripPlanner 2</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stop-areas" class="md-skip">
+        <a href="#graphql-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stop Area Relations
+              GraphQL Tutorial
             
           </span>
         </div>
@@ -545,14 +545,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -561,7 +563,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           APIs
@@ -586,11 +588,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../GraphQL-Tutorial/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GraphQL Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         GraphQL Tutorial
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visual-graphql-api-client" class="md-nav__link">
+    Visual GraphQL API client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-your-first-query" class="md-nav__link">
+    Sending your first query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-more-advanced-query" class="md-nav__link">
+    A more advanced query
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -608,16 +665,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
       
@@ -626,7 +681,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Configuration
@@ -741,16 +796,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
       
       
       
@@ -759,7 +812,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_3">
           <span class="md-nav__icon md-icon"></span>
           Topic overviews
@@ -784,52 +837,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Stop Area Relations
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../StopAreas/" class="md-nav__link">
         Stop Area Relations
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#instructions" class="md-nav__link">
-    Instructions:
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1384,26 +1396,114 @@
   
 
 
-<h1 id="stop-areas">Stop Areas</h1>
-<p>Public transit stations and stops can be modeled using a relation tagged with <code>public_transport=stop_area</code>.
-Description of such relations can be found from this <a href="https://wiki.openstreetmap.org/wiki/Tag:public_transport%3Dstop_area">OSM wiki page</a>.</p>
-<p>OpenTripPlanner detects such relations and applies some special logic to them.
-Nodes, which are linked to street network, and are located within platform areas, are interpreted as connection points
-from the street network to the platform. OTP automatically links such points with the platform geometry in order to improve
-walk routing.</p>
-<p>For example, an elevator or stairs can connect a normal street to a railway platform above it. There is
-no need to add an explicit edge, which connects the entrance point with the actual geometry of the platform.</p>
-<p>An  example: <a href="https://www.openstreetmap.org/relation/6815620">Huopalahti railway station in Helsinki</a></p>
-<h4 id="instructions">Instructions:</h4>
-<ul>
-<li>Add platforms, which need special linking, as members of a <code>stop_area</code> tagged relation</li>
-<li>Set role=platform to these platform members</li>
-<li>Platforms must be also proper areas, tagged as routable highways and <code>area=yes</code>. Also a single tag <code>public_transport=platform</code> will do.</li>
-<li>Model required entrance points inside platform geometry and make them relation members, too. No special tagging or role is required.</li>
-<li>Connect entrance points to the street network</li>
-<li>Platform and its entrance point must have the same <code>level</code> tag value. Also matching by default value zero is accepted.</li>
-<li>If <code>level</code> tag is not set, <code>layer</code> tag is also considered</li>
-</ul>
+<!--
+  NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
+
+   - Template directory is:  /doc-templates
+   - Generated directory is: /docs 
+-->
+
+<h1 id="graphql-tutorial">GraphQL tutorial</h1>
+<p>We want to give you a quick start tutorial on how to get started with OTP's GraphQL APIs. For this
+tutorial we will be using the GTFS GraphQL API as this is the most common one.</p>
+<p>First of all, make sure that you've loaded street and transit data into your instance by following
+the <a href="../Basic-Tutorial/">basic tutorial</a></p>
+<h2 id="visual-graphql-api-client">Visual GraphQL API client</h2>
+<p>OTP has a built-in API client to help you build queries and view documentation. After having
+started OTP, visit <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a> to open it.</p>
+<p>It should look like this:</p>
+<p><img alt="GraphiQL" src="../images/graphiql.png" /></p>
+<h2 id="sending-your-first-query">Sending your first query</h2>
+<p>For our first query we want to get the list of routes loaded into OTP. Therefore paste the following 
+GraphQL query in the left hand panel of the page:</p>
+<!-- route-query BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    routes {
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        longName
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        shortName
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        gtfsId
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        agency {
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            gtfsId
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            name
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        }
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        mode
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    }
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>}
+</code></pre></div>
+<!-- route-query END -->
+
+<p>After pressing the "Execute query" button you should see the result of the query on the right hand
+side panel.</p>
+<p>Now would be a good time to explore the auto-complete capabilities of the tool by moving the
+cursor in the query panel and hitting Ctrl-Space to open see what other query parameters are possible.</p>
+<p><img alt="GraphiQL" src="../images/graphiql-autocomplete.png" /></p>
+<p>The explorer also has documentation built into it. If you hover your pointer over a property on the 
+left hand side you can see its documentation.</p>
+<p><img alt="GraphiQL" src="../images/graphiql-documentation.png" /></p>
+<h2 id="a-more-advanced-query">A more advanced query</h2>
+<p>Most people want to get routing results out of OTP, so lets see the query for this:</p>
+<!-- plan-query BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    plan(
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        # change this to YOUR origin
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        from: { lat: 52.3092, lon: 13.0291 }
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        # change this to YOUR destination
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        to: { lat: 52.5147, lon: 13.3927 }
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        # the correct date and time of your request
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        date: &quot;2023-02-15&quot;,
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        time: &quot;11:37&quot;,
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        # choose the transport modes you need
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        transportModes: [
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            {
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                mode: WALK
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>            },
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>            {
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                mode: TRANSIT
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>            },
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        ]) {
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        itineraries {
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>            startTime
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>            endTime
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>            legs {
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>                mode
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>                startTime
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>                endTime
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>                from {
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>                    name
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>                    lat
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>                    lon
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>                    departureTime
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>                    arrivalTime
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>                }
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>                to {
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>                    name
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>                    lat
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>                    lon
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>                    departureTime
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>                    arrivalTime
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>                }
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>                route {
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>                    gtfsId
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>                    longName
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>                    shortName
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>                }
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>                legGeometry {
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>                    points
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>                }
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>            }
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>        }
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>    }
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>}
+</code></pre></div>
+<!-- plan-query END -->
+
+<p>Again, please use the autocomplete and documentation viewers to figure out what each input parameter
+and property means.</p>
+<p>More examples for a variety of queries can also be found <a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/src/ext-test/resources/gtfsgraphqlapi/queries">in the test code</a>.</p>
 
 
 
