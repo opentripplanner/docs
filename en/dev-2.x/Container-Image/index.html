@@ -483,6 +483,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#additional-notes" class="md-nav__link">
+    Additional notes
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1401,6 +1408,10 @@
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/berlin:/var/opentripplanner&quot;</span><span class="w"> </span>docker.io/opentripplanner/opentripplanner:latest<span class="w"> </span>--load<span class="w"> </span>--serve
 </code></pre></div>
 <p>Now open <a href="http://localhost:8080">http://localhost:8080</a> to see your running OTP instance.</p>
+<h2 id="additional-notes">Additional notes</h2>
+<p>Make sure to include the word "gtfs" when naming the gtfs files that you want to use for OTP. Otherwise, graph build will fail.</p>
+<p>If you want to set JVM options you can use the environment variable.
+A full example is <code>-e JAVA_TOOL_OPTIONS='-Xmx4g'</code> which you need to add to your docker command.</p>
 
 
 
