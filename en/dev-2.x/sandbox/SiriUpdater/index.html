@@ -17,7 +17,7 @@
         <link rel="next" href="../SiriAzureUpdater/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.17">
     
     
       
@@ -1488,93 +1488,93 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <thead>
 <tr>
 <th>Config Parameter</th>
-<th align="center">Type</th>
+<th style="text-align: center;">Type</th>
 <th>Summary</th>
-<th align="center">Req./Opt.</th>
+<th style="text-align: center;">Req./Opt.</th>
 <th>Default Value</th>
-<th align="center">Since</th>
+<th style="text-align: center;">Since</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>type = "siri-et-updater"</td>
-<td align="center"><code>enum</code></td>
+<td style="text-align: center;"><code>enum</code></td>
 <td>The type of the updater.</td>
-<td align="center"><em>Required</em></td>
+<td style="text-align: center;"><em>Required</em></td>
 <td></td>
-<td align="center">1.5</td>
+<td style="text-align: center;">1.5</td>
 </tr>
 <tr>
 <td>blockReadinessUntilInitialized</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Whether catching up with the updates should block the readiness check from returning a 'ready' result.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>feedId</td>
-<td align="center"><code>string</code></td>
+<td style="text-align: center;"><code>string</code></td>
 <td>The ID of the feed to apply the updates to.</td>
-<td align="center"><em>Required</em></td>
+<td style="text-align: center;"><em>Required</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>frequency</td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>How often the updates should be retrieved.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT1M"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>fuzzyTripMatching</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>If the fuzzy trip matcher should be used to match trips.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>previewInterval</td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>TODO</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>requestorRef</td>
-<td align="center"><code>string</code></td>
+<td style="text-align: center;"><code>string</code></td>
 <td>The requester reference.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>timeout</td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>The HTTP timeout to download the updates.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT15S"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>url</td>
-<td align="center"><code>string</code></td>
+<td style="text-align: center;"><code>string</code></td>
 <td>The URL to send the HTTP requests to.</td>
-<td align="center"><em>Required</em></td>
+<td style="text-align: center;"><em>Required</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#u__8__headers">headers</a></td>
-<td align="center"><code>map of string</code></td>
+<td style="text-align: center;"><code>map of string</code></td>
 <td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.3</td>
+<td style="text-align: center;">2.3</td>
 </tr>
 </tbody>
 </table>
@@ -1610,85 +1610,85 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <thead>
 <tr>
 <th>Config Parameter</th>
-<th align="center">Type</th>
+<th style="text-align: center;">Type</th>
 <th>Summary</th>
-<th align="center">Req./Opt.</th>
+<th style="text-align: center;">Req./Opt.</th>
 <th>Default Value</th>
-<th align="center">Since</th>
+<th style="text-align: center;">Since</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>type = "siri-sx-updater"</td>
-<td align="center"><code>enum</code></td>
+<td style="text-align: center;"><code>enum</code></td>
 <td>The type of the updater.</td>
-<td align="center"><em>Required</em></td>
+<td style="text-align: center;"><em>Required</em></td>
 <td></td>
-<td align="center">1.5</td>
+<td style="text-align: center;">1.5</td>
 </tr>
 <tr>
 <td>blockReadinessUntilInitialized</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Whether catching up with the updates should block the readiness check from returning a 'ready' result.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#u__9__earlyStart">earlyStart</a></td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>This value is subtracted from the actual validity defined in the message.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT0S"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>feedId</td>
-<td align="center"><code>string</code></td>
+<td style="text-align: center;"><code>string</code></td>
 <td>The ID of the feed to apply the updates to.</td>
-<td align="center"><em>Required</em></td>
+<td style="text-align: center;"><em>Required</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>frequency</td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>How often the updates should be retrieved.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT1M"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>requestorRef</td>
-<td align="center"><code>string</code></td>
+<td style="text-align: center;"><code>string</code></td>
 <td>The requester reference.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>timeout</td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>The HTTP timeout to download the updates.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT15S"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>url</td>
-<td align="center"><code>string</code></td>
+<td style="text-align: center;"><code>string</code></td>
 <td>The URL to send the HTTP requests to.</td>
-<td align="center"><em>Required</em></td>
+<td style="text-align: center;"><em>Required</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#u__9__headers">headers</a></td>
-<td align="center"><code>map of string</code></td>
+<td style="text-align: center;"><code>map of string</code></td>
 <td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.3</td>
+<td style="text-align: center;">2.3</td>
 </tr>
 </tbody>
 </table>

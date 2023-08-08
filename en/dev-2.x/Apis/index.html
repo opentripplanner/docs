@@ -17,7 +17,7 @@
         <link rel="next" href="../GraphQL-Tutorial/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.17">
     
     
       
@@ -1396,7 +1396,11 @@
 projects in production for many years. If your input data is mostly GTFS then this is probably your
 best choice as it uses the same vocabulary.</p>
 <p>The <a href="../sandbox/TransmodelApi/">Transmodel GraphQL API</a> is the Transmodel API (version 3) used at
-Entur in production since 2020. If your input data is mostly NeTeX then you should use this.</p>
+Entur in production since 2020. If your input data is mostly NeTeX then you might want to investigate
+this API as it uses the <a href="https://en.wikipedia.org/wiki/Transmodel">Transmodel vocabulary</a> 
+to describe transit entities.</p>
+<p>The <a href="../sandbox/MapboxVectorTilesApi/">Vector tiles API</a> is a special purpose API for displaying
+entities on a vector map.</p>
 <p>The <a href="../sandbox/ActuatorAPI/">Actuator API</a> provides endpoints for checking the health status of the
 OTP instance. It can be useful when running OTP in a container.</p>
 <p>The <a href="../sandbox/GeocoderAPI/">Geocoder API</a> allows you to geocode street corners and stop names.</p>

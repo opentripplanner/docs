@@ -17,7 +17,7 @@
         <link rel="next" href="../Netex-Norway/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.17">
     
     
       
@@ -1402,12 +1402,12 @@ Windows and Linux and available on MacOS and Linux distributions as part of <cod
 package. <a href="https://wiki.openstreetmap.org/wiki/Osmium">Osmium-Tool</a> is a personal favorite that is
 extremely fast but only straightforward to install on Linux and MacOS platforms. Below are some
 example crop commands for these different tools:</p>
-<p><strong>
-Osmosis:</strong> <code>osmosis --rb input.osm.pbf --bounding-box left=4.34 right=5.84 bottom=43.10 top=43.97 --wb cropped.osm.pbf</code></p>
-<p><strong>
-OsmConvert:</strong> <code>osmconvert input.osm.pbf -b=-77.255859375,38.77764022307335,-76.81365966796875,39.02345139405933 --complete-ways -o=cropped.osm.pbf</code></p>
-<p><strong>
-Osmium:</strong> <code>osmium extract --strategy complete_ways --bbox 2.25,48.81,2.42,48.91 input.osm.pbf -o cropped.osm.pbf</code></p>
+<p>**
+Osmosis:** <code>osmosis --rb input.osm.pbf --bounding-box left=4.34 right=5.84 bottom=43.10 top=43.97 --wb cropped.osm.pbf</code></p>
+<p>**
+OsmConvert:** <code>osmconvert input.osm.pbf -b=-77.255859375,38.77764022307335,-76.81365966796875,39.02345139405933 --complete-ways -o=cropped.osm.pbf</code></p>
+<p>**
+Osmium:** <code>osmium extract --strategy complete_ways --bbox 2.25,48.81,2.42,48.91 input.osm.pbf -o cropped.osm.pbf</code></p>
 <p>The latter two commands expect bounding boxes to be specified in the
 format <code>min_lon,min_lat,max_lon,max_lat</code>. We frequently find bounding boxes using the
 convenient <a href="https://boundingbox.klokantech.com/">Klokantech bounding box tool</a>. Selecting the "CSV"
@@ -1429,10 +1429,10 @@ straightforward to install on Linux and MacOS platforms. Osmosis is often slower
 will also work on Windows as it's a multi-platform Java application. OSMFilter cannot work with PBF
 format files so we rarely use it. Below are some example commands for retaining only OSM data useful
 for accessibility analysis. Here are some example commands:</p>
-<p><strong>
-Osmosis:</strong> <code>osmosis --rb input.osm.pbf --tf reject-ways building=* --tf reject-ways waterway=* --tf reject-ways landuse=* --tf reject-ways natural=* --used-node --wb filtered.osm.pbf</code></p>
-<p><strong>
-Osmium-Tool:</strong> <code>osmium tags-filter input.osm.pbf w/highway wa/public_transport=platform wa/railway=platform w/park_ride=yes r/type=restriction r/type=route -o filtered.osm.pbf -f pbf,add_metadata=false</code></p>
+<p>**
+Osmosis:** <code>osmosis --rb input.osm.pbf --tf reject-ways building=* --tf reject-ways waterway=* --tf reject-ways landuse=* --tf reject-ways natural=* --used-node --wb filtered.osm.pbf</code></p>
+<p>**
+Osmium-Tool:** <code>osmium tags-filter input.osm.pbf w/highway wa/public_transport=platform wa/railway=platform w/park_ride=yes r/type=restriction r/type=route -o filtered.osm.pbf -f pbf,add_metadata=false</code></p>
 
 
 

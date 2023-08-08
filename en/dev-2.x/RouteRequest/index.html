@@ -17,7 +17,7 @@
         <link rel="next" href="../UpdaterConfig/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.17">
     
     
       
@@ -1421,957 +1421,957 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <thead>
 <tr>
 <th>Config Parameter</th>
-<th align="center">Type</th>
+<th style="text-align: center;">Type</th>
 <th>Summary</th>
-<th align="center">Req./Opt.</th>
+<th style="text-align: center;">Req./Opt.</th>
 <th>Default Value</th>
-<th align="center">Since</th>
+<th style="text-align: center;">Since</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="#rd_alightSlack">alightSlack</a></td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>The minimum extra time after exiting a public transport vehicle.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT0S"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>arriveBy</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Whether the trip should depart or arrive at the specified date and time.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_bikeBoardCost">bikeBoardCost</a></td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Prevents unnecessary transfers by adding a cost for boarding a vehicle.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>600</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeParkCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Cost to park a bike.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>120</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeParkTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Time to park a bike.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>60</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>A multiplier for how bad biking is, compared to being in transit for equal lengths of time.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>2.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeSpeed</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Max bike speed along streets, in meters per second</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>5.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeStairsReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>How bad is it to walk the bicycle up/down a flight of stairs compared to taking a detour.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>10.0</code></td>
-<td align="center">2.3</td>
+<td style="text-align: center;">2.3</td>
 </tr>
 <tr>
 <td>bikeSwitchCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The cost of the user fetching their bike and parking it again.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeSwitchTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The time it takes the user to fetch their bike and park it again in seconds.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeTriangleSafetyFactor</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>For bike triangle routing, how much safety matters (range 0-1).</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeTriangleSlopeFactor</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>For bike triangle routing, how much slope matters (range 0-1).</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeTriangleTimeFactor</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>For bike triangle routing, how much time matters (range 0-1).</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>bikeWalkingReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>A multiplier for how bad walking with a bike is, compared to being in transit for equal lengths of time.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>5.0</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>bikeWalkingSpeed</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>The user's bike walking speed in meters/second. Defaults to approximately 3 MPH.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>1.33</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_boardSlack">boardSlack</a></td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>The boardSlack is the minimum extra time to board a public transport vehicle.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT0S"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>carAccelerationSpeed</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>The acceleration speed of an automobile, in meters per second per second.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>2.9</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>carDecelerationSpeed</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>The deceleration speed of an automobile, in meters per second per second.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>2.9</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>carDropoffTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Time to park a car in a park and ride, w/o taking into account driving and walking cost.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>120</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>carParkCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Cost of parking a car.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>120</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>carParkTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Time to park a car</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>60</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>carPickupCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Add a cost for car pickup changes when a pickup or drop off takes place</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>120</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>carPickupTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Add a time for car pickup changes when a pickup or drop off takes place</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>60</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>carReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>A multiplier for how bad driving is, compared to being in transit for equal lengths of time.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>2.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>carSpeed</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Max car speed along streets, in meters per second</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>40.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_drivingDirection">drivingDirection</a></td>
-<td align="center"><code>enum</code></td>
+<td style="text-align: center;"><code>enum</code></td>
 <td>The driving direction to use in the intersection traversal calculation</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"right"</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>elevatorBoardCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>What is the cost of boarding a elevator?</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>90</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>elevatorBoardTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>How long does it take to get on an elevator, on average.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>90</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>elevatorHopCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>What is the cost of travelling one floor on an elevator?</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>20</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>elevatorHopTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>How long does it take to advance one floor on an elevator?</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>20</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>escalatorReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>A multiplier for how bad being in an escalator is compared to being in transit for equal lengths of time</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>1.5</code></td>
-<td align="center">2.4</td>
+<td style="text-align: center;">2.4</td>
 </tr>
 <tr>
 <td>geoidElevation</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>If true, the Graph's ellipsoidToGeoidDifference is applied to all elevations returned by this query.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>ignoreRealtimeUpdates</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>When true, realtime updates are ignored during this search.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_intersectionTraversalModel">intersectionTraversalModel</a></td>
-<td align="center"><code>enum</code></td>
+<td style="text-align: center;"><code>enum</code></td>
 <td>The model that computes the costs of turns.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"simple"</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>locale</td>
-<td align="center"><code>locale</code></td>
+<td style="text-align: center;"><code>locale</code></td>
 <td>TODO</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"en_US"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_maxAccessEgressDuration">maxAccessEgressDuration</a></td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>This is the maximum duration for access/egress for street searches.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT45M"</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_maxDirectStreetDuration">maxDirectStreetDuration</a></td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>This is the maximum duration for a direct street search for each mode.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT4H"</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_maxJourneyDuration">maxJourneyDuration</a></td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>The expected maximum time a journey can last across all possible journeys for the current deployment.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT24H"</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>modes</td>
-<td align="center"><code>string</code></td>
+<td style="text-align: center;"><code>string</code></td>
 <td>The set of access/egress/direct/transit modes to be used for the route search.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"TRANSIT,WALK"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>nonpreferredTransferPenalty</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Penalty (in seconds) for using a non-preferred transfer.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>180</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>numItineraries</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The maximum number of itineraries to return.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>50</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_optimize">optimize</a></td>
-<td align="center"><code>enum</code></td>
+<td style="text-align: center;"><code>enum</code></td>
 <td>The set of characteristics that the user wants to optimize for.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"safe"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_otherThanPreferredRoutesPenalty">otherThanPreferredRoutesPenalty</a></td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Penalty added for using every route that is not preferred if user set any route as preferred.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>300</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_relaxTransitSearchGeneralizedCostAtDestination">relaxTransitSearchGeneralizedCostAtDestination</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Whether non-optimal transit paths at the destination should be returned</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.3</td>
+<td style="text-align: center;">2.3</td>
 </tr>
 <tr>
 <td><a href="#rd_searchWindow">searchWindow</a></td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>The duration of the search-window.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>stairsReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Used instead of walkReluctance for stairs.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>2.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_stairsTimeFactor">stairsTimeFactor</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>How much more time does it take to walk a flight of stairs compared to walking a similar horizontal length.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>3.0</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_streetRoutingTimeout">streetRoutingTimeout</a></td>
-<td align="center"><code>duration</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>The maximum time a street routing request is allowed to take before returning the results.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT5S"</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td><a href="#rd_transferPenalty">transferPenalty</a></td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>An additional penalty added to boardings after the first.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_transferSlack">transferSlack</a></td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The extra time needed to make a safe transfer in seconds.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>120</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>turnReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Multiplicative factor on expected turning time.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>1.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_unpreferredCost">unpreferredCost</a></td>
-<td align="center"><code>linear-function</code></td>
+<td style="text-align: center;"><code>linear-function</code></td>
 <td>A cost function used to calculate penalty for an unpreferred route.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"f(x) = 0 + 1.0 x"</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td><a href="#rd_unpreferredVehicleParkingTagCost">unpreferredVehicleParkingTagCost</a></td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>What cost to add if a parking facility doesn't contain a preferred tag.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>300</code></td>
-<td align="center">2.3</td>
+<td style="text-align: center;">2.3</td>
 </tr>
 <tr>
 <td>waitReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>How much worse is waiting for a transit vehicle than being on a transit vehicle, as a multiplier.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>1.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>walkBoardCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Prevents unnecessary transfers by adding a cost for boarding a vehicle. This is the cost that is used when boarding while walking.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>600</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_walkReluctance">walkReluctance</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>A multiplier for how bad walking is, compared to being in transit for equal lengths of time.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>2.0</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_walkSafetyFactor">walkSafetyFactor</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Factor for how much the walk safety is considered in routing.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>1.0</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>walkSpeed</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>The user's walking speed in meters/second.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>1.33</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_accessEgressPenalty">accessEgressPenalty</a></td>
-<td align="center"><code>enum map of object</code></td>
+<td style="text-align: center;"><code>enum map of object</code></td>
 <td>Penalty for access/egress by street mode.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.4</td>
+<td style="text-align: center;">2.4</td>
 </tr>
 <tr>
 <td><a href="#rd_alightSlackForMode">alightSlackForMode</a></td>
-<td align="center"><code>enum map of duration</code></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
 <td>How much extra time should be given when alighting a vehicle for each given mode.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_bannedVehicleParkingTags">bannedVehicleParkingTags</a></td>
-<td align="center"><code>string[]</code></td>
+<td style="text-align: center;"><code>string[]</code></td>
 <td>Tags with which a vehicle parking will not be used. If empty, no tags are banned.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_boardSlackForMode">boardSlackForMode</a></td>
-<td align="center"><code>enum map of duration</code></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
 <td>How much extra time should be given when boarding a vehicle for each given mode.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td><a href="#rd_itineraryFilters">itineraryFilters</a></td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>Configure itinerary filters that may modify itineraries, sort them, and filter away less preferable results.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_accessibilityScore">accessibilityScore</a></td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>An experimental feature contributed by IBI which adds a sandbox accessibility <em>score</em> between 0 and 1 for each leg and itinerary.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_bikeRentalDistanceRatio">bikeRentalDistanceRatio</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Filter routes that consist of bike-rental and walking by the minimum fraction of the bike-rental leg using <em>distance</em>.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.0</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_debug">debug</a></td>
-<td align="center"><code>enum</code></td>
+<td style="text-align: center;"><code>enum</code></td>
 <td>Enable this to attach a system notice to itineraries instead of removing them. This is very convenient when tuning the itinerary-filter-chain.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"off"</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_filterItinerariesWithSameFirstOrLastTrip">filterItinerariesWithSameFirstOrLastTrip</a></td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>If more than one itinerary begins or ends with same trip, filter out one of those itineraries so that only one remains.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   groupSimilarityKeepOne</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Pick ONE itinerary from each group after putting itineraries that are 85% similar together.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.85</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   groupSimilarityKeepThree</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Reduce the number of itineraries to three itineraries by reducing each group of itineraries grouped by 68% similarity.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.68</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_groupedOtherThanSameLegsMaxCostMultiplier">groupedOtherThanSameLegsMaxCostMultiplier</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Filter grouped itineraries, where the non-grouped legs are more expensive than in the lowest cost one.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>2.0</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_minBikeParkingDistance">minBikeParkingDistance</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Filter out bike park+ride results that have fewer meters of cycling than this value.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.0</code></td>
-<td align="center">2.3</td>
+<td style="text-align: center;">2.3</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_nonTransitGeneralizedCostLimit">nonTransitGeneralizedCostLimit</a></td>
-<td align="center"><code>linear-function</code></td>
+<td style="text-align: center;"><code>linear-function</code></td>
 <td>The function define a max-limit for generalized-cost for non-transit itineraries.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"f(x) = 3,600 + 2.0 x"</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_parkAndRideDurationRatio">parkAndRideDurationRatio</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Filter P+R routes that consist of driving and walking by the minimum fraction of the driving using of <em>time</em>.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.0</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_removeItinerariesWithSameRoutesAndStops">removeItinerariesWithSameRoutesAndStops</a></td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Set to true if you want to list only the first itinerary  which goes through the same stops and routes.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   <a href="#rd_if_transitGeneralizedCostLimit">transitGeneralizedCostLimit</a></td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>A relative limit for the generalized-cost for transit itineraries.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>      <a href="#rd_if_transitGeneralizedCostLimit_costLimitFunction">costLimitFunction</a></td>
-<td align="center"><code>linear-function</code></td>
+<td style="text-align: center;"><code>linear-function</code></td>
 <td>The base function used by the filter.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>"f(x) = 900 + 1.5 x"</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      <a href="#rd_if_transitGeneralizedCostLimit_intervalRelaxFactor">intervalRelaxFactor</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>How much the filter should be relaxed for itineraries that do not overlap in time.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.4</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td><a href="#rd_maxAccessEgressDurationForMode">maxAccessEgressDurationForMode</a></td>
-<td align="center"><code>enum map of duration</code></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
 <td>Limit access/egress per street mode.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_maxDirectStreetDurationForMode">maxDirectStreetDurationForMode</a></td>
-<td align="center"><code>enum map of duration</code></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
 <td>Limit direct route duration per street mode.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td><a href="#rd_preferredVehicleParkingTags">preferredVehicleParkingTags</a></td>
-<td align="center"><code>string[]</code></td>
+<td style="text-align: center;"><code>string[]</code></td>
 <td>Vehicle parking facilities that don't have one of these tags will receive an extra cost and will therefore be penalised.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.3</td>
+<td style="text-align: center;">2.3</td>
 </tr>
 <tr>
 <td><a href="#rd_requiredVehicleParkingTags">requiredVehicleParkingTags</a></td>
-<td align="center"><code>string[]</code></td>
+<td style="text-align: center;"><code>string[]</code></td>
 <td>Tags without which a vehicle parking will not be used. If empty, no tags are required.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_transferOptimization">transferOptimization</a></td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>Optimize where a transfer between to trip happens.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_to_backTravelWaitTimeFactor">backTravelWaitTimeFactor</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>To reduce back-travel we favor waiting, this reduces the cost of waiting.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>1.0</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_to_extraStopBoardAlightCostsFactor">extraStopBoardAlightCostsFactor</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Add an extra board- and alight-cost for prioritized stops.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.0</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_to_minSafeWaitTimeFactor">minSafeWaitTimeFactor</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>Used to set a maximum wait-time cost, base on min-safe-transfer-time.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>5.0</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_to_optimizeTransferWaitTime">optimizeTransferWaitTime</a></td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>This enables the transfer wait time optimization.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>true</code></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_transitReluctanceForMode">transitReluctanceForMode</a></td>
-<td align="center"><code>enum map of double</code></td>
+<td style="text-align: center;"><code>enum map of double</code></td>
 <td>Transit reluctance for a given transport mode</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_unpreferred">unpreferred</a></td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>Parameters listing authorities or lines that preferably should not be used in trip patters.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   <a href="#rd_unpreferred_agencies">agencies</a></td>
-<td align="center"><code>feed-scoped-id[]</code></td>
+<td style="text-align: center;"><code>feed-scoped-id[]</code></td>
 <td>The ids of the agencies that incur an extra cost when being used. Format: <code>FeedId:AgencyId</code></td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   <a href="#rd_unpreferred_routes">routes</a></td>
-<td align="center"><code>feed-scoped-id[]</code></td>
+<td style="text-align: center;"><code>feed-scoped-id[]</code></td>
 <td>The ids of the routes that incur an extra cost when being used. Format: <code>FeedId:RouteId</code></td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>vehicleRental</td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>Vehicle rental options</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.3</td>
+<td style="text-align: center;">2.3</td>
 </tr>
 <tr>
 <td>   allowKeepingAtDestination</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>If a vehicle should be allowed to be kept at the end of a station-based rental.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   dropOffCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Cost to drop-off a rented vehicle.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>30</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   dropOffTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Time to drop-off a rented vehicle.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>30</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   keepingAtDestinationCost</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>The cost of arriving at the destination with the rented vehicle, to discourage doing so.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.0</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   pickupCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Cost to rent a vehicle.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>120</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   pickupTime</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>Time to rent a vehicle.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>60</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   useAvailabilityInformation</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Whether or not vehicle rental availability information will be used to plan vehicle rental trips.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   <a href="#rd_vehicleRental_allowedNetworks">allowedNetworks</a></td>
-<td align="center"><code>string[]</code></td>
+<td style="text-align: center;"><code>string[]</code></td>
 <td>The vehicle rental networks which may be used. If empty all networks may be used.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>   <a href="#rd_vehicleRental_bannedNetworks">bannedNetworks</a></td>
-<td align="center"><code>string[]</code></td>
+<td style="text-align: center;"><code>string[]</code></td>
 <td>The vehicle rental networks which may not be used. If empty, no networks are banned.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.1</td>
+<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td>wheelchairAccessibility</td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>See <a href="../Accessibility/">Wheelchair Accessibility</a></td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   enabled</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Enable wheelchair accessibility.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   inaccessibleStreetReluctance</td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>The factor to multiply the cost of traversing a street edge that is not wheelchair-accessible.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>25.0</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   <a href="#rd_wheelchairAccessibility_maxSlope">maxSlope</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>The maximum slope as a fraction of 1.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.083</code></td>
-<td align="center">2.0</td>
+<td style="text-align: center;">2.0</td>
 </tr>
 <tr>
 <td>   <a href="#rd_wheelchairAccessibility_slopeExceededReluctance">slopeExceededReluctance</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>How much streets with high slope should be avoided.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>1.0</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   <a href="#rd_wheelchairAccessibility_stairsReluctance">stairsReluctance</a></td>
-<td align="center"><code>double</code></td>
+<td style="text-align: center;"><code>double</code></td>
 <td>How much stairs should be avoided.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>100.0</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   elevator</td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>Configuration for when to use inaccessible elevators.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      inaccessibleCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The cost to add when traversing an entity which is know to be inaccessible.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>3600</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      onlyConsiderAccessible</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      unknownCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The cost to add when traversing an entity with unknown accessibility information.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>20</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   stop</td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>Configuration for when to use inaccessible stops.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      inaccessibleCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The cost to add when traversing an entity which is know to be inaccessible.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>3600</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      onlyConsiderAccessible</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>true</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      unknownCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The cost to add when traversing an entity with unknown accessibility information.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>600</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>   trip</td>
-<td align="center"><code>object</code></td>
+<td style="text-align: center;"><code>object</code></td>
 <td>Configuration for when to use inaccessible trips.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      inaccessibleCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The cost to add when traversing an entity which is know to be inaccessible.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>3600</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      onlyConsiderAccessible</td>
-<td align="center"><code>boolean</code></td>
+<td style="text-align: center;"><code>boolean</code></td>
 <td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>true</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 <tr>
 <td>      unknownCost</td>
-<td align="center"><code>integer</code></td>
+<td style="text-align: center;"><code>integer</code></td>
 <td>The cost to add when traversing an entity with unknown accessibility information.</td>
-<td align="center"><em>Optional</em></td>
+<td style="text-align: center;"><em>Optional</em></td>
 <td><code>600</code></td>
-<td align="center">2.2</td>
+<td style="text-align: center;">2.2</td>
 </tr>
 </tbody>
 </table>
