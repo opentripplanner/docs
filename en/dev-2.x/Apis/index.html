@@ -610,13 +610,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#graphql" class="md-nav__link">
-    GraphQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#legacy-apis-to-be-removed" class="md-nav__link">
     Legacy APIs (to be removed)
   </a>
@@ -1391,14 +1384,13 @@
 
 <h1 id="apis">APIs</h1>
 <p>Several services are built upon OTP's routing and transit data indexing engines. They expose these APIs:</p>
-<h2 id="graphql">GraphQL</h2>
 <p>The <a href="../sandbox/GtfsGraphQlApi/">GTFS GraphQL API</a> has been used by the Digitransit and otp-react-redux 
-projects in production for many years. If your input data is mostly GTFS then this is probably your
-best choice as it uses the same vocabulary.</p>
-<p>The <a href="../sandbox/TransmodelApi/">Transmodel GraphQL API</a> is the Transmodel API (version 3) used at
+projects as a general purpose routing and transit data API in production for many years. 
+If your input data is mostly GTFS then this is probably your best choice as it uses the same vocabulary.</p>
+<p>The <a href="../sandbox/TransmodelApi/">Transmodel GraphQL API</a> is the Transmodel API is used at
 Entur in production since 2020. If your input data is mostly NeTeX then you might want to investigate
-this API as it uses the <a href="https://en.wikipedia.org/wiki/Transmodel">Transmodel vocabulary</a> 
-to describe transit entities.</p>
+this API as it uses the <a href="https://en.wikipedia.org/wiki/Transmodel">Transmodel vocabulary</a> to describe transit entities.
+Like the GTFS GraphQL API it is also a general purpose API.</p>
 <p>The <a href="../sandbox/MapboxVectorTilesApi/">Vector tiles API</a> is a special purpose API for displaying
 entities on a vector map.</p>
 <p>The <a href="../sandbox/ActuatorAPI/">Actuator API</a> provides endpoints for checking the health status of the
