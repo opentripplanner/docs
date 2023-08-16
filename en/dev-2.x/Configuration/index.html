@@ -1568,8 +1568,13 @@ documentation below we will refer to the following types:</p>
 <td><code>"NO:1001"</code>, <code>"1:101"</code></td>
 </tr>
 <tr>
-<td><code>linear-function</code></td>
-<td>A linear function with one input parameter(x) used to calculate a value. Usually used to calculate a limit or cost.</td>
+<td><code>cost-linear-function</code></td>
+<td>A cost-linear-function used to calculate a cost from another cost or time/duration.    Given a function of time:   <code>f(t) = a + b * t</code>   then <code>a</code> is the constant time part, <code>b</code> is the time-coefficient, and <code>t</code> is the variable.   If <code>a=0s</code> and <code>b=0.0</code>, then the cost is always <code>0</code>(zero).    Examples: <code>0s + 2.5t</code>, <code>10m + 0t</code> and <code>1h5m59s + 9.9t</code>    The <code>constant</code> must be 0 or a positive number or duration. The unit is seconds unless   specified using the duration format. A duration is automatically converted to a cost.   The <code>coefficient</code> must be in range: [0.0, 100.0]</td>
+<td></td>
+</tr>
+<tr>
+<td><code>time-penalty</code></td>
+<td>A time-penalty is used to add a penalty to the duration/arrival-time/depature-time for   a path. It will be invisible to the end user, but used during the routing when comparing   stop-arrival/paths.    Given a function of time:   <code>f(t) = a + b * t</code>   then <code>a</code> is the constant time part, <code>b</code> is the time-coefficient, and <code>t</code> is the variable.   If <code>a=0s</code> and <code>b=0.0</code>, then the cost is always <code>0</code>(zero).    Examples: <code>0s + 2.5t</code>, <code>10m + 0 x</code> and <code>1h5m59s + 9.9t</code>    The <code>constant</code> must be 0 or a positive number(seconds) or a duration.   The <code>coefficient</code> must be in range: [0.0, 100.0]</td>
 <td></td>
 </tr>
 <tr>
