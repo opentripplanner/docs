@@ -1724,14 +1724,6 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td><a href="#rd_maxAccessEgressDuration">maxAccessEgressDuration</a></td>
-<td style="text-align: center;"><code>duration</code></td>
-<td>This is the maximum duration for access/egress for street searches.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"PT45M"</code></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
 <td><a href="#rd_maxDirectStreetDuration">maxDirectStreetDuration</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>This is the maximum duration for a direct street search for each mode.</td>
@@ -1908,11 +1900,67 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td><a href="#rd_accessEgressPenalty">accessEgressPenalty</a></td>
+<td>accessEgress</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Parameters for access and egress routing.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#rd_accessEgress_maxDuration">maxDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This is the maximum duration for access/egress for street searches.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT45M"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_accessEgress_maxStopCount">maxStopCount</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Maximal number of stops collected in access/egress routing</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>500</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#rd_accessEgress_maxDurationForMode">maxDurationForMode</a></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
+<td>Limit access/egress per street mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_accessEgress_penalty">penalty</a></td>
 <td style="text-align: center;"><code>enum map of object</code></td>
 <td>Penalty for access/egress by street mode.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>      FLEXIBLE</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>NA</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>         costFactor</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A factor multiplied with the time-penalty to get the cost-penalty.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>         timePenalty</td>
+<td style="text-align: center;"><code>time-penalty</code></td>
+<td>Penalty added to the time of a path/leg.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"0s + 0.00 t"</code></td>
 <td style="text-align: center;">2.4</td>
 </tr>
 <tr>
@@ -2058,14 +2106,6 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.4</code></td>
 <td style="text-align: center;">2.2</td>
-</tr>
-<tr>
-<td><a href="#rd_maxAccessEgressDurationForMode">maxAccessEgressDurationForMode</a></td>
-<td style="text-align: center;"><code>enum map of duration</code></td>
-<td>Limit access/egress per street mode.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.1</td>
 </tr>
 <tr>
 <td><a href="#rd_maxDirectStreetDurationForMode">maxDirectStreetDurationForMode</a></td>
@@ -2428,16 +2468,6 @@ transit leg in the trip. This is the default value used, if not overridden by th
 <strong>Path:</strong> /routingDefaults <br />
 <strong>Enum values:</strong> <code>simple</code> | <code>constant</code></p>
 <p>The model that computes the costs of turns.</p>
-<h3 id="rd_maxAccessEgressDuration">maxAccessEgressDuration</h3>
-
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT45M"</code> <br />
-<strong>Path:</strong> /routingDefaults </p>
-<p>This is the maximum duration for access/egress for street searches.</p>
-<p>This is a performance limit and should therefore be set high. Results close to the limit are not
-guaranteed to be optimal. Use itinerary-filters to limit what is presented to the client. The
-duration can be set per mode(<code>maxAccessEgressDurationForMode</code>), because some street modes searches
-are much more resource intensive than others. A default value is applied if the mode specific value
-do not exist.</p>
 <h3 id="rd_maxDirectStreetDuration">maxDirectStreetDuration</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT4H"</code> <br />
@@ -2567,10 +2597,34 @@ high values.</p>
 <strong>Path:</strong> /routingDefaults </p>
 <p>Factor for how much the walk safety is considered in routing.</p>
 <p>Value should be between 0 and 1. If the value is set to be 0, safety is ignored.</p>
-<h3 id="rd_accessEgressPenalty">accessEgressPenalty</h3>
+<h3 id="rd_accessEgress_maxDuration">maxDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT45M"</code> <br />
+<strong>Path:</strong> /routingDefaults/accessEgress </p>
+<p>This is the maximum duration for access/egress for street searches.</p>
+<p>This is a performance limit and should therefore be set high. Results close to the limit are not
+guaranteed to be optimal. Use itinerary-filters to limit what is presented to the client. The
+duration can be set per mode(<code>maxDurationForMode</code>), because some street modes searches
+are much more resource intensive than others. A default value is applied if the mode specific value
+do not exist.</p>
+<h3 id="rd_accessEgress_maxStopCount">maxStopCount</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>500</code> <br />
+<strong>Path:</strong> /routingDefaults/accessEgress </p>
+<p>Maximal number of stops collected in access/egress routing</p>
+<p>Safety limit to prevent access to and egress from too many stops.</p>
+<h3 id="rd_accessEgress_maxDurationForMode">maxDurationForMode</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/accessEgress <br />
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<p>Limit access/egress per street mode.</p>
+<p>Override the settings in <code>maxDuration</code> for specific street modes. This is
+done because some street modes searches are much more resource intensive than others.</p>
+<h3 id="rd_accessEgress_penalty">penalty</h3>
 
 <p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>enum map of object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /routingDefaults <br />
+<strong>Path:</strong> /routingDefaults/accessEgress <br />
 <strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
 <p>Penalty for access/egress by street mode.</p>
 <p>Use this to add a time and cost penalty to an access/egress legs for a given street
@@ -2581,7 +2635,7 @@ performance will be better.</p>
 <p>The default is no penalty, if not configured.</p>
 <p>Example: <code>"car-to-park" : { "timePenalty": "10m + 1.5t", "costFactor": 2.5 }</code></p>
 <p><strong>Time penalty</strong></p>
-<p>The <code>time-penalty</code> is used to add a penalty to the access/egress duration/time. The
+<p>The <code>timePenalty</code> is used to add a penalty to the access/egress duration/time. The
 time including the penalty is used in the algorithm when comparing paths, but the
 actual duration is used when presented to the end user.</p>
 <p><strong>Cost factor</strong></p>
@@ -2743,14 +2797,6 @@ dropped. The <code>transitGeneralizedCostLimit</code> is calculated using the <c
 <p>This value is used to increase the filter threshold for itineraries further away in
 time, compared to those, that have exactly the same arrival and departure times.</p>
 <p>The unit is cost unit per second of time difference.</p>
-<h3 id="rd_maxAccessEgressDurationForMode">maxAccessEgressDurationForMode</h3>
-
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /routingDefaults <br />
-<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
-<p>Limit access/egress per street mode.</p>
-<p>Override the settings in <code>maxAccessEgressDuration</code> for specific street modes. This is
-done because some street modes searches are much more resource intensive than others.</p>
 <h3 id="rd_maxDirectStreetDurationForMode">maxDirectStreetDurationForMode</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -2940,63 +2986,73 @@ include stairs as a last result.</p>
 <a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">    </span><span class="nt">&quot;transitReluctanceForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">      </span><span class="nt">&quot;RAIL&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">    </span><span class="nt">&quot;maxAccessEgressDurationForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">      </span><span class="nt">&quot;BIKE_RENTAL&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20m&quot;</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">    </span><span class="nt">&quot;itineraryFilters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">      </span><span class="nt">&quot;transitGeneralizedCostLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">        </span><span class="nt">&quot;costLimitFunction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;900 + 1.5 x&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">        </span><span class="nt">&quot;intervalRelaxFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">      </span><span class="nt">&quot;bikeRentalDistanceRatio&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">      </span><span class="nt">&quot;accessibilityScore&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">      </span><span class="nt">&quot;minBikeParkingDistance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">      </span><span class="nt">&quot;debug&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;limit-to-search-window&quot;</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">    </span><span class="nt">&quot;accessEgress&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">      </span><span class="nt">&quot;maxDurationForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="nt">&quot;BIKE_RENTAL&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20m&quot;</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">      </span><span class="nt">&quot;maxStopCount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">      </span><span class="nt">&quot;penalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">        </span><span class="nt">&quot;FLEXIBLE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">          </span><span class="nt">&quot;timePenalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2m + 1.1t&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">          </span><span class="nt">&quot;costFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.7</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">      </span><span class="p">}</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">    </span><span class="nt">&quot;carDecelerationSpeed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.9</span><span class="p">,</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">    </span><span class="nt">&quot;carAccelerationSpeed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.9</span><span class="p">,</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">    </span><span class="nt">&quot;ignoreRealtimeUpdates&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">    </span><span class="nt">&quot;geoidElevation&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">    </span><span class="nt">&quot;maxJourneyDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;36h&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">    </span><span class="nt">&quot;unpreferred&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">      </span><span class="nt">&quot;agencies&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">        </span><span class="s2">&quot;HSL:123&quot;</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">      </span><span class="p">],</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">      </span><span class="nt">&quot;routes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">        </span><span class="s2">&quot;HSL:456&quot;</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">      </span><span class="p">]</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">    </span><span class="nt">&quot;unpreferredCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;600 + 2.0 x&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">    </span><span class="nt">&quot;streetRoutingTimeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5s&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">    </span><span class="nt">&quot;transferOptimization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">      </span><span class="nt">&quot;optimizeTransferWaitTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">      </span><span class="nt">&quot;minSafeWaitTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">      </span><span class="nt">&quot;backTravelWaitTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">      </span><span class="nt">&quot;extraStopBoardAlightCostsFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">8.0</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">    </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">      </span><span class="nt">&quot;trip&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="w">      </span><span class="nt">&quot;stop&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="w">      </span><span class="nt">&quot;elevator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">    </span><span class="nt">&quot;itineraryFilters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">      </span><span class="nt">&quot;transitGeneralizedCostLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">        </span><span class="nt">&quot;costLimitFunction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;900 + 1.5 x&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">        </span><span class="nt">&quot;intervalRelaxFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">      </span><span class="nt">&quot;bikeRentalDistanceRatio&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">      </span><span class="nt">&quot;accessibilityScore&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">      </span><span class="nt">&quot;minBikeParkingDistance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">      </span><span class="nt">&quot;debug&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;limit-to-search-window&quot;</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">    </span><span class="nt">&quot;carDecelerationSpeed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.9</span><span class="p">,</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">    </span><span class="nt">&quot;carAccelerationSpeed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.9</span><span class="p">,</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">    </span><span class="nt">&quot;ignoreRealtimeUpdates&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">    </span><span class="nt">&quot;geoidElevation&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">    </span><span class="nt">&quot;maxJourneyDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;36h&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">    </span><span class="nt">&quot;unpreferred&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">      </span><span class="nt">&quot;agencies&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">        </span><span class="s2">&quot;HSL:123&quot;</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">      </span><span class="nt">&quot;routes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">        </span><span class="s2">&quot;HSL:456&quot;</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">    </span><span class="nt">&quot;unpreferredCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;600 + 2.0 x&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="w">    </span><span class="nt">&quot;streetRoutingTimeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5s&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="w">    </span><span class="nt">&quot;transferOptimization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">      </span><span class="nt">&quot;optimizeTransferWaitTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="w">      </span><span class="nt">&quot;minSafeWaitTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="w">      </span><span class="nt">&quot;backTravelWaitTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">      </span><span class="nt">&quot;extraStopBoardAlightCostsFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">8.0</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="w">    </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="w">      </span><span class="nt">&quot;trip&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
 <a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="w">      </span><span class="nt">&quot;inaccessibleStreetReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="w">      </span><span class="nt">&quot;maxSlope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.083</span><span class="p">,</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a><span class="w">      </span><span class="nt">&quot;slopeExceededReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="p">}</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="w">      </span><span class="nt">&quot;stop&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a><span class="w">      </span><span class="nt">&quot;elevator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a><span class="w">      </span><span class="nt">&quot;inaccessibleStreetReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104" href="#__codelineno-0-104"></a><span class="w">      </span><span class="nt">&quot;maxSlope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.083</span><span class="p">,</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105" href="#__codelineno-0-105"></a><span class="w">      </span><span class="nt">&quot;slopeExceededReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106" href="#__codelineno-0-106"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107" href="#__codelineno-0-107"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108" href="#__codelineno-0-108"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109" href="#__codelineno-0-109"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
