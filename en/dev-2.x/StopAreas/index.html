@@ -1413,8 +1413,11 @@ no need to add an explicit edge, which connects the entrance point with the actu
 <li>Add platforms, which need special linking, as members of a <code>stop_area</code> tagged relation</li>
 <li>Set role=platform to these platform members</li>
 <li>Platforms must be also proper areas, tagged as routable highways and <code>area=yes</code>. Also a single tag <code>public_transport=platform</code> will do.</li>
-<li>Model required entrance points inside platform geometry and make them relation members, too. No special tagging or role is required.</li>
-<li>Connect entrance points to the street network</li>
+<li>Model required entrance points and stop linking points inside platform geometry and make them relation members, too.</li>
+<li>Entrances can be tagged using <code>railway=subway_entrance</code>, <code>highway=elevator</code>, <code>entrance=yes</code> or <code>entrance=main</code>.</li>
+<li>Stop linking points should be tagged as <a href="../BoardingLocations/">boarding locations</a>, e.g. using the tag <code>public_transport=platform</code>.</li>
+<li>Connect entrance points to the street network. Stop linking points can have reference tags to instruct how to link them with public transit stops as
+instructed in the document about <a href="../BoardingLocations/">boarding locations</a>.</li>
 <li>Platform and its entrance point must have the same <code>level</code> tag value. Also matching by default value zero is accepted.</li>
 <li>If <code>level</code> tag is not set, <code>layer</code> tag is also considered</li>
 </ul>
