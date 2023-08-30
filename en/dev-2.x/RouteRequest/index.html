@@ -2580,8 +2580,8 @@ significant time or walking will still be taken.</p>
 <p>The extra time needed to make a safe transfer in seconds.</p>
 <p>An expected transfer time in seconds that specifies the amount of time that must pass
 between exiting one public transport vehicle and boarding another. This time is in
-addition to time it might take to walk between stops, the board-slack, and the
-alight-slack."</p>
+addition to time it might take to walk between stops plus <code>boardSlack</code> and
+<code>alightSlack</code>.</p>
 <h3 id="rd_unpreferredCost">unpreferredCost</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.00 t"</code> <br />
