@@ -2337,20 +2337,6 @@ general better than trying to be exact. The period and date format follow the IS
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;transitServiceEnd&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P1Y6M5D&quot;</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="transferring-within-stations">Transferring within stations</h2>
-
-<p>Subway systems tend to exist in their own layer of the city separate from the surface, though there
-are exceptions where tracks lie right below the street and transfers happen via the surface. In
-systems where the subway is quite deep and transfers happen via tunnels, the time required for an
-in-station transfer is often less than that for a surface transfer.</p>
-<p>One way to resolve this problem is by ensuring that the GTFS feed codes each platform as a separate
-stop, then micro-mapping stations in OSM. When OSM data contains a detailed description of walkways,
-stairs, and platforms within a station, GTFS stops can be linked to the nearest platform and
-transfers will happen via the OSM ways, which should yield very realistic transfer time
-expectations. This works particularly well in above-ground train stations where the layering of
-non-intersecting ways is less prevalent. See <a href="../BoardingLocations/">BoardingLocations</a> for more 
-details.</p>
-<p>An alternative approach is to use GTFS pathways to model entrances and platforms within stations.</p>
 <h2 id="openstreetmaposm-configuration">OpenStreetMap(OSM) configuration</h2>
 <p>It is possible to adjust how OSM data is interpreted by OpenTripPlanner when building the road part
 of the routing graph.</p>
@@ -2604,7 +2590,7 @@ recalculating them all over again.</p>
 <strong>Path:</strong> / </p>
 <p>Minutes necessary to reach stops served by trips on routes of route_type=1 (subway) from the street.</p>
 <p>Note! The preferred way to do this is to update the OSM data.
-See <a href="#transferring-within-stations">Transferring within stations</a>.</p>
+See <a href="../In-Station-Navigation/">In-station navigation</a>.</p>
 <p>The ride locations for some modes of transport such as subways can be slow to reach from the street.
 When planning a trip, we need to allow additional time to reach these locations to properly inform
 the passenger. For example, this helps avoid suggesting short bus rides between two subway rides as

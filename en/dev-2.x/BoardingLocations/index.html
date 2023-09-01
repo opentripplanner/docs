@@ -1407,8 +1407,7 @@
 <h1 id="boarding-locations">Boarding locations</h1>
 <p>It is often the case that the coordinates of stops are relatively far away from where the passengers
 are expected to the wait for the vehicle.</p>
-<p>A good example of this is <a href="https://www.openstreetmap.org/way/319512573">Buckhead subway station</a> in 
-Atlanta.</p>
+<p>A good example of this is <a href="https://www.openstreetmap.org/way/319512573">Buckhead subway station</a> in Atlanta.</p>
 <p><img alt="Buckhead station" src="../images/buckhead-station.png" /></p>
 <p>There the coordinates of the stop in GTFS are located near Peachtree Road so OTP would instruct 
 passengers to wait on the street rather than walking down the stairs to the platform.</p>
@@ -1433,8 +1432,8 @@ have one of the following tag combinations:</p>
   the place where the train stops, not the waiting area.</li>
 <li>The <code>railway</code> key is deprecated (even though still widespread) and you should use <code>public_transport</code> 
   instead.</li>
-<li>OTP does not process isolated nodes, but only nodes, which are part of routable ways. Therefore, adding a single
-boarding location node to OSM has no effect. There is an exception, though: isolated nodes, which are members of
+<li>OTP does not process isolated nodes, but only nodes, which are part of routable ways. Therefore, adding a single , 
+isloated boarding location node to OSM has no effect. There is an exception, though: isolated nodes, which are members of
 <code>public_transport=stop_area</code> relation, will be considered and automatically linked with the street graph.
 For more information, check the <a href="../StopAreas/">stop area</a> documentation.</li>
 </ul>
