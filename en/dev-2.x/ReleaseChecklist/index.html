@@ -1383,10 +1383,6 @@ the actions taken by the Maven release plugin. Based on past experience, the Mav
 can fail at various points in the process leaving the repo in a confusing state. Taking each action
 manually is more tedious, but keeps eyes on each step and is less prone to failure.</p>
 <ul>
-<li>Make sure the documentation is up to date</li>
-<li>Check all links and references to the release and update to the target release version. Search
-    all files for with a regular expression: <code>2\.[012]\.0</code> and replace if appropriate with the new 
-    version.</li>
 <li>Check that your local copy of the dev branch is up to date with no uncommitted changes<ul>
 <li><code>git status</code></li>
 <li><code>git checkout dev-2.x</code></li>
@@ -1394,7 +1390,13 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 <li><code>git pull</code></li>
 </ul>
 </li>
-<li>Verify that all dependencies in the POM are non-SNAPSHOT versions (e.g. with <code>grep</code>)</li>
+<li>Make sure the documentation is up to date<ul>
+<li>Check all links and references to the release and update to the target release version. Search
+  all files for with a regular expression: <code>2\.[012]\.0</code> and replace if appropriate with the new
+  version.</li>
+<li>In <code>docs/index.md</code> replace what is the latest version and add a new line for the previous one</li>
+</ul>
+</li>
 <li>Update <code>docs/Changelog.md</code><ul>
 <li>Lines should have been added or updated as each pull request was merged</li>
 <li>If you suspect any changes are not reflected in the Changelog, review the commit log and add
@@ -1411,8 +1413,8 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
   For version 2.3.0 Leonard has already done it: <a href="https://github.com/opentripplanner/OpenTripPlanner/commit/3cb061ab1e4253c3977a5d08fa5abab1b0baefd7">Example commit</a></li>
 </ul>
 </li>
-<li>Check <a href="https://github.com/opentripplanner/OpenTripPlanner/actions/workflows/">on GH Actions</a> that
-  the build is currently passing</li>
+<li>Verify that all dependencies in the POM are non-SNAPSHOT versions (e.g. with <code>grep</code>)</li>
+<li>Check <a href="https://github.com/opentripplanner/OpenTripPlanner/actions/workflows/">on GH Actions</a> that the build is currently passing</li>
 <li>Switch to the HEAD of master branch, and ensure it's up to date with no uncommitted changes<ul>
 <li><code>git checkout master</code></li>
 <li><code>git status</code></li>
