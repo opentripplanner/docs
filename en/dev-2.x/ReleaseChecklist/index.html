@@ -1495,6 +1495,26 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 <li>Provide links to the artifacts directory on Maven Central.</li>
 </ul>
 </li>
+<li>Prepare for the next release in GitHub by renaming the released milestone and creating a new
+  milestone for the next release. Then make sure all issues and PRs are tagged with the correct
+  milestone.<ul>
+<li>Close open PRs older than 2 years, make sure the milestone is set to <code>Rejected</code>.</li>
+<li>Rename the old milestone from <code>x.y (Next Release)</code> to <code>x.y</code>. All issues and PRs assigned to 
+  this milestone are automatically updated.</li>
+<li>Create a new milestone: <code>x.y+1 (Next Release)</code></li>
+<li>All PullRequests SHOULD have a milestone (except some very old ones) <ul>
+<li>Assign all <em>open</em> PRs to this new milestone <code>x.y+1 (Next Release)</code>.</li>
+<li>Assign all <em>closed</em> PRs without a milestone in the release to the released milestone 
+  <code>x.y</code>. Make sure NOT to include very old PRs or PRs merged after the release(if any).</li>
+</ul>
+</li>
+<li>Some issues have a milestone, but not all.<ul>
+<li>Move all open issues with the released milestone <code>x.y</code> to the next release 
+  <code>x.y+1 (Next Release)</code>. </li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="artifact-signing">Artifact Signing</h2>
 <p>Maven release artifacts must be digitally signed to prove their origin. This is a safeguard against
