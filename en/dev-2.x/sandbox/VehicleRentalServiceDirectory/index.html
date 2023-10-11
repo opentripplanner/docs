@@ -1507,16 +1507,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
   
-    <nav class="md-nav" aria-label="Documentation">
+    <nav class="md-nav" aria-label="Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
+  <a href="#parameter-summary" class="md-nav__link">
+    Parameter Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-details" class="md-nav__link">
+    Parameter Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
   
 </li>
@@ -1841,25 +1855,160 @@
 
 
 <h1 id="vehicle-rental-service-directory-api-support">Vehicle Rental Service Directory API support.</h1>
+<p>This adds support for the GBFS service directory endpoint component located at 
+https://github.com/entur/lamassu. OTP uses the service directory to lookup and connect to all GBFS
+endpoints registered in the directory. This simplifies the management of the GBFS endpoints, since
+multiple services/components like OTP can connect to the directory and get the necessary
+configuration from it.</p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
-<li>Gard Mellemstrand, Entur, Norway</li>
+<li>Entur, Norway</li>
 </ul>
 <h2 id="changelog">Changelog</h2>
 <ul>
 <li>Initial implementation of bike share updater API support</li>
-<li>Make json tag names
-  configurable <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3447">#3447</a></li>
+<li>Make json tag names configurable <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3447">#3447</a></li>
+<li>Enable GBFS geofencing with VehicleRentalServiceDirectory <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5324">#5324</a></li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<p>This adds support for the GBFS service directory endpoint component located
-at https://github.com/entur/lahmu. OTP use the service directory to lookup and connect to all GBFS
-endpoints registered in the directory. This simplify the management of the GBFS endpoints, since
-multiple services/components like OTP can connect to the directory and get the necessary
-configuration from it.</p>
-<h3 id="configuration">Configuration</h3>
+<h2 id="configuration">Configuration</h2>
 <p>To enable this you need to specify a url for the <code>vehicleRentalServiceDirectory</code> in
 the <code>router-config.json</code></p>
+<h3 id="parameter-summary">Parameter Summary</h3>
+<!-- PARAMETERS-TABLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>language</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Language code.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>sourcesName</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Json tag name for updater sources.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"systems"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>updaterNetworkName</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Json tag name for the network name for each source.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"id"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>updaterUrlName</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Json tag name for endpoint urls for each source.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"url"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>url</td>
+<td style="text-align: center;"><code>uri</code></td>
+<td>Endpoint for the VehicleRentalServiceDirectory</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td><a href="#vehicleRentalServiceDirectory_headers">headers</a></td>
+<td style="text-align: center;"><code>map of string</code></td>
+<td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td><a href="#vehicleRentalServiceDirectory_networks">networks</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>List all networks to include. Use "network": "default-network" to set defaults.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>      geofencingZones</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Enables geofencingZones for the given network</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>      network</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The network name</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+</tbody>
+</table>
+<!-- PARAMETERS-TABLE END -->
+
+<h3 id="parameter-details">Parameter Details</h3>
+<!-- PARAMETERS-DETAILS BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<h4 id="vehicleRentalServiceDirectory_headers">headers</h4>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /vehicleRentalServiceDirectory </p>
+<p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
+<h4 id="vehicleRentalServiceDirectory_networks">networks</h4>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /vehicleRentalServiceDirectory </p>
+<p>List all networks to include. Use "network": "default-network" to set defaults.</p>
+<p>If no default network exists only the listed networks are used. Configure a network with
+name "default-network" to include all unlisted networks. If not present, all unlisted
+networks are dropped. Note! The values in the "default-network" are not used to set
+missing field values in networks listed.</p>
+<!-- PARAMETERS-DETAILS END -->
+
+<h3 id="example">Example</h3>
+<!-- JSON-EXAMPLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;vehicleRentalServiceDirectory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;sourcesName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;systems&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;updaterUrlName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;updaterNetworkName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;ET-Client-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otp&quot;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">&quot;networks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oslo-by-sykkel&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">&quot;geofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
+</code></pre></div>
+<!-- JSON-EXAMPLE END -->
 
 
 
