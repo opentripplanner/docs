@@ -2332,12 +2332,28 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 <td style="text-align: center;">2.2</td>
 </tr>
 <tr>
+<td>fuzzyTripMatching</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether to match trips fuzzily.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
 <td>url</td>
 <td style="text-align: center;"><code>uri</code></td>
 <td>The URL of GTFS-RT protobuf HTTP resource to download the positions from.</td>
 <td style="text-align: center;"><em>Required</em></td>
 <td></td>
 <td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td><a href="#u__6__features">features</a></td>
+<td style="text-align: center;"><code>enum set</code></td>
+<td>Which features of GTFS RT vehicle positions should be loaded into OTP.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
 </tr>
 <tr>
 <td><a href="#u__6__headers">headers</a></td>
@@ -2350,6 +2366,12 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 </tbody>
 </table>
 <h5 id="parameter-details_3">Parameter details</h5>
+<h4 id="u__6__features">features</h4>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>enum set</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[6] <br />
+<strong>Enum values:</strong> <code>position</code> | <code>stop-position</code> | <code>occupancy</code></p>
+<p>Which features of GTFS RT vehicle positions should be loaded into OTP.</p>
 <h4 id="u__6__headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -2366,10 +2388,14 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="nt">&quot;Header-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Header-Value&quot;</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nt">&quot;features&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="s2">&quot;position&quot;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="p">}</span>
 </code></pre></div>
 <!-- vehicle-positions END -->
 
