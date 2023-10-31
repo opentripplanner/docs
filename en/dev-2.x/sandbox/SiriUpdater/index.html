@@ -1972,7 +1972,7 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td>url</td>
+<td><a href="#u__8__url">url</a></td>
 <td style="text-align: center;"><code>string</code></td>
 <td>The URL to send the HTTP requests to.</td>
 <td style="text-align: center;"><em>Required</em></td>
@@ -1990,6 +1990,15 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 </tbody>
 </table>
 <h5 id="parameter-details">Parameter details</h5>
+<h4 id="u__8__url">url</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[8] </p>
+<p>The URL to send the HTTP requests to.</p>
+<p>Use the file protocol to set a directory for reading updates from a directory. The file
+loader will look for xml files: '*.xml' in the configured directory. The files are
+renamed by the loader when processed:</p>
+<p>&nbsp;&nbsp;&nbsp; <em>a.xml</em> &nbsp; ➞ &nbsp; <em>a.xml.inProgress</em> &nbsp; ➞ &nbsp; <em>a.xml.ok</em> &nbsp; or &nbsp; <em>a.xml.failed</em></p>
 <h4 id="u__8__headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -2086,9 +2095,9 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td>url</td>
+<td><a href="#u__9__url">url</a></td>
 <td style="text-align: center;"><code>string</code></td>
-<td>The URL to send the HTTP requests to.</td>
+<td>The URL to send the HTTP requests to. Supports http/https and file protocol.</td>
 <td style="text-align: center;"><em>Required</em></td>
 <td></td>
 <td style="text-align: center;">2.0</td>
@@ -2112,6 +2121,15 @@ the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/No
 <p>Normally the planned departure time is used, so setting this to 10s will cause the
 SX-message to be included in trip-results 10 seconds before the the planned departure
 time.</p>
+<h4 id="u__9__url">url</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[9] </p>
+<p>The URL to send the HTTP requests to. Supports http/https and file protocol.</p>
+<p>Use the file protocol to set a directory for reading updates from a directory. The file
+loader will look for xml files: '*.xml' in the configured directory. The files are
+renamed by the loader when processed:</p>
+<p>&nbsp;&nbsp;&nbsp; <em>a.xml</em> &nbsp; ➞ &nbsp; <em>a.xml.inProgress</em> &nbsp; ➞ &nbsp; <em>a.xml.ok</em> &nbsp; or &nbsp; <em>a.xml.failed</em></p>
 <h4 id="u__9__headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
