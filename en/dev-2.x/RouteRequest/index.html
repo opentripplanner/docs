@@ -1932,10 +1932,10 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 </tr>
 <tr>
 <td>bikeParkTime</td>
-<td style="text-align: center;"><code>integer</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>Time to park a bike.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>60</code></td>
+<td><code>"PT1M"</code></td>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
@@ -2060,10 +2060,10 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 </tr>
 <tr>
 <td>carParkTime</td>
-<td style="text-align: center;"><code>integer</code></td>
+<td style="text-align: center;"><code>duration</code></td>
 <td>Time to park a car</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>60</code></td>
+<td><code>"PT1M"</code></td>
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
@@ -3141,6 +3141,7 @@ extra cost, while 1.0 will add the same amount to both time and cost.</p>
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
 <p>Tags with which a vehicle parking will not be used. If empty, no tags are banned.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
 <h3 id="rd_boardSlackForMode">boardSlackForMode</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -3309,11 +3310,13 @@ done because some street modes searches are much more resource intensive than ot
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
 <p>Vehicle parking facilities that don't have one of these tags will receive an extra cost and will therefore be penalised.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
 <h3 id="rd_requiredVehicleParkingTags">requiredVehicleParkingTags</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
 <p>Tags without which a vehicle parking will not be used. If empty, no tags are required.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
 <h3 id="rd_transferOptimization">transferOptimization</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -3478,7 +3481,7 @@ include stairs as a last result.</p>
 <a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="nt">&quot;dropOffTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">      </span><span class="nt">&quot;dropOffCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">&quot;bikeParkTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="nt">&quot;bikeParkTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="nt">&quot;bikeParkCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="nt">&quot;carDropoffTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="nt">&quot;waitReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
