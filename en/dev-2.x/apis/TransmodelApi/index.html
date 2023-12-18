@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/Fares/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/apis/TransmodelApi/">
       
       
-        <link rel="prev" href="../IBIAccessibilityScore/">
+        <link rel="prev" href="../GTFS-GraphQL-API/">
       
       
-        <link rel="next" href="../RideHailing/">
+        <link rel="next" href="../../Configuration/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Fares - OpenTripPlanner 2</title>
+        <title>Transmodel (NeTEx) GraphQL API - OpenTripPlanner 2</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fares" class="md-skip">
+        <a href="#transmodel-graphql-api" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fares
+              Transmodel (NeTEx) GraphQL API
             
           </span>
         </div>
@@ -675,18 +675,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -700,7 +702,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             APIs
@@ -713,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/Apis/" class="md-nav__link">
+      <a href="../Apis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/GraphQL-Tutorial/" class="md-nav__link">
+      <a href="../GraphQL-Tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -753,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/GTFS-GraphQL-API/" class="md-nav__link">
+      <a href="../GTFS-GraphQL-API/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -771,9 +773,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../apis/TransmodelApi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Transmodel (NeTEx) GraphQL API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -782,6 +804,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contact-info" class="md-nav__link">
+    Contact Info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog-old" class="md-nav__link">
+    Changelog - old
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1287,20 +1363,18 @@
       
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1314,7 +1388,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Sandbox
@@ -1347,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ActuatorAPI/" class="md-nav__link">
+      <a href="../../sandbox/ActuatorAPI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1367,7 +1441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transferanalyzer/" class="md-nav__link">
+      <a href="../../sandbox/transferanalyzer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1387,7 +1461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GoogleCloudStorage/" class="md-nav__link">
+      <a href="../../sandbox/GoogleCloudStorage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1407,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SiriUpdater/" class="md-nav__link">
+      <a href="../../sandbox/SiriUpdater/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1427,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SiriAzureUpdater/" class="md-nav__link">
+      <a href="../../sandbox/SiriAzureUpdater/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1447,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1467,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SmooveBikeRental/" class="md-nav__link">
+      <a href="../../sandbox/SmooveBikeRental/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1487,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1507,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Flex/" class="md-nav__link">
+      <a href="../../sandbox/Flex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1527,7 +1601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ReportApi/" class="md-nav__link">
+      <a href="../../sandbox/ReportApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1547,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../InteractiveOtpMain/" class="md-nav__link">
+      <a href="../../sandbox/InteractiveOtpMain/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1567,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ParkAndRideApi/" class="md-nav__link">
+      <a href="../../sandbox/ParkAndRideApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1587,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DataOverlay/" class="md-nav__link">
+      <a href="../../sandbox/DataOverlay/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1607,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleParking/" class="md-nav__link">
+      <a href="../../sandbox/VehicleParking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1627,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleToStopHeuristics/" class="md-nav__link">
+      <a href="../../sandbox/VehicleToStopHeuristics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1647,7 +1721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GeocoderAPI/" class="md-nav__link">
+      <a href="../../sandbox/GeocoderAPI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1667,7 +1741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TravelTime/" class="md-nav__link">
+      <a href="../../sandbox/TravelTime/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1687,7 +1761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../../sandbox/IBIAccessibilityScore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1705,29 +1779,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Fares
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../sandbox/Fares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1736,88 +1790,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contact-info" class="md-nav__link">
-    Contact Info
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fares-v2" class="md-nav__link">
-    Fares V2
-  </a>
-  
-    <nav class="md-nav" aria-label="Fares V2">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-fares-v2-fields" class="md-nav__link">
-    Supported Fares V2 fields
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#custom-fare-calculators" class="md-nav__link">
-    Custom fare calculators
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fares-configuration" class="md-nav__link">
-    Fares configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#removed-fare-calculators" class="md-nav__link">
-    Removed fare calculators
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    Changelog
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1829,7 +1801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RideHailing/" class="md-nav__link">
+      <a href="../../sandbox/RideHailing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1849,7 +1821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Emissions/" class="md-nav__link">
+      <a href="../../sandbox/Emissions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1869,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../StopConsolidation/" class="md-nav__link">
+      <a href="../../sandbox/StopConsolidation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1908,131 +1880,75 @@
   
 
 
-<h1 id="fares">Fares</h1>
+<h1 id="transmodel-graphql-api">Transmodel GraphQL API</h1>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
-<li>Leonard Ehrenfried (<a href="mailto:mail@leonard.io">mail@leonard.io</a>)</li>
+<li>Entur, Norway</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>The code in this sandbox used to be part of OTP core but to allow more experimentation - in 
-particular regarding GTFS Fares V2 - it was moved into a sandbox.</p>
-<h2 id="fares-v2">Fares V2</h2>
-<p>In 2022 the GTFS spec was extended to contain a powerful new model, called Fares V2, to describe fares, prices and
-products for public transport tickets. A baseline effort was <a href="https://github.com/google/transit/pull/286">merged into the main
-spec</a> in May.</p>
-<p>OTP experimentally supports the merged baseline plus a few extensions from the <a href="http://bit.ly/gtfs-fares">larger, unmerged spec</a>.</p>
-<p>To enable Fares V2 support, add the following to <code>otp-config.json</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;otpFeatures&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;FaresV2&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="supported-fares-v2-fields">Supported Fares V2 fields</h3>
-<p>A full list of the fields that OTP supports is available in the <a href="https://docs.google.com/spreadsheets/d/1jpKjz6MbCD2XPhmIP11EDi-P2jMh7x2k-oHS-pLf2vI">Fares V2 Adoption Google Sheet</a>.</p>
-<h2 id="custom-fare-calculators">Custom fare calculators</h2>
-<p>When the GTFS Fares V1 spec was not enough, some organizations have developed their own calculators
-which are also part of the sandbox code.</p>
-<p>The classes and their maintainers are as follows:</p>
-<table>
-<thead>
-<tr>
-<th>class</th>
-<th>maintainer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HighestFareInFreeTransferWindowFareService</td>
-<td>IBI Group (<a href="mailto:david.emory@ibigroup.com">David Emory</a>)</td>
-</tr>
-<tr>
-<td>AtlantaFareService</td>
-<td>IBI Group (<a href="mailto:david.emory@ibigroup.com">David Emory</a>)</td>
-</tr>
-<tr>
-<td>CombinedInterlinedLegsFareService</td>
-<td>IBI Group (<a href="mailto:david.emory@ibigroup.com">David Emory</a>)</td>
-</tr>
-<tr>
-<td>HSLFareServiceImpl</td>
-<td>HSL (<a href="mailto:viljami.nurminen@cgi.com">Viljami Nurminen</a>)</td>
-</tr>
-<tr>
-<td>OrcaFareService</td>
-<td>IBI Group (<a href="mailto:daniel.heppner@ibigroup.com">Daniel Heppner</a>)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="fares-configuration">Fares configuration</h2>
-<p>By default OTP will compute fares according to the GTFS specification if fare data is provided in
-your GTFS input. It is possible to turn off this by setting the fare to "off". For more complex
-scenarios or to handle vehicle rental fares, it is necessary to manually configure fares using the
-<code>fares</code> section in <code>build-config.json</code>. You can combine different fares (for example transit and
-vehicle-rental) by defining a <code>combinationStrategy</code> parameter, and a list of sub-fares to combine
-(all fields starting with <code>fare</code> are considered to be sub-fares).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="c1">// Select the custom fare &quot;seattle&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seattle&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
-</code></pre></div>
-<p>Or this alternative form that could allow additional configuration</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seattle&quot;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
-</code></pre></div>
-<p>Turning the fare service <em>off</em>, this will ignore any fare data in the provided GTFS data.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;fares&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
-</code></pre></div>
-<p>The current list of custom fare type is:</p>
+<p>This is the official OTP2 API for Transmodel (NeTEx). The terminology is based on the 
+Transmodel (NeTEx) with some limitations/simplification. It provides both a routing API 
+(trip query) and index API for transit data.</p>
+<p>Entur provides a <a href="https://api.entur.io/graphql-explorer">GraphQL explorer</a> where you may browse the GraphQL schema and try your own
+queries.</p>
+<p>When running OTP locally the endpoint is available at: <code>http://localhost:8080/otp/routers/default/transmodel/index/graphql</code></p>
+<h3 id="configuration">Configuration</h3>
+<p>To turn this API off, add the feature <code>TransmodelGraphQlApi : false</code> in <em>otp-config.json</em>.</p>
+<h2 id="changelog-old">Changelog - old</h2>
+<p>The Transmodel API is now part of the main OTP supported APIs. New changes in the changelog 
+will be added to the main change log, and NOT here (2023-12-13).</p>
 <ul>
-<li><code>highest-fare-in-free-transfer-window</code> Will apply the highest observed transit fare (across all
-  operators) within a free transfer window, adding to the cost if a trip is boarded outside the free
-  transfer window. It accepts the following parameters:<ul>
-<li><code>freeTransferWindow</code> the duration (in ISO8601-ish notation) that free transfers are
-  possible after the board time of the first transit leg. Default: <code>2h30m</code>.</li>
-<li><code>analyzeInterlinedTransfers</code> If true, will treat interlined transfers as actual transfers.
-  This is merely a work-around for transit agencies that choose to code their fares in a
-  route-based fashion instead of a zone-based fashion. Default: <code>false</code></li>
-</ul>
-</li>
-<li><code>atlanta</code> (no parameters)</li>
-<li><code>combine-interlined-legs</code> Will treat two interlined legs (those with a stay-seated transfer in
-  between them) as a single leg for the purpose of fare calculation.
-  It has a single parameter <code>mode</code> which controls when exactly the combination should happen:<ul>
-<li><code>ALWAYS</code>: All interlined legs are combined. (default)</li>
-<li><code>SAME_ROUTE</code>: Only interlined legs whose route ID are identical are combined.</li>
-</ul>
-</li>
-<li><code>orca</code> (no parameters)</li>
-<li><code>off</code> (no parameters)</li>
-</ul>
-<h2 id="removed-fare-calculators">Removed fare calculators</h2>
-<p>The following calculators used to be part of the OTP codebase but since their maintainership
-was unclear and no-one <a href="https://groups.google.com/g/opentripplanner-users/c/ZPzx1lhZ9HU">offered to maintain</a>,
-they were <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4273">removed</a> in July 2022.</p>
-<ul>
-<li>SeattleFareServiceImpl</li>
-<li>DutchFareServiceImpl</li>
-</ul>
-<p>The NYC fare calculator was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4694">#4694</a>.</p>
-<p>The <code>MultipleFareService</code> was removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5100">#5100</a>.</p>
-<p>The <code>SFBayFareServiceImpl</code> and <code>TimeBasedVehicleRentalFareService</code> were removed in <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5145">#5145</a>.</p>
-<p>If you were using these calculators, you're welcome to re-add them to the code base and become their
-maintainer.</p>
-<h2 id="changelog">Changelog</h2>
-<ul>
-<li>Initial move into sandbox <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4241">#4241</a></li>
-<li>Add HighestFareInFreeTransferWindowFareService <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4267">#4267</a></li>
-<li>Add Fares V2 <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4338">#4338</a></li>
-<li>Add CombineInterlinedLegsFareService <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4509">#4509</a></li>
+<li>Initial version of Transmodel Graph QL API (September 2019)</li>
+<li>Added support for multimodal StopPlaces (November 2019)</li>
+<li>Fix bug querying stopPlaces <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3591">#3591</a></li>
+<li>Fix the field bikesAllowed <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3586">#3586</a></li>
+<li>Add triangle factors for bicycle
+  routing <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3585">#3585</a></li>
+<li>Fix correct type for BookingArrangementType#latestBookingDay</li>
+<li>Fix NPE in BookingArrangementType data
+  fetchers <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3649">#3649</a></li>
+<li>Add BookingInfo to TimetabledPassingTime and
+  EstimatedCall <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3666">#3666</a></li>
+<li>Use correct capitalization for GraphQL
+  fields <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3707">#3707</a></li>
+<li>Allow filtering by a list of
+  ids <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3738">#3738</a></li>
+<li>Don't filter out stops who don't have multimodal parents in the nearest
+  query <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3752">#3752</a></li>
+<li>Restore ability to filter by private
+  code <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3764">#3764</a></li>
+<li>Narrow down non-null types
+  type <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3803">#3803</a></li>
+<li>Fix issue with fetching parent StopPlaces in nearest query in Transmodel
+  API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3807">#3807</a></li>
+<li>Fix invalid cast in situations resolver for line
+  type <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3810">#3810</a></li>
+<li>Deduce enum for bookWhen in Transmodel
+  API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3854">#3854</a></li>
+<li>Fix coercion of default parameter for maximumDistance in
+  nearest <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
+<li>Expose stopPositionInPattern on
+  EstimatedCall <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
+<li>Allow selecting first or last quays in a
+  ServiceJourney <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
+<li>Make language nullable in MultilingualString, as it is not set in NonLocalizedString
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4074">#4074</a></li>
+<li>Transmodel API transport mode not present or null is all transport modes
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4123">#4123</a></li>
+<li>Expose datedServiceJourney from EstimatedCall
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4128">#4128</a></li>
+<li>Expose stop-to-stop journey pattern geometries
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4161">#4161</a></li>
+<li>Add possibility to filter dated service journeys by replacementFor
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4198">#4198</a></li>
+<li>Add support for groupOfLines in top level query
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4232">#4232</a></li>
+<li>Fix issue when ServiceJourney is created by an updater and expose necessary information via DSJ
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4365">#4365</a></li>
+<li>Allow specifying allowed/banned rental networks in trip query
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4459">#4459</a></li>
+<li>Add flexible stops
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4485">#4485</a></li>
 </ul>
 
 

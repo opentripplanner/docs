@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/Configuration/">
       
       
-        <link rel="prev" href="../apis/GTFS-GraphQL-API/">
+        <link rel="prev" href="../apis/TransmodelApi/">
       
       
         <link rel="next" href="../BuildConfiguration/">
@@ -767,6 +767,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/TransmodelApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmodel (NeTEx) GraphQL API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1461,26 +1481,6 @@
   
   <span class="md-ellipsis">
     Google Cloud Storage
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sandbox/TransmodelApi/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Transmodel(NeTEx) GraphQL API
   </span>
   
 
@@ -2252,9 +2252,15 @@ managed in this one file. </p>
 </tr>
 <tr>
 <td><code>TransferConstraints</code></td>
-<td>Enforce transfers to happen according to the <em>transfers.txt</em>(GTFS) and Interchanges(NeTEx). Turing this <em>off</em> will increase the routing performance a little.</td>
+<td>Enforce transfers to happen according to the <em>transfers.txt</em> (GTFS) and Interchanges (NeTEx). Turning this <em>off</em> will increase the routing performance a little.</td>
 <td style="text-align: center;">✓️</td>
 <td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><code>TransmodelGraphQlApi</code></td>
+<td>Enable Transmodel (NeTEx) GraphQL API.</td>
+<td style="text-align: center;">✓️</td>
+<td style="text-align: center;">✓️</td>
 </tr>
 <tr>
 <td><code>ActuatorAPI</code></td>
@@ -2331,12 +2337,6 @@ managed in this one file. </p>
 <tr>
 <td><code>SandboxAPIParkAndRideApi</code></td>
 <td>Enable park-and-ride endpoint.</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">✓️</td>
-</tr>
-<tr>
-<td><code>SandboxAPITransmodelApi</code></td>
-<td>Enable Entur Transmodel(NeTEx) GraphQL API.</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">✓️</td>
 </tr>
