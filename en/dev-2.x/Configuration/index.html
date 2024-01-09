@@ -973,6 +973,111 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#system-wide-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      System-wide Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System-wide Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#otp-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      OTP Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      JVM configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JVM configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#otp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      OTP server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OTP server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#garbage-collector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Garbage collector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Builder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Builder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#garbage-collector_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Garbage collector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-settings_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2240,14 +2345,14 @@ variable substitution is also performed on the text in the injected file.</p>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="p">]</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span><span class="w"> </span>
 </code></pre></div>
-<h1 id="system-wide-configuration">System-wide Configuration</h1>
+<h2 id="system-wide-configuration">System-wide Configuration</h2>
 <p>Using the file <code>otp-config.json</code> you can enable or disable different APIs and experimental
 <a href="../SandboxExtension/">Sandbox Extensions</a>. By default, all supported APIs are enabled and all
 sandbox features are disabled. So for most OTP2 use cases it is not necessary to create this file.
 Features that can be toggled in this file are generally only affect the routing phase of OTP2 usage,
 but for consistency all such "feature flags", even those that would affect graph building, are
 managed in this one file. </p>
-<h2 id="otp-features">OTP Features</h2>
+<h3 id="otp-features">OTP Features</h3>
 <p>Here is a list of all features which can be toggled on/off and their default values.</p>
 <!-- OTP-FEATURE-TABLE BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
@@ -2455,20 +2560,20 @@ managed in this one file. </p>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
 </code></pre></div>
-<h1 id="jvm-configuration">JVM configuration</h1>
+<h2 id="jvm-configuration">JVM configuration</h2>
 <p>This section contains general recommendations for tuning the JVM in a production environment.<br />
 It focuses mainly on garbage collection configuration and memory settings.<br />
 See <a href="https://docs.oracle.com/en/java/javase/17/gctuning/introduction-garbage-collection-tuning.html">Garbage Collector Tuning</a> for general information on garbage collection.<br />
 See <a href="https://kstefanj.github.io/2021/05/19/large-pages-and-java.html">Large Pages in Java</a> and  <a href="https://shipilev.net/jvm/anatomy-quarks/2-transparent-huge-pages">Transparent Huge Pages</a> for general information on large memory pages.</p>
-<h2 id="otp-server">OTP server</h2>
+<h3 id="otp-server">OTP server</h3>
 <p>The OTP server processes concurrent routing requests in real time.<br />
 The main optimization goal for the OTP server is minimizing response time.</p>
-<h3 id="garbage-collector">Garbage collector</h3>
+<h4 id="garbage-collector">Garbage collector</h4>
 <ul>
 <li>The G1 garbage collector (default since Java 9) offers a good compromise between low latency (i.e. low GC pause time) and GC overhead.</li>
 <li>If latency spikes are an issue, the ZGC garbage collector is an alternative. It produces in general more overhead than G1.  </li>
 </ul>
-<h3 id="memory-settings">Memory settings</h3>
+<h4 id="memory-settings">Memory settings</h4>
 <ul>
 <li>Using Large Memory Pages can reduce pressure on the TLB cache and increase performance.  </li>
 <li>It is in general not recommended to use large memory page in <em>Transparent Huge Page</em> mode (<code>-XX:+UseTransparentHugePages</code>) for latency-sensitive applications, since memory is allocated on-demand and this can induce latency spikes if the memory is fragmented.<br />
@@ -2477,16 +2582,16 @@ The main optimization goal for the OTP server is minimizing response time.</p>
 The physical memory can be committed upfront, at JVM startup time. This can be done by forcing a fixed heap size and pre-touching the memory.<br />
 Example: <code>-Xms18g -Xmx18g -XX:+UseTransparentHugePages -XX:+AlwaysPreTouch</code>  </li>
 </ul>
-<h2 id="graph-builder">Graph Builder</h2>
+<h3 id="graph-builder">Graph Builder</h3>
 <p>The Graph Builder is the non-interactive mode used to build street graphs and transit graphs.   <br />
 The main optimization goal for the Graph Builder is minimizing total build time.  </p>
-<h3 id="garbage-collector_1">Garbage collector</h3>
+<h4 id="garbage-collector_1">Garbage collector</h4>
 <ul>
 <li>In theory, the Parallel garbage collector offers the best throughput.<br />
 In practice, it can be challenging to optimize the Parallel GC to build both a street graph and a transit graph, the memory usage patterns being different. </li>
 <li>The G1 garbage collector provides in general a good compromise.  </li>
 </ul>
-<h3 id="memory-settings_1">Memory settings</h3>
+<h4 id="memory-settings_1">Memory settings</h4>
 <ul>
 <li>Using Large Memory Pages can reduce pressure on the TLB cache and increase performance.  </li>
 <li>Since latency is not an issue, Large Memory Pages can be used indifferently in <em>TLBFS</em> mode (<code>-XX:+UseHugeTLBFS</code>) or <em>Transparent Huge Page</em> mode (<code>-XX:+UseTransparentHugePages</code>)</li>
