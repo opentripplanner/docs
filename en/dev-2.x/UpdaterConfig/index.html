@@ -1071,13 +1071,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vehicle-positions" class="md-nav__link">
+  <a href="#streaming-tripupdates-via-mqtt" class="md-nav__link">
     <span class="md-ellipsis">
-      Vehicle Positions
+      Streaming TripUpdates via MQTT
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Vehicle Positions">
+    <nav class="md-nav" aria-label="Streaming TripUpdates via MQTT">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1091,6 +1091,39 @@
         
           <li class="md-nav__item">
   <a href="#example-configuration_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle-positions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vehicle Positions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vehicle Positions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-details_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration_3" class="md-nav__link">
     <span class="md-ellipsis">
       Example configuration
     </span>
@@ -1119,7 +1152,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#parameter-details_3" class="md-nav__link">
+  <a href="#parameter-details_4" class="md-nav__link">
     <span class="md-ellipsis">
       Parameter details
     </span>
@@ -1128,7 +1161,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-configuration_3" class="md-nav__link">
+  <a href="#example-configuration_4" class="md-nav__link">
     <span class="md-ellipsis">
       Example configuration
     </span>
@@ -2080,8 +2113,8 @@
 -->
 
 <h1 id="updater-configuration">Updater configuration</h1>
-<p>This section covers all options that can be set in the <em>router-config.json</em> in the 
-<a href="../RouterConfiguration/">updaters</a> section.</p>
+<p>This section covers options that can be set in the updaters section of <code>router-config.json</code>. 
+See the parameter summary and examples in the router configuration documentation</p>
 <p>Real-time data are those that are not added to OTP during the graph build phase but during runtime.</p>
 <p>Real-time data sources are configured in the <code>updaters</code> section is an array of JSON objects, each
 of which has a <code>type</code> field and other configuration fields specific to that type. </p>
@@ -2317,6 +2350,117 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 </code></pre></div>
 <!-- stop-time-updater END -->
 
+<h3 id="streaming-tripupdates-via-mqtt">Streaming TripUpdates via MQTT</h3>
+<p>This updater connects to an MQTT broker and processes TripUpdates in a streaming fashion. This means
+that they will be applied individually in near-realtime rather than in batches at a certain interval.</p>
+<p>This system powers the realtime updates in Helsinki and more information can be found 
+<a href="https://github.com/HSLdevcom/transitdata">on Github</a>.</p>
+<!-- mqtt-gtfs-rt-updater BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "mqtt-gtfs-rt-updater"</td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td><a href="#u__6__backwardsDelayPropagationType">backwardsDelayPropagationType</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>How backwards propagation should be handled.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"required-no-data"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>feedId</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The feed id to apply the updates to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>fuzzyTripMatching</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether to match trips fuzzily.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>qos</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>QOS level.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>topic</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The topic to subscribe to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>url</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>URL of the MQTT broker.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-details_2">Parameter details</h5>
+<h4 id="u__6__backwardsDelayPropagationType">backwardsDelayPropagationType</h4>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"required-no-data"</code> <br />
+<strong>Path:</strong> /updaters/[6] <br />
+<strong>Enum values:</strong> <code>required-no-data</code> | <code>required</code> | <code>always</code></p>
+<p>How backwards propagation should be handled.</p>
+<p>REQUIRED_NO_DATA:
+  Default value. Only propagates delays backwards when it is required to ensure that the times
+  are increasing, and it sets the NO_DATA flag on the stops so these automatically updated times
+  are not exposed through APIs.</p>
+<p>REQUIRED:
+  Only propagates delays backwards when it is required to ensure that the times are increasing.
+  The updated times are exposed through APIs.</p>
+<p>ALWAYS:
+  Propagates delays backwards on stops with no estimates regardless if it's required or not.
+  The updated times are exposed through APIs.</p>
+<h5 id="example-configuration_2">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mqtt-gtfs-rt-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcp://pred.rt.hsl.fi&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gtfsrt/v2/fi/hsl/tu&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HSL&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
+</code></pre></div>
+<!-- mqtt-gtfs-rt-updater END -->
+
 <h3 id="vehicle-positions">Vehicle Positions</h3>
 <p>VehiclePositions give the location of some or all vehicles currently in service, in terms of 
 geographic coordinates or position relative to their scheduled stops.
@@ -2377,7 +2521,7 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 <td style="text-align: center;">2.2</td>
 </tr>
 <tr>
-<td><a href="#u__6__features">features</a></td>
+<td><a href="#u__7__features">features</a></td>
 <td style="text-align: center;"><code>enum set</code></td>
 <td>Which features of GTFS RT vehicle positions should be loaded into OTP.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -2385,7 +2529,7 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 <td style="text-align: center;">2.5</td>
 </tr>
 <tr>
-<td><a href="#u__6__headers">headers</a></td>
+<td><a href="#u__7__headers">headers</a></td>
 <td style="text-align: center;"><code>map of string</code></td>
 <td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -2394,37 +2538,37 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 </tr>
 </tbody>
 </table>
-<h5 id="parameter-details_2">Parameter details</h5>
-<h4 id="u__6__features">features</h4>
+<h5 id="parameter-details_3">Parameter details</h5>
+<h4 id="u__7__features">features</h4>
 
 <p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>enum set</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /updaters/[6] <br />
+<strong>Path:</strong> /updaters/[7] <br />
 <strong>Enum values:</strong> <code>position</code> | <code>stop-position</code> | <code>occupancy</code></p>
 <p>Which features of GTFS RT vehicle positions should be loaded into OTP.</p>
-<h4 id="u__6__headers">headers</h4>
+<h4 id="u__7__headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /updaters/[6] </p>
+<strong>Path:</strong> /updaters/[7] </p>
 <p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
-<h5 id="example-configuration_2">Example configuration</h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-positions&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://s3.amazonaws.com/kcm-alerts-realtime-prod/vehiclepositions.pb&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">&quot;Header-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Header-Value&quot;</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">&quot;features&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="s2">&quot;position&quot;</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="p">]</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
+<h5 id="example-configuration_3">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-positions&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://s3.amazonaws.com/kcm-alerts-realtime-prod/vehiclepositions.pb&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="nt">&quot;Header-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Header-Value&quot;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nt">&quot;features&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="s2">&quot;position&quot;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="p">}</span>
 </code></pre></div>
 <!-- vehicle-positions END -->
 
@@ -2537,7 +2681,7 @@ GBFS form factors:</p>
 </tr>
 </tbody>
 </table>
-<h5 id="parameter-details_3">Parameter details</h5>
+<h5 id="parameter-details_4">Parameter details</h5>
 <h4 id="u_1_allowKeepingRentedVehicleAtDestination">allowKeepingRentedVehicleAtDestination</h4>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
@@ -2578,26 +2722,26 @@ This is useful if vehicles may only be rented for round trips, or the destinatio
 <p><strong>Since version:</strong> <code>1.5</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[1] </p>
 <p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
-<h5 id="example-configuration_3">Example configuration</h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// router-config.json</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-rental&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;socialbicycles_coast&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gbfs&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="nt">&quot;language&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="nt">&quot;allowKeepingRentedVehicleAtDestination&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="nt">&quot;geofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://coast.socialbicycles.com/opendata/gbfs.json&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="nt">&quot;Auth&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;any-token&gt;&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="nt">&quot;&lt;key&gt;&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;value&gt;&quot;</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">}</span>
+<h5 id="example-configuration_4">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-rental&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;socialbicycles_coast&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gbfs&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">&quot;language&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">&quot;allowKeepingRentedVehicleAtDestination&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">&quot;geofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://coast.socialbicycles.com/opendata/gbfs.json&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="nt">&quot;Auth&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;any-token&gt;&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="nt">&quot;&lt;key&gt;&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;value&gt;&quot;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">}</span>
 </code></pre></div>
 <!-- vehicle-rental END -->
 
