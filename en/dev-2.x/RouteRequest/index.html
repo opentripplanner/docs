@@ -2311,9 +2311,9 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td><a href="#rd_relaxTransitPriorityGroup">relaxTransitPriorityGroup</a></td>
+<td><a href="#rd_relaxTransitGroupPriority">relaxTransitGroupPriority</a></td>
 <td style="text-align: center;"><code>string</code></td>
-<td>The relax function for transit-priority-groups</td>
+<td>The relax function for transit-group-priority</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>"0s + 1.00 t"</code></td>
 <td style="text-align: center;">2.5</td>
@@ -2719,9 +2719,9 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
-<td><a href="#rd_transitPriorityGroups">transitPriorityGroups</a></td>
+<td><a href="#rd_transitGroupPriority">transitGroupPriority</a></td>
 <td style="text-align: center;"><code>object</code></td>
-<td>Transit priority groups configuration</td>
+<td>Group transit patterns and give each group a mutual advantage in the Raptor search.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
 <td style="text-align: center;">2.5</td>
@@ -3059,14 +3059,14 @@ search, hence, making it a bit slower. Recommended values would be from 12 hours
 <strong>Path:</strong> /routingDefaults </p>
 <p>Penalty added for using every route that is not preferred if user set any route as preferred.</p>
 <p>We return number of seconds that we are willing to wait for preferred route.</p>
-<h3 id="rd_relaxTransitPriorityGroup">relaxTransitPriorityGroup</h3>
+<h3 id="rd_relaxTransitGroupPriority">relaxTransitGroupPriority</h3>
 
 <p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.00 t"</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
-<p>The relax function for transit-priority-groups</p>
-<p>A path is considered optimal if the generalized-cost is less than the
-generalized-cost of another path. If this parameter is set, the comparison is relaxed
-further if they belong to different transit-priority-groups.</p>
+<p>The relax function for transit-group-priority</p>
+<p>A path is considered optimal if the generalized-cost is less than the generalized-cost of
+another path. If this parameter is set, the comparison is relaxed further if they belong
+to different transit groups.</p>
 <h3 id="rd_relaxTransitSearchGeneralizedCostAtDestination">relaxTransitSearchGeneralizedCostAtDestination</h3>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -3454,19 +3454,17 @@ doubled. Stop priority is only supported by the NeTEx import, not GTFS.</p>
 <strong>Path:</strong> /routingDefaults/transferOptimization </p>
 <p>This enables the transfer wait time optimization.</p>
 <p>If not enabled generalizedCost function is used to pick the optimal transfer point.</p>
-<h3 id="rd_transitPriorityGroups">transitPriorityGroups</h3>
+<h3 id="rd_transitGroupPriority">transitGroupPriority</h3>
 
 <p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
-<p>Transit priority groups configuration</p>
+<p>Group transit patterns and give each group a mutual advantage in the Raptor search.</p>
 <p>Use this to separate transit patterns into groups. Each group will be given a group-id. A
 path (multiple legs) will then have a set of group-ids based on the group-id from each leg.
 Hence, two paths with a different set of group-ids will BOTH be optimal unless the cost is
-worse than the relaxation specified in the <code>relaxTransitPriorityGroup</code> parameter. This is
+worse than the relaxation specified in the <code>relaxTransitGroupPriority</code> parameter. This is
 only available in the TransmodelAPI for now.</p>
-<p>Unmatched patterns are put in the BASE priority-group (group id: 0). This group is special.
-If a path only have legs in the base group, then that path dominates other paths, but other
-paths must be better to make it.</p>
+<p>Unmatched patterns are put in the BASE priority-group.</p>
 <p><strong>THIS IS STILL AN EXPERIMENTAL FEATURE - IT MAY CHANGE WITHOUT ANY NOTICE!</strong></p>
 <h3 id="rd_transitReluctanceForMode">transitReluctanceForMode</h3>
 
