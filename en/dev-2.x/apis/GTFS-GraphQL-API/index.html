@@ -1949,7 +1949,7 @@ used heavily by <a href="https://github.com/HSLdevcom/digitransit-ui">digitransi
 <p><a href="https://github.com/opentripplanner/otp-react-redux">otp-react-redux</a> has also migrated to this API in 2023.</p>
 <h2 id="urls">URLs</h2>
 <ul>
-<li>GraphQL endpoint: <a href="http://localhost:8080/otp/routers/default/index/graphql"><code>http://localhost:8080/otp/routers/default/index/graphql</code></a></li>
+<li>GraphQL endpoint: <a href="http://localhost:8080/otp/gtfs/v1"><code>http://localhost:8080/otp/gtfs/v1</code></a></li>
 <li>HTML schema documentation: <a href="https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/">https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/</a></li>
 <li>Built-in visual GraphQL client: <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a></li>
 </ul>
@@ -1959,7 +1959,7 @@ used heavily by <a href="https://github.com/HSLdevcom/digitransit-ui">digitransi
 <p><strong><code>curl</code> example</strong></p>
 <p>A complete example that fetches the list of all stops from OTP is:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl --request POST \
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  --url http://localhost:8080/otp/routers/default/index/graphql \
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  --url http://localhost:8080/otp/gtfs/v1 \
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  --header &#39;Content-Type: application/json&#39; \
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  --header &#39;OTPTimeout: 180000&#39; \
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  --data &#39;{&quot;query&quot;:&quot;query stops {\n  stops {\n    gtfsId\n    name\n  }\n}\n&quot;,&quot;operationName&quot;:&quot;stops&quot;}&#39;
