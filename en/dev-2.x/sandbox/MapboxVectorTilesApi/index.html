@@ -1614,6 +1614,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1995,15 +2010,17 @@
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li>HSL, Finland</li>
-<li>Kyyti Group Oy, Finland</li>
-<li>Hannes Junnila</li>
+<li>Arcadis, US</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
 <p>This API produces <a href="https://docs.mapbox.com/vector-tiles/reference/">Mapbox vector tiles</a>, which are
-used by eg. <a href="https://github.com/HSLdevcom/digitransit-ui">Digitransit-ui</a> to show information about
+used by <a href="https://github.com/HSLdevcom/digitransit-ui">Digitransit-ui</a> and 
+<a href="https://github.com/opentripplanner/otp-react-redux"><code>otp-react-redux</code></a> to show information about
 public transit entities on the map.</p>
 <p>The tiles can be fetched from <code>/otp/routers/{routerId}/vectorTiles/{layers}/{z}/{x}/{y}.pbf</code>,
 where <code>layers</code> is a comma separated list of layer names from the configuration.</p>
+<p>Maplibre/Mapbox GL JS also requires a tilejson.json endpoint which is available at
+<code>/otp/routers/{routerId}/vectorTiles/{layers}/tilejson.json</code>.</p>
 <p>Translatable fields in the tiles are translated based on the <code>accept-language</code> header in requests.
 Currently, only the language with the highest priority from the header is used.</p>
 <h3 id="configuration">Configuration</h3>
@@ -2017,94 +2034,97 @@ Currently, only the language with the highest priority from the header is used.<
 </code></pre></div>
 <p>The feature must be configured in <code>router-config.json</code> as follows</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;vectorTileLayers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stops&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stop&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stations&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Station&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="c1">// all rental places: stations and free-floating vehicles</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;citybikes&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRental&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">      </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="c1">// just free-floating vehicles</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rentalVehicles&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRentalVehicle&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DigitransitRealtime&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span><span class="c1">// just rental stations</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rentalStations&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRentalStation&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">    </span><span class="c1">// Contains just stations and real-time information for them</span>
-<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;realtimeRentalStations&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRentalStation&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DigitransitRealtime&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
-<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">    </span><span class="c1">// This exists for backwards compatibility. At some point, we might want</span>
-<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">    </span><span class="c1">// to add a new real-time parking mapper with better translation support</span>
-<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">    </span><span class="c1">// and less unnecessary fields.</span>
-<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stadtnaviVehicleParking&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleParking&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stadtnavi&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
-<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">      </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
-<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">    </span><span class="c1">// no real-time, translatable fields are translated based on accept-language header</span>
-<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">    </span><span class="c1">// and contains less fields than the Stadtnavi mapper</span>
-<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicleParking&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleParking&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
-<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">      </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
-<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicleParkingGroups&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleParkingGroup&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">      </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="w">      </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span>
-<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="w">      </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a><span class="w">      </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
-<a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="w">      </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
-<a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a><span class="p">}</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;vectorTiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;basePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/only/configure/if/required&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;layers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stops&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stop&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stations&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Station&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="c1">// all rental places: stations and free-floating vehicles</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;citybikes&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRental&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">        </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">      </span><span class="c1">// just free-floating vehicles</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rentalVehicles&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRentalVehicle&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DigitransitRealtime&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">      </span><span class="c1">// just rental stations</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rentalStations&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRentalStation&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">      </span><span class="c1">// Contains just stations and real-time information for them</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;realtimeRentalStations&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRentalStation&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DigitransitRealtime&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">      </span><span class="c1">// This exists for backwards compatibility. At some point, we might want</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">      </span><span class="c1">// to add a new real-time parking mapper with better translation support</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">      </span><span class="c1">// and less unnecessary fields.</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stadtnaviVehicleParking&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleParking&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stadtnavi&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">        </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">      </span><span class="c1">// no real-time, translatable fields are translated based on accept-language header</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">      </span><span class="c1">// and contains less fields than the Stadtnavi mapper</span>
+<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicleParking&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleParking&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">        </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
+<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicleParkingGroups&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleParkingGroup&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span>
+<a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">        </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span>
+<a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a><span class="p">}</span>
 </code></pre></div>
 <p>For each layer, the configuration includes:</p>
 <ul>
@@ -2119,18 +2139,141 @@ Currently, only the language with the highest priority from the header is used.<
 <li><code>VehicleParkingGroup</code></li>
 </ul>
 </li>
-<li><code>mapper</code> which describes the mapper converting the properties from the OTP model entities to the
-  vector tile properties. Currently <code>Digitransit</code> is supported for all layer types.</li>
-<li><code>minZoom</code> and <code>maxZoom</code> which describe the zoom levels the layer is active for.</li>
-<li><code>cacheMaxSeconds</code> which sets the cache header in the response. The lowest value of the layers
-  included is selected.</li>
-<li><code>expansionFactor</code> How far outside its boundaries should the tile contain information. The value is
-  a fraction of the tile size. If you are having problem with icons and shapes being clipped at tile
-  edges, then increase this number.</li>
 </ul>
+<!-- parameters BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#vectorTiles_basePath">basePath</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The path of the vector tile source URLs in <code>tilejson.json</code>.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td><a href="#vectorTiles_layers">layers</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>Configuration of the individual layers for the Mapbox vector tiles.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      type = "stop"</td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>Type of the layer.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#vectorTiles_layers_0_cacheMaxSeconds">cacheMaxSeconds</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Sets the cache header in the response.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>-1</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#vectorTiles_layers_0_expansionFactor">expansionFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How far outside its boundaries should the tile contain information.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.25</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#vectorTiles_layers_0_mapper">mapper</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Describes the mapper converting from the OTP model entities to the vector tile properties.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      maxZoom</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Maximum zoom levels the layer is active for.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>20</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      minZoom</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Minimum zoom levels the layer is active for.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>9</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      name</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Used in the url to fetch tiles, and as the layer name in the vector tiles.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="details">Details</h4>
+<h4 id="vectorTiles_basePath">basePath</h4>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /vectorTiles </p>
+<p>The path of the vector tile source URLs in <code>tilejson.json</code>.</p>
+<p>This is useful if you have a proxy setup and rewrite the path that is passed to OTP.</p>
+<p>If you don't configure this optional value then the path returned in <code>tilejson.json</code> is in
+the format <code>/otp/routers/default/vectorTiles/layer1,layer2/{z}/{x}/{x}.pbf</code>.
+If you, for example, set a value of <code>/otp_test/tiles</code> then the returned path changes to
+<code>/otp_test/tiles/layer1,layer2/{z}/{x}/{x}.pbf</code>.</p>
+<p>The protocol and host are always read from the incoming HTTP request. If you run OTP behind
+a proxy then make sure to set the headers <code>X-Forwarded-Proto</code> and <code>X-Forwarded-Host</code> to make OTP
+return the protocol and host for the original request and not the proxied one.</p>
+<p><strong>Note:</strong> This does <em>not</em> change the path that OTP itself serves the tiles or <code>tilejson.json</code>
+responses but simply changes the URLs listed in <code>tilejson.json</code>. The rewriting of the path
+is expected to be handled by a proxy.</p>
+<h4 id="vectorTiles_layers">layers</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /vectorTiles </p>
+<p>Configuration of the individual layers for the Mapbox vector tiles.</p>
+<h4 id="vectorTiles_layers_0_cacheMaxSeconds">cacheMaxSeconds</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>-1</code> <br />
+<strong>Path:</strong> /vectorTiles/layers/[0] </p>
+<p>Sets the cache header in the response.</p>
+<p>The lowest value of the layers included is selected.</p>
+<h4 id="vectorTiles_layers_0_expansionFactor">expansionFactor</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.25</code> <br />
+<strong>Path:</strong> /vectorTiles/layers/[0] </p>
+<p>How far outside its boundaries should the tile contain information.</p>
+<p>The value is a fraction of the tile size. If you are having problem with icons and shapes being clipped at tile edges, then increase this number.</p>
+<h4 id="vectorTiles_layers_0_mapper">mapper</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /vectorTiles/layers/[0] </p>
+<p>Describes the mapper converting from the OTP model entities to the vector tile properties.</p>
+<p>Currently <code>Digitransit</code> is supported for all layer types.</p>
+<!-- parameters END -->
+
 <h3 id="extending">Extending</h3>
-<p>If more generic layers are created for this API, it should be moved out from the sandbox, into the
-core code, with potentially leaving specific property mappers in place.</p>
+<p>If more generic layers are created for this API, the code should be moved out from the sandbox, into 
+the core, perhaps potentially leaving specific property mappers in place.</p>
 <h4 id="creating-a-new-layer">Creating a new layer</h4>
 <p>In order to create a new type of layer, you need to create a new class extending <code>LayerBuilder&lt;T&gt;</code>.
 You need to implement two methods, <code>List&lt;Geometry&gt; getGeometries(Envelope query)</code>, which returns a
@@ -2144,7 +2287,7 @@ new <code>LayerType</code> enum as the key, and the class constructor as the val
 defined per layer.</p>
 <p>In order to create a new mapper for a layer, you need to create a new class
 extending <code>PropertyMapper&lt;T&gt;</code>. In that class, you need to implement the
-method <code>Collection&lt;T2&lt;String, Object&gt;&gt; map(T input)</code>. The type T is dependent on the layer for which
+method <code>Collection&lt;KeyValue&lt;String, Object&gt;&gt; map(T input)</code>. The type T is dependent on the layer for which
 you implement the mapper for. It needs to return a list of attributes, as key-value pairs which will
 be written into the vector tile.</p>
 <p>The mapper needs to be added to the <code>mappers</code> map in the layer, with a new <code>MapperType</code> enum as the
@@ -2165,6 +2308,7 @@ key, and a function to create the mapper, with a <code>Graph</code> object as a 
 <li>Added DigitransitRealtime for vehicle rental stations</li>
 <li>Changed old vehicle parking mapper to be Stadtnavi</li>
 <li>Added a new Digitransit vehicle parking mapper with no real-time information and less fields</li>
+<li>2024-01-22: Make <code>basePath</code> configurable <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5627">#5627</a></li>
 </ul>
 
 
