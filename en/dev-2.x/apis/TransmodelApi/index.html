@@ -1969,9 +1969,11 @@ Transmodel (NeTEx) with some limitations/simplification. It provides both a rout
 (trip query) and index API for transit data.</p>
 <p>Entur provides a <a href="https://api.entur.io/graphql-explorer">GraphQL explorer</a> where you may browse the GraphQL schema and try your own
 queries.</p>
-<p>When running OTP locally the endpoint is available at: <code>http://localhost:8080/otp/routers/default/transmodel/index/graphql</code></p>
+<p>When running OTP locally the endpoint is available at: <code>http://localhost:8080/otp/transmodel/v3</code></p>
+<p><strong>Note!</strong> Versions <code>v1</code> and <code>v2</code> do not exist in the main OTP git repository, but in 
+the <a href="https://github.com/entur/OpenTripPlanner">Entur fork</a> from which this code originates from.</p>
 <h3 id="configuration">Configuration</h3>
-<p>To turn this API off, add the feature <code>TransmodelGraphQlApi : false</code> in <em>otp-config.json</em>.</p>
+<p>To turn this API off, add the feature <code>TransmodelGraphQlApi : false</code> in <code>otp-config.json</code>.</p>
 <h2 id="changelog-old">Changelog - old</h2>
 <p>The Transmodel API is now part of the main OTP supported APIs. New changes in the changelog 
 will be added to the main change log, and NOT here (2023-12-13).</p>
