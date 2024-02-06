@@ -2479,7 +2479,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.5</td>
 </tr>
 <tr>
-<td>      <a href="#rd_bicycle_walk_hopCost">hopCost</a></td>
+<td>      <a href="#rd_bicycle_walk_mountDismountCost">mountDismountCost</a></td>
 <td style="text-align: center;"><code>integer</code></td>
 <td>The cost of hopping on or off a vehicle.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -2487,7 +2487,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td>      <a href="#rd_bicycle_walk_hopTime">hopTime</a></td>
+<td>      <a href="#rd_bicycle_walk_mountDismountTime">mountDismountTime</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>The time it takes the user to hop on or off a vehicle.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -3391,14 +3391,14 @@ extra cost, while 1.0 will add the same amount to both time and cost.</p>
 <p>Relative importance of safety (range 0-1).</p>
 <p>This factor can also include other concerns such as convenience and general cyclist
 preferences by taking into account road surface etc.</p>
-<h3 id="rd_bicycle_walk_hopCost">hopCost</h3>
+<h3 id="rd_bicycle_walk_mountDismountCost">mountDismountCost</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
 <strong>Path:</strong> /routingDefaults/bicycle/walk </p>
 <p>The cost of hopping on or off a vehicle.</p>
 <p>There are different parameters for the cost of renting or parking a vehicle and this is
 not meant for controlling the cost of those events.</p>
-<h3 id="rd_bicycle_walk_hopTime">hopTime</h3>
+<h3 id="rd_bicycle_walk_mountDismountTime">mountDismountTime</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
 <strong>Path:</strong> /routingDefaults/bicycle/walk </p>
