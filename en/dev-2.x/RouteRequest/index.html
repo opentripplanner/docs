@@ -1763,27 +1763,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/VehicleToStopHeuristics/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Vehicle-to-stop Heuristics
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
         
   
@@ -3314,7 +3293,13 @@ mode. This will favour other street-modes and transit. This has a performance pe
 since the search-window is increased with the same amount as the maximum penalty for
 the access legs used. In other cases where the access(CAR) is faster than transit the
 performance will be better.</p>
-<p>The default is no penalty, if not configured.</p>
+<p>The default values are</p>
+<ul>
+<li><code>car-to-park</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
+<li><code>car-rental</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
+<li><code>car-hailing</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
+<li><code>flexible</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
+</ul>
 <p>Example: <code>"car-to-park" : { "timePenalty": "10m + 1.5t", "costFactor": 2.5 }</code></p>
 <p><strong>Time penalty</strong></p>
 <p>The <code>timePenalty</code> is used to add a penalty to the access/egress duration/time. The
