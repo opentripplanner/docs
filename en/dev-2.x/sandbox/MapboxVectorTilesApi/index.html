@@ -2135,6 +2135,14 @@ Currently, only the language with the highest priority from the header is used.<
 </thead>
 <tbody>
 <tr>
+<td><a href="#vectorTiles_attribution">attribution</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Custom attribution to be returned in <code>tilejson.json</code></td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
 <td><a href="#vectorTiles_basePath">basePath</a></td>
 <td style="text-align: center;"><code>string</code></td>
 <td>The path of the vector tile source URLs in <code>tilejson.json</code>.</td>
@@ -2209,6 +2217,17 @@ Currently, only the language with the highest priority from the header is used.<
 </tbody>
 </table>
 <h4 id="details">Details</h4>
+<h4 id="vectorTiles_attribution">attribution</h4>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /vectorTiles </p>
+<p>Custom attribution to be returned in <code>tilejson.json</code></p>
+<p>By default the, <code>attribution</code> property in <code>tilejson.json</code> is computed from the names and
+URLs of the feed publishers.
+If the OTP deployment contains many fields, this can become very unwieldy.</p>
+<p>This configuration parameter allows you to set the <code>attribution</code> to any string you wish
+including HTML tags,
+for example <code>&lt;a href='https://trimet.org/mod'&gt;Regional Partners&lt;/a&gt;</code>.</p>
 <h4 id="vectorTiles_basePath">basePath</h4>
 
 <p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
