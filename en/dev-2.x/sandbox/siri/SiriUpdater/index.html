@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/ReportApi/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/siri/SiriUpdater/">
       
       
-        <link rel="prev" href="../Flex/">
+        <link rel="prev" href="../../GoogleCloudStorage/">
       
       
-        <link rel="next" href="../InteractiveOtpMain/">
+        <link rel="next" href="../SiriAzureUpdater/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
-        <title>Report API - OpenTripPlanner 2</title>
+        <title>SIRI Updaters - OpenTripPlanner 2</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#report-api" class="md-skip">
+        <a href="#siri-updater" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href="../../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Report API
+              SIRI Updaters
             
           </span>
         </div>
@@ -203,7 +203,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href="../../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -233,7 +233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -290,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Product-Overview/" class="md-nav__link">
+      <a href="../../../Product-Overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -311,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Governance/" class="md-nav__link">
+      <a href="../../../Governance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../History/" class="md-nav__link">
+      <a href="../../../History/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -353,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Presentations/" class="md-nav__link">
+      <a href="../../../Presentations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -374,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Roadmap/" class="md-nav__link">
+      <a href="../../../Roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -395,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Deployments/" class="md-nav__link">
+      <a href="../../../Deployments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -416,7 +416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Changelog/" class="md-nav__link">
+      <a href="../../../Changelog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -437,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Visual-Identity/" class="md-nav__link">
+      <a href="../../../Visual-Identity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Basic-Tutorial/" class="md-nav__link">
+      <a href="../../../Basic-Tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Sources/" class="md-nav__link">
+      <a href="../../../Data-Sources/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -544,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Getting-OTP/" class="md-nav__link">
+      <a href="../../../Getting-OTP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -565,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container-Image/" class="md-nav__link">
+      <a href="../../../Container-Image/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../System-Requirements/" class="md-nav__link">
+      <a href="../../../System-Requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Preparing-OSM/" class="md-nav__link">
+      <a href="../../../Preparing-OSM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -628,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Netex-Norway/" class="md-nav__link">
+      <a href="../../../Netex-Norway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Troubleshooting-Routing/" class="md-nav__link">
+      <a href="../../../Troubleshooting-Routing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Version-Comparison/" class="md-nav__link">
+      <a href="../../../Version-Comparison/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Frontends/" class="md-nav__link">
+      <a href="../../../Frontends/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -756,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/Apis/" class="md-nav__link">
+      <a href="../../../apis/Apis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -777,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/GraphQL-Tutorial/" class="md-nav__link">
+      <a href="../../../apis/GraphQL-Tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/GTFS-GraphQL-API/" class="md-nav__link">
+      <a href="../../../apis/GTFS-GraphQL-API/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -819,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/TransmodelApi/" class="md-nav__link">
+      <a href="../../../apis/TransmodelApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Configuration/" class="md-nav__link">
+      <a href="../../../Configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BuildConfiguration/" class="md-nav__link">
+      <a href="../../../BuildConfiguration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -926,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RouterConfiguration/" class="md-nav__link">
+      <a href="../../../RouterConfiguration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -947,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RouteRequest/" class="md-nav__link">
+      <a href="../../../RouteRequest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -968,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UpdaterConfig/" class="md-nav__link">
+      <a href="../../../UpdaterConfig/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1033,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RoutingModes/" class="md-nav__link">
+      <a href="../../../RoutingModes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1054,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../In-Station-Navigation/" class="md-nav__link">
+      <a href="../../../In-Station-Navigation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1075,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BoardingLocations/" class="md-nav__link">
+      <a href="../../../BoardingLocations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1096,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../StopAreas/" class="md-nav__link">
+      <a href="../../../StopAreas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1117,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IslandPruning/" class="md-nav__link">
+      <a href="../../../IslandPruning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1138,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Accessibility/" class="md-nav__link">
+      <a href="../../../Accessibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1159,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Logging/" class="md-nav__link">
+      <a href="../../../Logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1224,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Developers-Guide/" class="md-nav__link">
+      <a href="../../../Developers-Guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1245,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Localization/" class="md-nav__link">
+      <a href="../../../Localization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1266,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Bibliography/" class="md-nav__link">
+      <a href="../../../Bibliography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1287,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Codestyle/" class="md-nav__link">
+      <a href="../../../Codestyle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1308,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SandboxExtension/" class="md-nav__link">
+      <a href="../../../SandboxExtension/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1329,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ReleaseChecklist/" class="md-nav__link">
+      <a href="../../../ReleaseChecklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1396,7 +1396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SandboxExtension/" class="md-nav__link">
+      <a href="../../../SandboxExtension/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1417,7 +1417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ActuatorAPI/" class="md-nav__link">
+      <a href="../../ActuatorAPI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1438,7 +1438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transferanalyzer/" class="md-nav__link">
+      <a href="../../transferanalyzer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1459,137 +1459,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../GoogleCloudStorage/" class="md-nav__link">
+      <a href="../../GoogleCloudStorage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Google Cloud Storage
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../siri/SiriUpdater/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SIRI Updaters
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../siri/SiriAzureUpdater/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SIRI Updater (Azure)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Vehicle Rental Service Directory API support
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SmooveBikeRental/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Smoove Bike Rental Updator Support
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Mapbox Vector Tiles API
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Flex/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Flex Routing
   </span>
   
 
@@ -1619,7 +1493,7 @@
           
   
   <span class="md-ellipsis">
-    Report API
+    SIRI Updaters
   </span>
   
 
@@ -1630,7 +1504,7 @@
         
   
   <span class="md-ellipsis">
-    Report API
+    SIRI Updaters
   </span>
   
 
@@ -1661,28 +1535,47 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    <span class="md-ellipsis">
-      Changelog
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Documentation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#siri-et-via-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      Siri-ET via HTTPS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Siri-ET via HTTPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example configuration
     </span>
   </a>
   
@@ -1690,6 +1583,53 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siri-sx-via-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      Siri-SX via HTTPS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Siri-SX via HTTPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-details_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changelog
+    </span>
+  </a>
   
 </li>
       
@@ -1709,7 +1649,133 @@
   
   
     <li class="md-nav__item">
-      <a href="../InteractiveOtpMain/" class="md-nav__link">
+      <a href="../SiriAzureUpdater/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SIRI Updater (Azure)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VehicleRentalServiceDirectory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vehicle Rental Service Directory API support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SmooveBikeRental/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Smoove Bike Rental Updator Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MapboxVectorTilesApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapbox Vector Tiles API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flex Routing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ReportApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Report API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../InteractiveOtpMain/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1730,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ParkAndRideApi/" class="md-nav__link">
+      <a href="../../ParkAndRideApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1751,7 +1817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DataOverlay/" class="md-nav__link">
+      <a href="../../DataOverlay/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1772,7 +1838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleParking/" class="md-nav__link">
+      <a href="../../VehicleParking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1793,7 +1859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GeocoderAPI/" class="md-nav__link">
+      <a href="../../GeocoderAPI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1814,7 +1880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TravelTime/" class="md-nav__link">
+      <a href="../../TravelTime/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1835,7 +1901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../../IBIAccessibilityScore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1856,7 +1922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Fares/" class="md-nav__link">
+      <a href="../../Fares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1877,7 +1943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RideHailing/" class="md-nav__link">
+      <a href="../../RideHailing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1898,7 +1964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Emissions/" class="md-nav__link">
+      <a href="../../Emissions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1919,7 +1985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../StopConsolidation/" class="md-nav__link">
+      <a href="../../StopConsolidation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1958,50 +2024,291 @@
   
 
 
-<h1 id="report-api">Report API</h1>
-<p>The report API is a collection of reports generated as CSV files. The main use-case is to download
-data for manual analyzes and verification. The CSV files should not be used as a service by another
-programs, the report can be changed at any time - without any notice.</p>
-<p>Feel free to add more reports and to add your organization to the contact info list.</p>
+<h1 id="siri-updater">Siri Updater</h1>
+<p>Support for consuming SIRI ET and SX messages. The updater is developed to support the Nordic
+SIRI profile which is a subset of the SIRI specification.</p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
-<li>Entur, Norway</li>
-<li><a href="https://leonard.io">Leonard Ehrenfried</a>, Germany, <a href="mailto:mail@leonard.io">mail@leonard.io</a></li>
-</ul>
-<h2 id="changelog">Changelog</h2>
-<ul>
-<li>2021-05-19: Initial version of the report API. Support listing all transfers as a CSV text file.</li>
-<li>2021-07-19: Add report that exports the bicycle safety factors as CSV and an interactive HTML
-  table view.</li>
+<li>Lasse Tyrihjell, Entur, Norway</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>This module mounts an endpoint for generating reports under <code>otp/report</code>. Available reports:</p>
-<ul>
-<li><a href="http://localhost:8080/otp/report/transfers.csv">/otp/report/transfers.csv</a></li>
-<li><a href="http://localhost:8080/otp/report/graph.json">/otp/report/graph.json</a>
-  Detailed numbers of transit and street entities in the graph</li>
-<li><a href="http://localhost:8080/otp/report/bicycle-safety.html">/otp/report/bicycle-safety.html</a>:
-  Interactive viewer of the rules that determine how bicycle safety factors are calculated.</li>
-<li><a href="http://localhost:8080/otp/report/bicycle-safety.csv">/otp/report/bicycle-safety.csv</a>: Raw CSV
-  data for the bicycle safety report.<ul>
-<li><a href="http://localhost:8080/otp/report/bicycle-safety.csv?osmWayPropertySet=norway">Norwegian version</a></li>
-<li><a href="http://localhost:8080/otp/report/bicycle-safety.csv?osmWayPropertySet=germany">German version</a></li>
-<li><a href="http://localhost:8080/otp/report/bicycle-safety.csv?osmWayPropertySet=uk">UK version</a></li>
-<li><a href="http://localhost:8080/otp/report/bicycle-safety.csv?osmWayPropertySet=finland">Finnish version</a></li>
-</ul>
-</li>
-<li><a href="http://localhost:8080/otp/report/transit/group/priorities">/otp/report/transit/group/priorities</a>:
-  List all transit groups used for transit-group-priority (Competition neutral planning).   </li>
-</ul>
-<h3 id="configuration">Configuration</h3>
-<p>The report API is turned <em>off</em> by default. To turn it on enable the <code>ReportApi</code> feature.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// otp-config.json</span>
+<p>This updater consumes SIRI real time information. It is developed by Entur and supports the Nordic
+Profile for SIRI. It should be possible to develop it further to support a broader set of the SIRI
+specification.</p>
+<p>For more documentation goto
+the <a href="https://developer.entur.org/pages-real-time-intro">Entur Real-Time Data</a> documentation and
+the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Norwegian+SIRI+profile">Norwegian SIRI profile</a>
+.</p>
+<h2 id="configuration">Configuration</h2>
+<p>To enable the SIRI updater you need to add it to the updaters section of the <code>router-config.json</code>.</p>
+<h3 id="siri-et-via-https">Siri-ET via HTTPS</h3>
+<!-- siri-et-updater BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "siri-et-updater"</td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td>blockReadinessUntilInitialized</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether catching up with the updates should block the readiness check from returning a 'ready' result.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>feedId</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The ID of the feed to apply the updates to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>How often the updates should be retrieved.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>fuzzyTripMatching</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>If the fuzzy trip matcher should be used to match trips.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>previewInterval</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>TODO</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>requestorRef</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The requester reference.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The HTTP timeout to download the updates.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT15S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#u__8__url">url</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The URL to send the HTTP requests to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#u__8__headers">headers</a></td>
+<td style="text-align: center;"><code>map of string</code></td>
+<td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-details">Parameter details</h5>
+<h4 id="u__8__url">url</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[8] </p>
+<p>The URL to send the HTTP requests to.</p>
+<p>Use the file protocol to set a directory for reading updates from a directory. The file
+loader will look for xml files: '*.xml' in the configured directory. The files are
+renamed by the loader when processed:</p>
+<p>&nbsp;&nbsp;&nbsp; <em>a.xml</em> &nbsp; ➞ &nbsp; <em>a.xml.inProgress</em> &nbsp; ➞ &nbsp; <em>a.xml.ok</em> &nbsp; or &nbsp; <em>a.xml.failed</em></p>
+<h4 id="u__8__headers">headers</h4>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[8] </p>
+<p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
+<h5 id="example-configuration">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;otpFeatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;ReportApi&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Some-Token&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
 </code></pre></div>
+<!-- siri-et-updater END -->
+
+<h3 id="siri-sx-via-https">Siri-SX via HTTPS</h3>
+<!-- siri-sx-updater BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "siri-sx-updater"</td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td>blockReadinessUntilInitialized</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether catching up with the updates should block the readiness check from returning a 'ready' result.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#u__9__earlyStart">earlyStart</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This value is subtracted from the actual validity defined in the message.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>feedId</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The ID of the feed to apply the updates to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>How often the updates should be retrieved.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>requestorRef</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The requester reference.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The HTTP timeout to download the updates.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT15S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#u__9__url">url</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The URL to send the HTTP requests to. Supports http/https and file protocol.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#u__9__headers">headers</a></td>
+<td style="text-align: center;"><code>map of string</code></td>
+<td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-details_1">Parameter details</h5>
+<h4 id="u__9__earlyStart">earlyStart</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /updaters/[9] </p>
+<p>This value is subtracted from the actual validity defined in the message.</p>
+<p>Normally the planned departure time is used, so setting this to 10s will cause the
+SX-message to be included in trip-results 10 seconds before the the planned departure
+time.</p>
+<h4 id="u__9__url">url</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[9] </p>
+<p>The URL to send the HTTP requests to. Supports http/https and file protocol.</p>
+<p>Use the file protocol to set a directory for reading updates from a directory. The file
+loader will look for xml files: '*.xml' in the configured directory. The files are
+renamed by the loader when processed:</p>
+<p>&nbsp;&nbsp;&nbsp; <em>a.xml</em> &nbsp; ➞ &nbsp; <em>a.xml.inProgress</em> &nbsp; ➞ &nbsp; <em>a.xml.ok</em> &nbsp; or &nbsp; <em>a.xml.failed</em></p>
+<h4 id="u__9__headers">headers</h4>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[9] </p>
+<p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
+<h5 id="example-configuration_1">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-sx-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">&quot;Key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Value&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</code></pre></div>
+<!-- siri-sx-updater END -->
+
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>Initial version of SIRI updater (October 2019)</li>
+<li>Include situations with no or no handled entity selectors with Unknown EntitySelector (December
+  2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3780)</li>
+</ul>
 
 
 
@@ -2048,10 +2355,10 @@ programs, the report can be changed at any time - without any notice.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
     
   </body>

@@ -1474,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sandbox/SiriUpdater/" class="md-nav__link">
+      <a href="../../../sandbox/siri/SiriUpdater/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1495,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sandbox/SiriAzureUpdater/" class="md-nav__link">
+      <a href="../../../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1956,6 +1956,9 @@ and the newest message is the last one in the list.</p>
 id from the message. In case OTP was not able to find corresponding trip additional search will be
 performed based on arrival-times/stop-patterns from the ET message. This feature turned off by default but can be
 activated by adding <em>fuzzyTripMatching</em> property to updater configuration. </p>
+<h3 id="federatedidentity">FederatedIdentity</h3>
+<p>It is also possible to connect to Service Bus through FederatedIdentity. Change <strong>authenticationType</strong> to
+<strong>FederatedIdentity</strong> and provide <strong>fullyQualifiedNamespace</strong> in router-config.</p>
 
 
 
