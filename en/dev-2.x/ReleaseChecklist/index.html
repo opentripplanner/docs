@@ -2017,14 +2017,6 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 <li>While still on the tag commit, run <code>mvn deploy -Prelease</code>.</li>
 </ul>
 </li>
-<li>Set up next development iteration<ul>
-<li>Add a new section header to <code>docs/Changelog.md</code> like <code>x.y+1.0-SNAPSHOT (in progress)</code></li>
-<li>Edit minor version in <code>pom.xml</code> to <code>x.y+1.0-SNAPSHOT</code></li>
-<li><code>git add pom.xml docs/Changelog.md</code></li>
-<li><code>git commit -m "Prepare next development iteration x.y+1.0-SNAPSHOT"</code></li>
-<li><code>git push</code></li>
-</ul>
-</li>
 <li>Check that Maven artifact appears on Maven Central<ul>
 <li><a href="https://repo1.maven.org/maven2/org/opentripplanner/otp/">Directory listing of OTP releases on Maven Central</a></li>
 <li>It may take a while (half an hour) for releases to show up in the central repo after Travis
@@ -2034,6 +2026,14 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 <li>Merge master back into dev (to sync up the Maven artifact version from the POM)<ul>
 <li><code>git checkout dev-2.x</code></li>
 <li><code>git merge master</code></li>
+<li><code>git push</code></li>
+</ul>
+</li>
+<li>Set up next development iteration<ul>
+<li>Add a new section header to <code>docs/Changelog.md</code> like <code>x.y+1.0-SNAPSHOT (in progress)</code></li>
+<li>Edit minor version in <code>pom.xml</code> to <code>x.y+1.0-SNAPSHOT</code></li>
+<li><code>git add pom.xml docs/Changelog.md</code></li>
+<li><code>git commit -m "Prepare next development iteration x.y+1.0-SNAPSHOT"</code></li>
 <li><code>git push</code></li>
 </ul>
 </li>
