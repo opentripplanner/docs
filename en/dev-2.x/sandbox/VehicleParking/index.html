@@ -1872,6 +1872,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#noi-open-data-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      NOI Open Data Hub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NOI Open Data Hub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#changelog" class="md-nav__link">
     <span class="md-ellipsis">
       Changelog
@@ -2065,7 +2104,7 @@
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li>For HSL Park and Ride updater: Digitransit team, HSL, Helsinki, Finland</li>
-<li>For Bikely updater: Leonard Ehrenfried, <a href="mailto:mail@leonard.io">mail@leonard.io</a></li>
+<li>For Bikely and NOI updater: Leonard Ehrenfried, <a href="mailto:mail@leonard.io">mail@leonard.io</a></li>
 </ul>
 <h2 id="documentation">Documentation</h2>
 <p>This sandbox contains vehicle parking updaters. Unlike for some other sandbox features, this is not
@@ -2075,6 +2114,7 @@ enabled/disabled through <code>otp-config.json</code> but from <code>router-conf
 <li><a href="https://p.hsl.fi/docs/index.html">HSL Park and Ride</a></li>
 <li><a href="https://github.com/offenesdresden/ParkAPI">ParkAPI</a></li>
 <li><a href="https://www.safebikely.com/">Bikely</a></li>
+<li><a href="https://opendatahub.com/">NOI Open Data Hub</a></li>
 </ul>
 <h3 id="configuration">Configuration</h3>
 <p>These sandboxed vehicle parking updaters can be enabled by editing the <code>updaters</code> section in
@@ -2185,7 +2225,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
 <strong>Path:</strong> /updaters/[2] <br />
-<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code></p>
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>noi-open-data-hub</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__2__timeZone">timeZone</h4>
 
@@ -2273,7 +2313,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 <td>url</td>
 <td style="text-align: center;"><code>string</code></td>
 <td>URL of the resource.</td>
-<td style="text-align: center;"><em>Optional</em></td>
+<td style="text-align: center;"><em>Required</em></td>
 <td></td>
 <td style="text-align: center;">2.2</td>
 </tr>
@@ -2306,7 +2346,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
 <strong>Path:</strong> /updaters/[3] <br />
-<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code></p>
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>noi-open-data-hub</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__3__timeZone">timeZone</h4>
 
@@ -2399,7 +2439,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 <td>url</td>
 <td style="text-align: center;"><code>uri</code></td>
 <td>URL of the locations endpoint.</td>
-<td style="text-align: center;"><em>Optional</em></td>
+<td style="text-align: center;"><em>Required</em></td>
 <td></td>
 <td style="text-align: center;">2.3</td>
 </tr>
@@ -2424,7 +2464,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
 <strong>Path:</strong> /updaters/[4] <br />
-<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code></p>
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>noi-open-data-hub</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__4__headers">headers</h4>
 
@@ -2449,6 +2489,105 @@ the <code>router-config.json</code> according to the following examples.</p>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
 </code></pre></div>
 <!-- bikely END -->
+
+<h2 id="noi-open-data-hub">NOI Open Data Hub</h2>
+<!-- noi-open-data-hub BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "vehicle-parking"</td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td><a href="#u__5__feedId">feedId</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The name of the data source.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>How often to update the source.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.6</td>
+</tr>
+<tr>
+<td><a href="#u__5__sourceType">sourceType</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The source of the vehicle updates.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>url</td>
+<td style="text-align: center;"><code>uri</code></td>
+<td>URL of the locations endpoint.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.6</td>
+</tr>
+<tr>
+<td><a href="#u__5__headers">headers</a></td>
+<td style="text-align: center;"><code>map of string</code></td>
+<td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.6</td>
+</tr>
+</tbody>
+</table>
+<h4 id="details_3">Details</h4>
+<h4 id="u__5__feedId">feedId</h4>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[5] </p>
+<p>The name of the data source.</p>
+<p>This will end up in the API responses as the feed id of of the parking lot.</p>
+<h4 id="u__5__sourceType">sourceType</h4>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[5] <br />
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>noi-open-data-hub</code></p>
+<p>The source of the vehicle updates.</p>
+<h4 id="u__5__headers">headers</h4>
+
+<p><strong>Since version:</strong> <code>2.6</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[5] </p>
+<p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
+<h5 id="example-configuration_3">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;noi&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;noi-open-data-hub&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://parking.otp.opendatahub.com/parking/all.json&quot;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</code></pre></div>
+<!-- noi-open-data-hub END -->
 
 <h2 id="changelog">Changelog</h2>
 <ul>
