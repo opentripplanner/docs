@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/ParkAndRideApi/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/Analysis/">
       
       
-        <link rel="prev" href="../InteractiveOtpMain/">
+        <link rel="prev" href="../Accessibility/">
       
       
-        <link rel="next" href="../DataOverlay/">
+        <link rel="next" href="../Logging/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
     
     
       
-        <title>Park and Ride API - OpenTripPlanner 2</title>
+        <title>Travel Time Analysis - OpenTripPlanner 2</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#park-and-ride-api" class="md-skip">
+        <a href="#travel-time-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Park and Ride API
+              Travel Time Analysis
             
           </span>
         </div>
@@ -203,7 +203,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -233,7 +233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -288,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Product-Overview/" class="md-nav__link">
+      <a href="../Product-Overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -309,7 +309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Governance/" class="md-nav__link">
+      <a href="../Governance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -330,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../History/" class="md-nav__link">
+      <a href="../History/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -351,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Presentations/" class="md-nav__link">
+      <a href="../Presentations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Roadmap/" class="md-nav__link">
+      <a href="../Roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -393,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Deployments/" class="md-nav__link">
+      <a href="../Deployments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -414,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Changelog/" class="md-nav__link">
+      <a href="../Changelog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -435,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Visual-Identity/" class="md-nav__link">
+      <a href="../Visual-Identity/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Basic-Tutorial/" class="md-nav__link">
+      <a href="../Basic-Tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Data-Sources/" class="md-nav__link">
+      <a href="../Data-Sources/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Getting-OTP/" class="md-nav__link">
+      <a href="../Getting-OTP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container-Image/" class="md-nav__link">
+      <a href="../Container-Image/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../System-Requirements/" class="md-nav__link">
+      <a href="../System-Requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Preparing-OSM/" class="md-nav__link">
+      <a href="../Preparing-OSM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -624,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Netex-Norway/" class="md-nav__link">
+      <a href="../Netex-Norway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -645,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Troubleshooting-Routing/" class="md-nav__link">
+      <a href="../Troubleshooting-Routing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -666,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Version-Comparison/" class="md-nav__link">
+      <a href="../Version-Comparison/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -687,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Frontends/" class="md-nav__link">
+      <a href="../Frontends/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -750,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/Apis/" class="md-nav__link">
+      <a href="../apis/Apis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -771,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/GraphQL-Tutorial/" class="md-nav__link">
+      <a href="../apis/GraphQL-Tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -792,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/GTFS-GraphQL-API/" class="md-nav__link">
+      <a href="../apis/GTFS-GraphQL-API/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -813,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apis/TransmodelApi/" class="md-nav__link">
+      <a href="../apis/TransmodelApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Configuration/" class="md-nav__link">
+      <a href="../Configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -897,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BuildConfiguration/" class="md-nav__link">
+      <a href="../BuildConfiguration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -918,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RouterConfiguration/" class="md-nav__link">
+      <a href="../RouterConfiguration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -939,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RouteRequest/" class="md-nav__link">
+      <a href="../RouteRequest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UpdaterConfig/" class="md-nav__link">
+      <a href="../UpdaterConfig/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Migrating-Configuration/" class="md-nav__link">
+      <a href="../Migrating-Configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,17 +1006,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1030,7 +1032,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Features explained
@@ -1044,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RoutingModes/" class="md-nav__link">
+      <a href="../RoutingModes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1065,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../In-Station-Navigation/" class="md-nav__link">
+      <a href="../In-Station-Navigation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1086,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BoardingLocations/" class="md-nav__link">
+      <a href="../BoardingLocations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1107,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../StopAreas/" class="md-nav__link">
+      <a href="../StopAreas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1128,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IslandPruning/" class="md-nav__link">
+      <a href="../IslandPruning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1149,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Accessibility/" class="md-nav__link">
+      <a href="../Accessibility/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1167,10 +1169,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Analysis/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Travel Time Analysis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1179,6 +1201,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travel-time-analysis-in-otp1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Travel Time Analysis in OTP1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travel-time-analysis-in-otp2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Travel Time Analysis in OTP2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology Note
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1191,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Logging/" class="md-nav__link">
+      <a href="../Logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1254,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Developers-Guide/" class="md-nav__link">
+      <a href="../Developers-Guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1275,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Localization/" class="md-nav__link">
+      <a href="../Localization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1296,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Bibliography/" class="md-nav__link">
+      <a href="../Bibliography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1317,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Codestyle/" class="md-nav__link">
+      <a href="../Codestyle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1338,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SandboxExtension/" class="md-nav__link">
+      <a href="../SandboxExtension/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1359,7 +1437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ReleaseChecklist/" class="md-nav__link">
+      <a href="../ReleaseChecklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1384,19 +1462,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1410,7 +1486,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Sandbox
@@ -1424,7 +1500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../SandboxExtension/" class="md-nav__link">
+      <a href="../SandboxExtension/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1445,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ActuatorAPI/" class="md-nav__link">
+      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1466,7 +1542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transferanalyzer/" class="md-nav__link">
+      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1487,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GoogleCloudStorage/" class="md-nav__link">
+      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1508,7 +1584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../siri/SiriUpdater/" class="md-nav__link">
+      <a href="../sandbox/siri/SiriUpdater/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1529,7 +1605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../siri/SiriAzureUpdater/" class="md-nav__link">
+      <a href="../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1550,7 +1626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1571,7 +1647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SmooveBikeRental/" class="md-nav__link">
+      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1592,7 +1668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1613,7 +1689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Flex/" class="md-nav__link">
+      <a href="../sandbox/Flex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1634,7 +1710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ReportApi/" class="md-nav__link">
+      <a href="../sandbox/ReportApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1655,7 +1731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../InteractiveOtpMain/" class="md-nav__link">
+      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1673,30 +1749,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Park and Ride API
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1705,53 +1761,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contact-info" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contact Info
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    <span class="md-ellipsis">
-      Changelog
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1764,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DataOverlay/" class="md-nav__link">
+      <a href="../sandbox/DataOverlay/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1785,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VehicleParking/" class="md-nav__link">
+      <a href="../sandbox/VehicleParking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1806,7 +1815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GeocoderAPI/" class="md-nav__link">
+      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1827,7 +1836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TravelTime/" class="md-nav__link">
+      <a href="../sandbox/TravelTime/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1848,7 +1857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1869,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Fares/" class="md-nav__link">
+      <a href="../sandbox/Fares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1890,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RideHailing/" class="md-nav__link">
+      <a href="../sandbox/RideHailing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1911,7 +1920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Emissions/" class="md-nav__link">
+      <a href="../sandbox/Emissions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1932,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../StopConsolidation/" class="md-nav__link">
+      <a href="../sandbox/StopConsolidation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1971,18 +1980,17 @@
   
 
 
-<h1 id="park-and-ride-api">Park and Ride API</h1>
-<h2 id="contact-info">Contact Info</h2>
-<ul>
-<li>Evan Siroky, IBI Group, USA</li>
-</ul>
-<h2 id="changelog">Changelog</h2>
-<ul>
-<li>Initial version of the Park and Ride API. (February 2021)</li>
-</ul>
-<h2 id="documentation">Documentation</h2>
-<p>This adds a new API endpoint for fetching Park and Rides included in the current graph. It is
-possible to search using a bounding box and/or proximity of Park and Rides to nearby transit stops.</p>
+<h1 id="travel-time-analysis">Travel Time Analysis</h1>
+<h2 id="background">Background</h2>
+<p>Since the beginning of the project, many OTP contributors and users have been primarily interested in research, spatial analysis, and urban planning use cases. They have prototyped many ideas within or on top of the OTP codebase, including one-to-many searches producing travel time grids, isochrones, and access-to-opportunities indicators (see Terminology Note below). This has historically been a major area of application for OpenTripPlanner and has helped popularize cumulative opportunities metrics in urban planning. For example, the University of Minnesota Accessibility Observatory used OpenTripPlanner for <a href="https://www.cts.umn.edu/programs/ao/aaa">Access Across America</a>. </p>
+<p>Although we consider these use cases quite important, most work of this kind has long since shifted to separate projects focused on urban planning and analytics. As of version 2, OTP has chosen to focus entirely on passenger information rather than analytics.</p>
+<h2 id="travel-time-analysis-in-otp1">Travel Time Analysis in OTP1</h2>
+<p>Much of the analysis code present in the v1.x legacy branch of OTP is essentially an unmaintained and unsupported early prototype for later projects, specifically <a href="https://github.com/conveyal/r5/">R5</a> and the <a href="https://conveyal.com/learn">Conveyal Analysis</a> system built upon it. OTP1 seems to have gained popularity for analysis uses due to the existence of documentation and an active user community, but has significant technical shortcomings. One of these is simply speed: OTP1 can be orders of magnitude slower (and more memory-intensive) than the approaches used in R5. The other is the requirement to search at a single specific time. Travel times and especially wait times on scheduled transit vary greatly depending on when you depart. Accounting for variation over a time window requires repeated independent searches at each possible departure time, which is very inefficient. R5 is highly optimized to capture variations in travel time across time windows and account for uncertainty in waiting times on frequency-based routes.</p>
+<h2 id="travel-time-analysis-in-otp2">Travel Time Analysis in OTP2</h2>
+<p>OTP2's new transit router is quite similar to R5 (indeed it was directly influenced by R5) and would not face the same technical problems. Nonetheless, we have decided not to port the OTP1 analysis features over to OTP2 since it would broaden the scope of OTP2 away from passenger information and draw the finite amount of available attention and resources away from existing open source analytics tools. If you would like to apply the routing innovations present in OTP2 in analytics situations, we recommend taking a look at projects like R5 or the R and Python language wrappers for it created by the community.</p>
+<p>Some analytics features may still be available as optional "sandbox" features in OTP2 (such as <a href="../sandbox/TravelTime/">Travel Time</a>), but these do not work in the same way as the features you may have used or read about in OTP1. They are unmaintained and unsupported, and may be removed in the near future.</p>
+<h2 id="terminology-note">Terminology Note</h2>
+<p>In OpenTripPlanner, we usually use the term "accessibility" with its most common meaning: design of products, devices, services, vehicles, or environments to ensure they are usable by people with disabilities. The term "accessibility" has a completely separate, unrelated definition in the fields of spatial analysis, urban transportation planning, and associated social sciences, where it refers to quantitative indicators of how well-connected a particular location is to people or opportunities. OTP has been widely used in research and planning settings for the calculation of such indicators. Although this meaning of the term dates back many decades, it is less well known and has become a source of confusion, so the academic and planning communities are gradually shifting to the expression "access to opportunities", often shortened to "access".</p>
 
 
 
@@ -2029,10 +2037,10 @@ possible to search using a bounding box and/or proximity of Park and Rides to ne
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
       
     
   </body>
