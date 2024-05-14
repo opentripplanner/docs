@@ -3843,7 +3843,7 @@ package documentation.</p>
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
 <strong>Path:</strong> /routingDefaults/transferOptimization </p>
 <p>Add an extra board- and alight-cost for prioritized stops.</p>
-<p>A stopBoardAlightCosts is added to the generalized-cost during routing. But this cost
+<p>A stopBoardAlightTransferCosts is added to the generalized-cost during routing. But this cost
 cannot be too high, because that would add extra cost to the transfer, and favor other
 alternative paths. But, when optimizing transfers, we do not have to take other paths
 into consideration and can <em>boost</em> the stop-priority-cost to allow transfers to

@@ -2250,9 +2250,9 @@ value which will be applied unless it is overridden in a web API request.</p>
 <td style="text-align: center;">na</td>
 </tr>
 <tr>
-<td>   <a href="#transit_stopTransferCost">stopTransferCost</a></td>
+<td>   <a href="#transit_stopBoardAlightDuringTransferCost">stopBoardAlightDuringTransferCost</a></td>
 <td style="text-align: center;"><code>enum map of integer</code></td>
-<td>Use this to set a stop transfer cost for the given transfer priority</td>
+<td>Costs for boarding and alighting during transfers at stops with a given transfer priority.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
 <td style="text-align: center;">2.0</td>
@@ -2513,16 +2513,19 @@ the first duration in the list is used, if ONE result is returned then the secon
 and so on. The duration is added to the existing search-window and inserted into the next and
 previous page cursor. See JavaDoc for <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/src/main/java/org/opentripplanner/routing/algorithm/raptor/transit/TransitTuningParameters.java">TransitTuningParameters#pagingSearchWindowAdjustments</a>" +
 for more info."</p>
-<h3 id="transit_stopTransferCost">stopTransferCost</h3>
+<h3 id="transit_stopBoardAlightDuringTransferCost">stopBoardAlightDuringTransferCost</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum map of integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /transit <br />
 <strong>Enum keys:</strong> <code>discouraged</code> | <code>allowed</code> | <code>recommended</code> | <code>preferred</code></p>
-<p>Use this to set a stop transfer cost for the given transfer priority</p>
-<p>The cost is applied to boarding and alighting at all stops. All stops have a transfer cost priority
-set, the default is <code>allowed</code>. The <code>stopTransferCost</code> parameter is optional, but if listed all
-values must be set.</p>
-<p>If not set the <code>stopTransferCost</code> is ignored. This is only available for NeTEx imported Stops.</p>
+<p>Costs for boarding and alighting during transfers at stops with a given transfer priority.</p>
+<p>This cost is applied <strong>both to boarding and alighting</strong> at stops during transfers. All stops have a
+transfer cost priority set, the default is <code>allowed</code>. The <code>stopBoardAlightDuringTransferCost</code>
+parameter is optional, but if listed all values must be set.</p>
+<p>When a transfer occurs at the same stop, the cost will be applied twice since the cost is both for
+boarding and alighting,</p>
+<p>If not set the <code>stopBoardAlightDuringTransferCost</code> is ignored. This is only available for NeTEx
+imported Stops.</p>
 <p>The cost is a scalar, but is equivalent to the felt cost of riding a transit trip for 1 second.</p>
 <table>
 <thead>
@@ -2556,7 +2559,7 @@ values must be set.</p>
 </tbody>
 </table>
 <p>Use values in a range from <code>0</code> to <code>100 000</code>. <strong>All key/value pairs are required if the
-<code>stopTransferCost</code> is listed.</strong></p>
+<code>stopBoardAlightDuringTransferCost</code> is listed.</strong></p>
 <h3 id="transit_transferCacheRequests">transferCacheRequests</h3>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -2764,7 +2767,7 @@ values must be set.</p>
 <a id="__codelineno-2-170" name="__codelineno-2-170" href="#__codelineno-2-170"></a><span class="w">      </span><span class="nt">&quot;minWindow&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1h&quot;</span><span class="p">,</span>
 <a id="__codelineno-2-171" name="__codelineno-2-171" href="#__codelineno-2-171"></a><span class="w">      </span><span class="nt">&quot;maxWindow&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5h&quot;</span>
 <a id="__codelineno-2-172" name="__codelineno-2-172" href="#__codelineno-2-172"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-2-173" name="__codelineno-2-173" href="#__codelineno-2-173"></a><span class="w">    </span><span class="nt">&quot;stopTransferCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-173" name="__codelineno-2-173" href="#__codelineno-2-173"></a><span class="w">    </span><span class="nt">&quot;stopBoardAlightDuringTransferCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-174" name="__codelineno-2-174" href="#__codelineno-2-174"></a><span class="w">      </span><span class="nt">&quot;DISCOURAGED&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span>
 <a id="__codelineno-2-175" name="__codelineno-2-175" href="#__codelineno-2-175"></a><span class="w">      </span><span class="nt">&quot;ALLOWED&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
 <a id="__codelineno-2-176" name="__codelineno-2-176" href="#__codelineno-2-176"></a><span class="w">      </span><span class="nt">&quot;RECOMMENDED&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
