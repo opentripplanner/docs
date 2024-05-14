@@ -1375,9 +1375,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-run-prittier-with-maven" class="md-nav__link">
+  <a href="#how-to-run-prettier-with-maven" class="md-nav__link">
     <span class="md-ellipsis">
-      How to run Prittier with Maven
+      How to run Prettier with Maven
     </span>
   </a>
   
@@ -2063,15 +2063,18 @@ merging a PR if the code-style is incorrect.</p>
 it takes a bit of time, but reformat the entire codebase. Only code you have changed should be
 formatted, since the existing code is already formatted. The second way is to set up prettier and
 run it manually or hick it into your IDE, so it runs every time a file is changed.</p>
-<h3 id="how-to-run-prittier-with-maven">How to run Prittier with Maven</h3>
-<p>Format all code is done in the validate phase (run before test, package, install)</p>
+<h3 id="how-to-run-prettier-with-maven">How to run Prettier with Maven</h3>
+<p>Prettier will automatically format all code in the Maven "validate" phase, which runs before the test, package, and install phases. So formatting will happen for example when you run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>% mvn test
 </code></pre></div>
+<p>You can manually run <em>only</em> the formatting process with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>% mvn prettier:write
+</code></pre></div>
 <p>To skip the prettier formating use profile <code>prettierSkip</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>% mvn test -P prettierSkip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>% mvn test -P prettierSkip
 </code></pre></div>
 <p>The check for formatting errors use profile <code>prettierCheck</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>% mvn test -P prettierSkip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>% mvn test -P prettierCheck
 </code></pre></div>
 <p>The check is run by the CI server and will fail the build if the code is incorrectly formatted.</p>
 <h3 id="intellj-and-code-style-formatting">IntellJ and Code Style Formatting</h3>
@@ -2085,10 +2088,10 @@ Editor &gt; Code Style_. Then select <strong>Project</strong> in the _Scheme dro
 <p>You can run the Prettier Maven plugin as an external tool in IntelliJ. Set it up as an
 <code>External tool</code> and assign a key-shortcut to the tool execution.</p>
 <p><img alt="External Tool Dialog" src="../images/ExternalToolDialog.png" /></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Name:              Prettier Format Current File
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Program:           mvn
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Arguments:         prettier:write -Dprettier.inputGlobs=$FilePathRelativeToProjectRoot$
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Working Directory: $ProjectFileDir$
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Name:              Prettier Format Current File
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Program:           mvn
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Arguments:         prettier:write -Dprettier.inputGlobs=$FilePathRelativeToProjectRoot$
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Working Directory: $ProjectFileDir$
 </code></pre></div>
 <blockquote>
 <p><strong>Tip!</strong>  Add a unused key shortcut to execute the external tool, then you can use the old 
@@ -2108,12 +2111,12 @@ file on disk both changed - and asked to select one of them.</p>
 ways to set it up. Below is hwo to configure it using Maven to run the formatter. The Maven way work
 without any installation of other components, but might be a bit slow. So, you might want to install
 <a href="https://github.com/jhipster/prettier-java/">prettier-java</a> in your shell and run it instead.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Name:              Format files with Prettier
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>File type:         Java
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Scope:             Project Files
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Program:           mvn
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Arguments:         prettier:write -Dprettier.inputGlobs=$FilePathRelativeToProjectRoot$
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Working Directory: $ProjectFileDir$
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Name:              Format files with Prettier
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>File type:         Java
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Scope:             Project Files
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Program:           mvn
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Arguments:         prettier:write -Dprettier.inputGlobs=$FilePathRelativeToProjectRoot$
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Working Directory: $ProjectFileDir$
 </code></pre></div>
 <h3 id="other-ides">Other IDEs</h3>
 <p>We do not have support for other IDEs at the moment. If you use another editor and make one please
@@ -2193,17 +2196,17 @@ guidelines include:</p>
 <li>Include the namespace definition in each and every file: <code>otp.namespace("otp.configure");</code></li>
 <li>Include a class comment. For example,</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/**</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="cm"> * Configure Class</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="cm"> *</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="cm"> * Purpose is to allow a generic configuration object to be read via AJAX/JSON, and inserted into an</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="cm"> * Ext Store</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="cm"> * The implementation is TriMet route map specific...but replacing ConfigureStore object (or member</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="cm"> * variables) with another implementation, will give this widget flexibility for other uses beyond</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="cm"> * the iMap.</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="cm"> *</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="cm"> * @class</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="cm"> */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/**</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cm"> * Configure Class</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cm"> *</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="cm"> * Purpose is to allow a generic configuration object to be read via AJAX/JSON, and inserted into an</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="cm"> * Ext Store</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="cm"> * The implementation is TriMet route map specific...but replacing ConfigureStore object (or member</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="cm"> * variables) with another implementation, will give this widget flexibility for other uses beyond</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="cm"> * the iMap.</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="cm"> *</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="cm"> * @class</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="cm"> */</span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> There is still a lot of code following other style conventions, but please adhere to
