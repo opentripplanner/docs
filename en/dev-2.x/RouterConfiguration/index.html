@@ -2282,6 +2282,14 @@ value which will be applied unless it is overridden in a web API request.</p>
 <td style="text-align: center;">na</td>
 </tr>
 <tr>
+<td>   <a href="#transmodelApi_maxNumberOfResultFields">maxNumberOfResultFields</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The maximum number of fields in a GraphQL result</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1000000</code></td>
+<td style="text-align: center;">2.6</td>
+</tr>
+<tr>
 <td>   <a href="#transmodelApi_tracingHeaderTags">tracingHeaderTags</a></td>
 <td style="text-align: center;"><code>string[]</code></td>
 <td>Used to group requests when monitoring OTP.</td>
@@ -2584,6 +2592,12 @@ imported Stops.</p>
 <strong>Path:</strong> /transmodelApi </p>
 <p>Hide the FeedId in all API output, and add it to input.</p>
 <p>Only turn this feature on if you have unique ids across all feeds, without the feedId prefix.</p>
+<h3 id="transmodelApi_maxNumberOfResultFields">maxNumberOfResultFields</h3>
+
+<p><strong>Since version:</strong> <code>2.6</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1000000</code> <br />
+<strong>Path:</strong> /transmodelApi </p>
+<p>The maximum number of fields in a GraphQL result</p>
+<p>Enforce rate limiting based on query complexity; Queries that return too much data are cancelled.</p>
 <h3 id="transmodelApi_tracingHeaderTags">tracingHeaderTags</h3>
 
 <p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
