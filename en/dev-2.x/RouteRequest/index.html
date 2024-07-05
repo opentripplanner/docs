@@ -2005,7 +2005,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <tr>
 <td><a href="#rd_alightSlack">alightSlack</a></td>
 <td style="text-align: center;"><code>duration</code></td>
-<td>The minimum extra time after exiting a public transport vehicle.</td>
+<td>The time safety margin when alighting from a vehicle.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT0S"</code></td>
 <td style="text-align: center;">2.0</td>
@@ -2021,7 +2021,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <tr>
 <td><a href="#rd_boardSlack">boardSlack</a></td>
 <td style="text-align: center;"><code>duration</code></td>
-<td>The boardSlack is the minimum extra time to board a public transport vehicle.</td>
+<td>The time safety margin when boarding a vehicle.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT0S"</code></td>
 <td style="text-align: center;">2.0</td>
@@ -2188,10 +2188,10 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 </tr>
 <tr>
 <td><a href="#rd_transferSlack">transferSlack</a></td>
-<td style="text-align: center;"><code>integer</code></td>
-<td>The extra time needed to make a safe transfer in seconds.</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The extra time needed to make a safe transfer.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>120</code></td>
+<td><code>"PT2M"</code></td>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
@@ -3318,17 +3318,29 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
-<p>The minimum extra time after exiting a public transport vehicle.</p>
-<p>The slack is added to the time when going from the transit vehicle to the stop.</p>
+<p>The time safety margin when alighting from a vehicle.</p>
+<p>This time slack is added to arrival time of the vehicle before any transfer or onward travel.</p>
+<p>This time slack helps model potential delays or procedures a passenger experiences during the process of passing through the alighting location. This
+parameter is intended to be set by agencies not individual users. For specific modes, like airplane and
+subway, that need more time than others, this is also configurable per mode with <code>alightSlackForMode</code>.
+A related parameter (transferSlack) exists to help avoid missed connections when there are minor schedule variations.</p>
 <h3 id="rd_boardSlack">boardSlack</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
-<p>The boardSlack is the minimum extra time to board a public transport vehicle.</p>
-<p>The board time is added to the time when going from the stop (offboard) to onboard a transit
-vehicle.</p>
-<p>This is the same as the <code>transferSlack</code>, except that this also applies to to the first
-transit leg in the trip. This is the default value used, if not overridden by the <code>boardSlackList</code>.</p>
+<p>The time safety margin when boarding a vehicle.</p>
+<p>The board slack is added to the passenger's arrival time at a stop, before evaluating which
+vehicles can be boarded.</p>
+<p>This time slack helps model potential delays or procedures a passenger experiences during the process
+of passing through the boarding location, as well as some minor schedule variation. This parameter is
+intended to be set by agencies not individual users.</p>
+<p>Agencies can use this parameter to ensure that the trip planner does not instruct passengers to arrive
+at the last second. This slack is added at every boarding including the first vehicle and transfers
+except for in-seat transfers and guaranteed transfers.</p>
+<p>For specific modes, like airplane and subway, that need more time than others, this is also
+configurable per mode with <code>boardSlackForMode</code>.</p>
+<p>A related parameter (transferSlack) also helps avoid missed connections when there are minor schedule
+variations.</p>
 <h3 id="rd_drivingDirection">drivingDirection</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"right"</code> <br />
@@ -3429,13 +3441,14 @@ Set this to a high value to discourage transfers. Of course, transfers that save
 significant time or walking will still be taken.</p>
 <h3 id="rd_transferSlack">transferSlack</h3>
 
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>120</code> <br />
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT2M"</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
-<p>The extra time needed to make a safe transfer in seconds.</p>
-<p>An expected transfer time in seconds that specifies the amount of time that must pass
-between exiting one public transport vehicle and boarding another. This time is in
-addition to time it might take to walk between stops plus <code>boardSlack</code> and
-<code>alightSlack</code>.</p>
+<p>The extra time needed to make a safe transfer.</p>
+<p>The extra buffer time/safety margin added to transfers to make sure the connection is safe, time
+wise. We recommend allowing the end-user to set this, and use <code>board-/alight-slack</code> to enforce
+agency policies. This time is in addition to how long it might take to walk, board and alight.</p>
+<p>It is useful for passengers on long distance travel, and people with mobility issues, but can be set
+close to zero for everyday commuters and short distance searches in high-frequency transit areas.</p>
 <h3 id="rd_unpreferredCost">unpreferredCost</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.00 t"</code> <br />
@@ -4026,7 +4039,7 @@ include stairs as a last result.</p>
 <a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">    </span><span class="p">},</span>
 <a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">    </span><span class="nt">&quot;waitReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
 <a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">    </span><span class="nt">&quot;otherThanPreferredRoutesPenalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">    </span><span class="nt">&quot;transferSlack&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">    </span><span class="nt">&quot;transferSlack&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2m&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">    </span><span class="nt">&quot;boardSlackForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">      </span><span class="nt">&quot;AIRPLANE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;35m&quot;</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">    </span><span class="p">},</span>
