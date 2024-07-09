@@ -2004,12 +2004,12 @@
   
 
 
-<h1 id="vehicle-rental-service-directory-api-support">Vehicle Rental Service Directory API support.</h1>
-<p>This adds support for the GBFS service directory endpoint component located at 
-https://github.com/entur/lamassu. OTP uses the service directory to lookup and connect to all GBFS
-endpoints registered in the directory. This simplifies the management of the GBFS endpoints, since
-multiple services/components like OTP can connect to the directory and get the necessary
-configuration from it.</p>
+<h1 id="vehicle-rental-service-directory-api-support">Vehicle Rental Service Directory API support</h1>
+<p>This adds support for the GBFS service directory endpoint component
+<a href="https://github.com/entur/lamassu">Lamassu</a>. 
+OTP uses the service directory to lookup and connects to all GBFS endpoints registered in the 
+directory. This simplifies the management of the GBFS endpoints, since multiple services/components 
+like OTP can connect to the directory and get the necessary configuration from it.</p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li>Entur, Norway</li>
@@ -2019,6 +2019,7 @@ configuration from it.</p>
 <li>Initial implementation of bike share updater API support</li>
 <li>Make json tag names configurable <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3447">#3447</a></li>
 <li>Enable GBFS geofencing with VehicleRentalServiceDirectory <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5324">#5324</a></li>
+<li>Enable <code>allowKeepingVehicleAtDestination</code> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5944">#5944</a></li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <p>To enable this you need to specify a url for the <code>vehicleRentalServiceDirectory</code> in
@@ -2096,7 +2097,15 @@ the <code>router-config.json</code></p>
 <td style="text-align: center;">2.4</td>
 </tr>
 <tr>
-<td>      geofencingZones</td>
+<td>      <a href="#vehicleRentalServiceDirectory_networks_0_allowKeepingVehicleAtDestination">allowKeepingVehicleAtDestination</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Enables <code>allowKeepingVehicleAtDestination</code> for the given network.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>      <a href="#vehicleRentalServiceDirectory_networks_0_geofencingZones">geofencingZones</a></td>
 <td style="text-align: center;"><code>boolean</code></td>
 <td>Enables geofencingZones for the given network</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -2133,6 +2142,20 @@ the <code>router-config.json</code></p>
 name "default-network" to include all unlisted networks. If not present, all unlisted
 networks are dropped. Note! The values in the "default-network" are not used to set
 missing field values in networks listed.</p>
+<h4 id="vehicleRentalServiceDirectory_networks_0_allowKeepingVehicleAtDestination">allowKeepingVehicleAtDestination</h4>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /vehicleRentalServiceDirectory/networks/[0] </p>
+<p>Enables <code>allowKeepingVehicleAtDestination</code> for the given network.</p>
+<p>Configures if a vehicle rented from a station must be returned to another one or can
+be kept at the end of the trip.</p>
+<p>See the regular <a href="../../UpdaterConfig/#gbfs-vehicle-rental-systems">GBFS documentation</a> for more information.</p>
+<h4 id="vehicleRentalServiceDirectory_networks_0_geofencingZones">geofencingZones</h4>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /vehicleRentalServiceDirectory/networks/[0] </p>
+<p>Enables geofencingZones for the given network</p>
+<p>See the regular <a href="../../UpdaterConfig/#gbfs-vehicle-rental-systems">GBFS documentation</a> for more information.</p>
 <!-- PARAMETERS-DETAILS END -->
 
 <h3 id="example">Example</h3>
