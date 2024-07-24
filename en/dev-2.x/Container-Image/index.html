@@ -2114,7 +2114,9 @@
 <p>The CI pipeline deploys container images for runtimes like Docker, Kubernetes or Podman to 
 <a href="https://hub.docker.com/r/opentripplanner/opentripplanner/tags">Dockerhub</a>.</p>
 <p>The image assumes you use a volume to mount the input data (GTFS/NeTex, OSM) and config files into 
-<code>/var/opentripplanner/</code>. When serving a graph it's also expected to be in this directory.</p>
+<code>/var/opentripplanner/</code>. When serving a graph it's also expected to be in this directory. If a logback
+extensions file needs to be used, it should be mounted to the root location <code>/logback-include-extensions.xml</code>
+instead of the <code>/var/opentripplanner/</code> directory.</p>
 <h2 id="quick-start">Quick start</h2>
 <p>Let's use the image to build a graph in Berlin.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># create directory for data and config</span>
