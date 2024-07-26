@@ -2670,6 +2670,12 @@ managed in this one file. </p>
 <td style="text-align: center;">✓️</td>
 </tr>
 <tr>
+<td><code>MultiCriteriaGroupMaxFilter</code></td>
+<td>Keep the best itinerary with respect to each criteria used in the transit-routing search. For example the itinerary with the lowest cost, fewest transfers, and each unique transit-group (transit-group-priority) is kept, even if the max-limit is exceeded. This is turned off by default for now, until this feature is well tested.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
 <td><code>RealtimeResolver</code></td>
 <td>When routing with ignoreRealtimeUpdates=true, add an extra step which populates results with real-time data</td>
 <td style="text-align: center;"></td>
