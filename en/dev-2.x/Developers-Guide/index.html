@@ -1555,15 +1555,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-style" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code style
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#code-conventions-and-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       Code conventions and architecture
@@ -1662,27 +1653,6 @@
   
   <span class="md-ellipsis">
     Bibliography
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Codestyle/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Codestyle
   </span>
   
 
@@ -2427,14 +2397,16 @@ if you are changing renderers a lot. To disable this change <code>GraphInspector
 <p>Please use only ISO 8601 date format (YYYY-MM-DD) in documentation, comments, and throughout the
 project. This avoids the ambiguity that can result from differing local interpretations of date
 formats like 02/01/12.</p>
-<h2 id="code-style">Code style</h2>
-<p>The OTP code style is described on a separate <a href="../Codestyle/">style guide page</a>.</p>
 <h2 id="code-conventions-and-architecture">Code conventions and architecture</h2>
-<p>The <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/ARCHITECTURE.md">architecture</a> 
-and <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CODE_CONVENTIONS.md">code conventions</a>
-are only available on GitHub, not in the project documentation. These documents contain relative 
-links to code so, they are a bit easier to maintain that way. The target audience is also active 
-OTP developers that have the code checked out locally.</p>
+<p>The development and architecture documentation are only available on GitHub, not in the user project
+documentation (https://www.opentripplanner.org/). These documents contain relative links to code, 
+so they are a bit easier to maintain that way. The primary audience is also active OTP developers 
+that have the code checked out locally.</p>
+<ul>
+<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/ARCHITECTURE.md">Architecture</a> </li>
+<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CODE_CONVENTIONS.md">Code Conventions</a></li>
+<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/DECISION_RECORDS.md">Development Decision Records</a></li>
+</ul>
 <h2 id="continuous-integration">Continuous Integration</h2>
 <p>The OpenTripPlanner project uses
 the <a href="https://github.com/opentripplanner/OpenTripPlanner/actions">Github actions continuous integration system</a>
@@ -2442,7 +2414,7 @@ the <a href="https://github.com/opentripplanner/OpenTripPlanner/actions">Github 
 request, Github actions will
 compile and test the new code, providing feedback on the stability of the build.</p>
 <h3 id="changelog-workflow">Changelog workflow</h3>
-<p>The <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/docs/Changelog.md">changelog file</a>
+<p>The <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/doc/user/Changelog.md">changelog file</a>
 is generated from the pull-request(PR) <em>title</em> using the
 <a href="https://github.com/opentripplanner/OpenTripPlanner/actions/workflows/automatic-changelog.yml">changelog workflow</a>
 . The workflow runs after the PR is merged, and it changes, commits and pushes the <em>Changelog.md</em>. A

@@ -1467,27 +1467,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Codestyle/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Codestyle
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../SandboxExtension/" class="md-nav__link">
         
   
@@ -2118,10 +2097,10 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 <li>Check all links and references to the release and update to the target release version. Search
   all files for with a regular expression: <code>2\.[012]\.0</code> and replace if appropriate with the new
   version.</li>
-<li>In <code>docs/index.md</code> replace what is the latest version and add a new line for the previous one</li>
+<li>In <code>doc/user/index.md</code> replace what is the latest version and add a new line for the previous one</li>
 </ul>
 </li>
-<li>Update <code>docs/Changelog.md</code><ul>
+<li>Update <code>doc/user/Changelog.md</code><ul>
 <li>Lines should have been added or updated as each pull request was merged</li>
 <li>If you suspect any changes are not reflected in the Changelog, review the commit log and add
   any missing items</li>
@@ -2206,9 +2185,9 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 </ul>
 </li>
 <li>Set up next development iteration<ul>
-<li>Add a new section header to <code>docs/Changelog.md</code> like <code>x.y+1.0-SNAPSHOT (in progress)</code></li>
+<li>Add a new section header to <code>doc/user/Changelog.md</code> like <code>x.y+1.0-SNAPSHOT (in progress)</code></li>
 <li>Edit minor version in <code>pom.xml</code> to <code>x.y+1.0-SNAPSHOT</code></li>
-<li><code>git add pom.xml docs/Changelog.md</code></li>
+<li><code>git add pom.xml doc/user/Changelog.md</code></li>
 <li><code>git commit -m "Prepare next development iteration x.y+1.0-SNAPSHOT"</code></li>
 <li><code>git push</code></li>
 </ul>
