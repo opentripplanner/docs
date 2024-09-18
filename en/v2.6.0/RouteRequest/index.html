@@ -1,0 +1,4301 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.opentripplanner.org/v2.6.0/RouteRequest/">
+      
+      
+        <link rel="prev" href="../RouterConfiguration/">
+      
+      
+        <link rel="next" href="../UpdaterConfig/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>Route Request - OpenTripPlanner 2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#route-request" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenTripPlanner 2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Route Request
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/opentripplanner/OpenTripPlanner" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OpenTripPlanner 2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/opentripplanner/OpenTripPlanner" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Product-Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Product Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../History/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Presentations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Presentations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visual-Identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visual Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-Sources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Sources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting-OTP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting OTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Container-Image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System Requirements and Suggestions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Preparing-OSM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preparing OSM Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Netex-Norway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Netex and SIRI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting-Routing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Version-Comparison/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comparing OTP2 to OTP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Frontends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Frontends
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/Apis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/GraphQL-Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GraphQL Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/GTFS-GraphQL-API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GTFS GraphQL API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/TransmodelApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmodel (NeTEx) GraphQL API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BuildConfiguration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OSM Tag Mapping
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            OSM Tag Mapping
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Default/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Default
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Finland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finland
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Germany/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Germany
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Norway/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Norway
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/UK/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RouterConfiguration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Router
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Route Request
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Route Request
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-by-similarity-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group by similarity filters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdaterConfig/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Realtime Updaters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migrating-Configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migrating between versions/builds
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Features explained
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Features explained
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RoutingModes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routing modes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../In-Station-Navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    In-station navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BoardingLocations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Boarding Locations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StopAreas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stop Area Relations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IslandPruning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Street Graph Pruning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Accessibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accessibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Travel Time Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developers-Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developers' Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Localization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Localization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bibliography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bibliography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sandbox Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ReleaseChecklist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sandbox
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Sandbox
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxExtension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sandbox Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actuator API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Direct Transfer Analyzer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Cloud Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriUpdater/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SIRI Updaters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriGooglePubSubUpdater/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SIRI Updaters (Google Cloud)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SIRI Updater (Azure)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vehicle Rental Service Directory API support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Smoove Bike Rental Updator Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapbox Vector Tiles API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Flex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flex Routing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ReportApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Report API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactive OTP Launcher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Park and Ride API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/DataOverlay/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Overlay
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleParking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vehicle Parking Updaters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geocoder API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBI Accessibility Score
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Fares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/RideHailing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ride Hailing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Emissions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Emissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/StopConsolidation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stop Consolidation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<!--
+  NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
+
+   - Template directory is:  /doc/templates
+   - Generated directory is: /docs 
+-->
+
+<h1 id="route-request">Route Request</h1>
+<p>The RouteRequest is the type for the <a href="../RouterConfiguration/#routingDefaults">routingDefaults in router-config.json</a> 
+and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in build-config.json</a>.</p>
+<!-- PARAMETERS-TABLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#rd_alightSlack">alightSlack</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The time safety margin when alighting from a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>arriveBy</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether the trip should depart or arrive at the specified date and time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_boardSlack">boardSlack</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The time safety margin when boarding a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_drivingDirection">drivingDirection</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The driving direction to use in the intersection traversal calculation</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"right"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>elevatorBoardCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>What is the cost of boarding a elevator?</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>90</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>elevatorBoardTime</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>How long does it take to get on an elevator, on average.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>90</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>elevatorHopCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>What is the cost of travelling one floor on an elevator?</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>20</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>elevatorHopTime</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>How long does it take to advance one floor on an elevator?</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>20</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>geoidElevation</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>If true, the Graph's ellipsoidToGeoidDifference is applied to all elevations returned by this query.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>ignoreRealtimeUpdates</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>When true, real-time updates are ignored during this search.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_intersectionTraversalModel">intersectionTraversalModel</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The model that computes the costs of turns.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"simple"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>locale</td>
+<td style="text-align: center;"><code>locale</code></td>
+<td>TODO</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"en_US"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_maxDirectStreetDuration">maxDirectStreetDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This is the maximum duration for a direct street search for each mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT4H"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td><a href="#rd_maxJourneyDuration">maxJourneyDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The expected maximum time a journey can last across all possible journeys for the current deployment.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT24H"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>modes</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The set of access/egress/direct/transit modes to be used for the route search.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"TRANSIT,WALK"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>nonpreferredTransferPenalty</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Penalty (in seconds) for using a non-preferred transfer.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>180</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>numItineraries</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The maximum number of itineraries to return.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>50</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_otherThanPreferredRoutesPenalty">otherThanPreferredRoutesPenalty</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Penalty added for using every route that is not preferred if user set any route as preferred.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>300</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_relaxTransitGroupPriority">relaxTransitGroupPriority</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The relax function for transit-group-priority</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"0s + 1.00 t"</code></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td><a href="#rd_relaxTransitSearchGeneralizedCostAtDestination">relaxTransitSearchGeneralizedCostAtDestination</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Whether non-optimal transit paths at the destination should be returned</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td><a href="#rd_searchWindow">searchWindow</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The duration of the search-window.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_streetRoutingTimeout">streetRoutingTimeout</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The maximum time a street routing request is allowed to take before returning the results.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT5S"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td><a href="#rd_transferPenalty">transferPenalty</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>An additional penalty added to boardings after the first.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_transferSlack">transferSlack</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The extra time needed to make a safe transfer.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT2M"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>turnReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Multiplicative factor on expected turning time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_unpreferredCost">unpreferredCost</a></td>
+<td style="text-align: center;"><code>cost-linear-function</code></td>
+<td>A cost function used to calculate penalty for an unpreferred route.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"0s + 1.00 t"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>waitReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much worse is waiting for a transit vehicle than being on a transit vehicle, as a multiplier.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>accessEgress</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Parameters for access and egress routing.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#rd_accessEgress_maxDuration">maxDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This is the maximum duration for access/egress for street searches.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT45M"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_accessEgress_maxStopCount">maxStopCount</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Maximal number of stops collected in access/egress routing</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>500</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#rd_accessEgress_maxDurationForMode">maxDurationForMode</a></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
+<td>Limit access/egress per street mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_accessEgress_penalty">penalty</a></td>
+<td style="text-align: center;"><code>enum map of object</code></td>
+<td>Penalty for access/egress by street mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>      FLEXIBLE</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>NA</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>         costFactor</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A factor multiplied with the time-penalty to get the cost-penalty.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>         timePenalty</td>
+<td style="text-align: center;"><code>time-penalty</code></td>
+<td>Penalty added to the time of a path/leg.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"0s + 0.00 t"</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td><a href="#rd_alightSlackForMode">alightSlackForMode</a></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
+<td>How much extra time should be given when alighting a vehicle for each given mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>bicycle</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Bicycle preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>   <a href="#rd_bicycle_boardCost">boardCost</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Prevents unnecessary transfers by adding a cost for boarding a transit vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>600</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   <a href="#rd_bicycle_optimization">optimization</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The set of characteristics that the user wants to optimize for.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"safe-streets"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for how bad cycling is, compared to being in transit for equal lengths of time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Max bicycle speed along streets, in meters per second</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>5.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   parking</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Preferences for parking a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>      cost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Cost to park a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>120</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      time</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Time to park a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_parking_unpreferredVehicleParkingTagCost">unpreferredVehicleParkingTagCost</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>What cost to add if a parking facility doesn't contain a preferred tag.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>300</code></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_parking_bannedVehicleParkingTags">bannedVehicleParkingTags</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Tags with which a vehicle parking will not be used. If empty, no tags are banned.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_parking_preferredVehicleParkingTags">preferredVehicleParkingTags</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Vehicle parking facilities that don't have one of these tags will receive an extra cost and will therefore be penalised.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_parking_requiredVehicleParkingTags">requiredVehicleParkingTags</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Tags without which a vehicle parking will not be used. If empty, no tags are required.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   rental</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Vehicle rental options</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>      allowKeepingAtDestination</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>If a vehicle should be allowed to be kept at the end of a station-based rental.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      dropOffCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Cost to drop-off a rented vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>30</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      dropOffTime</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Time to drop-off a rented vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      keepingAtDestinationCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost of arriving at the destination with the rented vehicle, to discourage doing so.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      pickupCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Cost to rent a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>120</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      pickupTime</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Time to rent a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      useAvailabilityInformation</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether or not vehicle rental availability information will be used to plan vehicle rental trips.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_rental_allowedNetworks">allowedNetworks</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>The vehicle rental networks which may be used. If empty all networks may be used.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_rental_bannedNetworks">bannedNetworks</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>The vehicle rental networks which may not be used. If empty, no networks are banned.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_bicycle_triangle">triangle</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Triangle optimization criteria.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>      flatness</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Relative importance of flat terrain (range 0-1).</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_triangle_safety">safety</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Relative importance of safety (range 0-1).</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      time</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Relative importance of duration of travel (range 0-1).</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   walk</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Preferences for walking a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_walk_mountDismountCost">mountDismountCost</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost of hopping on or off a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_bicycle_walk_mountDismountTime">mountDismountTime</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The time it takes the user to hop on or off a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for how bad walking with a vehicle is, compared to being in transit for equal lengths of time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>5.0</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The user's vehicle walking speed in meters/second. Defaults to approximately 3 MPH.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.33</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      stairsReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How bad is it to walk the vehicle up/down a flight of stairs compared to taking a detour.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>10.0</code></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td><a href="#rd_boardSlackForMode">boardSlackForMode</a></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
+<td>How much extra time should be given when boarding a vehicle for each given mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>car</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Car preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>   accelerationSpeed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The acceleration speed of an automobile, in meters per second per second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.9</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   decelerationSpeed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The deceleration speed of an automobile, in meters per second per second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.9</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   pickupCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Add a cost for car pickup changes when a pickup or drop off takes place</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>120</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   pickupTime</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Add a time for car pickup changes when a pickup or drop off takes place</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for how bad driving is, compared to being in transit for equal lengths of time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   parking</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Preferences for parking a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>      cost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Cost to park a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>120</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      time</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Time to park a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_car_parking_unpreferredVehicleParkingTagCost">unpreferredVehicleParkingTagCost</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>What cost to add if a parking facility doesn't contain a preferred tag.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>300</code></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>      <a href="#rd_car_parking_bannedVehicleParkingTags">bannedVehicleParkingTags</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Tags with which a vehicle parking will not be used. If empty, no tags are banned.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#rd_car_parking_preferredVehicleParkingTags">preferredVehicleParkingTags</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Vehicle parking facilities that don't have one of these tags will receive an extra cost and will therefore be penalised.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>      <a href="#rd_car_parking_requiredVehicleParkingTags">requiredVehicleParkingTags</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Tags without which a vehicle parking will not be used. If empty, no tags are required.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   rental</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Vehicle rental options</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>      allowKeepingAtDestination</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>If a vehicle should be allowed to be kept at the end of a station-based rental.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      dropOffCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Cost to drop-off a rented vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>30</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      dropOffTime</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Time to drop-off a rented vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      keepingAtDestinationCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost of arriving at the destination with the rented vehicle, to discourage doing so.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      pickupCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Cost to rent a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>120</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      pickupTime</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Time to rent a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      useAvailabilityInformation</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether or not vehicle rental availability information will be used to plan vehicle rental trips.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_car_rental_allowedNetworks">allowedNetworks</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>The vehicle rental networks which may be used. If empty all networks may be used.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#rd_car_rental_bannedNetworks">bannedNetworks</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>The vehicle rental networks which may not be used. If empty, no networks are banned.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td><a href="#rd_itineraryFilters">itineraryFilters</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configure itinerary filters that may modify itineraries, sort them, and filter away less preferable results.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_accessibilityScore">accessibilityScore</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>An experimental feature contributed by IBI which adds a sandbox accessibility <em>score</em> between 0 and 1 for each leg and itinerary.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_bikeRentalDistanceRatio">bikeRentalDistanceRatio</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Filter routes that consist of bike-rental and walking by the minimum fraction of the bike-rental leg using <em>distance</em>.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_debug">debug</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>Enable this to attach a system notice to itineraries instead of removing them. This is very convenient when tuning the itinerary-filter-chain.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"off"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_filterItinerariesWithSameFirstOrLastTrip">filterItinerariesWithSameFirstOrLastTrip</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>If more than one itinerary begins or ends with same trip, filter out one of those itineraries so that only one remains.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   groupSimilarityKeepOne</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Pick ONE itinerary from each group after putting itineraries that are 85% similar together.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.85</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   groupSimilarityKeepThree</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Reduce the number of itineraries to three itineraries by reducing each group of itineraries grouped by 68% similarity.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.68</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_groupedOtherThanSameLegsMaxCostMultiplier">groupedOtherThanSameLegsMaxCostMultiplier</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Filter grouped itineraries, where the non-grouped legs are more expensive than in the lowest cost one.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_minBikeParkingDistance">minBikeParkingDistance</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Filter out bike park+ride results that have fewer meters of cycling than this value.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_nonTransitGeneralizedCostLimit">nonTransitGeneralizedCostLimit</a></td>
+<td style="text-align: center;"><code>cost-linear-function</code></td>
+<td>The function define a max-limit for generalized-cost for non-transit itineraries.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"1h + 2.0 t"</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_parkAndRideDurationRatio">parkAndRideDurationRatio</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Filter P+R routes that consist of driving and walking by the minimum fraction of the driving using of <em>time</em>.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_removeItinerariesWithSameRoutesAndStops">removeItinerariesWithSameRoutesAndStops</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Set to true if you want to list only the first itinerary  which goes through the same stops and routes.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_removeTransitWithHigherCostThanBestOnStreetOnly">removeTransitWithHigherCostThanBestOnStreetOnly</a></td>
+<td style="text-align: center;"><code>cost-linear-function</code></td>
+<td>Limit function for generalized-cost computed from street-only itineries applied to transit itineraries.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"1m + 1.30 t"</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#rd_if_transitGeneralizedCostLimit">transitGeneralizedCostLimit</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>A relative limit for the generalized-cost for transit itineraries.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#rd_if_transitGeneralizedCostLimit_costLimitFunction">costLimitFunction</a></td>
+<td style="text-align: center;"><code>cost-linear-function</code></td>
+<td>The base function used by the filter.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"15m + 1.50 t"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      <a href="#rd_if_transitGeneralizedCostLimit_intervalRelaxFactor">intervalRelaxFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much the filter should be relaxed for itineraries that do not overlap in time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.4</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td><a href="#rd_maxDirectStreetDurationForMode">maxDirectStreetDurationForMode</a></td>
+<td style="text-align: center;"><code>enum map of duration</code></td>
+<td>Limit direct route duration per street mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>scooter</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Scooter preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>   <a href="#rd_scooter_optimization">optimization</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The set of characteristics that the user wants to optimize for.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"safe-streets"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for how bad scooter travel is, compared to being in transit for equal lengths of time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Max scooter speed along streets, in meters per second</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>5.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   rental</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Vehicle rental options</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>      allowKeepingAtDestination</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>If a vehicle should be allowed to be kept at the end of a station-based rental.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      dropOffCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Cost to drop-off a rented vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>30</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      dropOffTime</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Time to drop-off a rented vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      keepingAtDestinationCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost of arriving at the destination with the rented vehicle, to discourage doing so.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      pickupCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Cost to rent a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>120</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      pickupTime</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Time to rent a vehicle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      useAvailabilityInformation</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether or not vehicle rental availability information will be used to plan vehicle rental trips.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_scooter_rental_allowedNetworks">allowedNetworks</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>The vehicle rental networks which may be used. If empty all networks may be used.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#rd_scooter_rental_bannedNetworks">bannedNetworks</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>The vehicle rental networks which may not be used. If empty, no networks are banned.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_scooter_triangle">triangle</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Triangle optimization criteria.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>      flatness</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Relative importance of flat terrain (range 0-1).</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_scooter_triangle_safety">safety</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Relative importance of safety (range 0-1).</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      time</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Relative importance of duration of travel (range 0-1).</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#rd_transferOptimization">transferOptimization</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Optimize where a transfer between to trip happens.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_to_backTravelWaitTimeFactor">backTravelWaitTimeFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>To reduce back-travel we favor waiting, this reduces the cost of waiting.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_to_extraStopBoardAlightCostsFactor">extraStopBoardAlightCostsFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Add an extra board- and alight-cost for prioritized stops.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_to_minSafeWaitTimeFactor">minSafeWaitTimeFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Used to set a maximum wait-time cost, base on min-safe-transfer-time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>5.0</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#rd_to_optimizeTransferWaitTime">optimizeTransferWaitTime</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>This enables the transfer wait time optimization.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>true</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td><a href="#rd_transitGroupPriority">transitGroupPriority</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Group transit patterns and give each group a mutual advantage in the Raptor search.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td><a href="#rd_transitReluctanceForMode">transitReluctanceForMode</a></td>
+<td style="text-align: center;"><code>enum map of double</code></td>
+<td>Transit reluctance for a given transport mode</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td><a href="#rd_unpreferred">unpreferred</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Parameters listing authorities or lines that preferably should not be used in trip patters.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#rd_unpreferred_agencies">agencies</a></td>
+<td style="text-align: center;"><code>feed-scoped-id[]</code></td>
+<td>The ids of the agencies that incur an extra cost when being used. Format: <code>FeedId:AgencyId</code></td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#rd_unpreferred_routes">routes</a></td>
+<td style="text-align: center;"><code>feed-scoped-id[]</code></td>
+<td>The ids of the routes that incur an extra cost when being used. Format: <code>FeedId:RouteId</code></td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>walk</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Walking preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>   boardCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Prevents unnecessary transfers by adding a cost for boarding a vehicle. This is the cost that is used when boarding while walking.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>600</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   escalatorReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for how bad being in an escalator is compared to being in transit for equal lengths of time</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.5</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#rd_walk_reluctance">reluctance</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for how bad walking is, compared to being in transit for equal lengths of time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   <a href="#rd_walk_safetyFactor">safetyFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Factor for how much the walk safety is considered in routing.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The user's walking speed in meters/second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.33</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   stairsReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Used instead of walkReluctance for stairs.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   <a href="#rd_walk_stairsTimeFactor">stairsTimeFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much more time does it take to walk a flight of stairs compared to walking a similar horizontal length.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>3.0</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>wheelchairAccessibility</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>See <a href="../Accessibility/">Wheelchair Accessibility</a></td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   enabled</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Enable wheelchair accessibility.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   inaccessibleStreetReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The factor to multiply the cost of traversing a street edge that is not wheelchair-accessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>25.0</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#rd_wheelchairAccessibility_maxSlope">maxSlope</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The maximum slope as a fraction of 1.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.083</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   <a href="#rd_wheelchairAccessibility_slopeExceededReluctance">slopeExceededReluctance</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much streets with high slope should be avoided.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#rd_wheelchairAccessibility_stairsReluctance">stairsReluctance</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much stairs should be avoided.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>100.0</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   elevator</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for when to use inaccessible elevators.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      inaccessibleCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity which is know to be inaccessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>3600</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      onlyConsiderAccessible</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      unknownCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity with unknown accessibility information.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>20</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   stop</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for when to use inaccessible stops.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      inaccessibleCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity which is know to be inaccessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>3600</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      onlyConsiderAccessible</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>true</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      unknownCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity with unknown accessibility information.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>600</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   trip</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for when to use inaccessible trips.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      inaccessibleCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity which is know to be inaccessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>3600</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      onlyConsiderAccessible</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>true</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      unknownCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity with unknown accessibility information.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>600</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+</tbody>
+</table>
+<!-- PARAMETERS-TABLE END -->
+
+<h2 id="parameter-details">Parameter Details</h2>
+<!-- PARAMETERS-DETAILS BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<h3 id="rd_alightSlack">alightSlack</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>The time safety margin when alighting from a vehicle.</p>
+<p>This time slack is added to arrival time of the vehicle before any transfer or onward travel.</p>
+<p>This time slack helps model potential delays or procedures a passenger experiences during the process of passing through the alighting location. This
+parameter is intended to be set by agencies not individual users. For specific modes, like airplane and
+subway, that need more time than others, this is also configurable per mode with <code>alightSlackForMode</code>.
+A related parameter (transferSlack) exists to help avoid missed connections when there are minor schedule variations.</p>
+<h3 id="rd_boardSlack">boardSlack</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>The time safety margin when boarding a vehicle.</p>
+<p>The board slack is added to the passenger's arrival time at a stop, before evaluating which
+vehicles can be boarded.</p>
+<p>This time slack helps model potential delays or procedures a passenger experiences during the process
+of passing through the boarding location, as well as some minor schedule variation. This parameter is
+intended to be set by agencies not individual users.</p>
+<p>Agencies can use this parameter to ensure that the trip planner does not instruct passengers to arrive
+at the last second. This slack is added at every boarding including the first vehicle and transfers
+except for in-seat transfers and guaranteed transfers.</p>
+<p>For specific modes, like airplane and subway, that need more time than others, this is also
+configurable per mode with <code>boardSlackForMode</code>.</p>
+<p>A related parameter (transferSlack) also helps avoid missed connections when there are minor schedule
+variations.</p>
+<h3 id="rd_drivingDirection">drivingDirection</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"right"</code> <br />
+<strong>Path:</strong> /routingDefaults <br />
+<strong>Enum values:</strong> <code>right</code> | <code>left</code></p>
+<p>The driving direction to use in the intersection traversal calculation</p>
+<h3 id="rd_intersectionTraversalModel">intersectionTraversalModel</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"simple"</code> <br />
+<strong>Path:</strong> /routingDefaults <br />
+<strong>Enum values:</strong> <code>simple</code> | <code>constant</code></p>
+<p>The model that computes the costs of turns.</p>
+<h3 id="rd_maxDirectStreetDuration">maxDirectStreetDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT4H"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>This is the maximum duration for a direct street search for each mode.</p>
+<p>This is a performance limit and should therefore be set high. Results close to the limit are not
+guaranteed to be optimal. Use itinerary-filters to limit what is presented to the client. The
+duration can be set per mode(<code>maxDirectStreetDurationForMode</code>), because some street modes searches
+are much more resource intensive than others. A default value is applied if the mode specific value
+does not exist."</p>
+<h3 id="rd_maxJourneyDuration">maxJourneyDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT24H"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>The expected maximum time a journey can last across all possible journeys for the current deployment.</p>
+<p>Normally you would just do an estimate and add enough slack, so you are sure that there is no
+journeys that falls outside this window. The parameter is used find all possible dates for the
+journey and then search only the services which run on those dates. The duration must include
+access, egress, wait-time and transit time for the whole journey. It should also take low frequency
+days/periods like holidays into account. In other words, pick the two points within your area that
+has the worst connection and then try to travel on the worst possible day, and find the maximum
+journey duration. Using a value that is too high has the effect of including more patterns in the
+search, hence, making it a bit slower. Recommended values would be from 12 hours(small town/city),
+1 day (region) to 2 days (country like Norway)."</p>
+<h3 id="rd_otherThanPreferredRoutesPenalty">otherThanPreferredRoutesPenalty</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>300</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>Penalty added for using every route that is not preferred if user set any route as preferred.</p>
+<p>We return number of seconds that we are willing to wait for preferred route.</p>
+<h3 id="rd_relaxTransitGroupPriority">relaxTransitGroupPriority</h3>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.00 t"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>The relax function for transit-group-priority</p>
+<p>A path is considered optimal if the generalized-cost is less than the generalized-cost of
+another path. If this parameter is set, the comparison is relaxed further if they belong
+to different transit groups.</p>
+<h3 id="rd_relaxTransitSearchGeneralizedCostAtDestination">relaxTransitSearchGeneralizedCostAtDestination</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>Whether non-optimal transit paths at the destination should be returned</p>
+<p>Let c be the existing minimum pareto optimal generalized cost to beat. Then a trip
+with cost c' is accepted if the following is true:
+<code>c' &lt; Math.round(c * relaxRaptorCostCriteria)</code>.</p>
+<p>The parameter is optional. If not set a normal comparison is performed.</p>
+<p>Values equals or less than zero is not allowed. Values greater than 2.0 are not
+supported, due to performance reasons.</p>
+<h3 id="rd_searchWindow">searchWindow</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>The duration of the search-window.</p>
+<p>This is the time/duration in seconds from the earliest-departure-time(EDT) to the
+latest-departure-time(LDT). In case of a reverse search it will be the time from earliest to
+latest arrival time (LAT - EAT).</p>
+<p>All optimal travels that depart within the search window is guaranteed to be found.</p>
+<p>This is sometimes referred to as the Range Raptor Search Window - but could be used in a none
+Transit search as well; Hence this is named search-window and not raptor-search-window.</p>
+<p>This is normally dynamically calculated by the server. Use <code>null</code> to unset, and <em>zero</em> to do one
+Raptor iteration. The value is dynamically  assigned a suitable value, if not set. In a small to
+medium size operation you may use a fixed value, like 60 minutes. If you have a mixture of high
+frequency cities routes and  infrequent long distant journeys, the best option is normally to use
+the dynamic auto assignment. If not provided the value is resolved depending on the other input
+parameters, available transit options and realtime changes.</p>
+<p>There is no need to set this when going to the next/previous page. The OTP Server will
+increase/decrease the search-window when paging to match the requested number of itineraries.</p>
+<h3 id="rd_streetRoutingTimeout">streetRoutingTimeout</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT5S"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>The maximum time a street routing request is allowed to take before returning the results.</p>
+<p>The street search(AStar) aborts after this duration and any paths found are returned to the client.
+The street part of the routing may take a long time if searching very long distances. You can set
+the street routing timeout to avoid tying up server resources on pointless searches and ensure that
+your users receive a timely response. You can also limit the max duration. There are is also a
+'apiProcessingTimeout'. Make sure the street timeout is less than the 'apiProcessingTimeout'.</p>
+<h3 id="rd_transferPenalty">transferPenalty</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>An additional penalty added to boardings after the first.</p>
+<p>The value is in OTP's internal weight units, which are roughly equivalent to seconds.
+Set this to a high value to discourage transfers. Of course, transfers that save
+significant time or walking will still be taken.</p>
+<h3 id="rd_transferSlack">transferSlack</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT2M"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>The extra time needed to make a safe transfer.</p>
+<p>The extra buffer time/safety margin added to transfers to make sure the connection is safe, time
+wise. We recommend allowing the end-user to set this, and use <code>board-/alight-slack</code> to enforce
+agency policies. This time is in addition to how long it might take to walk, board and alight.</p>
+<p>It is useful for passengers on long distance travel, and people with mobility issues, but can be set
+close to zero for everyday commuters and short distance searches in high-frequency transit areas.</p>
+<h3 id="rd_unpreferredCost">unpreferredCost</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.00 t"</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>A cost function used to calculate penalty for an unpreferred route.</p>
+<p>Function should return number of seconds that we are willing to wait for preferred route
+or for an unpreferred agency's departure. For example: <code>5m + 2.0 t</code></p>
+<h3 id="rd_accessEgress_maxDuration">maxDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT45M"</code> <br />
+<strong>Path:</strong> /routingDefaults/accessEgress </p>
+<p>This is the maximum duration for access/egress for street searches.</p>
+<p>This is a performance limit and should therefore be set high. Results close to the limit are not
+guaranteed to be optimal. Use itinerary-filters to limit what is presented to the client. The
+duration can be set per mode(<code>maxDurationForMode</code>), because some street modes searches
+are much more resource intensive than others. A default value is applied if the mode specific value
+does not exist.</p>
+<h3 id="rd_accessEgress_maxStopCount">maxStopCount</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>500</code> <br />
+<strong>Path:</strong> /routingDefaults/accessEgress </p>
+<p>Maximal number of stops collected in access/egress routing</p>
+<p>Safety limit to prevent access to and egress from too many stops.</p>
+<h3 id="rd_accessEgress_maxDurationForMode">maxDurationForMode</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/accessEgress <br />
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<p>Limit access/egress per street mode.</p>
+<p>Override the settings in <code>maxDuration</code> for specific street modes. This is
+done because some street modes searches are much more resource intensive than others.</p>
+<h3 id="rd_accessEgress_penalty">penalty</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>enum map of object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/accessEgress <br />
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<p>Penalty for access/egress by street mode.</p>
+<p>Use this to add a time and cost penalty to an access/egress legs for a given street
+mode. This will favour other street-modes and transit. This has a performance penalty,
+since the search-window is increased with the same amount as the maximum penalty for
+the access legs used. In other cases where the access(CAR) is faster than transit the
+performance will be better.</p>
+<p>The default values are</p>
+<ul>
+<li><code>car-to-park</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
+<li><code>car-rental</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
+<li><code>car-hailing</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
+<li><code>flexible</code> = (timePenalty: 10m + 1.30 t, costFactor: 1.30)</li>
+</ul>
+<p>Example: <code>"car-to-park" : { "timePenalty": "10m + 1.5t", "costFactor": 2.5 }</code></p>
+<p><strong>Time penalty</strong></p>
+<p>The <code>timePenalty</code> is used to add a penalty to the access/egress duration/time. The
+time including the penalty is used in the algorithm when comparing paths, but the
+actual duration is used when presented to the end user.</p>
+<p><strong>Cost factor</strong></p>
+<p>The <code>costFactor</code> is used to add an additional cost to the leg´s  generalized-cost. The
+time-penalty is multiplied with the cost-factor. A cost-factor of zero, gives no
+extra cost, while 1.0 will add the same amount to both time and cost.</p>
+<h3 id="rd_alightSlackForMode">alightSlackForMode</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults <br />
+<strong>Enum keys:</strong> <code>rail</code> | <code>coach</code> | <code>subway</code> | <code>bus</code> | <code>tram</code> | <code>ferry</code> | <code>airplane</code> | <code>cable-car</code> | <code>gondola</code> | <code>funicular</code> | <code>trolleybus</code> | <code>monorail</code> | <code>carpool</code> | <code>taxi</code></p>
+<p>How much extra time should be given when alighting a vehicle for each given mode.</p>
+<p>Sometimes there is a need to configure a longer alighting times for specific modes, such as airplanes or ferries.</p>
+<h3 id="rd_bicycle_boardCost">boardCost</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>600</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle </p>
+<p>Prevents unnecessary transfers by adding a cost for boarding a transit vehicle.</p>
+<p>This is the cost that is used when boarding while cycling. This is usually higher that walkBoardCost.</p>
+<h3 id="rd_bicycle_optimization">optimization</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"safe-streets"</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle <br />
+<strong>Enum values:</strong> <code>shortest-duration</code> | <code>safe-streets</code> | <code>flat-streets</code> | <code>safest-streets</code> | <code>triangle</code></p>
+<p>The set of characteristics that the user wants to optimize for.</p>
+<p>If the triangle optimization is used, it's enough to just define the triangle parameters</p>
+<h3 id="rd_bicycle_parking_unpreferredVehicleParkingTagCost">unpreferredVehicleParkingTagCost</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>300</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/parking </p>
+<p>What cost to add if a parking facility doesn't contain a preferred tag.</p>
+<p>See <code>preferredVehicleParkingTags</code>.</p>
+<h3 id="rd_bicycle_parking_bannedVehicleParkingTags">bannedVehicleParkingTags</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/parking </p>
+<p>Tags with which a vehicle parking will not be used. If empty, no tags are banned.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
+<h3 id="rd_bicycle_parking_preferredVehicleParkingTags">preferredVehicleParkingTags</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/parking </p>
+<p>Vehicle parking facilities that don't have one of these tags will receive an extra cost and will therefore be penalised.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
+<h3 id="rd_bicycle_parking_requiredVehicleParkingTags">requiredVehicleParkingTags</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/parking </p>
+<p>Tags without which a vehicle parking will not be used. If empty, no tags are required.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
+<h3 id="rd_bicycle_rental_allowedNetworks">allowedNetworks</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/rental </p>
+<p>The vehicle rental networks which may be used. If empty all networks may be used.</p>
+<h3 id="rd_bicycle_rental_bannedNetworks">bannedNetworks</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/rental </p>
+<p>The vehicle rental networks which may not be used. If empty, no networks are banned.</p>
+<h3 id="rd_bicycle_triangle">triangle</h3>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle </p>
+<p>Triangle optimization criteria.</p>
+<p>Optimization type doesn't need to be defined if these values are defined.</p>
+<h3 id="rd_bicycle_triangle_safety">safety</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/triangle </p>
+<p>Relative importance of safety (range 0-1).</p>
+<p>This factor can also include other concerns such as convenience and general cyclist
+preferences by taking into account road surface etc.</p>
+<h3 id="rd_bicycle_walk_mountDismountCost">mountDismountCost</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/walk </p>
+<p>The cost of hopping on or off a vehicle.</p>
+<p>There are different parameters for the cost of renting or parking a vehicle and this is
+not meant for controlling the cost of those events.</p>
+<h3 id="rd_bicycle_walk_mountDismountTime">mountDismountTime</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/walk </p>
+<p>The time it takes the user to hop on or off a vehicle.</p>
+<p>Time it takes to rent or park a vehicle have their own parameters and this is not meant
+for controlling the duration of those events.</p>
+<h3 id="rd_boardSlackForMode">boardSlackForMode</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults <br />
+<strong>Enum keys:</strong> <code>rail</code> | <code>coach</code> | <code>subway</code> | <code>bus</code> | <code>tram</code> | <code>ferry</code> | <code>airplane</code> | <code>cable-car</code> | <code>gondola</code> | <code>funicular</code> | <code>trolleybus</code> | <code>monorail</code> | <code>carpool</code> | <code>taxi</code></p>
+<p>How much extra time should be given when boarding a vehicle for each given mode.</p>
+<p>Sometimes there is a need to configure a board times for specific modes, such as airplanes or
+ferries, where the check-in process needs to be done in good time before ride.</p>
+<h3 id="rd_car_parking_unpreferredVehicleParkingTagCost">unpreferredVehicleParkingTagCost</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>300</code> <br />
+<strong>Path:</strong> /routingDefaults/car/parking </p>
+<p>What cost to add if a parking facility doesn't contain a preferred tag.</p>
+<p>See <code>preferredVehicleParkingTags</code>.</p>
+<h3 id="rd_car_parking_bannedVehicleParkingTags">bannedVehicleParkingTags</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/car/parking </p>
+<p>Tags with which a vehicle parking will not be used. If empty, no tags are banned.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
+<h3 id="rd_car_parking_preferredVehicleParkingTags">preferredVehicleParkingTags</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/car/parking </p>
+<p>Vehicle parking facilities that don't have one of these tags will receive an extra cost and will therefore be penalised.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
+<h3 id="rd_car_parking_requiredVehicleParkingTags">requiredVehicleParkingTags</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/car/parking </p>
+<p>Tags without which a vehicle parking will not be used. If empty, no tags are required.</p>
+<p>Vehicle parking tags can originate from different places depending on the origin of the parking(OSM or RT feed).</p>
+<h3 id="rd_car_rental_allowedNetworks">allowedNetworks</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/car/rental </p>
+<p>The vehicle rental networks which may be used. If empty all networks may be used.</p>
+<h3 id="rd_car_rental_bannedNetworks">bannedNetworks</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/car/rental </p>
+<p>The vehicle rental networks which may not be used. If empty, no networks are banned.</p>
+<h3 id="rd_itineraryFilters">itineraryFilters</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>Configure itinerary filters that may modify itineraries, sort them, and filter away less preferable results.</p>
+<p>The purpose of the itinerary filter chain is to post process the result returned by the routing
+search. The filters may modify itineraries, sort them, and filter away less preferable results.</p>
+<p>OTP2 may produce numerous <em>pareto-optimal</em> results when using <code>time</code>, <code>number-of-transfers</code> and
+<code>generalized-cost</code> as criteria. Use the parameters listed here to reduce/filter the itineraries
+return by the search engine before returning the results to client. There is also a few mandatory
+non-configurable filters removing none optimal results. You may see these filters pop-up in the
+filter debugging.</p>
+<h4 id="group-by-similarity-filters">Group by similarity filters</h4>
+<p>The group-by-filter is a bit complex, but should be simple to use. Set <code>debug=true</code> and experiment
+with <code>searchWindow</code> and the three group-by parameters(<code>groupSimilarityKeepOne</code>,
+<code>groupSimilarityKeepThree</code> and <code>groupedOtherThanSameLegsMaxCostMultiplier</code>).</p>
+<p>The group-by-filter work by grouping itineraries together and then reducing the number of
+itineraries in each group, keeping the itinerary/itineraries with the best itinerary
+<em>generalized-cost</em>. The group-by function first pick all transit legs that account for more than N%
+of the itinerary based on distance traveled. This become the group-key. Two keys are the same if all
+legs in one of the keys also exist in the other. Note, one key may have a larger set of legs than the
+other, but they can still be the same. When comparing two legs we compare the <code>tripId</code> and make sure
+the legs overlap in place and time. Two legs are the same if both legs ride at least a common
+subsection of the same trip. The <code>keepOne</code> filter will keep ONE itinerary in each group. The
+<code>keepThree</code> keeps 3 itineraries for each group.</p>
+<p>The grouped itineraries can be further reduced by using <code>groupedOtherThanSameLegsMaxCostMultiplier</code>.
+This parameter filters out itineraries, where the legs that are not common for all the grouped
+itineraries have a much higher cost, than the lowest in the group. By default, it filters out
+itineraries that are at least double in cost for the non-grouped legs.</p>
+<h3 id="rd_if_accessibilityScore">accessibilityScore</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>An experimental feature contributed by IBI which adds a sandbox accessibility <em>score</em> between 0 and 1 for each leg and itinerary.</p>
+<p>This can be used by frontend developers to implement a simple traffic light UI.</p>
+<h3 id="rd_if_bikeRentalDistanceRatio">bikeRentalDistanceRatio</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Filter routes that consist of bike-rental and walking by the minimum fraction of the bike-rental leg using <em>distance</em>.</p>
+<p>This filters out results that consist of a long walk plus a relatively short bike rental leg. A
+value of <code>0.3</code> means that a minimum of 30% of the total distance must be spent on the bike in order
+for the result to be included.</p>
+<h3 id="rd_if_debug">debug</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"off"</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters <br />
+<strong>Enum values:</strong> <code>off</code> | <code>list-all</code> | <code>limit-to-search-window</code> | <code>limit-to-num-of-itineraries</code></p>
+<p>Enable this to attach a system notice to itineraries instead of removing them. This is very
+convenient when tuning the itinerary-filter-chain.</p>
+<ul>
+<li><code>off</code> By default, the debug itinerary filters is turned off.</li>
+<li><code>list-all</code> List all itineraries, including all deleted itineraries.</li>
+<li><code>limit-to-search-window</code> Return all itineraries, including deleted ones, inside the actual search-window used
+   (the requested search-window may differ).</li>
+<li><code>limit-to-num-of-itineraries</code> Only return the requested number of itineraries, counting both actual and deleted ones.
+   The top <code>numItineraries</code> using the request sort order is returned. This does not work
+   with paging, itineraries after the limit, but inside the search-window are skipped when
+   moving to the next page.</li>
+</ul>
+<h3 id="rd_if_filterItinerariesWithSameFirstOrLastTrip">filterItinerariesWithSameFirstOrLastTrip</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>If more than one itinerary begins or ends with same trip, filter out one of those itineraries so that only one remains.</p>
+<p>Trips are considered equal if they have same id and same service day. Non-transit legs are skipped
+during comparison. Before filtering, trips are sorted by their generalized cost. The algorithm loops
+through the list from top to bottom. If an itinerary matches from any other itinerary from above, it is
+removed from list.</p>
+<h3 id="rd_if_groupedOtherThanSameLegsMaxCostMultiplier">groupedOtherThanSameLegsMaxCostMultiplier</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>2.0</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Filter grouped itineraries, where the non-grouped legs are more expensive than in the lowest cost one.</p>
+<p>Of the itineraries grouped to maximum of three itineraries, how much worse can the non-grouped legs
+be compared to the lowest cost. 2.0 means that they can be double the cost, and any itineraries
+having a higher cost will be filtered.</p>
+<h3 id="rd_if_minBikeParkingDistance">minBikeParkingDistance</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Filter out bike park+ride results that have fewer meters of cycling than this value.</p>
+<p>Useful if you want to exclude those routes which have only a few meters of cycling before parking the bike and taking public transport.</p>
+<h3 id="rd_if_nonTransitGeneralizedCostLimit">nonTransitGeneralizedCostLimit</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"1h + 2.0 t"</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>The function define a max-limit for generalized-cost for non-transit itineraries.</p>
+<p>The max-limit is applied to itineraries with <em>no transit legs</em>, however <em>all</em> itineraries
+(including those with transit legs) are considered when calculating the minimum cost. The smallest
+generalized-cost value is used as input to the function. The function is used to calculate a
+<em>max-limit</em>. The max-limit is then used to filter <em>non-transit</em> itineraries by
+<em>generalized-cost</em>. Itineraries with a cost higher than the max-limit are dropped from the result
+set.</p>
+<p>For example if the function is <code>f(x) = 30m + 2.0 x</code> and the smallest cost is <code>30m = 1800s</code>, then
+all non-transit itineraries with a cost larger than <code>1800 + 2 * 5000 = 11 800</code> are dropped.</p>
+<h3 id="rd_if_parkAndRideDurationRatio">parkAndRideDurationRatio</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Filter P+R routes that consist of driving and walking by the minimum fraction of the driving using of <em>time</em>.</p>
+<p>This filters out results that consist of driving plus a very long walk leg at the end. A value of
+<code>0.3</code> means that a minimum of 30% of the total time must be spent in the car in order for the
+result to be included. However, if there is only a single result, it is never filtered.</p>
+<h3 id="rd_if_removeItinerariesWithSameRoutesAndStops">removeItinerariesWithSameRoutesAndStops</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Set to true if you want to list only the first itinerary  which goes through the same stops and routes.</p>
+<p>Itineraries visiting the same set of stops and riding the exact same routes, departing later are removed from the result.</p>
+<h3 id="rd_if_removeTransitWithHigherCostThanBestOnStreetOnly">removeTransitWithHigherCostThanBestOnStreetOnly</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"1m + 1.30 t"</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Limit function for generalized-cost computed from street-only itineries applied to transit itineraries.</p>
+<p>The max-limit is applied to itineraries with transit <em>legs</em>, and only itineraries
+without transit legs are considered when calculating the minimum cost. The smallest
+generalized-cost value is used as input to the function. The function is used to calculate a
+<em>max-limit</em>. The max-limit is then used to filter <em>transit</em> itineraries by
+<em>generalized-cost</em>. Itineraries with a cost higher than the max-limit are dropped from the result
+set. Walking is handled with a different logic: if a transit itinerary has higher cost than
+a plain walk itinerary, it will be removed even if the cost limit function would keep it.</p>
+<h3 id="rd_if_transitGeneralizedCostLimit">transitGeneralizedCostLimit</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>A relative limit for the generalized-cost for transit itineraries.</p>
+<p>The filter compares all itineraries against every other itinerary. If the generalized-cost plus a
+<code>transitGeneralizedCostLimit</code> is higher than the other generalized-cost, then the itinerary is
+dropped. The <code>transitGeneralizedCostLimit</code> is calculated using the <code>costLimitFunction</code> plus a
+<em>relative cost</em> for the distance in time between the itineraries. The <em>relative cost</em> is the
+<code>intervalRelaxFactor</code> multiplied with the interval in seconds. To set the <code>costLimitFunction</code> to be
+<em>1 hour plus 2 times cost</em> use: <code>3600 + 2.0 x</code>. To set an absolute value(3000s) use: <code>3000 + 0x</code></p>
+<h3 id="rd_if_transitGeneralizedCostLimit_costLimitFunction">costLimitFunction</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"15m + 1.50 t"</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters/transitGeneralizedCostLimit </p>
+<p>The base function used by the filter.</p>
+<p>This function calculates the threshold for the filter, when the itineraries have exactly the same arrival and departure times.</p>
+<h3 id="rd_if_transitGeneralizedCostLimit_intervalRelaxFactor">intervalRelaxFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.4</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters/transitGeneralizedCostLimit </p>
+<p>How much the filter should be relaxed for itineraries that do not overlap in time.</p>
+<p>This value is used to increase the filter threshold for itineraries further away in
+time, compared to those, that have exactly the same arrival and departure times.</p>
+<p>The unit is cost unit per second of time difference.</p>
+<h3 id="rd_maxDirectStreetDurationForMode">maxDirectStreetDurationForMode</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults <br />
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<p>Limit direct route duration per street mode.</p>
+<p>Override the settings in <code>maxDirectStreetDuration</code> for specific street modes. This is
+done because some street modes searches are much more resource intensive than others.</p>
+<h3 id="rd_scooter_optimization">optimization</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"safe-streets"</code> <br />
+<strong>Path:</strong> /routingDefaults/scooter <br />
+<strong>Enum values:</strong> <code>shortest-duration</code> | <code>safe-streets</code> | <code>flat-streets</code> | <code>safest-streets</code> | <code>triangle</code></p>
+<p>The set of characteristics that the user wants to optimize for.</p>
+<p>If the triangle optimization is used, it's enough to just define the triangle parameters</p>
+<h3 id="rd_scooter_rental_allowedNetworks">allowedNetworks</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/scooter/rental </p>
+<p>The vehicle rental networks which may be used. If empty all networks may be used.</p>
+<h3 id="rd_scooter_rental_bannedNetworks">bannedNetworks</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/scooter/rental </p>
+<p>The vehicle rental networks which may not be used. If empty, no networks are banned.</p>
+<h3 id="rd_scooter_triangle">triangle</h3>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/scooter </p>
+<p>Triangle optimization criteria.</p>
+<p>Optimization type doesn't need to be defined if these values are defined.</p>
+<h3 id="rd_scooter_triangle_safety">safety</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
+<strong>Path:</strong> /routingDefaults/scooter/triangle </p>
+<p>Relative importance of safety (range 0-1).</p>
+<p>This factor can also include other concerns such as convenience and general cyclist
+preferences by taking into account road surface etc.</p>
+<h3 id="rd_transferOptimization">transferOptimization</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>Optimize where a transfer between to trip happens. </p>
+<p>The main purpose of transfer optimization is to handle cases where it is possible to transfer
+between two routes at more than one point (pair of stops). The transfer optimization ensures that
+transfers occur at the best possible location. By post-processing all paths returned by the router,
+OTP can apply sophisticated calculations that are too slow or not algorithmically valid within
+Raptor. Transfers are optimized is done after the Raptor search and before the paths are passed
+to the itinerary-filter-chain.</p>
+<p>To toggle transfer optimization on or off use the OTPFeature <code>OptimizeTransfers</code> (default is on).
+You should leave this on unless there is a critical issue with it. The OTPFeature
+<code>GuaranteedTransfers</code> will toggle on and off the priority optimization (part of OptimizeTransfers).</p>
+<p>The optimized transfer service will try to, in order:</p>
+<ol>
+<li>Use transfer priority. This includes stay-seated and guaranteed transfers.</li>
+<li>Use the transfers with the best distribution of the wait-time, and avoid very short transfers.</li>
+<li>Avoid back-travel</li>
+<li>Boost stop-priority to select preferred and recommended stops.</li>
+</ol>
+<p>If two paths have the same transfer priority level, then we break the tie by looking at waiting
+times. The goal is to maximize the wait-time for each stop, avoiding situations where there is
+little time available to make the transfer. This is balanced with the generalized-cost. The cost
+is adjusted with a new cost for wait-time (optimized-wait-time-cost).</p>
+<p>The defaults should work fine, but if you have results with short wait-times dominating a better
+option or "back-travel", then try to increase the <code>minSafeWaitTimeFactor</code>,
+<code>backTravelWaitTimeFactor</code> and/or <code>extraStopBoardAlightCostsFactor</code>.</p>
+<p>For details on the logic/design see <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/src/main/java/org/opentripplanner/routing/algorithm/transferoptimization/package.md">transfer optimization</a>
+package documentation.</p>
+<h3 id="rd_to_backTravelWaitTimeFactor">backTravelWaitTimeFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
+<strong>Path:</strong> /routingDefaults/transferOptimization </p>
+<p>To reduce back-travel we favor waiting, this reduces the cost of waiting.</p>
+<p>The wait time is used to prevent <em>back-travel</em>, the <code>backTravelWaitTimeFactor</code> is multiplied with the wait-time and subtracted from the optimized-transfer-cost.</p>
+<h3 id="rd_to_extraStopBoardAlightCostsFactor">extraStopBoardAlightCostsFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
+<strong>Path:</strong> /routingDefaults/transferOptimization </p>
+<p>Add an extra board- and alight-cost for prioritized stops.</p>
+<p>A stopBoardAlightTransferCosts is added to the generalized-cost during routing. But this cost
+cannot be too high, because that would add extra cost to the transfer, and favor other
+alternative paths. But, when optimizing transfers, we do not have to take other paths
+into consideration and can <em>boost</em> the stop-priority-cost to allow transfers to
+take place at a preferred stop. The cost added during routing is already added to the
+generalized-cost used as a base in the optimized transfer calculation. By setting this
+parameter to 0, no extra cost is added, by setting it to <code>1.0</code> the stop-cost is
+doubled. Stop priority is only supported by the NeTEx import, not GTFS.</p>
+<h3 id="rd_to_minSafeWaitTimeFactor">minSafeWaitTimeFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>5.0</code> <br />
+<strong>Path:</strong> /routingDefaults/transferOptimization </p>
+<p>Used to set a maximum wait-time cost, base on min-safe-transfer-time.</p>
+<p>This defines the maximum cost for the logarithmic function relative to the min-safe-transfer-time (t0) when wait time goes towards zero(0). f(0) = n * t0</p>
+<h3 id="rd_to_optimizeTransferWaitTime">optimizeTransferWaitTime</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>true</code> <br />
+<strong>Path:</strong> /routingDefaults/transferOptimization </p>
+<p>This enables the transfer wait time optimization.</p>
+<p>If not enabled generalizedCost function is used to pick the optimal transfer point.</p>
+<h3 id="rd_transitGroupPriority">transitGroupPriority</h3>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>Group transit patterns and give each group a mutual advantage in the Raptor search.</p>
+<p>Use this to separate transit patterns into groups. Each group will be given a group-id. A
+path (multiple legs) will then have a set of group-ids based on the group-id from each leg.
+Hence, two paths with a different set of group-ids will BOTH be optimal unless the cost is
+worse than the relaxation specified in the <code>relaxTransitGroupPriority</code> parameter. This is
+only available in the TransmodelAPI for now.</p>
+<p>Unmatched patterns are put in the BASE priority-group.</p>
+<p><strong>THIS IS STILL AN EXPERIMENTAL FEATURE - IT MAY CHANGE WITHOUT ANY NOTICE!</strong></p>
+<h3 id="rd_transitReluctanceForMode">transitReluctanceForMode</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>enum map of double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults <br />
+<strong>Enum keys:</strong> <code>rail</code> | <code>coach</code> | <code>subway</code> | <code>bus</code> | <code>tram</code> | <code>ferry</code> | <code>airplane</code> | <code>cable-car</code> | <code>gondola</code> | <code>funicular</code> | <code>trolleybus</code> | <code>monorail</code> | <code>carpool</code> | <code>taxi</code></p>
+<p>Transit reluctance for a given transport mode</p>
+<h3 id="rd_unpreferred">unpreferred</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>Parameters listing authorities or lines that preferably should not be used in trip patters.</p>
+<p>A cost is applied to boarding nonpreferred authorities or routes.</p>
+<p>The routing engine will add extra penalty - on the <em>unpreferred</em> routes and/or agencies using a
+cost function. The cost function (<code>unpreferredCost</code>) is defined as a linear function of the form
+<code>A + B x</code>, where <code>A</code> is a fixed cost (in seconds) and <code>B</code> is reluctance multiplier for transit leg
+travel time <code>x</code> (in seconds).</p>
+<h3 id="rd_unpreferred_agencies">agencies</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>feed-scoped-id[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/unpreferred </p>
+<p>The ids of the agencies that incur an extra cost when being used. Format: <code>FeedId:AgencyId</code></p>
+<p>How much cost is added is configured in <code>unpreferredCost</code>.</p>
+<h3 id="rd_unpreferred_routes">routes</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>feed-scoped-id[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/unpreferred </p>
+<p>The ids of the routes that incur an extra cost when being used. Format: <code>FeedId:RouteId</code></p>
+<p>How much cost is added is configured in <code>unpreferredCost</code>.</p>
+<h3 id="rd_walk_reluctance">reluctance</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>2.0</code> <br />
+<strong>Path:</strong> /routingDefaults/walk </p>
+<p>A multiplier for how bad walking is, compared to being in transit for equal lengths of time.</p>
+<p>Empirically, values between 2 and 4 seem to correspond well to the concept of not wanting to walk
+too much without asking for totally ridiculous itineraries, but this observation should in no way
+be taken as scientific or definitive. Your mileage may vary.
+See https://github.com/opentripplanner/OpenTripPlanner/issues/4090 for impact on performance with
+high values.</p>
+<h3 id="rd_walk_safetyFactor">safetyFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
+<strong>Path:</strong> /routingDefaults/walk </p>
+<p>Factor for how much the walk safety is considered in routing.</p>
+<p>Value should be between 0 and 1. If the value is set to be 0, safety is ignored.</p>
+<h3 id="rd_walk_stairsTimeFactor">stairsTimeFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>3.0</code> <br />
+<strong>Path:</strong> /routingDefaults/walk </p>
+<p>How much more time does it take to walk a flight of stairs compared to walking a similar horizontal length.</p>
+<p>Default value is based on: Fujiyama, T., &amp; Tyler, N. (2010). Predicting the walking
+speed of pedestrians on stairs. Transportation Planning and Technology, 33(2), 177–202.</p>
+<h3 id="rd_wheelchairAccessibility_maxSlope">maxSlope</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.083</code> <br />
+<strong>Path:</strong> /routingDefaults/wheelchairAccessibility </p>
+<p>The maximum slope as a fraction of 1.</p>
+<p>9 percent would be <code>0.09</code></p>
+<h3 id="rd_wheelchairAccessibility_slopeExceededReluctance">slopeExceededReluctance</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
+<strong>Path:</strong> /routingDefaults/wheelchairAccessibility </p>
+<p>How much streets with high slope should be avoided.</p>
+<p>What factor should be given to street edges, which are over the
+max slope. The penalty is not static but scales with how much you
+exceed the maximum slope. Set to negative to disable routing on
+too steep edges.</p>
+<h3 id="rd_wheelchairAccessibility_stairsReluctance">stairsReluctance</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>100.0</code> <br />
+<strong>Path:</strong> /routingDefaults/wheelchairAccessibility </p>
+<p>How much stairs should be avoided.</p>
+<p>Stairs are not completely excluded for wheelchair users but
+severely punished. This value determines how much they are
+punished. This should be a very high value as you want to only
+include stairs as a last result.</p>
+<!-- PARAMETERS-DETAILS END -->
+
+<h2 id="config-example">Config Example</h2>
+<!-- JSON-EXAMPLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;routingDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;numItineraries&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;transferPenalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;turnReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;elevatorBoardTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;elevatorBoardCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&quot;elevatorHopTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">&quot;elevatorHopCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">&quot;bicycle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="nt">&quot;boardCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="nt">&quot;walk&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">150.0</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="nt">&quot;rental&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="nt">&quot;pickupCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="nt">&quot;dropOffTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="nt">&quot;dropOffCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">      </span><span class="nt">&quot;parking&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="nt">&quot;cost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span><span class="nt">&quot;triangle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="nt">&quot;safety&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">        </span><span class="nt">&quot;flatness&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="nt">&quot;car&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">      </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">      </span><span class="nt">&quot;decelerationSpeed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.9</span><span class="p">,</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">      </span><span class="nt">&quot;accelerationSpeed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.9</span><span class="p">,</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">      </span><span class="nt">&quot;rental&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">        </span><span class="nt">&quot;pickupCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="nt">&quot;dropOffTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">        </span><span class="nt">&quot;dropOffCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">      </span><span class="nt">&quot;parking&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5m&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">        </span><span class="nt">&quot;cost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">    </span><span class="nt">&quot;scooter&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">      </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">      </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">      </span><span class="nt">&quot;rental&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">        </span><span class="nt">&quot;pickupCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">        </span><span class="nt">&quot;dropOffTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">        </span><span class="nt">&quot;dropOffCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">      </span><span class="nt">&quot;triangle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">        </span><span class="nt">&quot;safety&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">        </span><span class="nt">&quot;flatness&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">    </span><span class="nt">&quot;walk&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">      </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">      </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.65</span><span class="p">,</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">      </span><span class="nt">&quot;boardCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">      </span><span class="nt">&quot;escalatorReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">    </span><span class="nt">&quot;waitReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">    </span><span class="nt">&quot;otherThanPreferredRoutesPenalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">    </span><span class="nt">&quot;transferSlack&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2m&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">    </span><span class="nt">&quot;boardSlackForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">      </span><span class="nt">&quot;AIRPLANE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;35m&quot;</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">    </span><span class="nt">&quot;alightSlackForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">      </span><span class="nt">&quot;AIRPLANE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m&quot;</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">    </span><span class="nt">&quot;transitReluctanceForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">      </span><span class="nt">&quot;RAIL&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="w">    </span><span class="nt">&quot;accessEgress&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="w">      </span><span class="nt">&quot;maxDurationForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="w">        </span><span class="nt">&quot;BIKE_RENTAL&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20m&quot;</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">      </span><span class="nt">&quot;maxStopCount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="w">      </span><span class="nt">&quot;penalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="w">        </span><span class="nt">&quot;FLEXIBLE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a><span class="w">          </span><span class="nt">&quot;timePenalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2m + 1.1t&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="w">          </span><span class="nt">&quot;costFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.7</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="w">    </span><span class="nt">&quot;itineraryFilters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a><span class="w">      </span><span class="nt">&quot;transitGeneralizedCostLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="w">        </span><span class="nt">&quot;costLimitFunction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m + 1.5 x&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="w">        </span><span class="nt">&quot;intervalRelaxFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="w">      </span><span class="nt">&quot;nonTransitGeneralizedCostLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;400 + 1.5x&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a><span class="w">      </span><span class="nt">&quot;removeTransitWithHigherCostThanBestOnStreetOnly&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60 + 1.3x&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a><span class="w">      </span><span class="nt">&quot;bikeRentalDistanceRatio&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a><span class="w">      </span><span class="nt">&quot;accessibilityScore&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a><span class="w">      </span><span class="nt">&quot;minBikeParkingDistance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104" href="#__codelineno-0-104"></a><span class="w">      </span><span class="nt">&quot;debug&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;limit-to-search-window&quot;</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105" href="#__codelineno-0-105"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106" href="#__codelineno-0-106"></a><span class="w">    </span><span class="nt">&quot;ignoreRealtimeUpdates&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107" href="#__codelineno-0-107"></a><span class="w">    </span><span class="nt">&quot;geoidElevation&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108" href="#__codelineno-0-108"></a><span class="w">    </span><span class="nt">&quot;maxJourneyDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;36h&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109" href="#__codelineno-0-109"></a><span class="w">    </span><span class="nt">&quot;unpreferred&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110" href="#__codelineno-0-110"></a><span class="w">      </span><span class="nt">&quot;agencies&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111" href="#__codelineno-0-111"></a><span class="w">        </span><span class="s2">&quot;HSL:123&quot;</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112" href="#__codelineno-0-112"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113" href="#__codelineno-0-113"></a><span class="w">      </span><span class="nt">&quot;routes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114" href="#__codelineno-0-114"></a><span class="w">        </span><span class="s2">&quot;HSL:456&quot;</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115" href="#__codelineno-0-115"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116" href="#__codelineno-0-116"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117" href="#__codelineno-0-117"></a><span class="w">    </span><span class="nt">&quot;unpreferredCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m + 2.0 x&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118" href="#__codelineno-0-118"></a><span class="w">    </span><span class="nt">&quot;streetRoutingTimeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5s&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119" href="#__codelineno-0-119"></a><span class="w">    </span><span class="nt">&quot;transferOptimization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120" href="#__codelineno-0-120"></a><span class="w">      </span><span class="nt">&quot;optimizeTransferWaitTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121" href="#__codelineno-0-121"></a><span class="w">      </span><span class="nt">&quot;minSafeWaitTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122" href="#__codelineno-0-122"></a><span class="w">      </span><span class="nt">&quot;backTravelWaitTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123" href="#__codelineno-0-123"></a><span class="w">      </span><span class="nt">&quot;extraStopBoardAlightCostsFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">8.0</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124" href="#__codelineno-0-124"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125" href="#__codelineno-0-125"></a><span class="w">    </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126" href="#__codelineno-0-126"></a><span class="w">      </span><span class="nt">&quot;trip&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127" href="#__codelineno-0-127"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128" href="#__codelineno-0-128"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129" href="#__codelineno-0-129"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130" href="#__codelineno-0-130"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131" href="#__codelineno-0-131"></a><span class="w">      </span><span class="nt">&quot;stop&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132" href="#__codelineno-0-132"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133" href="#__codelineno-0-133"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134" href="#__codelineno-0-134"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135" href="#__codelineno-0-135"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136" href="#__codelineno-0-136"></a><span class="w">      </span><span class="nt">&quot;elevator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-137" name="__codelineno-0-137" href="#__codelineno-0-137"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138" href="#__codelineno-0-138"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-0-139" name="__codelineno-0-139" href="#__codelineno-0-139"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
+<a id="__codelineno-0-140" name="__codelineno-0-140" href="#__codelineno-0-140"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-141" name="__codelineno-0-141" href="#__codelineno-0-141"></a><span class="w">      </span><span class="nt">&quot;inaccessibleStreetReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-0-142" name="__codelineno-0-142" href="#__codelineno-0-142"></a><span class="w">      </span><span class="nt">&quot;maxSlope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.083</span><span class="p">,</span>
+<a id="__codelineno-0-143" name="__codelineno-0-143" href="#__codelineno-0-143"></a><span class="w">      </span><span class="nt">&quot;slopeExceededReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-144" name="__codelineno-0-144" href="#__codelineno-0-144"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+<a id="__codelineno-0-145" name="__codelineno-0-145" href="#__codelineno-0-145"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-146" name="__codelineno-0-146" href="#__codelineno-0-146"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-147" name="__codelineno-0-147" href="#__codelineno-0-147"></a><span class="p">}</span>
+</code></pre></div>
+<!-- JSON-EXAMPLE END -->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>
