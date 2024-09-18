@@ -462,22 +462,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#260-snapshot-under-development" class="md-nav__link">
+  <a href="#260-2024-09-18" class="md-nav__link">
     <span class="md-ellipsis">
-      2.6.0-SNAPSHOT (under development)
+      2.6.0 (2024-09-18)
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#250-2024-03-13" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.5.0 (2024-03-13)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.5.0 (2024-03-13)">
+    <nav class="md-nav" aria-label="2.6.0 (2024-09-18)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -504,13 +495,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#240-2023-09-13" class="md-nav__link">
+  <a href="#250-2024-03-13" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4.0 (2023-09-13)
+      2.5.0 (2024-03-13)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.4.0 (2023-09-13)">
+    <nav class="md-nav" aria-label="2.5.0 (2024-03-13)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -537,13 +528,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#230-2023-04-24" class="md-nav__link">
+  <a href="#240-2023-09-13" class="md-nav__link">
     <span class="md-ellipsis">
-      2.3.0 (2023-04-24)
+      2.4.0 (2023-09-13)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.3.0 (2023-04-24)">
+    <nav class="md-nav" aria-label="2.4.0 (2023-09-13)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -570,13 +561,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#220-2022-11-01" class="md-nav__link">
+  <a href="#230-2023-04-24" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2.0 (2022-11-01)
+      2.3.0 (2023-04-24)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.2.0 (2022-11-01)">
+    <nav class="md-nav" aria-label="2.3.0 (2023-04-24)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -603,13 +594,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#210-2022-03-17" class="md-nav__link">
+  <a href="#220-2022-11-01" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1.0 (2022-03-17)
+      2.2.0 (2022-11-01)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.1.0 (2022-03-17)">
+    <nav class="md-nav" aria-label="2.2.0 (2022-11-01)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -623,6 +614,39 @@
         
           <li class="md-nav__item">
   <a href="#detailed-changes-by-pull-request_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed changes by Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-2022-03-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.0 (2022-03-17)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1.0 (2022-03-17)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notable-changes_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notable Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-changes-by-pull-request_5" class="md-nav__link">
     <span class="md-ellipsis">
       Detailed changes by Pull Request
     </span>
@@ -2482,74 +2506,57 @@
 <h1 id="changelog">Changelog</h1>
 <p>The changelog lists most feature changes between each release. The list is automatically created
 based on merged pull requests. Search GitHub issues and pull requests for smaller issues.</p>
-<h2 id="260-snapshot-under-development">2.6.0-SNAPSHOT (under development)</h2>
+<h2 id="260-2024-09-18">2.6.0 (2024-09-18)</h2>
+<h3 id="notable-changes">Notable Changes</h3>
 <ul>
-<li>ISO-8601 date time for GTFS API itinerary responses <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5660">#5660</a></li>
+<li>ISO-8601 date time for GTFS GraphQL API itinerary responses <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5660">#5660</a></li>
+<li>Add support for query parameter to enforce booking time in trip search for flexible services <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5606">#5606</a></li>
+<li>New GTFS GraphQL plan query <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5185">#5185</a></li>
+<li>Make new debug client the default, move old one to <code>classic-debug</code> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5924">#5924</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5962">#5962</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6012">#6012</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6053">#6053</a></li>
+<li>Disable Legacy REST API by default <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5948">#5948</a></li>
+</ul>
+<h3 id="detailed-changes-by-pull-request">Detailed changes by Pull Request</h3>
+<ul>
+<li>SIRI real time improvements and bug fixes <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5867">#5867</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5931">#5931</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5865">#5865</a></li>
+<li>Real time improvements and bug fixes <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5726">#5726</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5941">#5941</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6007">#6007</a></li>
 <li>Fix street routing on roundabout <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5732">#5732</a></li>
 <li>Expose route sort order in GTFS API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5764">#5764</a></li>
 <li>Fix issue with cancellations on trip patterns that run after midnight <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5719">#5719</a></li>
-<li>Fix handling of null transport mode filter <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5789">#5789</a></li>
 <li>Discourage instead of ban cycling on use_sidepath ways and do the same for walking on foot=use_sidepath <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5790">#5790</a></li>
 <li>Prune islands with mode-less stop vertices <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5782">#5782</a></li>
 <li>Overwrite default WALK directMode when it is not set in the request, but modes is set <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5779">#5779</a></li>
 <li>Fix trip duplication in Graph Builder DSJ mapping <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5794">#5794</a></li>
-<li>Optionally abort startup when unknown configuration parameters were detected <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5676">#5676</a></li>
 <li>Fix bug in heuristics cost calculation for egress legs <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5783">#5783</a></li>
-<li>Fix handling of implicit access and egress mode parameters. <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5821">#5821</a></li>
-<li>Make naming of stopTransferCosts/stopBoardAlightCosts consistent <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5822">#5822</a></li>
+<li>Fix handling of implicit access and egress mode parameters <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5821">#5821</a></li>
 <li>Namer for applying street names to nearby sidewalks <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5774">#5774</a></li>
 <li>Implement GTFS Flex safe duration spec draft <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5796">#5796</a></li>
-<li>Document and validate timeRange GraphQL parameter <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5834">#5834</a></li>
-<li>Log the origin of a request that causes a transfer cache addition. <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5874">#5874</a></li>
-<li>Fix handling of missing aimed departure time <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5865">#5865</a></li>
 <li>Add OTP request timeout GraphQL instrumentation <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5881">#5881</a></li>
 <li>Add feed publisher name and url to GTFS GraphQL API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5835">#5835</a></li>
-<li>Add support for query parameter to enforce booking time in trip search for flexible services <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5606">#5606</a></li>
 <li>Fix parsing of GBFS feeds <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5891">#5891</a></li>
-<li>Fix SIRI update travel back in time <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5867">#5867</a></li>
-<li>Limit result size and execution time in TransModel GraphQL API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5883">#5883</a></li>
-<li>Fix real-time added patterns persistence with DIFFERENTIAL updates <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5726">#5726</a></li>
-<li>Add plan query that follows the relay connection specification <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5185">#5185</a></li>
-<li>Fix debug client after breaking change in dependency graphql-request <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5899">#5899</a></li>
+<li>Limit result size and execution time in Transmodel GraphQL API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5883">#5883</a></li>
 <li>Remove TravelTime API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5890">#5890</a></li>
-<li>Improve cancellation of large response in TransModel API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5908">#5908</a></li>
-<li>Refactor SIRI-ET updaters <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5904">#5904</a></li>
-<li>Update Google Pubsub updater configuration <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5927">#5927</a></li>
-<li>Make new debug client the default, move old one to <code>classic-debug</code> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5924">#5924</a></li>
+<li>Improve cancellation of large response in Transmodel API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5908">#5908</a></li>
 <li>Require valid polygons for AreaStop <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5915">#5915</a></li>
 <li>Fix NullPointerException in stop transfer priority cost vector generation <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5943">#5943</a></li>
 <li>Convert transferSlack configuration to duration <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5897">#5897</a></li>
 <li>Expose stop transfer priority in Transmodel API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5942">#5942</a></li>
-<li>Add rental system to GraphQL API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5909">#5909</a></li>
-<li>Improve handling of SIRI added trip with unresolvable agency <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5931">#5931</a></li>
-<li>Fix copy-on-write in TimetableSnapshot <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5941">#5941</a></li>
+<li>Add rental system to GTFS GraphQL API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5909">#5909</a></li>
 <li>Generate documentation for OSM tag mappers <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5929">#5929</a></li>
-<li>Disable Legacy REST API by default <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5948">#5948</a></li>
 <li>Enforce non-null coordinates on multimodal station <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5971">#5971</a></li>
 <li>Add car rental to Transmodel street mode options <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5977">#5977</a></li>
-<li>Add debug information for stop/quay ID and stay-seated transfers <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5962">#5962</a></li>
 <li>Handle NeTEx <code>any</code> version <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5983">#5983</a></li>
 <li>Keep at least one result for min-transfers and each transit-group in itinerary-group-filter <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5919">#5919</a></li>
 <li>Extract parking lots from NeTEx feeds <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5946">#5946</a></li>
 <li>Filter routes and patterns by service date in GTFS GraphQL API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5869">#5869</a></li>
 <li>SIRI-FM vehicle parking updates <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5979">#5979</a></li>
 <li>Take realtime patterns into account when storing realtime vehicles <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5994">#5994</a></li>
-<li>Debug client itinerary list style improvements <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6012">#6012</a></li>
 <li>Developer Decision Records <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5932">#5932</a></li>
 <li>Allow NeTEx ServiceJourneyPatterns with stopUse=passthrough <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6037">#6037</a></li>
-<li>Additional SVG diagrams in updaters package.md <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5936">#5936</a></li>
-<li>Upgrade OBA, remove camsys-apps.com from Maven repos <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6041">#6041</a></li>
-<li>OSM data links added to the graph build report about ambiguous levels and layers <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6049">#6049</a></li>
-<li>Add links for Debug UI to GraphiQL <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6053">#6053</a></li>
-<li>Update indexes in timetable snapshot <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6007">#6007</a></li>
-<li>Add Javadoc for Trip <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6022">#6022</a></li>
-<li>Add Iceland to the list of deployments [ci skip] <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6057">#6057</a></li>
 <li>Use correct HEAD request when fetching HTTP headers <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6063">#6063</a></li>
-<li>Fix incorrect mapping of flex safe duration offset <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6059">#6059</a>
-<a href="AUTOMATIC_CHANGELOG_PLACEHOLDER_DO_NOT_REMOVE"></a></li>
+<li>Fix incorrect mapping of flex safe duration offset <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6059">#6059</a></li>
 </ul>
 <h2 id="250-2024-03-13">2.5.0 (2024-03-13)</h2>
-<h3 id="notable-changes">Notable Changes</h3>
+<h3 id="notable-changes_1">Notable Changes</h3>
 <ul>
 <li>Make GTFS GraphQL API an official API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5339">#5339</a></li>
 <li>Make Transmodel GraphQl API an official API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5573">#5573</a>, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5637">#5637</a></li>
@@ -2561,7 +2568,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Update to latest GTFS Flex spec draft <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5564">#5564</a>, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5655">#5655</a></li>
 <li>Restructure walk/bicycle/car preferences in router-config.json <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5582">#5582</a></li>
 </ul>
-<h3 id="detailed-changes-by-pull-request">Detailed changes by Pull Request</h3>
+<h3 id="detailed-changes-by-pull-request_1">Detailed changes by Pull Request</h3>
 <ul>
 <li>Gracefully handle nullable fields in TransitAlert <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5349">#5349</a></li>
 <li>Remove transit with higher cost than best on-street itinerary filter <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5222">#5222</a></li>
@@ -2628,7 +2635,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Fix world envelope builder when crossing Greenwich meridian <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5731">#5731</a></li>
 </ul>
 <h2 id="240-2023-09-13">2.4.0 (2023-09-13)</h2>
-<h3 id="notable-changes_1">Notable Changes</h3>
+<h3 id="notable-changes_2">Notable Changes</h3>
 <ul>
 <li>Improved support for Fares V2 <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4917">#4917</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5227">#5227</a> </li>
 <li>Improved error and timeout handling <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5047">#5047</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5092">#5092</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5121">#5121</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5114">#5114</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5133">#5133</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5130">#5130</a> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5192">#5192</a></li>
@@ -2638,7 +2645,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Reduce memory consumption by 5-8% <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5223">#5223</a></li>
 <li>Stop count limit for access/egress routing and new accessEgress configuration object <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5214">#5214</a></li>
 </ul>
-<h3 id="detailed-changes-by-pull-request_1">Detailed changes by Pull Request</h3>
+<h3 id="detailed-changes-by-pull-request_2">Detailed changes by Pull Request</h3>
 <ul>
 <li>Generate static documentation for GTFS GraphQL API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5069">#5069</a></li>
 <li>Create a valid area even when it has too many vertices <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5019">#5019</a></li>
@@ -2699,7 +2706,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Add access/egress penalty transmodel api <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5268">#5268</a></li>
 </ul>
 <h2 id="230-2023-04-24">2.3.0 (2023-04-24)</h2>
-<h3 id="notable-changes_2">Notable Changes</h3>
+<h3 id="notable-changes_3">Notable Changes</h3>
 <ul>
 <li>The performance for trip search of large networks (&gt; 100k stops) is improved</li>
 <li>Run only a single heuristics request (instead of two) <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4537">#4537</a></li>
@@ -2714,7 +2721,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Improve support for EPIP NeTex profile <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4863">#4863</a></li>
 <li>Uber ride hailing <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4979">#4979</a></li>
 </ul>
-<h3 id="detailed-changes-by-pull-request_2">Detailed changes by Pull Request</h3>
+<h3 id="detailed-changes-by-pull-request_3">Detailed changes by Pull Request</h3>
 <ul>
 <li>Refactoring SIRI StopConditions from TransitAlert to EntitySelector <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4196">#4196</a></li>
 <li>Add cost of egress leg to the cost of the last transit leg if transit leg arrives at destination <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4547">#4547</a></li>
@@ -2790,7 +2797,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Fix transferCacheRequests when custom streetRoutingTimeout is set <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5039">#5039</a></li>
 </ul>
 <h2 id="220-2022-11-01">2.2.0 (2022-11-01)</h2>
-<h3 id="notable-changes_3">Notable Changes</h3>
+<h3 id="notable-changes_4">Notable Changes</h3>
 <ul>
 <li>The performance for trip search is improved by ~20-30% </li>
 <li>Support for GTFS-RT Vehicle Positions <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3981">#3981</a></li>
@@ -2806,7 +2813,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Metrics for real-time trip updaters <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4471">#4471</a></li>
 <li>Configuration Documentation generated programmatically <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4478">#4478</a></li>
 </ul>
-<h3 id="detailed-changes-by-pull-request_3">Detailed changes by Pull Request</h3>
+<h3 id="detailed-changes-by-pull-request_4">Detailed changes by Pull Request</h3>
 <ul>
 <li>NeTEx mapping for WheelChairBoarding <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3945">#3945</a></li>
 <li>OTP support for NeTEx GroupOfLines <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3928">#3928</a></li>
@@ -2890,7 +2897,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Read the feed id from the agency when storing agencies <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4536">#4536</a></li>
 </ul>
 <h2 id="210-2022-03-17">2.1.0 (2022-03-17)</h2>
-<h3 id="notable-changes_4">Notable Changes</h3>
+<h3 id="notable-changes_5">Notable Changes</h3>
 <ul>
 <li>GBFS 2.2 is supported including "form factors" (bike, scooter, car) and floating vehicles (with no fixed station)</li>
 <li>Constrained Transfers (Netex interchanges / GTFS <code>transfers.txt</code>)</li>
@@ -2904,7 +2911,7 @@ based on merged pull requests. Search GitHub issues and pull requests for smalle
 <li>Response times should be roughly stable since 2.0. Performance much improved over OTP1 for long searches, may be somewhat slower for short searches. Extremely depdendent on data set used, so test on your specific data.</li>
 <li>System integration tests for ongoing performance measurement </li>
 </ul>
-<h3 id="detailed-changes-by-pull-request_4">Detailed changes by Pull Request</h3>
+<h3 id="detailed-changes-by-pull-request_5">Detailed changes by Pull Request</h3>
 <ul>
 <li>Fix NullPointerException when a Real-Time update do not match an existing TripPattern <a href="https://github.com/opentripplanner/OpenTripPlanner/issues/3284">#3284</a></li>
 <li>Support for versioning the configuration files <a href="https://github.com/opentripplanner/OpenTripPlanner/issues/3282">#3282</a></li>
