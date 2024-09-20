@@ -2378,6 +2378,14 @@ Currently, only the language with the highest priority from the header is used.<
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
+<td>      <a href="#vectorTiles_layers_0_filter">filter</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>Reduce the result set of a layer further by a specific filter.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"none"</code></td>
+<td style="text-align: center;">2.6</td>
+</tr>
+<tr>
 <td>      <a href="#vectorTiles_layers_0_mapper">mapper</a></td>
 <td style="text-align: center;"><code>string</code></td>
 <td>Describes the mapper converting from the OTP model entities to the vector tile properties.</td>
@@ -2456,6 +2464,14 @@ is expected to be handled by a proxy.</p>
 <strong>Path:</strong> /vectorTiles/layers/[0] </p>
 <p>How far outside its boundaries should the tile contain information.</p>
 <p>The value is a fraction of the tile size. If you are having problem with icons and shapes being clipped at tile edges, then increase this number.</p>
+<h4 id="vectorTiles_layers_0_filter">filter</h4>
+
+<p><strong>Since version:</strong> <code>2.6</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"none"</code> <br />
+<strong>Path:</strong> /vectorTiles/layers/[0] <br />
+<strong>Enum values:</strong> <code>none</code> | <code>sunday-to-sunday-service-week</code></p>
+<p>Reduce the result set of a layer further by a specific filter.</p>
+<p>This is useful for when the schema of a layer, say stops, should remain unchanged but some
+elements should not be included in the result.</p>
 <h4 id="vectorTiles_layers_0_mapper">mapper</h4>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
