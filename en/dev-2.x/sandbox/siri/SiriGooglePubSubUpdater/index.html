@@ -2179,7 +2179,7 @@ of the <code>router-config.json</code>.</p>
 <td style="text-align: center;">1.5</td>
 </tr>
 <tr>
-<td><a href="#u__13__dataInitializationUrl">dataInitializationUrl</a></td>
+<td><a href="#u__12__dataInitializationUrl">dataInitializationUrl</a></td>
 <td style="text-align: center;"><code>string</code></td>
 <td>URL used to download over HTTP the recent history of SIRI-ET messages.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -2203,7 +2203,7 @@ of the <code>router-config.json</code>.</p>
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
-<td><a href="#u__13__initialGetDataTimeout">initialGetDataTimeout</a></td>
+<td><a href="#u__12__initialGetDataTimeout">initialGetDataTimeout</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>Timeout for retrieving the recent history of SIRI-ET messages.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -2211,7 +2211,7 @@ of the <code>router-config.json</code>.</p>
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
-<td><a href="#u__13__reconnectPeriod">reconnectPeriod</a></td>
+<td><a href="#u__12__reconnectPeriod">reconnectPeriod</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>Wait this amount of time before trying to reconnect to the PubSub subscription.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -2219,7 +2219,7 @@ of the <code>router-config.json</code>.</p>
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
-<td><a href="#u__13__subscriptionProjectName">subscriptionProjectName</a></td>
+<td><a href="#u__12__subscriptionProjectName">subscriptionProjectName</a></td>
 <td style="text-align: center;"><code>string</code></td>
 <td>The Google Cloud project that hosts the PubSub subscription.</td>
 <td style="text-align: center;"><em>Required</em></td>
@@ -2245,33 +2245,33 @@ of the <code>router-config.json</code>.</p>
 </tbody>
 </table>
 <h5 id="parameter-details">Parameter details</h5>
-<h4 id="u__13__dataInitializationUrl">dataInitializationUrl</h4>
+<h4 id="u__12__dataInitializationUrl">dataInitializationUrl</h4>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /updaters/[13] </p>
+<strong>Path:</strong> /updaters/[12] </p>
 <p>URL used to download over HTTP the recent history of SIRI-ET messages.</p>
 <p>Optionally the updater can download the recent history of SIRI-ET messages from this URL.
 If this parameter is set, the updater will be marked as initialized (primed) only when
 the message history is fully downloaded and applied.</p>
-<h4 id="u__13__initialGetDataTimeout">initialGetDataTimeout</h4>
+<h4 id="u__12__initialGetDataTimeout">initialGetDataTimeout</h4>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30S"</code> <br />
-<strong>Path:</strong> /updaters/[13] </p>
+<strong>Path:</strong> /updaters/[12] </p>
 <p>Timeout for retrieving the recent history of SIRI-ET messages.</p>
 <p>When trying to fetch the message history over HTTP, the updater will wait this amount
 of time for the connection to be established.
 If the connection times out, the updater will retry indefinitely with exponential backoff.</p>
-<h4 id="u__13__reconnectPeriod">reconnectPeriod</h4>
+<h4 id="u__12__reconnectPeriod">reconnectPeriod</h4>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30S"</code> <br />
-<strong>Path:</strong> /updaters/[13] </p>
+<strong>Path:</strong> /updaters/[12] </p>
 <p>Wait this amount of time before trying to reconnect to the PubSub subscription.</p>
 <p>In case of a network error, the updater will try periodically to reconnect to the
 Google PubSub subscription.</p>
-<h4 id="u__13__subscriptionProjectName">subscriptionProjectName</h4>
+<h4 id="u__12__subscriptionProjectName">subscriptionProjectName</h4>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
-<strong>Path:</strong> /updaters/[13] </p>
+<strong>Path:</strong> /updaters/[12] </p>
 <p>The Google Cloud project that hosts the PubSub subscription.</p>
 <p>During startup, the updater creates a PubSub subscription that listens
 to the PubSub topic that publishes SIRI-ET updates.

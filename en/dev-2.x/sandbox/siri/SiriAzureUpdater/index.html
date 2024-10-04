@@ -2215,184 +2215,6 @@ developer.otp@skanetrafiken.se</p>
 <td style="text-align: center;">1.5</td>
 </tr>
 <tr>
-<td><a href="#u__12__authenticationType">authenticationType</a></td>
-<td style="text-align: center;"><code>enum</code></td>
-<td>Which authentication type to use</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"sharedaccesskey"</code></td>
-<td style="text-align: center;">2.5</td>
-</tr>
-<tr>
-<td>autoDeleteOnIdle</td>
-<td style="text-align: center;"><code>duration</code></td>
-<td>The time after which an inactive subscription is removed.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"PT1H"</code></td>
-<td style="text-align: center;">2.5</td>
-</tr>
-<tr>
-<td><a href="#u__12__customMidnight">customMidnight</a></td>
-<td style="text-align: center;"><code>integer</code></td>
-<td>Time on which time breaks into new day.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>0</code></td>
-<td style="text-align: center;">2.2</td>
-</tr>
-<tr>
-<td>feedId</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>The ID of the feed to apply the updates to.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.2</td>
-</tr>
-<tr>
-<td><a href="#u__12__fullyQualifiedNamespace">fullyQualifiedNamespace</a></td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Service Bus fully qualified namespace used for authentication.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.5</td>
-</tr>
-<tr>
-<td>fuzzyTripMatching</td>
-<td style="text-align: center;"><code>boolean</code></td>
-<td>Whether to apply fuzzyTripMatching on the updates</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>false</code></td>
-<td style="text-align: center;">2.2</td>
-</tr>
-<tr>
-<td>prefetchCount</td>
-<td style="text-align: center;"><code>integer</code></td>
-<td>The number of messages to fetch from the subscription at a time.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>10</code></td>
-<td style="text-align: center;">2.5</td>
-</tr>
-<tr>
-<td><a href="#u__12__servicebus_url">servicebus-url</a></td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Service Bus connection used for authentication.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.2</td>
-</tr>
-<tr>
-<td>topic</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Service Bus topic to connect to.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.2</td>
-</tr>
-<tr>
-<td>history</td>
-<td style="text-align: center;"><code>object</code></td>
-<td>Configuration for fetching historical data on startup</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.2</td>
-</tr>
-<tr>
-<td>   fromDateTime</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Datetime boundary for historical data</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"-P1D"</code></td>
-<td style="text-align: center;">2.2</td>
-</tr>
-<tr>
-<td>   timeout</td>
-<td style="text-align: center;"><code>integer</code></td>
-<td>Timeout in milliseconds</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>300000</code></td>
-<td style="text-align: center;">na</td>
-</tr>
-<tr>
-<td>   url</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Endpoint to fetch from</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">na</td>
-</tr>
-</tbody>
-</table>
-<h5 id="parameter-details">Parameter details</h5>
-<h4 id="u__12__authenticationType">authenticationType</h4>
-
-<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"sharedaccesskey"</code> <br />
-<strong>Path:</strong> /updaters/[12] <br />
-<strong>Enum values:</strong> <code>sharedaccesskey</code> | <code>federatedidentity</code></p>
-<p>Which authentication type to use</p>
-<h4 id="u__12__customMidnight">customMidnight</h4>
-
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
-<strong>Path:</strong> /updaters/[12] </p>
-<p>Time on which time breaks into new day.</p>
-<p>It is common that operating day date breaks a little bit later than midnight so that the switch happens when traffic is at the lowest point. Parameter uses 24-hour format. If the switch happens on 4 am then set this field to 4.</p>
-<h4 id="u__12__fullyQualifiedNamespace">fullyQualifiedNamespace</h4>
-
-<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /updaters/[12] </p>
-<p>Service Bus fully qualified namespace used for authentication.</p>
-<p>Has to be present for authenticationMethod FederatedIdentity.</p>
-<h4 id="u__12__servicebus_url">servicebus-url</h4>
-
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /updaters/[12] </p>
-<p>Service Bus connection used for authentication.</p>
-<p>Has to be present for authenticationMethod SharedAccessKey. This should be Primary/Secondary connection string from service bus.</p>
-<h5 id="example-configuration">Example configuration</h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-azure-et-updater&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some_topic&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;authenticationType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SharedAccessKey&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;fullyQualifiedNamespace&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fully_qualified_namespace&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;servicebus-url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;service_bus_url&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">&quot;customMidnight&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;history&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endpoint_url&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">&quot;fromDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-P1D&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300000</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
-</code></pre></div>
-<!-- siri-azure-et-updater END -->
-
-<h3 id="siri-azure-sx-updater">Siri Azure SX Updater</h3>
-<!-- siri-azure-sx-updater BEGIN -->
-<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
-
-<table>
-<thead>
-<tr>
-<th>Config Parameter</th>
-<th style="text-align: center;">Type</th>
-<th>Summary</th>
-<th style="text-align: center;">Req./Opt.</th>
-<th>Default Value</th>
-<th style="text-align: center;">Since</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type = "siri-azure-sx-updater"</td>
-<td style="text-align: center;"><code>enum</code></td>
-<td>The type of the updater.</td>
-<td style="text-align: center;"><em>Required</em></td>
-<td></td>
-<td style="text-align: center;">1.5</td>
-</tr>
-<tr>
 <td><a href="#u__11__authenticationType">authenticationType</a></td>
 <td style="text-align: center;"><code>enum</code></td>
 <td>Which authentication type to use</td>
@@ -2475,6 +2297,184 @@ developer.otp@skanetrafiken.se</p>
 <tr>
 <td>   fromDateTime</td>
 <td style="text-align: center;"><code>string</code></td>
+<td>Datetime boundary for historical data</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"-P1D"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   timeout</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Timeout in milliseconds</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>300000</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   url</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Endpoint to fetch from</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">na</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-details">Parameter details</h5>
+<h4 id="u__11__authenticationType">authenticationType</h4>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"sharedaccesskey"</code> <br />
+<strong>Path:</strong> /updaters/[11] <br />
+<strong>Enum values:</strong> <code>sharedaccesskey</code> | <code>federatedidentity</code></p>
+<p>Which authentication type to use</p>
+<h4 id="u__11__customMidnight">customMidnight</h4>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
+<strong>Path:</strong> /updaters/[11] </p>
+<p>Time on which time breaks into new day.</p>
+<p>It is common that operating day date breaks a little bit later than midnight so that the switch happens when traffic is at the lowest point. Parameter uses 24-hour format. If the switch happens on 4 am then set this field to 4.</p>
+<h4 id="u__11__fullyQualifiedNamespace">fullyQualifiedNamespace</h4>
+
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[11] </p>
+<p>Service Bus fully qualified namespace used for authentication.</p>
+<p>Has to be present for authenticationMethod FederatedIdentity.</p>
+<h4 id="u__11__servicebus_url">servicebus-url</h4>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[11] </p>
+<p>Service Bus connection used for authentication.</p>
+<p>Has to be present for authenticationMethod SharedAccessKey. This should be Primary/Secondary connection string from service bus.</p>
+<h5 id="example-configuration">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-azure-et-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some_topic&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;authenticationType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SharedAccessKey&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;fullyQualifiedNamespace&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fully_qualified_namespace&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;servicebus-url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;service_bus_url&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">&quot;customMidnight&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;history&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endpoint_url&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">&quot;fromDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-P1D&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300000</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
+</code></pre></div>
+<!-- siri-azure-et-updater END -->
+
+<h3 id="siri-azure-sx-updater">Siri Azure SX Updater</h3>
+<!-- siri-azure-sx-updater BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "siri-azure-sx-updater"</td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td><a href="#u__10__authenticationType">authenticationType</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>Which authentication type to use</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"sharedaccesskey"</code></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>autoDeleteOnIdle</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The time after which an inactive subscription is removed.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1H"</code></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td><a href="#u__10__customMidnight">customMidnight</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Time on which time breaks into new day.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>feedId</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The ID of the feed to apply the updates to.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td><a href="#u__10__fullyQualifiedNamespace">fullyQualifiedNamespace</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Service Bus fully qualified namespace used for authentication.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td>fuzzyTripMatching</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether to apply fuzzyTripMatching on the updates</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>prefetchCount</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The number of messages to fetch from the subscription at a time.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>10</code></td>
+<td style="text-align: center;">2.5</td>
+</tr>
+<tr>
+<td><a href="#u__10__servicebus_url">servicebus-url</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Service Bus connection used for authentication.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>topic</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Service Bus topic to connect to.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>history</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for fetching historical data on startup</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   fromDateTime</td>
+<td style="text-align: center;"><code>string</code></td>
 <td>Datetime boundary for historical data.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>"-P1D"</code></td>
@@ -2507,28 +2507,28 @@ developer.otp@skanetrafiken.se</p>
 </tbody>
 </table>
 <h5 id="parameter-details_1">Parameter details</h5>
-<h4 id="u__11__authenticationType">authenticationType</h4>
+<h4 id="u__10__authenticationType">authenticationType</h4>
 
 <p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"sharedaccesskey"</code> <br />
-<strong>Path:</strong> /updaters/[11] <br />
+<strong>Path:</strong> /updaters/[10] <br />
 <strong>Enum values:</strong> <code>sharedaccesskey</code> | <code>federatedidentity</code></p>
 <p>Which authentication type to use</p>
-<h4 id="u__11__customMidnight">customMidnight</h4>
+<h4 id="u__10__customMidnight">customMidnight</h4>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
-<strong>Path:</strong> /updaters/[11] </p>
+<strong>Path:</strong> /updaters/[10] </p>
 <p>Time on which time breaks into new day.</p>
 <p>It is common that operating day date breaks a little bit later than midnight so that the switch happens when traffic is at the lowest point. Parameter uses 24-hour format. If the switch happens on 4 am then set this field to 4.</p>
-<h4 id="u__11__fullyQualifiedNamespace">fullyQualifiedNamespace</h4>
+<h4 id="u__10__fullyQualifiedNamespace">fullyQualifiedNamespace</h4>
 
 <p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /updaters/[11] </p>
+<strong>Path:</strong> /updaters/[10] </p>
 <p>Service Bus fully qualified namespace used for authentication.</p>
 <p>Has to be present for authenticationMethod FederatedIdentity.</p>
-<h4 id="u__11__servicebus_url">servicebus-url</h4>
+<h4 id="u__10__servicebus_url">servicebus-url</h4>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /updaters/[11] </p>
+<strong>Path:</strong> /updaters/[10] </p>
 <p>Service Bus connection used for authentication.</p>
 <p>Has to be present for authenticationMethod SharedAccessKey. This should be Primary/Secondary connection string from service bus.</p>
 <h5 id="example-configuration_1">Example configuration</h5>
