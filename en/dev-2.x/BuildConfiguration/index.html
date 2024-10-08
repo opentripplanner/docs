@@ -2991,6 +2991,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td></td>
 <td style="text-align: center;">2.0</td>
 </tr>
+<tr>
+<td><a href="#transitRouteToStationCentroid">transitRouteToStationCentroid</a></td>
+<td style="text-align: center;"><code>feed-scoped-id[]</code></td>
+<td>List stations that should route to centroid.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
 </tbody>
 </table>
 <!-- PARAMETERS-TABLE END -->
@@ -3659,6 +3667,20 @@ files. Each <em>group</em> of files are loaded as a unit, followed by next group
 where bicycle conveyance can be defined.</p>
 <p>For this reason we allow bicycles on ferries by default and allow to override the rare
 case where this is not the case.</p>
+<h3 id="transitRouteToStationCentroid">transitRouteToStationCentroid</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>feed-scoped-id[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / </p>
+<p>List stations that should route to centroid.</p>
+<p>This field contains a list of station ids for which street legs will start/end at the station
+centroid instead of the child stops.</p>
+<p>When searching from/to a station the default behaviour is to route from/to any of the stations child
+stops. This can cause strange results for stations that have stops spread over a large area.</p>
+<p>For some stations you might instead wish to use the centroid of the station as the
+origin/destination. In this case the centroid will be used both for direct street search and for
+access/egress street search where the station is used as the start/end of the access/egress. But
+transit that starts/ends at the station will work as usual without any additional street leg from/to
+the centroid.</p>
 <!-- PARAMETERS-DETAILS END -->
 
 <h2 id="build-config-example">Build Config Example</h2>
