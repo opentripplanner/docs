@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/System-Requirements/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/Netex-Tutorial/">
       
       
-        <link rel="prev" href="../Container-Image/">
+        <link rel="prev" href="../Basic-Tutorial/">
       
       
-        <link rel="next" href="../Preparing-OSM/">
+        <link rel="next" href="../Getting-OTP/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>System Requirements and Suggestions - OpenTripPlanner 2</title>
+        <title>Netex and SIRI Tutorial - OpenTripPlanner 2</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#system-requirements-and-suggestions" class="md-skip">
+        <a href="#netex-siri-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              System Requirements and Suggestions
+              Netex and SIRI Tutorial
             
           </span>
         </div>
@@ -518,10 +518,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Netex-Tutorial/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Netex and SIRI Tutorial
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -530,6 +550,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring the build
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-siri-real-time-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding SIRI real time Data
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -602,30 +660,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    System Requirements and Suggestions
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../System-Requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -634,92 +672,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#system-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      System requirements
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="System requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      Memory
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#processor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Processor
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#suggested-vm-types-in-cloud-service-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Suggested VM types in cloud service providers
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Suggested VM types in cloud service providers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#azure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Azure
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#google-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      Google Cloud
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2158,19 +2110,113 @@
   
 
 
-<h1 id="system-requirements-and-suggestions">System Requirements and Suggestions</h1>
-<h2 id="system-requirements">System requirements</h2>
-<h3 id="memory">Memory</h3>
-<p>OTP is relatively memory-hungry as it includes all the required data in memory. How much memory is required to build the graph for OTP, or to run the OTP server, depends on the used data sets (is OSM, elevation and/or transit data included?), on the size of the covered geographical area and the density of the transit and street network. The required memory can vary from less than one GB to more than 100 GB. For example, including all available data for Finland takes a bit over 10 GB but for Germany it requires 95 GB.</p>
-<h3 id="processor">Processor</h3>
-<p>Single thread performance is an important factor for OTP's performance. Additionally, OTP benefits from larger CPU cache as reading from memory can be a bottleneck.</p>
-<p>OTP's performance scales with the number of available CPU cores. OTP processes each request in a separate thread and usually one request doesn't utilize more than one thread, but with some requests and configurations, it's possible that multiple threads are used in parallel for a small part of a request or to process multiple queries within one request. How much parallel processing we utilize in requests might change in the future. Real-time updates also run in a separate thread. Therefore, to have a good performance, it makes sense to have multiple cores available. How OTP uses parallel processing also depends on the available cores (&lt;= 2 cores vs &gt;2 cores) in some cases. Therefore, load testing should be done against a machine that doesn't differ too much from production machines.</p>
-<p>Entur and the Digitransit project have found that the 3rd generation AMD processors have a slightly better performance for OTP2 than the Intel 3rd generation CPUs (and especially better than the 2nd generation CPUs).</p>
-<h2 id="suggested-vm-types-in-cloud-service-providers">Suggested VM types in cloud service providers</h2>
-<h3 id="azure">Azure</h3>
-<p>For Azure, the Digitransit project did benchmarking of the available virtual machines types for OTP 2.3 in early 2023 and found that the <code>D2as – D96as v5</code> family had the best performance of the reasonable priced virtual machines types. These machines use the 3rd generation AMD EPYCTM 7763v (Milan) processor. The 3rd generation Intel machines had a slightly worse performance and a slightly higher cost. Digitransit chose to use the <code>D8as v5</code> machine as it had enough memory for running OTP in Finland and a reasonable number of vCPUs.</p>
-<h3 id="google-cloud">Google Cloud</h3>
-<p>Entur uses a scalable fleet of instances of type <code>c2d-standard-8</code>.</p>
+<h1 id="netex-siri-tutorial">NeTEx &amp; SIRI tutorial</h1>
+<p>One important new feature of OTP2 is the ability to
+load <a href="https://en.wikipedia.org/wiki/NeTEx">NeTEx</a> and <a href="https://en.wikipedia.org/wiki/Service_Interface_for_Real_Time_Information">SIRI</a> 
+data. NeTEx is a European <a href="http://netex-cen.eu">specification for transit data exchange</a>, comparable in purpose to
+GTFS but broader in scope. </p>
+<p>First of all, you need to download a <a href="../Getting-OTP/">bundled jar of OTP</a>.</p>
+<p>Secondly, you will use the <a href="https://developer.entur.org/pages-intro-files">Norwegian NeTEx file</a> as
+well as the <a href="http://download.geofabrik.de/europe/norway.html">Norwegian OSM data</a>, but OTP can download the NeTEx one for you.</p>
+<h2 id="configuring-the-build">Configuring the build</h2>
+<p>Create a working directory and place the OTP jar file in it and call it <code>otp.jar.</code></p>
+<p>Since we download the OSM data from a free source, we don't want to put undue stress on the server.
+Therefore we download it before building the graph, not during.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl https://download.geofabrik.de/europe/norway-latest.osm.pbf -o norway.osm.pbf
+</code></pre></div>
+<p>Now create a file called <code>build-config.json</code> in the same folder and fill it with the following
+content:</p>
+<!-- build-config BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;transitFeeds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;netex&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://storage.googleapis.com/marduk-production/outbound/netex/rb_norway-aggregated-netex.zip&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;sharedFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_stops.xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;sharedGroupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_(\\w{3})(_flexible)?_shared_data.xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="nt">&quot;groupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(\\w{3})_.*\\.xml&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">&quot;osm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;norway.osm.pbf&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="nt">&quot;osmTagMapping&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;norway&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="nt">&quot;timeZone&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Europe/Oslo&quot;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nt">&quot;osmCacheDataInMem&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
+</code></pre></div>
+<!-- build-config END -->
+
+<p>Note the special section specifying how to find NeTEx XML files within the single ZIP archive that
+OTP downloads.</p>
+<p>Now you can instruct OTP to build a graph from this configuration file:</p>
+<p><code>java -Xmx16G -jar otp.jar --build --save .</code></p>
+<p>This should produce a file <code>graph.obj</code> in the same directory as your <code>build-config.json</code>.</p>
+<p>Building the Norway graph requires downloading about 250MB of input data so stay patient at the beginning
+particularly on a slow internet connection.
+The actual build takes approximately 10 minutes (without elevation data, as is configured above), 
+and can be done within 16GB of heap memory (JVM switch <code>-Xmx16G</code>). The Graph file it produces is 
+about 1.1 GB. The server will take about 30 seconds to load this graph and start up, and will 
+consume about 6GB of heap memory under light use.</p>
+<p>You can then start up an OTP server with a command like this:</p>
+<p><code>java -Xmx6G -jar otp.jar --load .</code></p>
+<p>Once the server is started up, go to <code>http://localhost:8080</code> in a browser to try out your server
+using OTP's built in testing web client. Try some long trips like Oslo to Bergen and see if you can
+get long distance trains and flights as alternatives. You might need to increase the walking limit
+above its very low default value.</p>
+<h2 id="adding-siri-real-time-data">Adding SIRI real time Data</h2>
+<p>Another important feature in OTP version 2 is the ability to
+use <a href="https://en.wikipedia.org/wiki/Service_Interface_for_Real_Time_Information">SIRI real-time data</a>.
+Within the EU data standards, SIRI is analogous to GTFS-RT: a way to apply real-time updates on top
+of schedule data. While technically a distinct specification from NeTEx, both NeTEx and SIRI use the
+Transmodel vocabulary, allowing SIRI messages to reference entities in NeTEx schedule data. Like
+GTFS-RT, SIRI is consumed by OTP2 using "graph updaters" which are configured in
+the <code>router-config.json</code> file, which is placed in the same directory as the <code>graph.obj</code> file and
+loaded at server startup.</p>
+<!-- router-config BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-sx-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.entur.io/realtime/v1/services&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">&quot;blockReadinessUntilInitialized&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">&quot;previewInterval&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1h30m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.entur.io/realtime/v1/services&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="nt">&quot;blockReadinessUntilInitialized&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">}</span>
+</code></pre></div>
+<!-- router-config END -->
+
+<p>After saving the file in the working directory, restart OTP.</p>
+<p>The updaters fetch two different kinds of SIRI data:</p>
+<ul>
+<li>Situation Exchange (SX, text notices analogous to GTFS-RT Alerts)</li>
+<li>Estimated Timetable (ET, predicted arrival times analogous to GTFS-RT TripUpdates)</li>
+</ul>
+<p>These updaters can handle differential updates, but they use a polling approach rather than the
+message-oriented streaming approach of the GTFS-RT Websocket updater. The server keeps track of
+clients, sending only the things that have changed since the last polling operation.</p>
+<p>Note that between these SIRI updaters and the GTFS-RT Websocket updater, we now have both polling
+and streaming examples of GTFS-RT "incrementality" semantics, so should be able to finalize that
+part of the specification.</p>
 
 
 
