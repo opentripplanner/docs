@@ -2919,6 +2919,14 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
+<td>   <a href="#rd_if_filterDirectFlexBySearchWindow">filterDirectFlexBySearchWindow</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Filter direct flex results by the search window. The search-window is not used during flex routing, but we use one end to align it with transit results.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>true</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
 <td>   <a href="#rd_if_filterItinerariesWithSameFirstOrLastTrip">filterItinerariesWithSameFirstOrLastTrip</a></td>
 <td style="text-align: center;"><code>boolean</code></td>
 <td>If more than one itinerary begins or ends with same trip, filter out one of those itineraries so that only one remains.</td>
@@ -3838,6 +3846,17 @@ convenient when tuning the itinerary-filter-chain.</p>
    with paging, itineraries after the limit, but inside the search-window are skipped when
    moving to the next page.</li>
 </ul>
+<h3 id="rd_if_filterDirectFlexBySearchWindow">filterDirectFlexBySearchWindow</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>true</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Filter direct flex results by the search window. The search-window is not used
+during flex routing, but we use one end to align it with transit results.</p>
+<p>When direct flex is mixed with a transit search in the same request, then the direct
+flex results are filtered by the search window of the transit results.</p>
+<p>Depart-at searches are filtered by latest-arrival-time and arrive-by searches are
+filtered by earliest-departure-time.</p>
+<p>Use this configuration to turn this feature off.</p>
 <h3 id="rd_if_filterItinerariesWithSameFirstOrLastTrip">filterItinerariesWithSameFirstOrLastTrip</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
