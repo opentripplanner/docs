@@ -1549,27 +1549,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Localization/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Localization
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Bibliography/" class="md-nav__link">
         
   
@@ -2167,7 +2146,7 @@
 <p>The main OpenTripPlanner repository currently contains two debug web frontends: </p>
 <ul>
 <li>new one currently under development at <a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/client"><code>/client</code></a>.</li>
-<li>the classic one in <a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/src/client/classic-debug"><code>/src/client/classic-debug/</code></a> </li>
+<li>the classic one in <a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/application/src/client/classic-debug"><code>/application/src/client/classic-debug/</code></a> </li>
 </ul>
 <p>The <strong>new debug client</strong> is a React/TypeScript Single Page App (SPA) that can be served locally or accessed over a content delivery network (CDN). 
 Unlike the original debug client, it connects to the OTP Java backend via the GraphQL API using the Transmodel vocabulary. By default, it is available at the root URL (<code>http://localhost:8080/</code> in local operation).</p>
@@ -2175,7 +2154,7 @@ Unlike the original debug client, it connects to the OTP Java backend via the Gr
 It connects to the OTP Java backend via a REST API using the GTFS vocabulary. Historically this was the default OTP interface available at the root URL.
 It is still available, but has been moved to <code>http://localhost:8080/classic-debug/</code> .</p>
 <p>There is a third piece of software that might qualify as an OTP client: a Java Swing application making use of the Processing visualization library, 
-located in the <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/src/main/java/org/opentripplanner/visualizer/GraphVisualizer.java">GraphVisualizer class</a>. 
+located in the <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/visualizer/GraphVisualizer.java">GraphVisualizer class</a>. 
 While it would not be accurate to call this a "native" desktop application (as it's cross-platform Java) it is not a web app. This very developer-centric 
 UI is also over a decade old and has been very sparsely maintained, but continues to exist because it can visualize the progress of searches through the 
 street network, providing some insight into the internals of the routing algorithms that are not otherwise visible.</p>
