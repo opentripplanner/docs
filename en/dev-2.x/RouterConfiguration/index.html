@@ -2565,7 +2565,7 @@ few percents.</p>
 <strong>Path:</strong> /transit </p>
 <p>Split a travel search in smaller jobs and run them in parallel to improve performance.</p>
 <p>Use this parameter to set the total number of executable threads available across all searches.
-Multiple searches can run in parallel - this parameter have no effect with regard to that. If 0,
+Multiple searches can run in parallel - this parameter has no effect with regard to that. If 0,
 no extra threads are started and the search is done in one thread.</p>
 <h3 id="transit_transferCacheMaxSize">transferCacheMaxSize</h3>
 
@@ -2606,7 +2606,7 @@ affect the performance and should be tuned to match the deployment.</p>
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT3H"</code> <br />
 <strong>Path:</strong> /transit/dynamicSearchWindow </p>
 <p>Upper limit for the search-window calculation.</p>
-<p>Long search windows consumes a lot of resources and may take a long time. Use this parameter to
+<p>Long search windows consume a lot of resources and may take a long time. Use this parameter to
 tune the desired maximum search time.</p>
 <p>This is the parameter that affects the response time most, the downside is that a search is only
 guaranteed to be pareto-optimal within a search-window.</p>
