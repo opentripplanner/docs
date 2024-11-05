@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/StopConsolidation/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/Sorlandsbanen/">
       
       
-        <link rel="prev" href="../Emissions/">
+        <link rel="prev" href="../StopConsolidation/">
       
-      
-        <link rel="next" href="../Sorlandsbanen/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Stop Consolidation - OpenTripPlanner 2</title>
+        <title>Sørlandsbanen - OpenTripPlanner 2</title>
       
     
     
@@ -72,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stop-consolidation" class="md-skip">
+        <a href="#srlandsbanen-the-southern-railroad-in-norway" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stop Consolidation
+              Sørlandsbanen
             
           </span>
         </div>
@@ -1989,6 +1987,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../StopConsolidation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stop Consolidation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2005,7 +2024,7 @@
           
   
   <span class="md-ellipsis">
-    Stop Consolidation
+    Sørlandsbanen
   </span>
   
 
@@ -2016,7 +2035,7 @@
         
   
   <span class="md-ellipsis">
-    Stop Consolidation
+    Sørlandsbanen
   </span>
   
 
@@ -2047,24 +2066,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#feature-explanation" class="md-nav__link">
+  <a href="#changelog" class="md-nav__link">
     <span class="md-ellipsis">
-      Feature explanation
+      Changelog
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#effects" class="md-nav__link">
-    <span class="md-ellipsis">
-      Effects
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Configuration
@@ -2072,32 +2083,16 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Sorlandsbanen/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Sørlandsbanen
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -2128,72 +2123,41 @@
   
 
 
-<!--
-  NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
-
-   - Template directory is:  /doc/templates
-   - Generated directory is: /doc/user 
--->
-<h1 id="stop-consolidation">Stop consolidation</h1>
+<h1 id="srlandsbanen-the-southern-railroad-in-norway">Sørlandsbanen - The southern railroad in Norway</h1>
+<p><strong>This sandbox module is only working in Norway</strong>, in particular only in the south of Norway. The
+feature flag to turn it <em>on</em> should only be enabled if you are routing using the norwegian data set. </p>
+<p>The railroad in southern Norway is very slow and does not go by the coast where most people live. It
+is easily beaten by coaches in the area. Despite this, we need to include it in results where it is
+relevant.</p>
+<p>When the feature flag is enabled, two Raptor searches are performed. The first is the regular 
+search - unmodified, as requested by the user. The second search is modified to include train 
+results with Sørlandsbanen. This is achieved by setting a high COACH reluctance. We then take any 
+rail results(if they exist) from the second search and add it two to the results from the first 
+search. The new set of results will contain everything we found in the first search, plus the train 
+results in the second results.</p>
+<p>Note! This looks at origin and destination coordinates in addition to the feature flag to enable
+the second search. It is automatically enabled if:
+ - the <code>OTPFeature.Sorlandsbanen</code> is on.
+ - the origin and/or destination is in the south of Norway.
+ - the search is a long-distance search, origin and destination are fare apart from each other. </p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
-<li><a href="mailto:jon.campbell@arcadis.com">Jon Campbell</a>, Arcadis, USA</li>
+<li>Entur, Norway</li>
 </ul>
-<h2 id="feature-explanation">Feature explanation</h2>
-<p>This sandbox feature allows you to "combine" equivalent stops from across several feeds into a single,
-consolidated one. </p>
-<p>It is achieved by defining a "primary" stop and one or more "secondary" stops. During the graph
-build all trip patterns are modified so that the secondary ones are swapped out for their
-primary equivalent.</p>
-<h2 id="effects">Effects</h2>
-<p>This has the following consequences </p>
+<h2 id="changelog">Changelog</h2>
 <ul>
-<li>When you query the departures for a primary stop you see a consolidated view of all the equivalent departures.</li>
-<li>When transferring at a consolidated stop you no longer get instructions like "walk 5 meters to stop X"</li>
+<li>2024-10-14: We have used this feature for some time, but now want it in the Sandbox so we do not 
+              need to merge it everytime we create a new Entur release.</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Downsides</p>
-<p>However, this feature has also severe downsides:</p>
-<ul>
-<li>It makes real-time trip updates referencing a stop id much more complicated and in many cases 
-  impossible to resolve. 
-  You can only reference a stop by its sequence, which only works in GTFS-RT, not Siri.</li>
-<li>Fare calculation and transfers are unlikely to work as expected.</li>
-</ul>
-</div>
-<h2 id="configuration">Configuration</h2>
-<p>To enable this feature you need to add a file to OTP's working directory and configure
-its name like this:</p>
-<!-- config BEGIN -->
-<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// build-config.json</span>
+<h3 id="configuration">Configuration</h3>
+<p>This is turned <em>off</em> by default. To turn it on enable the <code>Sorlandsbanen</code> feature.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// otp-config.json</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;stopConsolidationFile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;consolidated-stops.csv&quot;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;otpFeatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;Sorlandsbanen&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div>
-<!-- config END -->
-
-<p>The additional config file must look like the following:</p>
-<!-- file BEGIN -->
-<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>stop_group_id,feed_id,stop_id,is_primary
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1,pierce,1705867009,0
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>1,kcm,10225,1
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2,pierce,1569,0
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>2,commtrans,473,0
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>2,kcm,1040,1
-</code></pre></div>
-<!-- file END -->
-
-<p>The column names mean the following:</p>
-<ul>
-<li><code>stop_group_id</code>: id to group several rows in the file together</li>
-<li><code>feed_id</code>: feed id of the stop</li>
-<li><code>stop_id</code>: id of the stop</li>
-<li><code>is_primary</code>: whether the row represents a primary stop, <code>1</code> means yes and <code>0</code> means no</li>
-</ul>
 
 
 
