@@ -2158,7 +2158,7 @@ prevents access to the interior part of the network, because OTP interprets it a
 to have the same access properties.</p>
 <p><img alt="" src="../images/nothruisland.png" /><br />
 <em>Some regular (gray colored) streets are blocked behind access restricted (red colored) connections. Walk routing to them fails because it would be considered as pass through traffic.
-The image on the right shows that pruning added walk nothrough restricition to those streets, and routing works again.</em></p>
+The image on the right shows that pruning added walk nothrough restriction to those streets, and routing works again.</em></p>
 <h2 id="pruning-algorithm">Pruning algorithm</h2>
 <p>Pruning analyses the three traverse modes - walk, bike and car - separately. For example, a resting area by a motorway may include some walking paths, but the only way to get there is
 to use a car. Therefore, it represents a disconnected 'island' when considering the walk mode. Pruning does not erase disconnected graph geometry as long as it
