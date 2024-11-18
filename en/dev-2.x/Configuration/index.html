@@ -2562,6 +2562,12 @@ managed in this one file. </p>
 <td style="text-align: center;"></td>
 </tr>
 <tr>
+<td><code>IncludeEmptyRailStopsInTransfers</code></td>
+<td>Turning this on guarantees that Rail stops without scheduled departures still get included when generating transfers using <code>ConsiderPatternsForDirectTransfers</code>. It is common for stops to be assign at real-time for Rail. Turning this on will help to avoid dropping transfers which are needed, when the stop is in use later. Turning this on, if ConsiderPatternsForDirectTransfers is off has no effect.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
 <td><code>ConsiderPatternsForDirectTransfers</code></td>
 <td>Enable limiting transfers so that there is only a single transfer to each pattern.</td>
 <td style="text-align: center;">✓️</td>
