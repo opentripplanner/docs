@@ -2855,6 +2855,14 @@ GBFS form factors:</p>
 <td></td>
 <td style="text-align: center;">1.5</td>
 </tr>
+<tr>
+<td><a href="#u_1_rentalPickupTypes">rentalPickupTypes</a></td>
+<td style="text-align: center;"><code>enum set</code></td>
+<td>This is temporary and will be removed in a future version of OTP. Use this to specify the type of rental data that is allowed to be read from the data source.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
 </tbody>
 </table>
 <h5 id="parameter-details_4">Parameter details</h5>
@@ -2898,6 +2906,16 @@ This is useful if vehicles may only be rented for round trips, or the destinatio
 <p><strong>Since version:</strong> <code>1.5</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /updaters/[1] </p>
 <p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
+<h4 id="u_1_rentalPickupTypes">rentalPickupTypes</h4>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>enum set</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[1] <br />
+<strong>Enum values:</strong> <code>station</code> | <code>free-floating</code></p>
+<p>This is temporary and will be removed in a future version of OTP. Use this to specify the type of rental data that is allowed to be read from the data source.</p>
+<ul>
+<li><code>station</code> Stations are imported.</li>
+<li><code>free-floating</code> Free-floating vehicles are imported.</li>
+</ul>
 <h5 id="example-configuration_4">Example configuration</h5>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
