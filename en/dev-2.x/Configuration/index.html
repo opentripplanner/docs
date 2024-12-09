@@ -933,9 +933,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#three-scopes-of-configuration" class="md-nav__link">
+  <a href="#four-scopes-of-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Three Scopes of Configuration
+      Four scopes of configuration
     </span>
   </a>
   
@@ -1323,6 +1323,27 @@
   
   <span class="md-ellipsis">
     Realtime Updaters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DebugUiConfiguration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debug UI
   </span>
   
 
@@ -2295,15 +2316,16 @@ files must end in <code>.pbf</code>.</p>
 default behavior of scanning the base directory for input files. Scanning is overridden
 independently for each file type, and can point to remote cloud storage with arbitrary URIs.
 See <a href="./#Storage">the storage section</a> for further details.</p>
-<h2 id="three-scopes-of-configuration">Three Scopes of Configuration</h2>
-<p>OTP is configured via three configuration JSON files which are read from the directory specified on
+<h2 id="four-scopes-of-configuration">Four scopes of configuration</h2>
+<p>OTP is configured via four configuration JSON files which are read from the directory specified on
 its command line. We try to provide sensible defaults for every option, so all three of these files
 are optional, as are all the options within each file. Each configuration file corresponds to
 options that are relevant at a particular phase of OTP usage.</p>
 <p>Options and parameters that are taken into account during the graph building process will be "baked
 into" the graph, and cannot be changed later in a running server. These are specified
 in <code>build-config.json</code>. Other details of OTP operation can be modified without rebuilding the graph.
-These run-time configuration options are found in <code>router-config.json</code>. Finally, <code>otp-config.json</code>
+These run-time configuration options are found in <code>router-config.json</code>. If you want to configure
+the built-in debug UI add <code>debug-ui-config.json</code>. Finally, <code>otp-config.json</code>
 contains simple switches that enable or disable system-wide features.</p>
 <h2 id="configuration-types">Configuration types</h2>
 <p>The OTP configuration files use the JSON file format. OTP allows comments and unquoted field names

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/Logging/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/DebugUiConfiguration/">
       
       
-        <link rel="prev" href="../Analysis/">
+        <link rel="prev" href="../UpdaterConfig/">
       
       
-        <link rel="next" href="../Developers-Guide/">
+        <link rel="next" href="../Migrating-Configuration/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Logging - OpenTripPlanner 2</title>
+        <title>Debug UI - OpenTripPlanner 2</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#logging" class="md-skip">
+        <a href="#debug-ui-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Logging
+              Debug UI
             
           </span>
         </div>
@@ -838,17 +838,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -862,7 +864,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Configuration
@@ -1126,10 +1128,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../DebugUiConfiguration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Debug UI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1138,6 +1160,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1175,19 +1235,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1201,7 +1259,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Features explained
@@ -1380,30 +1438,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Logging
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1412,59 +1450,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#format" class="md-nav__link">
-    <span class="md-ellipsis">
-      Format
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#complete-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Complete example
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#further-customization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Further customization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2146,62 +2131,105 @@
   
 
 
-<h1 id="logging">Logging</h1>
-<p>OTP uses <a href="http://logback.qos.ch/">logback</a> and <a href="http://www.slf4j.org/">slj4j</a> as a logging framework.
-Logging is configured in the <code>logback.xml</code> file inside the OTP jar file. See these frameworks for
-more documentation on log configuration.</p>
-<p>For developers, starting OTP using the <code>InteractiveOtpMain</code> is an easy way to configure debug
-logging.</p>
-<p>Some loggers useful for debugging.</p>
-<ul>
-<li><code>TRANSFERS_EXPORT</code>: Dump transfers to <em>transfers-debug.csv</em> file.</li>
-<li><code>DATA_IMPORT_ISSUES</code>: Write issues to debug lag as well as to the issue report.</li>
-<li><code>org.opentripplanner.raptor.RaptorService</code>: Debug Raptor request and response</li>
-</ul>
-<h2 id="format">Format</h2>
-<p>By default, OTP logs in plain text to the console. However, it is possible to also log in JSON format.</p>
-<p>To enable it, set the Java property <code>otp.logging.format</code> to one of these values:</p>
-<ul>
-<li><code>plain</code>: regular plain text logging (default, no need to configure it)</li>
-<li><code>json</code>: Logstash-encoded JSON format understood by many log ingestion tools (Datadog, Loggly, Loki...)</li>
-</ul>
-<h3 id="complete-example">Complete example</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java -Dotp.logging.format=json -jar otp.jar --load --serve data
+<!--
+  NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
+
+   - Template directory is:  /doc/templates
+   - Generated directory is: /doc/user 
+-->
+
+<h1 id="debug-ui-configuration">Debug UI configuration</h1>
+<p>The Debug UI is the standard interface that is bundled with OTP and available by visiting 
+<a href="http://localhost:8080"><code>http://localhost:8080</code></a>. This page list the configuration options available
+by placing a file <code>debug-ui-config.json</code> into OTP's working directory.</p>
+<!-- PARAMETERS-TABLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#additionalBackgroundLayers">additionalBackgroundLayers</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>Additional background raster map layers.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      attribution</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Attribution for the map data.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"© OpenTripPlanner"</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      name</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Name to appear in the layer selector.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      templateUrl</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The <a href="https://maplibre.org/maplibre-native/ios/api/tile-url-templates.html">Maplibre-compatible template URL</a> for the raster layer, for example <code>https://examples.com/tiles/{z}/{x}/{y}.png</code>.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      tileSize</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Size of the tile in pixels.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>256</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+</tbody>
+</table>
+<!-- PARAMETERS-TABLE END -->
+
+<h2 id="parameter-details">Parameter Details</h2>
+<!-- PARAMETERS-DETAILS BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<h3 id="additionalBackgroundLayers">additionalBackgroundLayers</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / </p>
+<p>Additional background raster map layers.</p>
+<p>Add additional background layers that will appear in the Debug UI as one of the choices.</p>
+<p>Currently only raster tile layers are supported.</p>
+<!-- PARAMETERS-DETAILS END -->
+
+<h2 id="config-example">Config Example</h2>
+<!-- JSON-EXAMPLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// debug-ui-config.json</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;additionalBackgroundLayers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TriMet aerial photos&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;templateUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://maps.trimet.org/wms/reflect?bbox={bbox-epsg-3857}&amp;format=image/png&amp;service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;srs=EPSG:3857&amp;width=256&amp;height=256&amp;layers=aerials&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;attribution&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;© TriMet&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="further-customization">Further customization</h3>
-<p>If you want to customize the exact log output even further you can use your own logback configuration 
-by starting OTP with the following parameter:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>java -Dlogback.configurationFile=/path/to/logback.xml -jar otp.jar --load --serve data
-</code></pre></div>
-<p>For example, Entur has their own custom log format configured as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">&lt;!-- Entur&#39;s custom log format  --&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;entur&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&lt;encoder</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">     </span><span class="nt">&lt;providers&gt;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="cm">&lt;!-- provides the timestamp &lt;timestamp/&gt; --&gt;</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="cm">&lt;!-- provides the version &lt;version/&gt; --&gt;</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="cm">&lt;!-- provides the fields in the configured pattern --&gt;</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&lt;pattern&gt;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">           </span><span class="cm">&lt;!-- the pattern that defines what to include --&gt;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">           </span><span class="nt">&lt;pattern&gt;</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">           </span>{
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">             </span>&quot;serviceContext&quot;:<span class="w"> </span>{
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">               </span>&quot;service&quot;:<span class="w"> </span>&quot;otp2&quot;
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">             </span>},
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">             </span>&quot;message&quot;:<span class="w"> </span>&quot;%message\n%ex{full}&quot;,
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">             </span>&quot;severity&quot;:<span class="w"> </span>&quot;%level&quot;,
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">             </span>&quot;reportLocation&quot;:<span class="w"> </span>{
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">               </span>&quot;filePath&quot;:<span class="w"> </span>&quot;%logger&quot;,
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">               </span>&quot;lineNumber&quot;:<span class="w"> </span>&quot;%line&quot;,
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">               </span>&quot;functionName&quot;:<span class="w"> </span>&quot;%method&quot;
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">              </span>}
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">            </span>}
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">            </span><span class="nt">&lt;/pattern&gt;</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="nt">&lt;/pattern&gt;</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">     </span><span class="nt">&lt;/providers&gt;</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span><span class="nt">&lt;/encoder&gt;</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="nt">&lt;/appender&gt;</span>
-</code></pre></div>
+<!-- JSON-EXAMPLE END -->
 
 
 
