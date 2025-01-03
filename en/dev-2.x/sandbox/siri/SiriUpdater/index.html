@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#siri-updater" class="md-skip">
+        <a href="#siri-updaters" class="md-skip">
           Skip to content
         </a>
       
@@ -1711,15 +1711,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Configuration
@@ -1730,13 +1721,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#siri-et-via-https" class="md-nav__link">
+  <a href="#siri-et-requestresponse-via-https" class="md-nav__link">
     <span class="md-ellipsis">
-      Siri-ET via HTTPS
+      SIRI-ET Request/Response via HTTPS
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Siri-ET via HTTPS">
+    <nav class="md-nav" aria-label="SIRI-ET Request/Response via HTTPS">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1763,13 +1754,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#siri-sx-via-https" class="md-nav__link">
+  <a href="#siri-sx-requestresponse-via-https" class="md-nav__link">
     <span class="md-ellipsis">
-      Siri-SX via HTTPS
+      SIRI-SX Request/Response via HTTPS
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Siri-SX via HTTPS">
+    <nav class="md-nav" aria-label="SIRI-SX Request/Response via HTTPS">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1783,6 +1774,72 @@
         
           <li class="md-nav__item">
   <a href="#example-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siri-et-lite" class="md-nav__link">
+    <span class="md-ellipsis">
+      SIRI-ET Lite
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SIRI-ET Lite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-details_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siri-sx-lite" class="md-nav__link">
+    <span class="md-ellipsis">
+      SIRI-SX Lite
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SIRI-SX Lite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-details_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-configuration_3" class="md-nav__link">
     <span class="md-ellipsis">
       Example configuration
     </span>
@@ -2221,24 +2278,21 @@
   
 
 
-<h1 id="siri-updater">Siri Updater</h1>
-<p>Support for consuming SIRI ET and SX messages. The updater is developed to support the Nordic
-SIRI profile which is a subset of the SIRI specification.</p>
+<h1 id="siri-updaters">SIRI Updaters</h1>
+<p>Support for consuming SIRI ET and SX messages via HTTPS. The updaters aim to support the <a href="../../../features-explained/Netex-Siri-Compatibility/">Nordic
+and EPIP SIRI profiles</a> which 
+are subsets of the SIRI specification.</p>
+<p>For more documentation about the Norwegian profile and data, go to
+the <a href="https://developer.entur.org/pages-real-time-intro">Entur Real-Time Data</a> documentation and
+the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Norwegian+SIRI+profile">Norwegian SIRI profile</a>.</p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li>Lasse Tyrihjell, Entur, Norway</li>
+<li>Leonard Ehrenfried, Germany</li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<p>This updater consumes SIRI real time information. It is developed by Entur and supports the Nordic
-Profile for SIRI. It should be possible to develop it further to support a broader set of the SIRI
-specification.</p>
-<p>For more documentation goto
-the <a href="https://developer.entur.org/pages-real-time-intro">Entur Real-Time Data</a> documentation and
-the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Norwegian+SIRI+profile">Norwegian SIRI profile</a>
-.</p>
 <h2 id="configuration">Configuration</h2>
-<p>To enable the SIRI updater you need to add it to the updaters section of the <code>router-config.json</code>.</p>
-<h3 id="siri-et-via-https">Siri-ET via HTTPS</h3>
+<p>To enable the SIRI updater you need to add it to the <code>updaters</code> section of the <code>router-config.json</code>.</p>
+<h3 id="siri-et-requestresponse-via-https">SIRI-ET Request/Response via HTTPS</h3>
 <!-- siri-et-updater BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
@@ -2377,7 +2431,7 @@ renamed by the loader when processed:</p>
 </code></pre></div>
 <!-- siri-et-updater END -->
 
-<h3 id="siri-sx-via-https">Siri-SX via HTTPS</h3>
+<h3 id="siri-sx-requestresponse-via-https">SIRI-SX Request/Response via HTTPS</h3>
 <!-- siri-sx-updater BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
@@ -2507,6 +2561,229 @@ renamed by the loader when processed:</p>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
 </code></pre></div>
 <!-- siri-sx-updater END -->
+
+<h3 id="siri-et-lite">SIRI-ET Lite</h3>
+<p>SIRI Lite is <a href="https://nextcloud.leonard.io/s/2tdYdmYBGtLQMfi/download?path=&amp;files=Proposition-Profil-SIRI-Lite-initial-v1-3%20en.pdf">not very well</a>
+<a href="https://normes.transport.data.gouv.fr/normes/siri/profil-france/#protocoles-d%C3%A9change-des-donn%C3%A9es-siri">specified</a>,
+but this updater supports the following definition: </p>
+<p>Fetching XML-formatted SIRI messages as single GET request rather than the more common request/response 
+flow. This means that the XML feed must contain all updates for all trips, just like it is the case 
+for GTFS-RT TripUpdates.</p>
+<!-- siri-et-lite BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "siri-et-lite"</td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td>feedId</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The ID of the feed to apply the updates to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>How often the updates should be retrieved.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>fuzzyTripMatching</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>If the fuzzy trip matcher should be used to match trips.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The HTTP timeout to download the updates.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT15S"</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td><a href="#u__15__url">url</a></td>
+<td style="text-align: center;"><code>uri</code></td>
+<td>The URL to send the HTTP requests to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td><a href="#u__15__headers">headers</a></td>
+<td style="text-align: center;"><code>map of string</code></td>
+<td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-details_2">Parameter details</h5>
+<h4 id="u__15__url">url</h4>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[15] </p>
+<p>The URL to send the HTTP requests to.</p>
+<p>Use the file protocol to set a directory for reading updates from a directory. The file
+loader will look for xml files: '*.xml' in the configured directory. The files are
+renamed by the loader when processed:</p>
+<p>&nbsp;&nbsp;&nbsp; <em>a.xml</em> &nbsp; ➞ &nbsp; <em>a.xml.inProgress</em> &nbsp; ➞ &nbsp; <em>a.xml.ok</em> &nbsp; or &nbsp; <em>a.xml.failed</em></p>
+<h4 id="u__15__headers">headers</h4>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[15] </p>
+<p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
+<h5 id="example-configuration_2">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-lite&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sta&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/siri-lite/estimated-timetable/xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</code></pre></div>
+<!-- siri-et-lite END -->
+
+<h3 id="siri-sx-lite">SIRI-SX Lite</h3>
+<p>This updater follows the same definition of SIRI Lite as the SIRI-ET one: it downloads the entire
+feed in a single HTTP GET request.</p>
+<!-- siri-sx-lite BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type = "siri-sx-lite"</td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>The type of the updater.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td><a href="#u__16__earlyStart">earlyStart</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This value is subtracted from the actual validity defined in the message.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>feedId</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The ID of the feed to apply the updates to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>How often the updates should be retrieved.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1M"</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The HTTP timeout to download the updates.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT15S"</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td><a href="#u__16__url">url</a></td>
+<td style="text-align: center;"><code>uri</code></td>
+<td>The URL to send the HTTP requests to.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td><a href="#u__16__headers">headers</a></td>
+<td style="text-align: center;"><code>map of string</code></td>
+<td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-details_3">Parameter details</h5>
+<h4 id="u__16__earlyStart">earlyStart</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /updaters/[16] </p>
+<p>This value is subtracted from the actual validity defined in the message.</p>
+<p>Normally the planned departure time is used, so setting this to 10s will cause the
+SX-message to be included in trip-results 10 seconds before the the planned departure
+time.</p>
+<h4 id="u__16__url">url</h4>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /updaters/[16] </p>
+<p>The URL to send the HTTP requests to.</p>
+<p>Use the file protocol to set a directory for reading updates from a directory. The file
+loader will look for xml files: '*.xml' in the configured directory. The files are
+renamed by the loader when processed:</p>
+<p>&nbsp;&nbsp;&nbsp; <em>a.xml</em> &nbsp; ➞ &nbsp; <em>a.xml.inProgress</em> &nbsp; ➞ &nbsp; <em>a.xml.ok</em> &nbsp; or &nbsp; <em>a.xml.failed</em></p>
+<h4 id="u__16__headers">headers</h4>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[16] </p>
+<p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
+<h5 id="example-configuration_3">Example configuration</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-sx-lite&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sta&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/siri-lite/situation-exchange/xml&quot;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
+</code></pre></div>
+<!-- siri-sx-lite END -->
 
 <h2 id="changelog">Changelog</h2>
 <ul>

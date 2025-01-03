@@ -2164,14 +2164,14 @@ find examples of those in their <a href="https://github.com/entur/profile-exampl
 <p>Different countries are currently using different incompatible "profiles" of NeTEx, but an effort is
 underway to converge on a single European standard profile. This is based in large part on the
 Nordic profile used by Entur.</p>
-<p>The Nordic profile is the only profile that has been thoroughly tested in production in OTP and is 
+<p>The Nordic profile is the only one that has been thoroughly tested in production in OTP and is 
 used in Norway, Finland and Sweden.</p>
 <h3 id="epip">EPIP</h3>
 <p>The <a href="http://netex.uk/netex/doc/2019.05.07-v1.1_FinalDraft/prCEN_TS_16614-PI_Profile_FV_%28E%29-2019-Final-Draft-v3.pdf">European Passenger Information Profile</a> 
 is an attempt to unify other country profiles and support in OTP is adequate, but it is difficult 
 to tell how much of EPIP is supported since it is a very large profile. The current status
 of the support is tracked on <a href="https://github.com/opentripplanner/OpenTripPlanner/issues/3640">Github</a>.</p>
-<p>Sometimes it is difficult to tell if a file conforms to EPIP so to find out, you can run the following
+<p>Sometimes it is not easy to figure out if a file conforms to EPIP so to find out, you can run the following
 commands:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git clone git@github.com:NeTEx-CEN/NeTEx-Profile-EPIP.git
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>xmllint --noout --schema NeTEx-Profile-EPIP/NeTEx_publication_EPIP.xsd your-filename.xml
