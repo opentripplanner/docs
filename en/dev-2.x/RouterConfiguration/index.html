@@ -2235,6 +2235,14 @@ value which will be applied unless it is overridden in a web API request.</p>
 <td style="text-align: center;">2.4</td>
 </tr>
 <tr>
+<td>   <a href="#server_apiDocumentationProfile">apiDocumentationProfile</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>List of available custom documentation profiles. A profile is used to inject custom documentation like type and field description or a deprecated reason.  Currently, ONLY the Transmodel API supports this feature.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"default"</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
 <td>   <a href="#server_apiProcessingTimeout">apiProcessingTimeout</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>Maximum processing time for an API request</td>
@@ -2517,6 +2525,18 @@ or format check on the version and it can be any string.</p>
 <p>Configuration for router server.</p>
 <p>These parameters are used to configure the router server. Many parameters are specific to a
 domain, these are set in the routing request.</p>
+<h3 id="server_apiDocumentationProfile">apiDocumentationProfile</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"default"</code> <br />
+<strong>Path:</strong> /server <br />
+<strong>Enum values:</strong> <code>default</code> | <code>entur</code></p>
+<p>List of available custom documentation profiles. A profile is used to inject custom
+documentation like type and field description or a deprecated reason.</p>
+<p>Currently, ONLY the Transmodel API supports this feature.</p>
+<ul>
+<li><code>default</code> Default documentation is used.</li>
+<li><code>entur</code> Entur specific documentation. This deprecate features not supported at Entur, Norway.</li>
+</ul>
 <h3 id="server_apiProcessingTimeout">apiProcessingTimeout</h3>
 
 <p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT-1S"</code> <br />
