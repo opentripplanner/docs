@@ -2388,7 +2388,7 @@ Sections follow that describe particular settings in more depth.</p>
 <tr>
 <td>maxTransferDuration</td>
 <td style="text-align: center;"><code>duration</code></td>
-<td>Transfers up to this duration with the default walk speed value will be pre-calculated and included in the Graph.</td>
+<td>Transfers up to this duration with a mode-specific speed value will be pre-calculated and included in the Graph.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT30M"</code></td>
 <td style="text-align: center;">2.1</td>
@@ -2864,6 +2864,78 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
 <td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td><a href="#transferParametersForMode">transferParametersForMode</a></td>
+<td style="text-align: center;"><code>enum map of object</code></td>
+<td>Configures mode-specific properties for transfer calculations.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>   BIKE</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>NA</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      <a href="#tpfm_BIKE_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow cars.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      <a href="#tpfm_BIKE_disableDefaultTransfers">disableDefaultTransfers</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>This disables default transfer calculations.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      maxTransferDuration</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This overwrites the default <code>maxTransferDuration</code> for the given mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>   CAR</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>NA</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      <a href="#tpfm_CAR_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow cars.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      <a href="#tpfm_CAR_disableDefaultTransfers">disableDefaultTransfers</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>This disables default transfer calculations.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      maxTransferDuration</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This overwrites the default <code>maxTransferDuration</code> for the given mode.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.7</td>
 </tr>
 <tr>
 <td><a href="../RouteRequest/">transferRequests</a></td>
@@ -3647,6 +3719,89 @@ the local filesystem.</p>
 <strong>Path:</strong> /osmDefaults <br />
 <strong>Enum values:</strong> <code>default</code> | <code>norway</code> | <code>uk</code> | <code>finland</code> | <code>germany</code> | <code>hamburg</code> | <code>atlanta</code> | <code>houston</code> | <code>portland</code> | <code>constant-speed-finland</code></p>
 <p>The named set of mapping rules applied when parsing OSM tags.</p>
+<h3 id="transferParametersForMode">transferParametersForMode</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>enum map of object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / <br />
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<p>Configures mode-specific properties for transfer calculations.</p>
+<p>This field enables configuring mode-specific parameters for transfer calculations.
+To configure mode-specific parameters, the modes should also be used in the <code>transferRequests</code> field in the build config.</p>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;transferParametersForMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">&quot;CAR&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">&quot;BIKE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">      </span><span class="nt">&quot;maxTransferDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30m&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="tpfm_BIKE_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transferParametersForMode/BIKE </p>
+<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow cars.</p>
+<p>This parameter configures additional transfers to be calculated for the specified mode only between stops that have trips with cars.
+The transfers are calculated for the mode in a range based on the given duration.
+By default, these transfers are not calculated unless specified for a mode with this field.</p>
+<p>Calculating transfers only between stops that have trips with cars can be useful with car ferries, for example.
+Using transit with cars can only occur between certain stops.
+These kinds of stops require support for loading cars into ferries, for example.
+The default transfers are calculated based on a configurable range (configurable by using the <code>maxTransferDuration</code> field)
+which limits transfers from stops to only be calculated to other stops that are in range.
+When compared to walking, using a car can cover larger distances within the same duration specified in the <code>maxTransferDuration</code> field.
+This can lead to large amounts of transfers calculated between stops that do not require car transfers between them.
+This in turn can lead to a large increase in memory for the stored graph, depending on the data used in the graph.</p>
+<p>For cars, using this parameter in conjunction with <code>disableDefaultTransfers</code> allows calculating transfers only between relevant stops.
+For bikes, using this parameter can enable transfers between ferry stops that would normally not be in range.
+In Finland this is useful for bike routes that use ferries near the Turku archipelago, for example.</p>
+<h3 id="tpfm_BIKE_disableDefaultTransfers">disableDefaultTransfers</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /transferParametersForMode/BIKE </p>
+<p>This disables default transfer calculations.</p>
+<p>The default transfers are calculated based on a configurable range (configurable by using the <code>maxTransferDuration</code> field)
+which limits transfers from stops to only be calculated to other stops that are in range.
+This parameter disables these transfers.
+A motivation to disable default transfers could be related to using the <code>carsAllowedStopMaxTransferDuration</code> field which only
+calculates transfers between stops that have trips with cars.
+For example, when using the <code>carsAllowedStopMaxTransferDuration</code> field with cars, the default transfers can be redundant.</p>
+<h3 id="tpfm_CAR_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transferParametersForMode/CAR </p>
+<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow cars.</p>
+<p>This parameter configures additional transfers to be calculated for the specified mode only between stops that have trips with cars.
+The transfers are calculated for the mode in a range based on the given duration.
+By default, these transfers are not calculated unless specified for a mode with this field.</p>
+<p>Calculating transfers only between stops that have trips with cars can be useful with car ferries, for example.
+Using transit with cars can only occur between certain stops.
+These kinds of stops require support for loading cars into ferries, for example.
+The default transfers are calculated based on a configurable range (configurable by using the <code>maxTransferDuration</code> field)
+which limits transfers from stops to only be calculated to other stops that are in range.
+When compared to walking, using a car can cover larger distances within the same duration specified in the <code>maxTransferDuration</code> field.
+This can lead to large amounts of transfers calculated between stops that do not require car transfers between them.
+This in turn can lead to a large increase in memory for the stored graph, depending on the data used in the graph.</p>
+<p>For cars, using this parameter in conjunction with <code>disableDefaultTransfers</code> allows calculating transfers only between relevant stops.
+For bikes, using this parameter can enable transfers between ferry stops that would normally not be in range.
+In Finland this is useful for bike routes that use ferries near the Turku archipelago, for example.</p>
+<h3 id="tpfm_CAR_disableDefaultTransfers">disableDefaultTransfers</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /transferParametersForMode/CAR </p>
+<p>This disables default transfer calculations.</p>
+<p>The default transfers are calculated based on a configurable range (configurable by using the <code>maxTransferDuration</code> field)
+which limits transfers from stops to only be calculated to other stops that are in range.
+This parameter disables these transfers.
+A motivation to disable default transfers could be related to using the <code>carsAllowedStopMaxTransferDuration</code> field which only
+calculates transfers between stops that have trips with cars.
+For example, when using the <code>carsAllowedStopMaxTransferDuration</code> field with cars, the default transfers can be redundant.</p>
 <h3 id="transitFeeds">transitFeeds</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -3745,94 +3900,104 @@ the centroid.</p>
 <!-- JSON-EXAMPLE BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;transitServiceStart&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-P3M&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;transitServiceEnd&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P1Y&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">&quot;osmCacheDataInMem&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">&quot;localFileNamePatterns&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">&quot;osm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(i?)\\.osm\\.pbf$&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">&quot;dem&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(i?)\\.dem\\.tiff?$&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">&quot;gtfs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(?i)gtfs&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">&quot;netex&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(?i)netex&quot;</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="nt">&quot;osmDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="nt">&quot;timeZone&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Europe/Rome&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="nt">&quot;osmTagMapping&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="nt">&quot;osm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gs://my-bucket/otp-work-dir/norway.osm.pbf&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">      </span><span class="nt">&quot;timeZone&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Europe/Oslo&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">      </span><span class="nt">&quot;osmTagMapping&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;norway&quot;</span>
-<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">  </span><span class="nt">&quot;demDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="nt">&quot;elevationUnitMultiplier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span>
-<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">  </span><span class="nt">&quot;dem&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gs://my-bucket/otp-work-dir/norway.dem.tiff&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">      </span><span class="nt">&quot;elevationUnitMultiplier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span>
-<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">  </span><span class="nt">&quot;netexDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">    </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EN&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">    </span><span class="nt">&quot;sharedFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_stops.xml&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">    </span><span class="nt">&quot;sharedGroupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_(\\w{3})_shared_data.xml&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">    </span><span class="nt">&quot;groupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(\\w{3})_.*\\.xml&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">    </span><span class="nt">&quot;ignoreFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(temp|tmp)&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">    </span><span class="nt">&quot;ferryIdsNotAllowedForBicycle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">      </span><span class="s2">&quot;RUT:B107&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">      </span><span class="s2">&quot;RUT:B209&quot;</span>
-<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">    </span><span class="p">]</span>
-<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="w">  </span><span class="nt">&quot;gtfsDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="w">    </span><span class="nt">&quot;stationTransferPreference&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;recommended&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="w">    </span><span class="nt">&quot;removeRepeatedStops&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="w">    </span><span class="nt">&quot;discardMinTransferTimes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">    </span><span class="nt">&quot;blockBasedInterlining&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="w">    </span><span class="nt">&quot;maxInterlineDistance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">200</span>
-<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="w">  </span><span class="nt">&quot;islandPruning&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="w">    </span><span class="nt">&quot;islandWithStopsMaxSize&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="w">    </span><span class="nt">&quot;islandWithoutStopsMaxSize&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="w">    </span><span class="nt">&quot;adaptivePruningFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span>
-<a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="w">    </span><span class="nt">&quot;adaptivePruningDistance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">250</span>
-<a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="w">  </span><span class="nt">&quot;transitFeeds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gtfs&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SE&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://skanetrafiken.se/download/sweden.gtfs.zip&quot;</span>
-<a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;netex&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gs://BUCKET/OTP_GCS_WORK_DIR/norway-netex.obj&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a><span class="w">      </span><span class="nt">&quot;sharedFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_stops.xml&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a><span class="w">      </span><span class="nt">&quot;sharedGroupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_(\\w{3})_shared_data.xml&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a><span class="w">      </span><span class="nt">&quot;groupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(\\w{3})_.*\\.xml&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a><span class="w">      </span><span class="nt">&quot;ignoreFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(temp|tmp)&quot;</span>
-<a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a><span class="w">  </span><span class="nt">&quot;transferRequests&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span>
-<a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a><span class="w">  </span><span class="nt">&quot;stopConsolidationFile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;consolidated-stops.csv&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a><span class="w">  </span><span class="nt">&quot;emissions&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a><span class="w">    </span><span class="nt">&quot;carAvgCo2PerKm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span>
-<a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a><span class="w">    </span><span class="nt">&quot;carAvgOccupancy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span>
-<a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;transitServiceStart&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-P3M&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">&quot;transitServiceEnd&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P1Y&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">&quot;osmCacheDataInMem&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">&quot;localFileNamePatterns&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nt">&quot;osm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(i?)\\.osm\\.pbf$&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="nt">&quot;dem&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(i?)\\.dem\\.tiff?$&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nt">&quot;gtfs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(?i)gtfs&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="nt">&quot;netex&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(?i)netex&quot;</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">  </span><span class="nt">&quot;osmDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="nt">&quot;timeZone&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Europe/Rome&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="nt">&quot;osmTagMapping&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="nt">&quot;osm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gs://my-bucket/otp-work-dir/norway.osm.pbf&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">      </span><span class="nt">&quot;timeZone&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Europe/Oslo&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">      </span><span class="nt">&quot;osmTagMapping&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;norway&quot;</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">  </span><span class="nt">&quot;demDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="nt">&quot;elevationUnitMultiplier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">  </span><span class="nt">&quot;dem&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gs://my-bucket/otp-work-dir/norway.dem.tiff&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">      </span><span class="nt">&quot;elevationUnitMultiplier&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">  </span><span class="nt">&quot;netexDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">    </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EN&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">    </span><span class="nt">&quot;sharedFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_stops.xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">    </span><span class="nt">&quot;sharedGroupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_(\\w{3})_shared_data.xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="w">    </span><span class="nt">&quot;groupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(\\w{3})_.*\\.xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">    </span><span class="nt">&quot;ignoreFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(temp|tmp)&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">    </span><span class="nt">&quot;ferryIdsNotAllowedForBicycle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">      </span><span class="s2">&quot;RUT:B107&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="w">      </span><span class="s2">&quot;RUT:B209&quot;</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="w">  </span><span class="nt">&quot;gtfsDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="w">    </span><span class="nt">&quot;stationTransferPreference&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;recommended&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="w">    </span><span class="nt">&quot;removeRepeatedStops&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a><span class="w">    </span><span class="nt">&quot;discardMinTransferTimes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="w">    </span><span class="nt">&quot;blockBasedInterlining&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a><span class="w">    </span><span class="nt">&quot;maxInterlineDistance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">200</span>
+<a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a><span class="w">  </span><span class="nt">&quot;islandPruning&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a><span class="w">    </span><span class="nt">&quot;islandWithStopsMaxSize&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a><span class="w">    </span><span class="nt">&quot;islandWithoutStopsMaxSize&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a><span class="w">    </span><span class="nt">&quot;adaptivePruningFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span>
+<a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a><span class="w">    </span><span class="nt">&quot;adaptivePruningDistance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">250</span>
+<a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="w">  </span><span class="nt">&quot;transitFeeds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gtfs&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SE&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://skanetrafiken.se/download/sweden.gtfs.zip&quot;</span>
+<a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;netex&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gs://BUCKET/OTP_GCS_WORK_DIR/norway-netex.obj&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a><span class="w">      </span><span class="nt">&quot;sharedFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_stops.xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a><span class="w">      </span><span class="nt">&quot;sharedGroupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_(\\w{3})_shared_data.xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a><span class="w">      </span><span class="nt">&quot;groupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(\\w{3})_.*\\.xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a><span class="w">      </span><span class="nt">&quot;ignoreFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(temp|tmp)&quot;</span>
+<a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a><span class="w">  </span><span class="nt">&quot;transferRequests&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span>
+<a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="w">  </span><span class="nt">&quot;stopConsolidationFile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;consolidated-stops.csv&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a><span class="w">  </span><span class="nt">&quot;emissions&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="w">    </span><span class="nt">&quot;carAvgCo2PerKm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span>
+<a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="w">    </span><span class="nt">&quot;carAvgOccupancy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span>
+<a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a><span class="w">  </span><span class="nt">&quot;transferParametersForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a><span class="w">    </span><span class="nt">&quot;CAR&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
+<a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a><span class="w">    </span><span class="nt">&quot;BIKE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-94" name="__codelineno-8-94" href="#__codelineno-8-94"></a><span class="w">      </span><span class="nt">&quot;maxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30m&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-95" name="__codelineno-8-95" href="#__codelineno-8-95"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
+<a id="__codelineno-8-96" name="__codelineno-8-96" href="#__codelineno-8-96"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
