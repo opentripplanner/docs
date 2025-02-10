@@ -1966,13 +1966,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hsl-park-and-ride" class="md-nav__link">
+  <a href="#liipi" class="md-nav__link">
     <span class="md-ellipsis">
-      HSL Park and Ride
+      Liipi
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HSL Park and Ride">
+    <nav class="md-nav" aria-label="Liipi">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2353,7 +2353,7 @@
 <h1 id="vehicle-parking-updaters">Vehicle Parking Updaters</h1>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
-<li>For HSL Park and Ride updater: Digitransit team, HSL, Helsinki, Finland</li>
+<li>For Liipi updater: Digitransit team, HSL, Helsinki, Finland</li>
 <li>For Bikely, Bikeep and SIRI-FM updater: Leonard Ehrenfried, <a href="mailto:mail@leonard.io">mail@leonard.io</a></li>
 </ul>
 <h2 id="documentation">Documentation</h2>
@@ -2361,7 +2361,7 @@
 enabled/disabled through <code>otp-config.json</code> but from <code>router-config.json</code> updaters.</p>
 <p>Currently contains the following updaters:</p>
 <ul>
-<li><a href="https://p.hsl.fi/docs/index.html">HSL Park and Ride</a></li>
+<li><a href="https://parking.fintraffic.fi/docs/index.html">Liipi</a></li>
 <li><a href="https://github.com/offenesdresden/ParkAPI">ParkAPI</a></li>
 <li><a href="https://www.safebikely.com/">Bikely</a></li>
 <li>SIRI-FM</li>
@@ -2374,8 +2374,8 @@ the <code>router-config.json</code> according to the following examples.</p>
 <li><code>type</code>: this needs to be <code>"vehicle-parking"</code></li>
 <li><code>feedId</code>: this is used as a "prefix" for park ids, entrance ids and sometimes also for tags.</li>
 </ul>
-<h2 id="hsl-park-and-ride">HSL Park and Ride</h2>
-<!-- hsl-park BEGIN -->
+<h2 id="liipi">Liipi</h2>
+<!-- liipi BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
 <table>
@@ -2475,7 +2475,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
 <strong>Path:</strong> /updaters/[2] <br />
-<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>liipi</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__2__timeZone">timeZone</h4>
 
@@ -2489,19 +2489,19 @@ the <code>router-config.json</code> according to the following examples.</p>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hsl-park&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hslpark&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;liipi&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;liipi&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;timeZone&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Europe/Helsinki&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;facilitiesFrequencySec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;facilitiesUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://p.hsl.fi/api/v1/facilities.json?limit=-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;facilitiesUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://parking.fintraffic.fi/api/v1/facilities.json?limit=-1&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">&quot;utilizationsFrequencySec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;utilizationsUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://p.hsl.fi/api/v1/utilizations.json?limit=-1&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">&quot;hubsUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://p.hsl.fi/api/v1/hubs.json?limit=-1&quot;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;utilizationsUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://parking.fintraffic.fi/api/v1/utilizations.json?limit=-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">&quot;hubsUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://parking.fintraffic.fi/api/v1/hubs.json?limit=-1&quot;</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p">]</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
 </code></pre></div>
-<!-- hsl-park END -->
+<!-- liipi END -->
 
 <h2 id="parkapi">ParkAPI</h2>
 <!-- park-api BEGIN -->
@@ -2596,7 +2596,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
 <strong>Path:</strong> /updaters/[3] <br />
-<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>liipi</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__3__timeZone">timeZone</h4>
 
@@ -2714,7 +2714,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
 <strong>Path:</strong> /updaters/[4] <br />
-<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>liipi</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__4__headers">headers</h4>
 
@@ -2817,7 +2817,7 @@ the <code>router-config.json</code> according to the following examples.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
 <strong>Path:</strong> /updaters/[13] <br />
-<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>liipi</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__13__headers">headers</h4>
 
@@ -2920,7 +2920,7 @@ which requires SIRI 2.1.</p>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
 <strong>Path:</strong> /updaters/[14] <br />
-<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>hsl-park</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
+<strong>Enum values:</strong> <code>park-api</code> | <code>bicycle-park-api</code> | <code>liipi</code> | <code>bikely</code> | <code>bikeep</code> | <code>siri-fm</code></p>
 <p>The source of the vehicle updates.</p>
 <h4 id="u__14__url">url</h4>
 
@@ -2954,8 +2954,8 @@ which requires SIRI 2.1.</p>
 <h2 id="changelog">Changelog</h2>
 <ul>
 <li>Create initial sandbox implementation (January 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3796">#3796</a>)</li>
-<li>Add timeZone parameter to hsl and parkapi updaters (September 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4427">#4427</a>)</li>
-<li>Added support for HSL parking hubs (October 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4510">#4510</a>)</li>
+<li>Add timeZone parameter to Liipi updater (September 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4427">#4427</a>)</li>
+<li>Added support for Liipi parking hubs (October 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4510">#4510</a>)</li>
 <li>Add Bikely updater (November 2022, <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4589">#4589</a>)</li>
 </ul>
 
