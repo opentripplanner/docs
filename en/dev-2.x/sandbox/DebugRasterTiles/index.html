@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/SmooveBikeRental/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/DebugRasterTiles/">
       
       
-        <link rel="prev" href="../VehicleRentalServiceDirectory/">
+        <link rel="prev" href="../ActuatorAPI/">
       
       
-        <link rel="next" href="../MapboxVectorTilesApi/">
+        <link rel="next" href="../transferanalyzer/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Smoove Bike Rental Updator Support - OpenTripPlanner 2</title>
+        <title>Debug Raster Tiles - OpenTripPlanner 2</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hsl-smoove-bike-rental-updater-support-otp-sandbox-extension" class="md-skip">
+        <a href="#debug-raster-tiles" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Smoove Bike Rental Updator Support
+              Debug Raster Tiles
             
           </span>
         </div>
@@ -1611,10 +1611,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../DebugRasterTiles/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Debug Raster Tiles
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1623,6 +1643,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contact-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contact Info
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changelog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1758,30 +1831,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Smoove Bike Rental Updator Support
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../SmooveBikeRental/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1790,68 +1843,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contact-info" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contact Info
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changelog" class="md-nav__link">
-    <span class="md-ellipsis">
-      Changelog
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2176,35 +2167,34 @@
   
 
 
-<h1 id="hsl-smoove-bike-rental-updater-support-otp-sandbox-extension">HSL Smoove Bike Rental Updater Support - OTP Sandbox Extension</h1>
+<h1 id="debug-raster-tiles">Debug raster tiles</h1>
+<p><b>These are only meant to be used when using vector tiles is not an option (mainly JOSM).</b></p>
+<p>The raster tiles are available with the following path structure:
+<code>/otp/debugrastertiles/{layer}/{z}/{x}/{y}.png</code></p>
+<p>The available layers are:
+* bike-safety
+* walk-safety
+* thru-traffic
+* traversal
+* wheelchair
+* elevation</p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
-<li>Digitransit team, HSL, Helsinki, Finland</li>
+<li>Digitransit, Finland</li>
 </ul>
 <h2 id="changelog">Changelog</h2>
 <ul>
-<li>Move this functonality into a sandbox</li>
-<li>Add allowOverloading through updater config to the stations and isRenting, isReturning and
-  capacity from the data to stations (October
-  2021, https://github.com/opentripplanner/OpenTripPlanner/pull/3632)</li>
-<li>Rename <code>allowOverloading</code> to <code>overloadingAllowed</code></li>
+<li>2024-02-13: Moved raster tiles from core code into sandbox.</li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<p>TODO</p>
 <h3 id="configuration">Configuration</h3>
-<p>An example updater configuration:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    &quot;type&quot;: &quot;bike-rental&quot;,
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    &quot;sourceType&quot;: &quot;smoove&quot;,
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    &quot;network&quot;: &quot;smoove-network-1&quot;,
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    &quot;url&quot;: &quot;https://helsinki-fi.smoove.pro/api-public/stations&quot;,
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    &quot;frequency&quot;: 10,
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    &quot;overloadingAllowed&quot;: true
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>}
+<p>This is turned <em>off</em> by default. To turn it on enable the <code>DebugRasterTiles</code> feature.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// otp-config.json</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;otpFeatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;DebugRasterTiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div>
-<p><code>network</code> (optional) allows defining custom network id</p>
-<p><code>overloadingAllowed</code> (optional) defines if the stations in the network allow overloading (ignoring
-available spaces)</p>
 
 
 

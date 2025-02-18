@@ -1807,6 +1807,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../sandbox/DebugRasterTiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debug Raster Tiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sandbox/transferanalyzer/" class="md-nav__link">
         
   
@@ -2393,31 +2414,11 @@ how to generate a live local preview of the documentation while you're writing i
 <p>You can also use the interactive GraphQL API client that is built into every instance at</p>
 <p><a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a></p>
 <h3 id="debug-layers">Debug layers</h3>
-<p>Adding new renderer is very easy. You just need to create new class (preferably in
-<code>org.opentripplanner.inspector</code> package) which implements EdgeVertexRenderer. It is best if class
-name ends with Rendered. To implement this interface you need to write three functions <code>renderEdge</code>,
-<code>renderVertex</code> and <code>getName</code>. Both render functions accepts <code>EdgeVisualAttributes</code> object in which
-label of edge/vertex and color can be set. And both return <code>true</code> if edge/vertex should be rendered
-and <code>false</code> otherwise. <code>getName</code> function should return short descriptive name of the class and will
-be shown in layer chooser.</p>
-<p>For examples how to write renderers you can look into example renderers which are all
-in <code>org.opentripplanner.inspector</code> package.</p>
-<p>After your class is written you only need to add it to TileRenderManager:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">//This is how Wheelchair renderer is added</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">renderers</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;wheelchair&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EdgeVertexTileRenderer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">WheelchairEdgeRenderer</span><span class="p">()));</span>
-</code></pre></div>
-<p><code>wheelchair</code> is internal layer key and should consist of a-zA-Z and -.</p>
-<p>By default all the tiles have cache headers to cache them for one hour. This can become problematic
-if you are changing renderers a lot. To disable this change <code>GraphInspectorTileResource</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">//This lines</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">CacheControl</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CacheControl</span><span class="p">();</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">cc</span><span class="p">.</span><span class="na">setMaxAge</span><span class="p">(</span><span class="mi">3600</span><span class="p">);</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">cc</span><span class="p">.</span><span class="na">setNoCache</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">//to this:</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">CacheControl</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CacheControl</span><span class="p">();</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">cc</span><span class="p">.</span><span class="na">setNoCache</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-</code></pre></div>
+<p>Debug layers are implemented as vector tile layers. New layers can be added by
+editing <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/apis/vectortiles/DebugStyleSpec.java">DebugStyleSpec</a>.
+It might be also necessary to add new information
+to <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/inspector/vector/edge/EdgePropertyMapper.java">edges</a>
+or <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/inspector/vector/vertex/VertexPropertyMapper.java">vertices</a>.</p>
 <h3 id="date-format">Date format</h3>
 <p>Please use only ISO 8601 date format (YYYY-MM-DD) in documentation, comments, and throughout the
 project. This avoids the ambiguity that can result from differing local interpretations of date
