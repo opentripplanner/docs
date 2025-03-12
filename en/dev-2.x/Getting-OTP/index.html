@@ -2169,8 +2169,8 @@ repository. You can go to
 the <a href="https://github.com/opentripplanner/OpenTripPlanner/releases">release pages on GitHub</a>
 or <a href="https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/">the OTP directory at Maven Central</a>,
 navigate to the highest version number, and download the jar file <code>otp-shaded-VERSION.jar</code>.</p>
-<p>Note that version numbers like <code>v2.1.0-rc1</code> or <code>v2.6.0-SNAPSHOT</code> refer to development builds _
-before_ the release version <code>v2.6.0</code>. The existence of a build <code>vX.Y.Z-SNAPSHOT</code> does not mean
+<p>Note that version numbers like <code>v2.1.0-rc1</code> or <code>v2.7.0-SNAPSHOT</code> refer to development builds _
+before_ the release version <code>v2.7.0</code>. The existence of a build <code>vX.Y.Z-SNAPSHOT</code> does not mean
 that <code>vX.Y.Z</code> has been released yet.</p>
 <p>We use the <a href="https://github.com/opentripplanner/OpenTripPlanner/actions">Github Actions CI system</a> to
 build OTP every time a change is made. You can find the JARs resulting from those builds in
@@ -2233,7 +2233,7 @@ When working with a stable release of OTP, you may want to turn them off by addi
 switch: <code>-DskipTests</code>.</p>
 <p>For example, you could do the following:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>OpenTripPlanner
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>v2.6.0
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>v2.7.0
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>clean<span class="w"> </span>-df
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-DskipTests
 </code></pre></div>
@@ -2256,7 +2256,7 @@ project's <code>pom.xml</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;dependency&gt;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.opentripplanner<span class="nt">&lt;/groupId&gt;</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>otp<span class="nt">&lt;/artifactId&gt;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&lt;version&gt;</span>2.6.0<span class="nt">&lt;/version&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&lt;version&gt;</span>2.7.0<span class="nt">&lt;/version&gt;</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 
