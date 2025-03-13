@@ -2195,6 +2195,7 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 <li>Bump the SNAPSHOT version in the POM to the release version<ul>
 <li>Edit version in POM, removing SNAPSHOT and increasing version numbers as needed (following
   semantic versioning)</li>
+<li><code>mvn versions:set -DnewVersion=x.y.z</code></li>
 <li><code>git add pom.xml</code></li>
 <li><code>git commit -m "prepare release x.y.z"</code></li>
 </ul>
@@ -2249,7 +2250,7 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 </li>
 <li>Set up next development iteration<ul>
 <li>Add a new section header to <code>doc/user/Changelog.md</code> like <code>x.y+1.0-SNAPSHOT (in progress)</code></li>
-<li>Edit minor version in <code>pom.xml</code> to <code>x.y+1.0-SNAPSHOT</code></li>
+<li>Edit version in <code>pom.xml</code>s: <code>mvn versions:set -DnewVersion=x.y.z-SNAPSHOT</code></li>
 <li><code>git add pom.xml doc/user/Changelog.md</code></li>
 <li><code>git commit -m "Prepare next development iteration x.y+1.0-SNAPSHOT"</code></li>
 <li><code>git push</code></li>
