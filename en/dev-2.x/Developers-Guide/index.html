@@ -2729,11 +2729,11 @@ as well as the "shaded" JAR containing all dependencies, allowing stand-alone us
 process is handled by the Sonatype Nexus Staging plugin, which is no longer configured in the
 OpenTripPlanner POM. This step currently requires making a few significant manual modifications to
 the POM.</p>
-<p>We no longer trigger deployment of artifacts to Maven Central or deployment of REST API
-documentation to AWS automatically in our build scripts (GitHub Actions). These steps are prone to
-failure and require storing a lot of infrequently used secret information in the repo and
-environment variables on GitHub. Our releases are currently not very frequent so we just carry out
-these steps manually by following the checklist. We aim to make a release every 6 months.</p>
+<p>We no longer trigger deployment of artifacts to Maven Central automatically in our build scripts 
+(GitHub Actions). These steps are prone to failure and require storing a lot of infrequently used 
+secret information in the repo and environment variables on GitHub. Our releases are currently not 
+very frequent so we just carry out these steps manually by following the checklist. We aim to make 
+a release every 6 months.</p>
 <p>Use the <a href="../ReleaseChecklist/">Release Checklist</a> to perform the release.</p>
 
 

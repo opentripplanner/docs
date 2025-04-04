@@ -3531,10 +3531,8 @@ See <a href="https://github.com/opentripplanner/OpenTripPlanner/issues/2301">iss
 for detailed discussion of this.</p>
 <p>OTP allows you to adjust the elevation values reported in API responses in two ways. The first way
 is to store ellipsoid (GPS) elevation values internally, but apply a single geoid difference value
-in the OTP client where appropriate to display elevations above sea level. This ellipsoid to geoid
-difference is returned in each trip plan response in the
-<a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/ext/java/org/opentripplanner/ext/restapi/model/ElevationMetadata.java">ElevationMetadata</a>
-field. Using a single value can be sufficient for smaller OTP deployments, but might result in
+in the OTP client where appropriate to display elevations above sea level. </p>
+<p>Using a single value can be sufficient for smaller OTP deployments, but might result in
 incorrect values at the edges of larger OTP deployments. If your OTP instance uses this, it is
 recommended to set a default request value in the <code>router-config.json</code> file as follows:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// router-config.json</span>

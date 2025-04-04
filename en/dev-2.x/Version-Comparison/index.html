@@ -815,15 +815,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#routing-request-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Routing request parameters
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2689,11 +2680,6 @@ solve these problems in totally different ways - by provisioning and starting up
 virtual servers, then switching a load balancer over to those new servers. Because the Routers API
 is complex and exposes potentially damaging functionality over the network, it has been removed from
 OTP2 to simplify the code base and make it easier to reason about security.</p>
-<h3 id="routing-request-parameters">Routing request parameters</h3>
-<p>Less parameters are available on the OTP2 REST API than in OTP1. Often there is no practical loss of
-functionality, just a different way of expressing things due to the new routing algorithms. A
-summary of parameters that have been removed and their replacements can be found in the <a href="./#migration-guide">migration
-guide</a></p>
 <h2 id="otp-trip-planning-and-transit-index-apis">OTP Trip planning and Transit index APIs</h2>
 <p>OTP1 had two APIs for trip planning, the REST API and an GraphQL API (early version of the
 GTFS GraphQL API). This API has been formalised and is now, together with the Transmodel 
@@ -2707,6 +2693,7 @@ GraphQL API, the only supported way of sending requests to the OTP routing engin
 <p>The plan is to merge the two APIs above, clean it up and make it the new official API. The HSL API
 uses GTFS terminology, while the Entur API is Transmodel (NeTEx) based. Both APIs are similar in
 semantics and structure, and provide the same functionality. </p>
+<p>The REST API of OTP1 has been permanently removed in 2025.</p>
 <h2 id="additional-characteristics-added-in-otp2">Additional characteristics added in OTP2</h2>
 <p><strong>Sandbox Extensions</strong> OTP2's Sandbox system allows for plugins, proprietary extensions, and
 experimental feature development with less overhead. It forces OTP2 to become more extensible, while
