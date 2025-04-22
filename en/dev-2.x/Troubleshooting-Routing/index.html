@@ -747,30 +747,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debug-layers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debug layers
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Debug layers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interpretation-traversal-permissions-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interpretation Traversal permissions layer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#openstreetmap-data" class="md-nav__link">
     <span class="md-ellipsis">
       OpenStreetMap Data
@@ -2536,42 +2512,6 @@ graph builder JSON configuration.</p>
 the only tool for doing this is the "Graph Visualizer", which is not particularly well maintained
 and is intended for use by software developers familiar with OTP who can patch up the code as
 needed.</p>
-<h2 id="debug-layers">Debug layers</h2>
-<p>OpenTripplanner has option to ease debugging problems with graph. Older option is graph visualizer.
-Which you can enable with <code>--visualize</code> parameter instead of <code>--server</code> when starting OTP. There you
-can see whole graph. You can click on edges and vertices and see the metadata. It is useful to see
-if street has expected options. And if connections are where they are expected.</p>
-<p>It can be hard to use on large graphs since, whole graph is displayed at once. And it can be hard to
-search for specific streets since only street graph is shown without the rest of information.</p>
-<p>Another option is to use debug layers, which shows extra layers on top of the
-normal <a href="http://localhost:8080">debug UI map</a>. If you want to see them you need to open the map layer
-selector on the top left hand side and choose the requested layer.</p>
-<p>Currently you can choose between:</p>
-<ul>
-<li>Wheelchair access (which colors street edges red if they don't allow wheelchair or green
-  otherwise)</li>
-<li><a href="./#Bicycle-safety-factor">Bicycle safety</a> (colors street edges based on
-  how good are for cycling [smaller is better])</li>
-<li>Traversal permissions (colors street edges based on what types of transit modes are allowed to
-  travel on them (Pedestrian, cycling, car are currently supported)) Traversal permissions layer
-  also draws links from transit stops/vehicle rentals and P+R to graph. And also draws transit
-  stops, vehicle rentals and P+R vertices with different color.</li>
-<li>No thru traffic - streets are colored if the edge has thru traffic restrictions (car and bicycle
-  = <code>red</code>, car only = <code>orange</code>, bicycle only = <code>blue</code>, and no-restriction = <code>light gray</code>)</li>
-</ul>
-<h3 id="interpretation-traversal-permissions-layer">Interpretation Traversal permissions layer</h3>
-<p>A sample traversal permissions layer looks like the following
-<img alt="screen shot 2015-06-26 at 11 45 22" src="https://cloud.githubusercontent.com/assets/4493762/8374829/df05c438-1bf8-11e5-8ead-c1dea41af122.png" /></p>
-<ul>
-<li>Yellow lines is the link between a stop and the street graph.</li>
-<li>Grey lines are streets one can travel with the mode walk, bike, or car</li>
-<li>Green lines are paths one can travel with the mode walk only</li>
-<li>Red lines are streets one can travel with the mode car only</li>
-<li>Grey dots vertices where edges are connected. If two edges are crossing w/o a vertice at the
-  intersection point, users will not be able to go from one street to the other. But this can be
-  valid in case of over/under pass for example. If it's an error, it's usually caused by improperly
-  connected OSM data (a shared OSM node is required).</li>
-</ul>
 <h2 id="openstreetmap-data">OpenStreetMap Data</h2>
 <h3 id="tags-affecting-permissions-and-bicycle-safety">Tags affecting permissions and bicycle safety</h3>
 <p>OTP has a very flexible system for deciding when a street is to be allowed by pedestrians, bicycles
@@ -2632,8 +2572,6 @@ an overview. There is however an OTP feature to get an HTML viewer with a search
 you browse through the rules.</p>
 <p><img alt="Bicycle safety report" src="../images/bicycle-safety-report.png" /></p>
 <p>To enable it activate the <a href="../sandbox/ReportApi/">Report API sandbox feature</a>.</p>
-<p>To view the output of the bicycle safety calculation on a map, check
-the <a href="./#Debug-layers">debug layers</a>.</p>
 <h3 id="railway-platforms">Railway Platforms</h3>
 <p>OTP users in Helsinki have documented their best practices for coding railway platforms in
 OpenStreetMap. These guidelines are
