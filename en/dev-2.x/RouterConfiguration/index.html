@@ -2853,9 +2853,9 @@ on how-to configure the "server.traceParameters" instance.</p>
 <p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /server/traceParameters/[0] </p>
 <p>The log event key used.</p>
-<p>OTP stores the key/value pair in the log MDC(Mapped Diagnostic Context). To use it you normally
-include the key in the log pattern like this: <code>%X{LOG-KEY}</code>. See your log framework for details.
-Only log4j and logback support this.</p>
+<p>OTP stores the key/value pair in the log MDC (Mapped Diagnostic Context). To use it
+you normally include the key in the log pattern like this: <code>%X{LOG-KEY}</code>. See your
+log framework for details. Only log4j and logback support this.</p>
 <h3 id="timetableUpdates_maxSnapshotFrequency">maxSnapshotFrequency</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT1S"</code> <br />
@@ -2927,13 +2927,13 @@ no extra threads are started and the search is done in one thread.</p>
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /transit </p>
 <p>The dynamic search window coefficients used to calculate the EDT, LAT and SW.</p>
-<p>The dynamic search window coefficients is used to calculate EDT(<em>earliest-departure-time</em>),
-LAT(<em>latest-arrival-time</em>) and SW(<em>raptor-search-window</em>) request parameters using heuristics. The
+<p>The dynamic search window coefficients is used to calculate EDT (<em>earliest-departure-time</em>),
+LAT (<em>latest-arrival-time</em>) and SW (<em>raptor-search-window</em>) request parameters using heuristics. The
 heuristics perform a Raptor search (one-iteration) to find a trip which we use to find a lower
 bound for the travel duration time - the "minTransitTime". The heuristic search is used for other
 purposes too, and is very fast.</p>
 <p>At least the EDT or the LAT must be passed into Raptor to perform a Range Raptor search. If
-unknown/missing the parameters(EDT, LAT, DW) are dynamically calculated. The dynamic coefficients
+unknown/missing the parameters (EDT, LAT, DW) are dynamically calculated. The dynamic coefficients
 affect the performance and should be tuned to match the deployment.</p>
 <p>The request parameters are calculated like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    DW  = round_N(C + T * minTransitTime + W * minWaitTime)

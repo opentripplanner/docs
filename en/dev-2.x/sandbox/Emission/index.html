@@ -2339,6 +2339,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#emission-input-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emission input data files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission-route-format-input-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emission route format input data files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission-trip-hop-format-input-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emission trip hop format input data files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Configuration
@@ -2393,6 +2420,15 @@
   <a href="#otp-25" class="md-nav__link">
     <span class="md-ellipsis">
       OTP 2.5
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otp-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      OTP 2.8
     </span>
   </a>
   
@@ -2488,31 +2524,109 @@
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li>Digitransit Team</li>
+<li>Entur AS</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>Graph build import of CO₂ Emissions from GTFS data sets (through custom emissions.txt extension)
-and the ability to attach them to itineraries by Digitransit team.
-The emissions are represented in grams per kilometer (g/Km) unit.</p>
-<p>Emissions data is located in an emissions.txt file within a gtfs package and has the following columns:</p>
-<p><code>route_id</code>: route id</p>
-<p><code>avg_co2_per_vehicle_per_km</code>: Average carbon dioxide equivalent value for the vehicles used on the route at grams/Km units.</p>
-<p><code>avg_passenger_count</code>: Average passenger count for the vehicles on the route.</p>
-<p>For example:
+<p>The emission module enables import of CO₂ Emissions data which OTP can use to decorate itineraries
+and itinerary legs. Emissions data is loaded during the graph build process. OTP supports two data
+import formats (yet to be standarized).</p>
+<ul>
+<li>The <em>Route format</em> provided by HSL decorates each route with a average co2 emission per kilometers
+  per person. The input parameters are <code>route_id</code>, <code>avg_co2_per_vehicle_per_km</code> and
+  <code>avg_passenger_count</code>.</li>
+<li>The <em>Trip format</em> provided by Entur decorates each trip hop. The plan is to expand this to include
+  service date. This allows the emission provider to calculate acurate data down to each trip
+  departure (except departures operated by more than one vehicle). The input parameters are 
+  <code>trip_id</code>, <code>from_stop_id</code>, <code>from_stop_sequence</code> and <code>co2</code>.</li>
+</ul>
+<h3 id="emission-input-data-files">Emission input data files</h3>
+<p>OTP can load emission data files as part of a GTFS bundle(zip, composite resource or directory) and
+from separate files provided individually.</p>
+<ul>
+<li>If provided as part of a GTFS bundle the file MUST be named <em>emissions.txt</em>.</li>
+<li>If provided as a standalone file the file must be listed in the <em>build-config.json</em> and the file
+  name MUST include the word '"emission"' and the extension must be <code>.csv</code> or <code>.txt</code>. The
+  configuration must include a feedId for each file. This feedId is used to match the the trip id
+  tho the transit feed. Both NeTEx and GTFS feeds are supported.</li>
+</ul>
+<p>Both formats are supported as part of a GTFS bundle and as standalone files.</p>
+<h3 id="emission-route-format-input-data-files">Emission route format input data files</h3>
+<p>(by the Digitransit team)</p>
+<p>The emissions are represented in grams per kilometer (g/Km) unit.</p>
+<p>Emission file has the following columns:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">CSV Header</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>route_id</code></td>
+<td style="text-align: left;">Route id</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>avg_co2_per_vehicle_per_km</code></td>
+<td style="text-align: left;">Average carbon dioxide equivalent value for the vehicles used on the route at grams/Km units.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>avg_passenger_count</code></td>
+<td style="text-align: left;">Average passenger count for the vehicles on the route.</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>route_id,avg_co2_per_vehicle_per_km,avg_passenger_count
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>1234,123,20
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>2345,0,0
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>3456,12.3,20.0
-</code></pre></div></p>
-<p>Emissions data is loaded from the gtfs package and embedded into the graph during the build process.</p>
-<h3 id="configuration">Configuration</h3>
-<p>To enable this functionality, you need to enable the "Co2Emissions"  feature in the
-<code>otp-config.json</code> file.</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">//otp-config.json</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;Co2Emissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
 </code></pre></div>
-Include the <code>emissions</code> object in the
+<h3 id="emission-trip-hop-format-input-data-files">Emission trip hop format input data files</h3>
+<p>(by the Entur team)</p>
+<p>The emissions are represented in grams per kilometer (g/Km) unit.</p>
+<p>Emission file has the following columns:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">CSV Header</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>trip_id</code></td>
+<td style="text-align: left;">The GTFS trip id or the NeTEx ServiceJourney id</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>from_stop_id</code></td>
+<td style="text-align: left;">The GTFS stop id or the NeTEx Quay id. This is use together with the <code>from_stop_sequence</code> to match the stop. If the emissions data does not match the given transit feed, then the row is dropped and an issue is added to the build report.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>from_stop_sequence</code></td>
+<td style="text-align: left;">The boarding stop sequence number in the trip stop pattern. The first stop is number one(1), not zero(0).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>co2</code></td>
+<td style="text-align: left;">Average carbon dioxide equivalent value for the vehicles used on given trip hop starting at the given stop. The unit is grams per person per hop.</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>trip_id,from_stop_id,from_stop_sequence,co2
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Trip:3,Stop:A,1,90.456
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Trip:3,Stop:A,2,130.483
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Trip:3,Stop:A,3,172.646
+</code></pre></div>
+<h3 id="configuration">Configuration</h3>
+<p>To enable this functionality, you need to enable the "Emission" feature in the
+<code>otp-config.json</code> file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">//otp-config.json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;Emission&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Include the <code>emissions</code> object in the
 <code>build-config.json</code> file. The <code>emissions</code> object should contain parameters called
 <code>carAvgCo2PerKm</code> and <code>carAvgOccupancy</code>. The <code>carAvgCo2PerKm</code> provides the average emissions value for a car in g/km and
 the <code>carAvgOccupancy</code> provides the average number of passengers in a car.</p>
@@ -2520,19 +2634,19 @@ the <code>carAvgOccupancy</code> provides the average number of passengers in a 
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
 <h3 id="example-configuration">Example configuration</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// build-config.json</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;emission&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;carAvgCo2PerKm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;carAvgOccupancy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;feeds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MY&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://my.org/emissions/latest&quot;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">]</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;emission&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;carAvgCo2PerKm&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;carAvgOccupancy&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;feeds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MY&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://my.org/emissions/latest&quot;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="overview">Overview</h3>
 <table>
@@ -2549,10 +2663,10 @@ the <code>carAvgOccupancy</code> provides the average number of passengers in a 
 <tbody>
 <tr>
 <td>carAvgCo2PerKm</td>
-<td style="text-align: center;"><code>integer</code></td>
+<td style="text-align: center;"><code>gram</code></td>
 <td>The average CO₂ emissions of a car in grams per kilometer.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>170</code></td>
+<td><code>"170g"</code></td>
 <td style="text-align: center;">2.5</td>
 </tr>
 <tr>
@@ -2566,7 +2680,7 @@ the <code>carAvgOccupancy</code> provides the average number of passengers in a 
 <tr>
 <td><a href="#emission_feeds">feeds</a></td>
 <td style="text-align: center;"><code>object[]</code></td>
-<td>List of emmistion feeds.</td>
+<td>List of emission feeds.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
 <td style="text-align: center;">2.8</td>
@@ -2594,13 +2708,18 @@ the <code>carAvgOccupancy</code> provides the average number of passengers in a 
 
 <p><strong>Since version:</strong> <code>2.8</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /emission </p>
-<p>List of emmistion feeds.</p>
+<p>List of emission feeds.</p>
 <!-- config END -->
 
 <h2 id="changelog">Changelog</h2>
 <h3 id="otp-25">OTP 2.5</h3>
 <ul>
-<li>Initial implementation of the emissions calculation.</li>
+<li>Initial implementation of the emissions calculation. Support for the route input data format by 
+  Digitransit.</li>
+</ul>
+<h3 id="otp-28">OTP 2.8</h3>
+<ul>
+<li>Support for the trip input data format by Entur and for standalone input files.</li>
 </ul>
 
 
