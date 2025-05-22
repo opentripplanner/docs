@@ -2625,14 +2625,6 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td><a href="#gsCredentials">gsCredentials</a></td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Local file system path to Google Cloud Platform service accounts credentials file.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.0</td>
-</tr>
-<tr>
 <td><a href="#includeEllipsoidToGeoidDifference">includeEllipsoidToGeoidDifference</a></td>
 <td style="text-align: center;"><code>boolean</code></td>
 <td>Include the Ellipsoid to Geoid difference in the calculations of every point along every StreetWithElevationEdge.</td>
@@ -2871,6 +2863,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
 <td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>gsConfig</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for Google Cloud Storage</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.8</td>
 </tr>
 <tr>
 <td>gtfsDefaults</td>
@@ -3658,15 +3658,6 @@ or format check on the version and it can be any string.</p>
 <strong>Path:</strong> / </p>
 <p>URI to the graph object file for reading and writing.</p>
 <p>The file is created or overwritten if OTP saves the graph to the file.</p>
-<h3 id="gsCredentials">gsCredentials</h3>
-
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> / </p>
-<p>Local file system path to Google Cloud Platform service accounts credentials file.</p>
-<p>The credentials is used to access GCS urls. When using GCS from outside of Google Cloud you
-need to provide a path the the service credentials. Environment variables in the path are
-resolved.</p>
-<p>This is a path to a file on the local file system, not an URI.</p>
 <h3 id="includeEllipsoidToGeoidDifference">includeEllipsoidToGeoidDifference</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
