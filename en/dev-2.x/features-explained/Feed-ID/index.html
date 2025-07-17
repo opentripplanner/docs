@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/features-explained/GTFS-feedid/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/features-explained/Feed-ID/">
       
       
+        <link rel="prev" href="../../Migrating-Configuration/">
+      
+      
+        <link rel="next" href="../../RoutingModes/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>GTFS feedId - OpenTripPlanner 2</title>
+        <title>Feed ID - OpenTripPlanner 2</title>
       
     
     
@@ -68,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gtfs-feedid" class="md-skip">
+        <a href="#feed-id" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GTFS feedId
+              Feed ID
             
           </span>
         </div>
@@ -1374,18 +1378,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1401,12 +1407,134 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Features explained
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Feed ID
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feed ID
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#determining-the-feedid-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determining the feedId value
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Determining the feedId value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gtfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      GTFS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GTFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#via-build-configjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      Via build-config.json
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-non-standard-feed_id-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading non-standard feed_id value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatically-assigned-value-fallback-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatically assigned value (fallback method)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
             
               
                 
@@ -2375,26 +2503,42 @@
   
 
 
-<h1 id="gtfs-feedid">GTFS feedId</h1>
-<p>The GTFS feedId is a unique identifier given to a GTFS dataset allowing OTP to associate GTFS realtime feeds to GTFS static data.</p>
-<p>Most applications don't need to manage more than a single GTFS dataset at a time, where the static data and the realtime feeds are linked directly to one another. However, OTP has the ability and is often used to this purpose. Therefore, it is important to understand how the GTFS feedId is used and how to configure it properly.</p>
-<h2 id="determining-the-feedid-value">Determining the feedId value</h2>
-<p>A GTFS feedId is attributed when building a graph, where it will be stored in the graph itself. Thus, once stored in a graph, a GTFS dataset retains its assigned feedId regardless of where and when the graph is loaded. </p>
-<p>To define a GTFS feedId value, OTP uses the three following methods, listed by priority:
-* Via build-config.json;
-* Reading non-standard feed_id value from the feed_info.txt file;
-* Automatically assigned value.</p>
-<h3 id="via-build-configjson">Via build-config.json</h3>
-<p>If specified, OTP uses the provided feedId of a given GTFS feed, listed in the <a href="../../examples/ibi/portland/build-config.json">transitFeeds object from build-config.json</a>. This allows the user to specify the feedId value they want to use.</p>
-<p>While this value is optional, and because OTP will either use the specified value or automatically assign an unknown one to the user,  it is recommended to set a unique feedId value. This value could be used eventually, for example, if realtime feeds need to be added to the static data at a later time without having to rebuild the graph.</p>
+<h1 id="feed-id">Feed ID</h1>
+<p>The feed ID is a unique identifier given to a GTFS or NeTEx dataset allowing OTP to associate real-time 
+feeds with static timetable data.</p>
+<p>Some applications don't need to manage more than a single transit dataset at a time, where the static 
+data and the real-time feeds are linked directly to one another. However, OTP has the ability and 
+is often used for this purpose. Therefore, it is important to understand how feed IDs are used and 
+how to configure them properly.</p>
+<h2 id="determining-the-feedid-value">Determining the <code>feedId</code> value</h2>
+<p>A feed ID is assigned when building a graph, where it will be stored in the graph itself. Thus,
+once stored in a graph, a GTFS or NeTEx dataset retains its assigned feedId regardless of where and
+when the graph is loaded.</p>
+<h3 id="gtfs">GTFS</h3>
+<p>To define a GTFS <code>feedId</code> value, OTP uses the three following methods, listed by priority:</p>
+<ul>
+<li>Via <code>build-config.json</code></li>
+<li>Reading non-standard feed_id value from the <code>feed_info.txt</code> file</li>
+<li>Automatically assigned value</li>
+</ul>
+<h4 id="via-build-configjson">Via <code>build-config.json</code></h4>
+<p>If specified, OTP uses the provided feedId of a given GTFS feed, listed in the <a href="../../examples/ibi/portland/build-config.json">transitFeeds object from build-config.json</a>. 
+This allows the user to specify the <code>feedId</code> value they want to use.</p>
+<p>While this value is optional, and because OTP will either use the specified value or automatically 
+assign an unknown one to the user, it is recommended to set a unique feedId value. 
+This value could be used later, for example, if real-time feeds need to be added to the static data 
+at a later time without having to rebuild the graph.</p>
 <p>This is the preferred and most reliable method to configure a GTFS feedId.</p>
-<h3 id="reading-non-standard-feed_id-value">Reading non-standard feed_id value</h3>
-<p>When no feedId is provided via the build-config.json file for a given GTFS feed, or when a GTFS static data file is simply added to the working directory during build, OTP looks for a feed_id value from feed_info.txt file, if available.</p>
-<p>Note that the feed_info.txt file is optional. Furthermore, the feed_id value is considered non-standard: although its addition to the feed_info.txt file has been <a href="https://github.com/google/transit/pull/62">discussed several times by the GTFS community</a>, it was never incorporated into the GTFS standard. However, it has since been adopted by a few supporting transit agencies and transit data providers.</p>
-<h3 id="automatically-assigned-value-fallback-method">Automatically assigned value (fallback method)</h3>
+<h4 id="reading-non-standard-feed_id-value">Reading non-standard feed_id value</h4>
+<p>When no feedId is provided via the build-config.json file for a given GTFS feed, or when a GTFS 
+static data file is simply added to the working directory during build, OTP looks for a feed_id value 
+from <code>feed_info.txt</code> file, if available.</p>
+<p>Note that the <code>feed_info.txt</code> file is optional. Furthermore, the feed_id value is non-standard: 
+although its addition to the <code>feed_info.txt</code> file has been <a href="https://github.com/google/transit/pull/62">discussed several times by the GTFS community</a>, it was never incorporated into the GTFS standard. However, it has since been adopted by a few supporting transit agencies and transit data providers.</p>
+<h4 id="automatically-assigned-value-fallback-method">Automatically assigned value (fallback method)</h4>
 <p>As a fallback method, OTP assigns a feedId as an increasing integer to all GTFS data processed at build.</p>
-<p>This method has several drawbacks. First, if multiple GTFS datasets are used, the value automatically assigned by OTP is difficult to predict. Second, OTP could assign a different value if another GTFS dataset is added later. While it is possible to identify the feedId attributed to a given GTFS dataset by debugging a graph, this method doesn't allow for proper configuration of realtime feeds beforehand. </p>
-<p>Unless OTP manages a single dataset, this method should be avoided at all cost if one wants to link realtime feeds with static data.</p>
+<p>This method has several drawbacks. First, if multiple GTFS datasets are used, the value automatically assigned by OTP is difficult to predict. Second, OTP could assign a different value if another GTFS dataset is added later. While it is possible to identify the feedId attributed to a given GTFS dataset by debugging a graph, this method doesn't allow for proper configuration of real-time feeds beforehand. </p>
+<p>Unless OTP manages a single dataset, this method should be avoided at all cost if one wants to link real-time feeds with static data.</p>
 
 
 
