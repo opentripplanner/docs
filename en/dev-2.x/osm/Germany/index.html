@@ -2573,6 +2573,12 @@ Lower safety values make an OSM way more desirable and higher values less desira
 <td></td>
 </tr>
 <tr>
+<td><code>highway=bridleway</code></td>
+<td><code>NONE</code></td>
+<td>1.3</td>
+<td></td>
+</tr>
+<tr>
 <td><code>highway=corridor</code></td>
 <td><code>PEDESTRIAN</code></td>
 <td></td>
@@ -2615,6 +2621,18 @@ Lower safety values make an OSM way more desirable and higher values less desira
 <td></td>
 </tr>
 <tr>
+<td><code>highway=pedestrian</code></td>
+<td><code>PEDESTRIAN</code></td>
+<td>0.9</td>
+<td></td>
+</tr>
+<tr>
+<td><code>highway=footway</code></td>
+<td><code>PEDESTRIAN</code></td>
+<td>1.1</td>
+<td></td>
+</tr>
+<tr>
 <td><code>mtb:scale=1</code></td>
 <td><code>PEDESTRIAN</code></td>
 <td></td>
@@ -2627,39 +2645,21 @@ Lower safety values make an OSM way more desirable and higher values less desira
 <td></td>
 </tr>
 <tr>
+<td><code>highway=cycleway</code></td>
+<td><code>BICYCLE</code></td>
+<td>0.6</td>
+<td></td>
+</tr>
+<tr>
 <td><code>mtb:scale=0</code></td>
 <td><code>PEDESTRIAN_AND_BICYCLE</code></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><code>highway=cycleway</code></td>
-<td><code>PEDESTRIAN_AND_BICYCLE</code></td>
-<td>0.6</td>
-<td></td>
-</tr>
-<tr>
 <td><code>highway=path</code></td>
 <td><code>PEDESTRIAN_AND_BICYCLE</code></td>
 <td>0.75</td>
-<td></td>
-</tr>
-<tr>
-<td><code>highway=pedestrian</code></td>
-<td><code>PEDESTRIAN_AND_BICYCLE</code></td>
-<td>0.9</td>
-<td></td>
-</tr>
-<tr>
-<td><code>highway=footway</code></td>
-<td><code>PEDESTRIAN_AND_BICYCLE</code></td>
-<td>1.1</td>
-<td></td>
-</tr>
-<tr>
-<td><code>highway=bridleway</code></td>
-<td><code>PEDESTRIAN_AND_BICYCLE</code></td>
-<td>1.3</td>
 <td></td>
 </tr>
 <tr>
@@ -2747,21 +2747,21 @@ Lower safety values make an OSM way more desirable and higher values less desira
 <td></td>
 </tr>
 <tr>
+<td><code>highway=trunk</code></td>
+<td><code>ALL</code></td>
+<td>7.47</td>
+<td>7.47</td>
+</tr>
+<tr>
 <td><code>highway=trunk_link</code></td>
-<td><code>CAR</code></td>
+<td><code>ALL</code></td>
 <td>2.06</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=motorway_link</code></td>
 <td><code>CAR</code></td>
 <td>2.06</td>
-<td></td>
-</tr>
-<tr>
-<td><code>highway=trunk</code></td>
-<td><code>CAR</code></td>
-<td>7.47</td>
 <td></td>
 </tr>
 <tr>
@@ -2773,8 +2773,8 @@ Lower safety values make an OSM way more desirable and higher values less desira
 <tr>
 <td><code>motorroad=yes</code></td>
 <td><code>CAR</code></td>
-<td></td>
-<td></td>
+<td>7.47</td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>present(highway); cycleway=lane</code></td>
@@ -2838,15 +2838,15 @@ Lower safety values make an OSM way more desirable and higher values less desira
 </tr>
 <tr>
 <td><code>highway=trunk; cycleway=lane</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>1.5</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=trunk_link; cycleway=lane</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>1.15</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=motorway; cycleway=lane</code></td>
@@ -2922,15 +2922,15 @@ Lower safety values make an OSM way more desirable and higher values less desira
 </tr>
 <tr>
 <td><code>highway=trunk; cycleway=share_busway</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>1.75</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=trunk_link; cycleway=share_busway</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>1.25</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=motorway; cycleway=share_busway</code></td>
@@ -3006,15 +3006,15 @@ Lower safety values make an OSM way more desirable and higher values less desira
 </tr>
 <tr>
 <td><code>highway=trunk; cycleway=opposite_lane</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>forward: 7.47 <br> back: 1.5</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=trunk_link; cycleway=opposite_lane</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>forward: 2.06 <br> back: 1.15</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>present(highway); cycleway=track</code></td>
@@ -3078,15 +3078,15 @@ Lower safety values make an OSM way more desirable and higher values less desira
 </tr>
 <tr>
 <td><code>highway=trunk; cycleway=track</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>0.95</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=trunk_link; cycleway=track</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>0.85</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>present(highway); cycleway=opposite_track</code></td>
@@ -3150,15 +3150,15 @@ Lower safety values make an OSM way more desirable and higher values less desira
 </tr>
 <tr>
 <td><code>highway=trunk; cycleway=opposite_track</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>forward: 7.47 <br> back: 0.95</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=trunk_link; cycleway=opposite_track</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>forward: 2.06 <br> back: 0.85</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>present(highway); cycleway=shared_lane</code></td>
@@ -3318,7 +3318,7 @@ Lower safety values make an OSM way more desirable and higher values less desira
 </tr>
 <tr>
 <td><code>highway=footway; footway=crossing</code></td>
-<td><code>PEDESTRIAN_AND_BICYCLE</code></td>
+<td><code>PEDESTRIAN</code></td>
 <td>2.5</td>
 <td></td>
 </tr>
@@ -3360,8 +3360,26 @@ Lower safety values make an OSM way more desirable and higher values less desira
 </tr>
 <tr>
 <td><code>present(highway); bicycle=designated</code></td>
-<td><code>ALL</code></td>
+<td><code>BICYCLE</code></td>
 <td>0.97</td>
+<td></td>
+</tr>
+<tr>
+<td><code>highway=footway; bicycle=designated</code></td>
+<td><code>PEDESTRIAN_AND_BICYCLE</code></td>
+<td>0.8</td>
+<td></td>
+</tr>
+<tr>
+<td><code>highway=cycleway; bicycle=designated</code></td>
+<td><code>BICYCLE</code></td>
+<td>0.6</td>
+<td></td>
+</tr>
+<tr>
+<td><code>highway=bridleway; bicycle=designated</code></td>
+<td><code>BICYCLE</code></td>
+<td>0.8</td>
 <td></td>
 </tr>
 <tr>
@@ -3426,15 +3444,15 @@ Lower safety values make an OSM way more desirable and higher values less desira
 </tr>
 <tr>
 <td><code>highway=trunk; bicycle=designated</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>7.25</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=trunk_link; bicycle=designated</code></td>
-<td><code>BICYCLE_AND_CAR</code></td>
+<td><code>ALL</code></td>
 <td>2.0</td>
-<td></td>
+<td>7.47</td>
 </tr>
 <tr>
 <td><code>highway=motorway; bicycle=designated</code></td>
@@ -3527,6 +3545,16 @@ way properties. Multiple mixins can apply to the same way and their effects comp
 <td><code>lcn=yes¦rcn=yes¦ncn=yes¦bicycle_road=yes¦cyclestreet=yes</code></td>
 <td>0.7</td>
 <td></td>
+</tr>
+<tr>
+<td><code>highway=trunk; sidewalk=yes¦highway=trunk; sidewalk=left¦highway=trunk; sidewalk=right¦highway=trunk; sidewalk=both</code></td>
+<td></td>
+<td>0.25</td>
+</tr>
+<tr>
+<td><code>highway=trunk; sidewalk=lane</code></td>
+<td></td>
+<td>0.6</td>
 </tr>
 <tr>
 <td><code>surface=unpaved</code></td>
