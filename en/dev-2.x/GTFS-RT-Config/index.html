@@ -2803,18 +2803,18 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 <p>How forwards propagation should be handled.</p>
 <ul>
 <li><code>none</code> Do not propagate delays forwards. Reject real-time updates if not all arrival / departure times
-   are specified until the end of the trip.</li>
-</ul>
-<p>Note that this will also reject all updates containing NO_DATA, or all updates containing
-   SKIPPED stops without a time provided. Only use this value when you can guarantee that the
+   are specified until the end of the trip.
+   Note that this will also reject all updates containing <code>NO_DATA</code>, or all updates containing
+   <code>SKIPPED</code> stops without a time provided. Only use this value when you can guarantee that the
    real-time feed contains all departure and arrival times for all future stops, including
-   SKIPPED stops.
- - <code>default</code> Default value. Propagate delays forwards for stops without arrival / departure times given.</p>
-<p>For NO_DATA stops, the scheduled time is used unless a previous delay fouls the scheduled time
+   <code>SKIPPED</code> stops.</li>
+<li><code>default</code> Default value. Propagate delays forwards for stops without arrival / departure times given.
+   For <code>NO_DATA</code> stops, the scheduled time is used unless a previous delay fouls the scheduled time
    at the stop, in such case the minimum amount of delay is propagated to make the times
-   non-decreasing.</p>
-<p>For SKIPPED stops without time given, interpolate the estimated time using the ratio between
-   scheduled and real times from the previous to the next stop.</p>
+   non-decreasing.
+   For <code>SKIPPED</code> stops without time given, interpolate the estimated time using the ratio between
+   scheduled and real times from the previous to the next stop.</li>
+</ul>
 <h4 id="u__5__url">url</h4>
 
 <p><strong>Since version:</strong> <code>1.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
@@ -2957,18 +2957,18 @@ that they will be applied individually in near-real-time rather than in batches 
 <p>How forwards propagation should be handled.</p>
 <ul>
 <li><code>none</code> Do not propagate delays forwards. Reject real-time updates if not all arrival / departure times
-   are specified until the end of the trip.</li>
-</ul>
-<p>Note that this will also reject all updates containing NO_DATA, or all updates containing
-   SKIPPED stops without a time provided. Only use this value when you can guarantee that the
+   are specified until the end of the trip.
+   Note that this will also reject all updates containing <code>NO_DATA</code>, or all updates containing
+   <code>SKIPPED</code> stops without a time provided. Only use this value when you can guarantee that the
    real-time feed contains all departure and arrival times for all future stops, including
-   SKIPPED stops.
- - <code>default</code> Default value. Propagate delays forwards for stops without arrival / departure times given.</p>
-<p>For NO_DATA stops, the scheduled time is used unless a previous delay fouls the scheduled time
+   <code>SKIPPED</code> stops.</li>
+<li><code>default</code> Default value. Propagate delays forwards for stops without arrival / departure times given.
+   For <code>NO_DATA</code> stops, the scheduled time is used unless a previous delay fouls the scheduled time
    at the stop, in such case the minimum amount of delay is propagated to make the times
-   non-decreasing.</p>
-<p>For SKIPPED stops without time given, interpolate the estimated time using the ratio between
-   scheduled and real times from the previous to the next stop.</p>
+   non-decreasing.
+   For <code>SKIPPED</code> stops without time given, interpolate the estimated time using the ratio between
+   scheduled and real times from the previous to the next stop.</li>
+</ul>
 <h5 id="example-configuration_2">Example configuration</h5>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
