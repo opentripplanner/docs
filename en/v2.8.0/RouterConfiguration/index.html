@@ -1,0 +1,3684 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.opentripplanner.org/v2.8.0/RouterConfiguration/">
+      
+      
+        <link rel="prev" href="../osm/UK/">
+      
+      
+        <link rel="next" href="../RouteRequest/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Router - OpenTripPlanner 2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#router-configuration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenTripPlanner 2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Router
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/opentripplanner/OpenTripPlanner" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OpenTripPlanner 2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/opentripplanner/OpenTripPlanner" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Product-Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Product Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../History/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Presentations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visual-Identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Identity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-Tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basic Tutorial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Netex-Tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Netex and SIRI Tutorial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting-OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting OTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-Sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Container-Image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Container Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Requirements and Suggestions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Preparing-OSM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Preparing OSM Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting-Routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Version-Comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparing OTP2 to OTP1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Frontends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frontends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    APIs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/Apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/GraphQL-Tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphQL Tutorial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/GTFS-GraphQL-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GTFS GraphQL API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/TransmodelApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transmodel (NeTEx) GraphQL API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BuildConfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OSM Tag Mapping
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            OSM Tag Mapping
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/OsmTag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Default
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Finland/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Finland
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Germany/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Germany
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Norway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Norway
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/UK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Router
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configure-using-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure using command-line arguments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routing defaults
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-config-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Router Config Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RouteRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Route Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Realtime Updaters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Realtime Updaters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Realtime-Updaters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GTFS-RT-Config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GTFS-RT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIRI-Config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SIRI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GBFS-Config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GBFS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DebugUiConfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debug UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migrating-Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Migrating between versions/builds
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Features explained
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Features explained
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-explained/Feed-ID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Feed ID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RoutingModes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Routing modes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../In-Station-Navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In-station navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BoardingLocations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Boarding Locations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StopAreas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stop Area Relations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IslandPruning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Street Graph Pruning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accessibility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-explained/Netex-Siri-Compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NeTEx and SIRI compatibility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Travel Time Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developers-Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developers' Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bibliography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bibliography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxExtension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sandbox Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ReleaseChecklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Release Checklist
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sandbox
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Sandbox
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxExtension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sandbox Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/DebugRasterTiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debug Raster Tiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Direct Transfer Analyzer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Cloud Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriGooglePubSubUpdater/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SIRI Updaters (Google Cloud)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SIRI Updater (Azure)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vehicle Rental Service Directory API support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smoove Bike Rental Updator Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mapbox Vector Tiles API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Flex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flex Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ReportApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interactive OTP Launcher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Park and Ride API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/DataOverlay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Overlay
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleParking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vehicle Parking Updaters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Geocoder API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IBI Accessibility Score
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Fares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fares
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/RideHailing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ride Hailing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Emission/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/StopConsolidation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stop Consolidation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Sorlandsbanen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sørlandsbanen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/TriasApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TRIAS API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<!--
+  NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
+
+   - Template directory is:  /doc/templates
+   - Generated directory is: /doc/user 
+-->
+
+<h1 id="router-configuration">Router configuration</h1>
+<p>This section covers all options that can be set for each router using the <code>router-config.json</code> file.
+These options can be applied by the OTP server without rebuilding the graph.</p>
+<h2 id="configure-using-command-line-arguments">Configure using command-line arguments</h2>
+<p>Certain settings can be provided on the command line, when starting OpenTripPlanner. See
+the <code>CommandLineParameters</code> class
+for <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/standalone/config/CommandLineParameters.java">a full list of arguments</a>
+.</p>
+<h2 id="routing-defaults">Routing defaults</h2>
+<p>There are many trip planning options used in the OTP web API, and more exist internally that are not
+exposed via the API. You may want to change the default value for some of these parameters, i.e. the
+value which will be applied unless it is overridden in a web API request.</p>
+<p>A full list of them can be found in the <a href="../RouteRequest/">RouteRequest</a>.</p>
+<h2 id="parameter-summary">Parameter Summary</h2>
+<!-- PARAMETERS-TABLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#configVersion">configVersion</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>Deployment version of the <em>router-config.json</em>.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td><a href="../sandbox/Flex/">flex</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for flex routing.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>gtfsApi</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for the GTFS GraphQL API.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.8</td>
+</tr>
+<tr>
+<td>   <a href="#gtfsApi_tracingTags">tracingTags</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Used to group requests based on headers or query parameters when monitoring OTP.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td><a href="../sandbox/RideHailing/">rideHailingServices</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>Configuration for interfaces to external ride hailing services like Uber.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td><a href="../RouteRequest/">routingDefaults</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The default parameters for the routing query.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td><a href="#server">server</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for router server.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#server_apiDocumentationProfile">apiDocumentationProfile</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>List of available custom documentation profiles. A profile is used to inject custom documentation like type and field description or a deprecated reason.  Currently, ONLY the Transmodel API supports this feature.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"default"</code></td>
+<td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>   <a href="#server_apiProcessingTimeout">apiProcessingTimeout</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Maximum processing time for an API request</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT-1S"</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#server_traceParameters">traceParameters</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>Trace OTP request using HTTP request/response parameter(s) combined with logging.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>         generateIdIfMissing</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>If <code>true</code> a unique value is generated if no http request header is provided, or the value is missing.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>         httpRequestHeader</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The header-key to use when fetching the trace parameter value</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>         httpResponseHeader</td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The header-key to use when saving the value back into the http response</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>         <a href="#server_traceParameters_0_logKey">logKey</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The log event key used.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>timetableUpdates</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Global configuration for timetable updaters.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#timetableUpdates_maxSnapshotFrequency">maxSnapshotFrequency</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>How long a snapshot should be cached.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT1S"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   purgeExpiredData</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Should expired real-time data be purged from the graph. Apply to GTFS-RT and Siri updates.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>true</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td><a href="#transit">transit</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for transit searches with RAPTOR.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   <a href="#transit_iterationDepartureStepInSeconds">iterationDepartureStepInSeconds</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Step for departure times between each RangeRaptor iterations.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>60</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   <a href="#transit_maxNumberOfTransfers">maxNumberOfTransfers</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>This parameter is used to allocate enough memory space for Raptor.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>12</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   <a href="#transit_maxSearchWindow">maxSearchWindow</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Upper limit of the request parameter searchWindow.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT24H"</code></td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td>   <a href="#transit_scheduledTripBinarySearchThreshold">scheduledTripBinarySearchThreshold</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>This threshold is used to determine when to perform a binary trip schedule search.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>50</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   <a href="#transit_searchThreadPoolSize">searchThreadPoolSize</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Split a travel search in smaller jobs and run them in parallel to improve performance.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   <a href="#transit_transferCacheMaxSize">transferCacheMaxSize</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The maximum number of distinct transfers parameters to cache pre-calculated transfers for.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>25</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   <a href="#transit_dynamicSearchWindow">dynamicSearchWindow</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The dynamic search window coefficients used to calculate the EDT, LAT and SW.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#transit_dynamicSearchWindow_maxWindow">maxWindow</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Upper limit for the search-window calculation.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT3H"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      <a href="#transit_dynamicSearchWindow_minTransitTimeCoefficient">minTransitTimeCoefficient</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The coefficient to multiply with <code>minTransitTime</code>.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.5</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#transit_dynamicSearchWindow_minWaitTimeCoefficient">minWaitTimeCoefficient</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The coefficient to multiply with <code>minWaitTime</code>.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.5</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>      <a href="#transit_dynamicSearchWindow_minWindow">minWindow</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The constant minimum duration for a raptor-search-window.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT40M"</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      <a href="#transit_dynamicSearchWindow_stepMinutes">stepMinutes</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>Used to set the steps the search-window is rounded to.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>10</code></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#transit_pagingSearchWindowAdjustments">pagingSearchWindowAdjustments</a></td>
+<td style="text-align: center;"><code>duration[]</code></td>
+<td>The provided array of durations is used to increase the search-window for the next/previous page.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   <a href="#transit_stopBoardAlightDuringTransferCost">stopBoardAlightDuringTransferCost</a></td>
+<td style="text-align: center;"><code>enum map of integer</code></td>
+<td>Costs for boarding and alighting during transfers at stops with a given transfer priority.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>   <a href="#transit_transferCacheRequests">transferCacheRequests</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>Routing requests to use for pre-filling the stop-to-stop transfer cache.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.3</td>
+</tr>
+<tr>
+<td>transmodelApi</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for the Transmodel GraphQL API.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.1</td>
+</tr>
+<tr>
+<td>   <a href="#transmodelApi_hideFeedId">hideFeedId</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Hide the FeedId in all API output, and add it to input.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td>   <a href="#transmodelApi_maxNumberOfResultFields">maxNumberOfResultFields</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The maximum number of fields in a GraphQL result</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1000000</code></td>
+<td style="text-align: center;">2.6</td>
+</tr>
+<tr>
+<td>   <a href="#transmodelApi_tracingHeaderTags">tracingHeaderTags</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Used to group requests when monitoring OTP.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td><a href="../sandbox/TriasApi/">triasApi</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for the TRIAS API.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.8</td>
+</tr>
+<tr>
+<td><a href="../Realtime-Updaters/">updaters</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>Configuration for the updaters that import various types of data into OTP.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td><a href="../sandbox/MapboxVectorTilesApi/">vectorTiles</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Vector tile configuration</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
+<td><a href="../sandbox/VehicleRentalServiceDirectory/">vehicleRentalServiceDirectory</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for the vehicle rental service directory.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.0</td>
+</tr>
+</tbody>
+</table>
+<!-- PARAMETERS-TABLE END -->
+
+<h2 id="parameter-details">Parameter Details</h2>
+<!-- PARAMETERS-DETAILS BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<h3 id="configVersion">configVersion</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / </p>
+<p>Deployment version of the <em>router-config.json</em>.</p>
+<p>The config-version is a parameter which each OTP deployment may set to be able to query the
+OTP server and verify that it uses the correct version of the config. The version should be
+injected into the config in the (continuous) deployment pipeline. How this is done, is up to
+the deployment.</p>
+<p>The config-version has no effect on OTP, and is provided as is on the API. There is no syntax
+or format check on the version and it can be any string.</p>
+<p>Be aware that OTP uses the config embedded in the loaded graph if no new config is provided.</p>
+<h3 id="gtfsApi_tracingTags">tracingTags</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /gtfsApi </p>
+<p>Used to group requests based on headers or query parameters when monitoring OTP.</p>
+<h3 id="server">server</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / </p>
+<p>Configuration for router server.</p>
+<p>These parameters are used to configure the router server. Many parameters are specific to a
+domain, these are set in the routing request.</p>
+<h3 id="server_apiDocumentationProfile">apiDocumentationProfile</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"default"</code> <br />
+<strong>Path:</strong> /server <br />
+<strong>Enum values:</strong> <code>default</code> | <code>entur</code></p>
+<p>List of available custom documentation profiles. A profile is used to inject custom
+documentation like type and field description or a deprecated reason.</p>
+<p>Currently, ONLY the Transmodel API supports this feature.</p>
+<ul>
+<li><code>default</code> Default documentation is used.</li>
+<li><code>entur</code> Entur specific documentation. This deprecate features not supported at Entur, Norway.</li>
+</ul>
+<h3 id="server_apiProcessingTimeout">apiProcessingTimeout</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT-1S"</code> <br />
+<strong>Path:</strong> /server </p>
+<p>Maximum processing time for an API request</p>
+<p>This timeout limits the server-side processing time for a given API request. This does not include
+network latency nor waiting time in the HTTP server thread pool. The default value is
+<code>-1s</code>(no timeout). The timeout is applied to all APIs (Transmodel &amp; GTFS GraphQL).
+The timeout is not enforced when the parallel routing OTP feature is in use.</p>
+<h3 id="server_traceParameters">traceParameters</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /server </p>
+<p>Trace OTP request using HTTP request/response parameter(s) combined with logging.</p>
+<p>OTP supports tracing user requests across log events and "outside" services. OTP can insert
+http-request-header parameters into all associated log events and into the http response. If the
+value is not present in the request, a unique value can be generated. The OTP generated value is
+a 6 characters long base 36[0-9a-z] character string.</p>
+<p><strong>Use-case Correlation-ID</strong></p>
+<p>A common use-case in a service oriented environment is to use a <em>correlation-id</em> to identify all log
+messages across multiple (micro-)services from the same user. This is done by setting the
+"X-Correlation-ID" http header in the http facade/gateway. Use the "traceParameters" to configure
+OTP to pick up the correlation id, insert it into the logs and return it. See the example below
+on how-to configure the "server.traceParameters" instance.</p>
+<h3 id="server_traceParameters_0_logKey">logKey</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /server/traceParameters/[0] </p>
+<p>The log event key used.</p>
+<p>OTP stores the key/value pair in the log MDC (Mapped Diagnostic Context). To use it
+you normally include the key in the log pattern like this: <code>%X{LOG-KEY}</code>. See your
+log framework for details. Only log4j and logback support this.</p>
+<h3 id="timetableUpdates_maxSnapshotFrequency">maxSnapshotFrequency</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT1S"</code> <br />
+<strong>Path:</strong> /timetableUpdates </p>
+<p>How long a snapshot should be cached.</p>
+<p>If a timetable snapshot is requested less than this number of milliseconds after the previous snapshot, then return the same instance. Throttles the potentially resource-consuming task of duplicating a TripPattern → Timetable map and indexing the new Timetables. Applies to GTFS-RT and Siri updates.</p>
+<h3 id="transit">transit</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / </p>
+<p>Configuration for transit searches with RAPTOR.</p>
+<p>Some of these parameters for tuning transit routing are only available through configuration and
+cannot be set in the routing request. These parameters work together with the default routing
+request and the actual routing request.</p>
+<h3 id="transit_iterationDepartureStepInSeconds">iterationDepartureStepInSeconds</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>60</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>Step for departure times between each RangeRaptor iterations.</p>
+<p>This is a performance optimization parameter. A transit network usually uses minute resolution for
+the timetables, so to match that, set this variable to 60 seconds. Setting it to less than 60 will
+not give better result, but degrade performance. Setting it to 120 seconds will improve performance,
+but you might get a slack of 60 seconds somewhere in the result.</p>
+<h3 id="transit_maxNumberOfTransfers">maxNumberOfTransfers</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>12</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>This parameter is used to allocate enough memory space for Raptor.</p>
+<p>Set it to the maximum number of transfers for any given itinerary expected to be found within the
+entire transit network. The memory overhead of setting this higher than the maximum number of
+transfers is very little so it is better to set it too high than to low.</p>
+<h3 id="transit_maxSearchWindow">maxSearchWindow</h3>
+
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT24H"</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>Upper limit of the request parameter searchWindow.</p>
+<p>Maximum search window that can be set through the searchWindow API parameter.
+Due to the way timetable data are collected before a Raptor trip search,
+using a search window larger than 24 hours may lead to inconsistent search results.
+Limiting the search window prevents also potential performance issues.
+The recommended maximum value is 24 hours.
+This parameter does not restrict the maximum duration of a dynamic search window (use
+the parameter <code>transit.dynamicSearchWindow.maxWindow</code> to specify such a restriction).</p>
+<h3 id="transit_scheduledTripBinarySearchThreshold">scheduledTripBinarySearchThreshold</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>50</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>This threshold is used to determine when to perform a binary trip schedule search.</p>
+<p>This reduce the number of trips departure time lookups and comparisons. When testing with data from
+Entur and all of Norway as a Graph, the optimal value was about 50. If you calculate the departure
+time every time or want to fine tune the performance, changing this may improve the performance a
+few percents.</p>
+<h3 id="transit_searchThreadPoolSize">searchThreadPoolSize</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>Split a travel search in smaller jobs and run them in parallel to improve performance.</p>
+<p>Use this parameter to set the total number of executable threads available across all searches.
+Multiple searches can run in parallel - this parameter has no effect with regard to that. If 0,
+no extra threads are started and the search is done in one thread.</p>
+<h3 id="transit_transferCacheMaxSize">transferCacheMaxSize</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>25</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>The maximum number of distinct transfers parameters to cache pre-calculated transfers for.</p>
+<p>If too low, requests may be slower. If too high, more memory may be used then required.</p>
+<h3 id="transit_dynamicSearchWindow">dynamicSearchWindow</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>The dynamic search window coefficients used to calculate the EDT, LAT and SW.</p>
+<p>The dynamic search window coefficients is used to calculate EDT (<em>earliest-departure-time</em>),
+LAT (<em>latest-arrival-time</em>) and SW (<em>raptor-search-window</em>) request parameters using heuristics. The
+heuristics perform a Raptor search (one-iteration) to find a trip which we use to find a lower
+bound for the travel duration time - the "minTransitTime". The heuristic search is used for other
+purposes too, and is very fast.</p>
+<p>At least the EDT or the LAT must be passed into Raptor to perform a Range Raptor search. If
+unknown/missing the parameters (EDT, LAT, DW) are dynamically calculated. The dynamic coefficients
+affect the performance and should be tuned to match the deployment.</p>
+<p>The request parameters are calculated like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    DW  = round_N(C + T * minTransitTime + W * minWaitTime)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    LAT = EDT + DW + minTransitTime
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    EDT = LAT - (DW + minTransitTime)
+</code></pre></div>
+<p>The <code>round_N(...)</code> method rounds the input to the closest multiplication of N.</p>
+<p>The 3 coefficients above are:</p>
+<ul>
+<li><code>C</code> is parameter: <code>minWindow</code></li>
+<li><code>T</code> is parameter: <code>minTransitTimeCoefficient</code></li>
+<li><code>W</code> is parameter: <code>minWaitTimeCoefficient</code></li>
+<li><code>N</code> is parameter: <code>stepMinutes</code></li>
+</ul>
+<p>In addition there is an upper bound on the calculation of the search window:
+<code>maxWindow</code>.</p>
+<h3 id="transit_dynamicSearchWindow_maxWindow">maxWindow</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT3H"</code> <br />
+<strong>Path:</strong> /transit/dynamicSearchWindow </p>
+<p>Upper limit for the search-window calculation.</p>
+<p>Long search windows consume a lot of resources and may take a long time. Use this parameter to
+tune the desired maximum search time.</p>
+<p>This is the parameter that affects the response time most, the downside is that a search is only
+guaranteed to be pareto-optimal within a search-window.</p>
+<h3 id="transit_dynamicSearchWindow_minTransitTimeCoefficient">minTransitTimeCoefficient</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.5</code> <br />
+<strong>Path:</strong> /transit/dynamicSearchWindow </p>
+<p>The coefficient to multiply with <code>minTransitTime</code>.</p>
+<p>Use a value between <code>0.0</code> and <code>3.0</code>. Using <code>0.0</code> will eliminate the <code>minTransitTime</code> from the dynamic raptor-search-window calculation.</p>
+<h3 id="transit_dynamicSearchWindow_minWaitTimeCoefficient">minWaitTimeCoefficient</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.5</code> <br />
+<strong>Path:</strong> /transit/dynamicSearchWindow </p>
+<p>The coefficient to multiply with <code>minWaitTime</code>.</p>
+<p>Use a value between <code>0.0</code> and <code>1.0</code>. Using <code>0.0</code> will eliminate the <code>minWaitTime</code> from the dynamic raptor-search-window calculation.</p>
+<h3 id="transit_dynamicSearchWindow_minWindow">minWindow</h3>
+
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT40M"</code> <br />
+<strong>Path:</strong> /transit/dynamicSearchWindow </p>
+<p>The constant minimum duration for a raptor-search-window. </p>
+<p>Use a value between 20 and 180 minutes in a normal deployment.</p>
+<h3 id="transit_dynamicSearchWindow_stepMinutes">stepMinutes</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>10</code> <br />
+<strong>Path:</strong> /transit/dynamicSearchWindow </p>
+<p>Used to set the steps the search-window is rounded to.</p>
+<p>The search window is rounded off to the closest multiplication of <code>stepMinutes</code>. If <code>stepMinutes</code> =
+10 minutes, the search-window can be 10, 20, 30 ... minutes. It the computed search-window is 5
+minutes and 17 seconds it will be rounded up to 10 minutes.</p>
+<p>Use a value between <code>1</code> and <code>60</code>. This should be less than the <code>min-raptor-search-window</code>
+coefficient.</p>
+<h3 id="transit_pagingSearchWindowAdjustments">pagingSearchWindowAdjustments</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>duration[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>The provided array of durations is used to increase the search-window for the next/previous page.</p>
+<p>The search window is expanded when the current page return few options. If ZERO result is returned
+the first duration in the list is used, if ONE result is returned then the second duration is used
+and so on. The duration is added to the existing search-window and inserted into the next and
+previous page cursor. See JavaDoc for <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/src/main/java/org/opentripplanner/routing/algorithm/raptor/transit/TransitTuningParameters.java">TransitTuningParameters#pagingSearchWindowAdjustments</a>" +
+for more info."</p>
+<h3 id="transit_stopBoardAlightDuringTransferCost">stopBoardAlightDuringTransferCost</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum map of integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transit <br />
+<strong>Enum keys:</strong> <code>preferred</code> | <code>recommended</code> | <code>allowed</code> | <code>discouraged</code></p>
+<p>Costs for boarding and alighting during transfers at stops with a given transfer priority.</p>
+<p>This cost is applied <strong>both to boarding and alighting</strong> at stops during transfers. All stops have a
+transfer cost priority set, the default is <code>allowed</code>. The <code>stopBoardAlightDuringTransferCost</code>
+parameter is optional, but if listed all values must be set.</p>
+<p>When a transfer occurs at the same stop, the cost will be applied twice since the cost is both for
+boarding and alighting,</p>
+<p>If not set the <code>stopBoardAlightDuringTransferCost</code> is ignored. This is only available for NeTEx
+imported Stops.</p>
+<p>The cost is a scalar, but is equivalent to the felt cost of riding a transit trip for 1 second.</p>
+<table>
+<thead>
+<tr>
+<th>Config key</th>
+<th>Description</th>
+<th style="text-align: center;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>discouraged</code></td>
+<td>Use a very high cost like <code>72 000</code> to eliminate transfers at the stop if not the only option.</td>
+<td style="text-align: center;">int</td>
+</tr>
+<tr>
+<td><code>allowed</code></td>
+<td>Allowed, but not recommended. Use something like <code>150</code>.</td>
+<td style="text-align: center;">int</td>
+</tr>
+<tr>
+<td><code>recommended</code></td>
+<td>Use a small cost penalty like <code>60</code>.</td>
+<td style="text-align: center;">int</td>
+</tr>
+<tr>
+<td><code>preferred</code></td>
+<td>The best place to do transfers. Should be set to <code>0</code>(zero).</td>
+<td style="text-align: center;">int</td>
+</tr>
+</tbody>
+</table>
+<p>Use values in a range from <code>0</code> to <code>100 000</code>. <strong>All key/value pairs are required if the
+<code>stopBoardAlightDuringTransferCost</code> is listed.</strong></p>
+<h3 id="transit_transferCacheRequests">transferCacheRequests</h3>
+
+<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transit ∙ <strong>See:</strong> <a href="../RouteRequest/">RouteRequest.md</a> </p>
+<p>Routing requests to use for pre-filling the stop-to-stop transfer cache.</p>
+<p>If not set, the default behavior is to cache stop-to-stop transfers using the default route request
+(<code>routingDefaults</code>). Use this to change the default or specify more than one <code>RouteRequest</code>.</p>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;transit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;transferCacheRequests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;modes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="w">                                                     </span><span class="p">},</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;modes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span><span class="w">    </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="transmodelApi_hideFeedId">hideFeedId</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /transmodelApi </p>
+<p>Hide the FeedId in all API output, and add it to input.</p>
+<p>Only turn this feature on if you have unique ids across all feeds, without the feedId prefix.</p>
+<h3 id="transmodelApi_maxNumberOfResultFields">maxNumberOfResultFields</h3>
+
+<p><strong>Since version:</strong> <code>2.6</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1000000</code> <br />
+<strong>Path:</strong> /transmodelApi </p>
+<p>The maximum number of fields in a GraphQL result</p>
+<p>Enforce rate limiting based on query complexity; Queries that return too much data are cancelled.</p>
+<h3 id="transmodelApi_tracingHeaderTags">tracingHeaderTags</h3>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transmodelApi </p>
+<p>Used to group requests when monitoring OTP.</p>
+<!-- PARAMETERS-DETAILS END -->
+
+<h2 id="router-config-example">Router Config Example</h2>
+<!-- JSON-EXAMPLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;configVersion&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v2.4.0-EN000121&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;server&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;apiProcessingTimeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;traceParameters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&quot;httpRequestHeader&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;X-Correlation-ID&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;httpResponseHeader&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;X-Correlation-ID&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">&quot;logKey&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;correlationId&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nt">&quot;generateIdIfMissing&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="nt">&quot;routingDefaults&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nt">&quot;numItineraries&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nt">&quot;transferPenalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="nt">&quot;turnReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="nt">&quot;elevatorBoardTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="nt">&quot;elevatorBoardCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nt">&quot;elevatorHopTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="nt">&quot;elevatorHopCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="nt">&quot;bicycle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">      </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">      </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">      </span><span class="nt">&quot;boardCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">      </span><span class="nt">&quot;walk&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">150.0</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">      </span><span class="nt">&quot;rental&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">        </span><span class="nt">&quot;pickupCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">        </span><span class="nt">&quot;dropOffTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">        </span><span class="nt">&quot;dropOffCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">      </span><span class="nt">&quot;parking&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">        </span><span class="nt">&quot;cost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">      </span><span class="nt">&quot;triangle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">        </span><span class="nt">&quot;safety&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">        </span><span class="nt">&quot;flatness&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">    </span><span class="nt">&quot;car&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">      </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">      </span><span class="nt">&quot;boardCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">      </span><span class="nt">&quot;decelerationSpeed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.9</span><span class="p">,</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">      </span><span class="nt">&quot;accelerationSpeed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.9</span><span class="p">,</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">      </span><span class="nt">&quot;rental&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">        </span><span class="nt">&quot;pickupCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="w">        </span><span class="nt">&quot;dropOffTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="w">        </span><span class="nt">&quot;dropOffCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="w">      </span><span class="nt">&quot;parking&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a><span class="w">        </span><span class="nt">&quot;cost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a><span class="w">    </span><span class="nt">&quot;scooter&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a><span class="w">      </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a><span class="w">      </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
+<a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a><span class="w">      </span><span class="nt">&quot;rental&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a><span class="w">        </span><span class="nt">&quot;pickupCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span>
+<a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a><span class="w">        </span><span class="nt">&quot;dropOffTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a><span class="w">        </span><span class="nt">&quot;dropOffCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a><span class="w">      </span><span class="nt">&quot;triangle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a><span class="w">        </span><span class="nt">&quot;safety&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a><span class="w">        </span><span class="nt">&quot;flatness&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a><span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span>
+<a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a><span class="w">    </span><span class="nt">&quot;walk&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a><span class="w">      </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span>
+<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a><span class="w">      </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span>
+<a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.65</span><span class="p">,</span>
+<a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a><span class="w">      </span><span class="nt">&quot;boardCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a><span class="w">      </span><span class="nt">&quot;escalator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-81" name="__codelineno-2-81" href="#__codelineno-2-81"></a><span class="w">        </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span>
+<a id="__codelineno-2-82" name="__codelineno-2-82" href="#__codelineno-2-82"></a><span class="w">        </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.45</span>
+<a id="__codelineno-2-83" name="__codelineno-2-83" href="#__codelineno-2-83"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-84" name="__codelineno-2-84" href="#__codelineno-2-84"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-85" name="__codelineno-2-85" href="#__codelineno-2-85"></a><span class="w">    </span><span class="nt">&quot;waitReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-2-86" name="__codelineno-2-86" href="#__codelineno-2-86"></a><span class="w">    </span><span class="nt">&quot;otherThanPreferredRoutesPenalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-2-87" name="__codelineno-2-87" href="#__codelineno-2-87"></a><span class="w">    </span><span class="nt">&quot;transferSlack&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-88" name="__codelineno-2-88" href="#__codelineno-2-88"></a><span class="w">    </span><span class="nt">&quot;boardSlackForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-89" name="__codelineno-2-89" href="#__codelineno-2-89"></a><span class="w">      </span><span class="nt">&quot;AIRPLANE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;35m&quot;</span>
+<a id="__codelineno-2-90" name="__codelineno-2-90" href="#__codelineno-2-90"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-91" name="__codelineno-2-91" href="#__codelineno-2-91"></a><span class="w">    </span><span class="nt">&quot;alightSlackForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-92" name="__codelineno-2-92" href="#__codelineno-2-92"></a><span class="w">      </span><span class="nt">&quot;AIRPLANE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m&quot;</span>
+<a id="__codelineno-2-93" name="__codelineno-2-93" href="#__codelineno-2-93"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-94" name="__codelineno-2-94" href="#__codelineno-2-94"></a><span class="w">    </span><span class="nt">&quot;transitReluctanceForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-95" name="__codelineno-2-95" href="#__codelineno-2-95"></a><span class="w">      </span><span class="nt">&quot;RAIL&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span>
+<a id="__codelineno-2-96" name="__codelineno-2-96" href="#__codelineno-2-96"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-97" name="__codelineno-2-97" href="#__codelineno-2-97"></a><span class="w">    </span><span class="nt">&quot;accessEgress&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-98" name="__codelineno-2-98" href="#__codelineno-2-98"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-99" name="__codelineno-2-99" href="#__codelineno-2-99"></a><span class="w">      </span><span class="nt">&quot;maxDurationForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-100" name="__codelineno-2-100" href="#__codelineno-2-100"></a><span class="w">        </span><span class="nt">&quot;BIKE_RENTAL&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20m&quot;</span>
+<a id="__codelineno-2-101" name="__codelineno-2-101" href="#__codelineno-2-101"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-102" name="__codelineno-2-102" href="#__codelineno-2-102"></a><span class="w">      </span><span class="nt">&quot;maxStopCount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<a id="__codelineno-2-103" name="__codelineno-2-103" href="#__codelineno-2-103"></a><span class="w">      </span><span class="nt">&quot;maxStopCountForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-104" name="__codelineno-2-104" href="#__codelineno-2-104"></a><span class="w">        </span><span class="nt">&quot;CAR&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-2-105" name="__codelineno-2-105" href="#__codelineno-2-105"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-106" name="__codelineno-2-106" href="#__codelineno-2-106"></a><span class="w">      </span><span class="nt">&quot;penalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-107" name="__codelineno-2-107" href="#__codelineno-2-107"></a><span class="w">        </span><span class="nt">&quot;FLEXIBLE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-108" name="__codelineno-2-108" href="#__codelineno-2-108"></a><span class="w">          </span><span class="nt">&quot;timePenalty&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2m + 1.1t&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-109" name="__codelineno-2-109" href="#__codelineno-2-109"></a><span class="w">          </span><span class="nt">&quot;costFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.7</span>
+<a id="__codelineno-2-110" name="__codelineno-2-110" href="#__codelineno-2-110"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-111" name="__codelineno-2-111" href="#__codelineno-2-111"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-112" name="__codelineno-2-112" href="#__codelineno-2-112"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-113" name="__codelineno-2-113" href="#__codelineno-2-113"></a><span class="w">    </span><span class="nt">&quot;itineraryFilters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-114" name="__codelineno-2-114" href="#__codelineno-2-114"></a><span class="w">      </span><span class="nt">&quot;transitGeneralizedCostLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-115" name="__codelineno-2-115" href="#__codelineno-2-115"></a><span class="w">        </span><span class="nt">&quot;costLimitFunction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m + 1.5 x&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-116" name="__codelineno-2-116" href="#__codelineno-2-116"></a><span class="w">        </span><span class="nt">&quot;intervalRelaxFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span>
+<a id="__codelineno-2-117" name="__codelineno-2-117" href="#__codelineno-2-117"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-118" name="__codelineno-2-118" href="#__codelineno-2-118"></a><span class="w">      </span><span class="nt">&quot;nonTransitGeneralizedCostLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;400 + 1.5x&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-119" name="__codelineno-2-119" href="#__codelineno-2-119"></a><span class="w">      </span><span class="nt">&quot;removeTransitWithHigherCostThanBestOnStreetOnly&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60 + 1.3x&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-120" name="__codelineno-2-120" href="#__codelineno-2-120"></a><span class="w">      </span><span class="nt">&quot;bikeRentalDistanceRatio&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<a id="__codelineno-2-121" name="__codelineno-2-121" href="#__codelineno-2-121"></a><span class="w">      </span><span class="nt">&quot;accessibilityScore&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-2-122" name="__codelineno-2-122" href="#__codelineno-2-122"></a><span class="w">      </span><span class="nt">&quot;minBikeParkingDistance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-2-123" name="__codelineno-2-123" href="#__codelineno-2-123"></a><span class="w">      </span><span class="nt">&quot;debug&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;limit-to-search-window&quot;</span>
+<a id="__codelineno-2-124" name="__codelineno-2-124" href="#__codelineno-2-124"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-125" name="__codelineno-2-125" href="#__codelineno-2-125"></a><span class="w">    </span><span class="nt">&quot;ignoreRealtimeUpdates&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-126" name="__codelineno-2-126" href="#__codelineno-2-126"></a><span class="w">    </span><span class="nt">&quot;geoidElevation&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-127" name="__codelineno-2-127" href="#__codelineno-2-127"></a><span class="w">    </span><span class="nt">&quot;maxJourneyDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;36h&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-128" name="__codelineno-2-128" href="#__codelineno-2-128"></a><span class="w">    </span><span class="nt">&quot;unpreferred&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-129" name="__codelineno-2-129" href="#__codelineno-2-129"></a><span class="w">      </span><span class="nt">&quot;agencies&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-130" name="__codelineno-2-130" href="#__codelineno-2-130"></a><span class="w">        </span><span class="s2">&quot;HSL:123&quot;</span>
+<a id="__codelineno-2-131" name="__codelineno-2-131" href="#__codelineno-2-131"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-2-132" name="__codelineno-2-132" href="#__codelineno-2-132"></a><span class="w">      </span><span class="nt">&quot;routes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-133" name="__codelineno-2-133" href="#__codelineno-2-133"></a><span class="w">        </span><span class="s2">&quot;HSL:456&quot;</span>
+<a id="__codelineno-2-134" name="__codelineno-2-134" href="#__codelineno-2-134"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-2-135" name="__codelineno-2-135" href="#__codelineno-2-135"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-136" name="__codelineno-2-136" href="#__codelineno-2-136"></a><span class="w">    </span><span class="nt">&quot;unpreferredCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m + 2.0 x&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-137" name="__codelineno-2-137" href="#__codelineno-2-137"></a><span class="w">    </span><span class="nt">&quot;streetRoutingTimeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-138" name="__codelineno-2-138" href="#__codelineno-2-138"></a><span class="w">    </span><span class="nt">&quot;transferOptimization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-139" name="__codelineno-2-139" href="#__codelineno-2-139"></a><span class="w">      </span><span class="nt">&quot;optimizeTransferWaitTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-2-140" name="__codelineno-2-140" href="#__codelineno-2-140"></a><span class="w">      </span><span class="nt">&quot;minSafeWaitTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span>
+<a id="__codelineno-2-141" name="__codelineno-2-141" href="#__codelineno-2-141"></a><span class="w">      </span><span class="nt">&quot;backTravelWaitTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-2-142" name="__codelineno-2-142" href="#__codelineno-2-142"></a><span class="w">      </span><span class="nt">&quot;extraStopBoardAlightCostsFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">8.0</span>
+<a id="__codelineno-2-143" name="__codelineno-2-143" href="#__codelineno-2-143"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-144" name="__codelineno-2-144" href="#__codelineno-2-144"></a><span class="w">    </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-145" name="__codelineno-2-145" href="#__codelineno-2-145"></a><span class="w">      </span><span class="nt">&quot;trip&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-146" name="__codelineno-2-146" href="#__codelineno-2-146"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-147" name="__codelineno-2-147" href="#__codelineno-2-147"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-2-148" name="__codelineno-2-148" href="#__codelineno-2-148"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
+<a id="__codelineno-2-149" name="__codelineno-2-149" href="#__codelineno-2-149"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-150" name="__codelineno-2-150" href="#__codelineno-2-150"></a><span class="w">      </span><span class="nt">&quot;stop&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-151" name="__codelineno-2-151" href="#__codelineno-2-151"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-152" name="__codelineno-2-152" href="#__codelineno-2-152"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-2-153" name="__codelineno-2-153" href="#__codelineno-2-153"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
+<a id="__codelineno-2-154" name="__codelineno-2-154" href="#__codelineno-2-154"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-155" name="__codelineno-2-155" href="#__codelineno-2-155"></a><span class="w">      </span><span class="nt">&quot;elevator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-156" name="__codelineno-2-156" href="#__codelineno-2-156"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-157" name="__codelineno-2-157" href="#__codelineno-2-157"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-158" name="__codelineno-2-158" href="#__codelineno-2-158"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span>
+<a id="__codelineno-2-159" name="__codelineno-2-159" href="#__codelineno-2-159"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-160" name="__codelineno-2-160" href="#__codelineno-2-160"></a><span class="w">      </span><span class="nt">&quot;inaccessibleStreetReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-2-161" name="__codelineno-2-161" href="#__codelineno-2-161"></a><span class="w">      </span><span class="nt">&quot;maxSlope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.083</span><span class="p">,</span>
+<a id="__codelineno-2-162" name="__codelineno-2-162" href="#__codelineno-2-162"></a><span class="w">      </span><span class="nt">&quot;slopeExceededReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-2-163" name="__codelineno-2-163" href="#__codelineno-2-163"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+<a id="__codelineno-2-164" name="__codelineno-2-164" href="#__codelineno-2-164"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-165" name="__codelineno-2-165" href="#__codelineno-2-165"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-166" name="__codelineno-2-166" href="#__codelineno-2-166"></a><span class="w">  </span><span class="nt">&quot;flex&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-167" name="__codelineno-2-167" href="#__codelineno-2-167"></a><span class="w">    </span><span class="nt">&quot;maxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-168" name="__codelineno-2-168" href="#__codelineno-2-168"></a><span class="w">    </span><span class="nt">&quot;maxFlexTripDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-169" name="__codelineno-2-169" href="#__codelineno-2-169"></a><span class="w">    </span><span class="nt">&quot;maxAccessWalkDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-170" name="__codelineno-2-170" href="#__codelineno-2-170"></a><span class="w">    </span><span class="nt">&quot;maxEgressWalkDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m&quot;</span>
+<a id="__codelineno-2-171" name="__codelineno-2-171" href="#__codelineno-2-171"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-172" name="__codelineno-2-172" href="#__codelineno-2-172"></a><span class="w">  </span><span class="nt">&quot;transit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-173" name="__codelineno-2-173" href="#__codelineno-2-173"></a><span class="w">    </span><span class="nt">&quot;maxNumberOfTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-2-174" name="__codelineno-2-174" href="#__codelineno-2-174"></a><span class="w">    </span><span class="nt">&quot;dynamicSearchWindow&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-175" name="__codelineno-2-175" href="#__codelineno-2-175"></a><span class="w">      </span><span class="nt">&quot;minTransitTimeCoefficient&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<a id="__codelineno-2-176" name="__codelineno-2-176" href="#__codelineno-2-176"></a><span class="w">      </span><span class="nt">&quot;minWaitTimeCoefficient&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<a id="__codelineno-2-177" name="__codelineno-2-177" href="#__codelineno-2-177"></a><span class="w">      </span><span class="nt">&quot;minWindow&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1h&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-178" name="__codelineno-2-178" href="#__codelineno-2-178"></a><span class="w">      </span><span class="nt">&quot;maxWindow&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5h&quot;</span>
+<a id="__codelineno-2-179" name="__codelineno-2-179" href="#__codelineno-2-179"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-180" name="__codelineno-2-180" href="#__codelineno-2-180"></a><span class="w">    </span><span class="nt">&quot;stopBoardAlightDuringTransferCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-181" name="__codelineno-2-181" href="#__codelineno-2-181"></a><span class="w">      </span><span class="nt">&quot;DISCOURAGED&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span>
+<a id="__codelineno-2-182" name="__codelineno-2-182" href="#__codelineno-2-182"></a><span class="w">      </span><span class="nt">&quot;ALLOWED&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
+<a id="__codelineno-2-183" name="__codelineno-2-183" href="#__codelineno-2-183"></a><span class="w">      </span><span class="nt">&quot;RECOMMENDED&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-2-184" name="__codelineno-2-184" href="#__codelineno-2-184"></a><span class="w">      </span><span class="nt">&quot;PREFERRED&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-2-185" name="__codelineno-2-185" href="#__codelineno-2-185"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-186" name="__codelineno-2-186" href="#__codelineno-2-186"></a><span class="w">    </span><span class="nt">&quot;transferCacheRequests&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-187" name="__codelineno-2-187" href="#__codelineno-2-187"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-188" name="__codelineno-2-188" href="#__codelineno-2-188"></a><span class="w">        </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span>
+<a id="__codelineno-2-189" name="__codelineno-2-189" href="#__codelineno-2-189"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-190" name="__codelineno-2-190" href="#__codelineno-2-190"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-191" name="__codelineno-2-191" href="#__codelineno-2-191"></a><span class="w">        </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-192" name="__codelineno-2-192" href="#__codelineno-2-192"></a><span class="w">        </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-193" name="__codelineno-2-193" href="#__codelineno-2-193"></a><span class="w">          </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-194" name="__codelineno-2-194" href="#__codelineno-2-194"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-195" name="__codelineno-2-195" href="#__codelineno-2-195"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-196" name="__codelineno-2-196" href="#__codelineno-2-196"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-2-197" name="__codelineno-2-197" href="#__codelineno-2-197"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-198" name="__codelineno-2-198" href="#__codelineno-2-198"></a><span class="w">  </span><span class="nt">&quot;vehicleRentalServiceDirectory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-199" name="__codelineno-2-199" href="#__codelineno-2-199"></a><span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://entur.no/bikeRentalServiceDirectory&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-200" name="__codelineno-2-200" href="#__codelineno-2-200"></a><span class="w">    </span><span class="nt">&quot;sourcesName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;systems&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-201" name="__codelineno-2-201" href="#__codelineno-2-201"></a><span class="w">    </span><span class="nt">&quot;updaterUrlName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-202" name="__codelineno-2-202" href="#__codelineno-2-202"></a><span class="w">    </span><span class="nt">&quot;updaterNetworkName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-203" name="__codelineno-2-203" href="#__codelineno-2-203"></a><span class="w">    </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-204" name="__codelineno-2-204" href="#__codelineno-2-204"></a><span class="w">      </span><span class="nt">&quot;ET-Client-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MY_ORG_CLIENT_NAME&quot;</span>
+<a id="__codelineno-2-205" name="__codelineno-2-205" href="#__codelineno-2-205"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-206" name="__codelineno-2-206" href="#__codelineno-2-206"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-207" name="__codelineno-2-207" href="#__codelineno-2-207"></a><span class="w">  </span><span class="nt">&quot;transmodelApi&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-208" name="__codelineno-2-208" href="#__codelineno-2-208"></a><span class="w">    </span><span class="nt">&quot;hideFeedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-209" name="__codelineno-2-209" href="#__codelineno-2-209"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-210" name="__codelineno-2-210" href="#__codelineno-2-210"></a><span class="w">  </span><span class="nt">&quot;gtfsApi&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-211" name="__codelineno-2-211" href="#__codelineno-2-211"></a><span class="w">    </span><span class="nt">&quot;tracingTags&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-212" name="__codelineno-2-212" href="#__codelineno-2-212"></a><span class="w">      </span><span class="s2">&quot;example-header-name&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-213" name="__codelineno-2-213" href="#__codelineno-2-213"></a><span class="w">      </span><span class="s2">&quot;example-query-parameter-name&quot;</span>
+<a id="__codelineno-2-214" name="__codelineno-2-214" href="#__codelineno-2-214"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-2-215" name="__codelineno-2-215" href="#__codelineno-2-215"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-216" name="__codelineno-2-216" href="#__codelineno-2-216"></a><span class="w">  </span><span class="nt">&quot;vectorTiles&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-217" name="__codelineno-2-217" href="#__codelineno-2-217"></a><span class="w">    </span><span class="nt">&quot;basePath&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/otp_ct/vectorTiles&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-218" name="__codelineno-2-218" href="#__codelineno-2-218"></a><span class="w">    </span><span class="nt">&quot;layers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-219" name="__codelineno-2-219" href="#__codelineno-2-219"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-220" name="__codelineno-2-220" href="#__codelineno-2-220"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stops&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-221" name="__codelineno-2-221" href="#__codelineno-2-221"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stop&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-222" name="__codelineno-2-222" href="#__codelineno-2-222"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-223" name="__codelineno-2-223" href="#__codelineno-2-223"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-224" name="__codelineno-2-224" href="#__codelineno-2-224"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-2-225" name="__codelineno-2-225" href="#__codelineno-2-225"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-2-226" name="__codelineno-2-226" href="#__codelineno-2-226"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-227" name="__codelineno-2-227" href="#__codelineno-2-227"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-228" name="__codelineno-2-228" href="#__codelineno-2-228"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;areaStops&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-229" name="__codelineno-2-229" href="#__codelineno-2-229"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AreaStop&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-230" name="__codelineno-2-230" href="#__codelineno-2-230"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTPRR&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-231" name="__codelineno-2-231" href="#__codelineno-2-231"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-232" name="__codelineno-2-232" href="#__codelineno-2-232"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-2-233" name="__codelineno-2-233" href="#__codelineno-2-233"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-2-234" name="__codelineno-2-234" href="#__codelineno-2-234"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-235" name="__codelineno-2-235" href="#__codelineno-2-235"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-236" name="__codelineno-2-236" href="#__codelineno-2-236"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stations&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-237" name="__codelineno-2-237" href="#__codelineno-2-237"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Station&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-238" name="__codelineno-2-238" href="#__codelineno-2-238"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-239" name="__codelineno-2-239" href="#__codelineno-2-239"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-240" name="__codelineno-2-240" href="#__codelineno-2-240"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-2-241" name="__codelineno-2-241" href="#__codelineno-2-241"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-2-242" name="__codelineno-2-242" href="#__codelineno-2-242"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-243" name="__codelineno-2-243" href="#__codelineno-2-243"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-244" name="__codelineno-2-244" href="#__codelineno-2-244"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rentalPlaces&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-245" name="__codelineno-2-245" href="#__codelineno-2-245"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRental&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-246" name="__codelineno-2-246" href="#__codelineno-2-246"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-247" name="__codelineno-2-247" href="#__codelineno-2-247"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-248" name="__codelineno-2-248" href="#__codelineno-2-248"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-2-249" name="__codelineno-2-249" href="#__codelineno-2-249"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+<a id="__codelineno-2-250" name="__codelineno-2-250" href="#__codelineno-2-250"></a><span class="w">        </span><span class="nt">&quot;expansionFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
+<a id="__codelineno-2-251" name="__codelineno-2-251" href="#__codelineno-2-251"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-252" name="__codelineno-2-252" href="#__codelineno-2-252"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-253" name="__codelineno-2-253" href="#__codelineno-2-253"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rentalVehicle&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-254" name="__codelineno-2-254" href="#__codelineno-2-254"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRentalVehicle&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-255" name="__codelineno-2-255" href="#__codelineno-2-255"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-256" name="__codelineno-2-256" href="#__codelineno-2-256"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-257" name="__codelineno-2-257" href="#__codelineno-2-257"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-2-258" name="__codelineno-2-258" href="#__codelineno-2-258"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
+<a id="__codelineno-2-259" name="__codelineno-2-259" href="#__codelineno-2-259"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-260" name="__codelineno-2-260" href="#__codelineno-2-260"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-261" name="__codelineno-2-261" href="#__codelineno-2-261"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rentalStation&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-262" name="__codelineno-2-262" href="#__codelineno-2-262"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleRentalStation&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-263" name="__codelineno-2-263" href="#__codelineno-2-263"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-264" name="__codelineno-2-264" href="#__codelineno-2-264"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-265" name="__codelineno-2-265" href="#__codelineno-2-265"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-2-266" name="__codelineno-2-266" href="#__codelineno-2-266"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span>
+<a id="__codelineno-2-267" name="__codelineno-2-267" href="#__codelineno-2-267"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-268" name="__codelineno-2-268" href="#__codelineno-2-268"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-269" name="__codelineno-2-269" href="#__codelineno-2-269"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicleParking&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-270" name="__codelineno-2-270" href="#__codelineno-2-270"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VehicleParking&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-271" name="__codelineno-2-271" href="#__codelineno-2-271"></a><span class="w">        </span><span class="nt">&quot;mapper&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Digitransit&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-272" name="__codelineno-2-272" href="#__codelineno-2-272"></a><span class="w">        </span><span class="nt">&quot;maxZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-2-273" name="__codelineno-2-273" href="#__codelineno-2-273"></a><span class="w">        </span><span class="nt">&quot;minZoom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-2-274" name="__codelineno-2-274" href="#__codelineno-2-274"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+<a id="__codelineno-2-275" name="__codelineno-2-275" href="#__codelineno-2-275"></a><span class="w">        </span><span class="nt">&quot;expansionFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
+<a id="__codelineno-2-276" name="__codelineno-2-276" href="#__codelineno-2-276"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-277" name="__codelineno-2-277" href="#__codelineno-2-277"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-2-278" name="__codelineno-2-278" href="#__codelineno-2-278"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-279" name="__codelineno-2-279" href="#__codelineno-2-279"></a><span class="w">  </span><span class="nt">&quot;timetableUpdates&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-280" name="__codelineno-2-280" href="#__codelineno-2-280"></a><span class="w">    </span><span class="nt">&quot;purgeExpiredData&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-281" name="__codelineno-2-281" href="#__codelineno-2-281"></a><span class="w">    </span><span class="nt">&quot;maxSnapshotFrequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2s&quot;</span>
+<a id="__codelineno-2-282" name="__codelineno-2-282" href="#__codelineno-2-282"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-283" name="__codelineno-2-283" href="#__codelineno-2-283"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-284" name="__codelineno-2-284" href="#__codelineno-2-284"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-285" name="__codelineno-2-285" href="#__codelineno-2-285"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;real-time-alerts&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-286" name="__codelineno-2-286" href="#__codelineno-2-286"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-287" name="__codelineno-2-287" href="#__codelineno-2-287"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://developer.trimet.org/ws/V1/FeedSpecAlerts/appID/0123456789ABCDEF&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-288" name="__codelineno-2-288" href="#__codelineno-2-288"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TriMet&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-289" name="__codelineno-2-289" href="#__codelineno-2-289"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-290" name="__codelineno-2-290" href="#__codelineno-2-290"></a><span class="w">        </span><span class="nt">&quot;Some-Header&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A-Value&quot;</span>
+<a id="__codelineno-2-291" name="__codelineno-2-291" href="#__codelineno-2-291"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-292" name="__codelineno-2-292" href="#__codelineno-2-292"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-293" name="__codelineno-2-293" href="#__codelineno-2-293"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-294" name="__codelineno-2-294" href="#__codelineno-2-294"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-rental&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-295" name="__codelineno-2-295" href="#__codelineno-2-295"></a><span class="w">      </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;socialbicycles_coast&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-296" name="__codelineno-2-296" href="#__codelineno-2-296"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gbfs&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-297" name="__codelineno-2-297" href="#__codelineno-2-297"></a><span class="w">      </span><span class="nt">&quot;language&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-298" name="__codelineno-2-298" href="#__codelineno-2-298"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-299" name="__codelineno-2-299" href="#__codelineno-2-299"></a><span class="w">      </span><span class="nt">&quot;allowKeepingRentedVehicleAtDestination&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-300" name="__codelineno-2-300" href="#__codelineno-2-300"></a><span class="w">      </span><span class="nt">&quot;geofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-301" name="__codelineno-2-301" href="#__codelineno-2-301"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://coast.socialbicycles.com/opendata/gbfs.json&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-302" name="__codelineno-2-302" href="#__codelineno-2-302"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-303" name="__codelineno-2-303" href="#__codelineno-2-303"></a><span class="w">        </span><span class="nt">&quot;Auth&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;any-token&gt;&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-304" name="__codelineno-2-304" href="#__codelineno-2-304"></a><span class="w">        </span><span class="nt">&quot;&lt;key&gt;&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;value&gt;&quot;</span>
+<a id="__codelineno-2-305" name="__codelineno-2-305" href="#__codelineno-2-305"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-306" name="__codelineno-2-306" href="#__codelineno-2-306"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-307" name="__codelineno-2-307" href="#__codelineno-2-307"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-308" name="__codelineno-2-308" href="#__codelineno-2-308"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-309" name="__codelineno-2-309" href="#__codelineno-2-309"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;liipi&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-310" name="__codelineno-2-310" href="#__codelineno-2-310"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;liipi&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-311" name="__codelineno-2-311" href="#__codelineno-2-311"></a><span class="w">      </span><span class="nt">&quot;timeZone&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Europe/Helsinki&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-312" name="__codelineno-2-312" href="#__codelineno-2-312"></a><span class="w">      </span><span class="nt">&quot;facilitiesFrequencySec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span>
+<a id="__codelineno-2-313" name="__codelineno-2-313" href="#__codelineno-2-313"></a><span class="w">      </span><span class="nt">&quot;facilitiesUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://parking.fintraffic.fi/api/v1/facilities.json?limit=-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-314" name="__codelineno-2-314" href="#__codelineno-2-314"></a><span class="w">      </span><span class="nt">&quot;utilizationsFrequencySec&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-2-315" name="__codelineno-2-315" href="#__codelineno-2-315"></a><span class="w">      </span><span class="nt">&quot;utilizationsUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://parking.fintraffic.fi/api/v1/utilizations.json?limit=-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-316" name="__codelineno-2-316" href="#__codelineno-2-316"></a><span class="w">      </span><span class="nt">&quot;hubsUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://parking.fintraffic.fi/api/v1/hubs.json?limit=-1&quot;</span>
+<a id="__codelineno-2-317" name="__codelineno-2-317" href="#__codelineno-2-317"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-318" name="__codelineno-2-318" href="#__codelineno-2-318"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-319" name="__codelineno-2-319" href="#__codelineno-2-319"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-320" name="__codelineno-2-320" href="#__codelineno-2-320"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;park-api&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-321" name="__codelineno-2-321" href="#__codelineno-2-321"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;parkapi&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-322" name="__codelineno-2-322" href="#__codelineno-2-322"></a><span class="w">      </span><span class="nt">&quot;timeZone&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Europe/Berlin&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-323" name="__codelineno-2-323" href="#__codelineno-2-323"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-324" name="__codelineno-2-324" href="#__codelineno-2-324"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://foo.bar&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-325" name="__codelineno-2-325" href="#__codelineno-2-325"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-326" name="__codelineno-2-326" href="#__codelineno-2-326"></a><span class="w">        </span><span class="nt">&quot;Cache-Control&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max-age=604800&quot;</span>
+<a id="__codelineno-2-327" name="__codelineno-2-327" href="#__codelineno-2-327"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-328" name="__codelineno-2-328" href="#__codelineno-2-328"></a><span class="w">      </span><span class="nt">&quot;tags&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-329" name="__codelineno-2-329" href="#__codelineno-2-329"></a><span class="w">        </span><span class="s2">&quot;source:parkapi&quot;</span>
+<a id="__codelineno-2-330" name="__codelineno-2-330" href="#__codelineno-2-330"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-2-331" name="__codelineno-2-331" href="#__codelineno-2-331"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-332" name="__codelineno-2-332" href="#__codelineno-2-332"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-333" name="__codelineno-2-333" href="#__codelineno-2-333"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-334" name="__codelineno-2-334" href="#__codelineno-2-334"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bikely&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-335" name="__codelineno-2-335" href="#__codelineno-2-335"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bikely&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-336" name="__codelineno-2-336" href="#__codelineno-2-336"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.safebikely.com/api/v1/s/locations&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-337" name="__codelineno-2-337" href="#__codelineno-2-337"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-338" name="__codelineno-2-338" href="#__codelineno-2-338"></a><span class="w">        </span><span class="nt">&quot;X-Bikely-Token&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${BIKELY_TOKEN}&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-339" name="__codelineno-2-339" href="#__codelineno-2-339"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${BIKELY_AUTHORIZATION}&quot;</span>
+<a id="__codelineno-2-340" name="__codelineno-2-340" href="#__codelineno-2-340"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-341" name="__codelineno-2-341" href="#__codelineno-2-341"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-342" name="__codelineno-2-342" href="#__codelineno-2-342"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-343" name="__codelineno-2-343" href="#__codelineno-2-343"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stop-time-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-344" name="__codelineno-2-344" href="#__codelineno-2-344"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-345" name="__codelineno-2-345" href="#__codelineno-2-345"></a><span class="w">      </span><span class="nt">&quot;backwardsDelayPropagationType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQUIRED_NO_DATA&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-346" name="__codelineno-2-346" href="#__codelineno-2-346"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://developer.trimet.org/ws/V1/TripUpdate/appID/0123456789ABCDEF&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-347" name="__codelineno-2-347" href="#__codelineno-2-347"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TriMet&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-348" name="__codelineno-2-348" href="#__codelineno-2-348"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-349" name="__codelineno-2-349" href="#__codelineno-2-349"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A-Token&quot;</span>
+<a id="__codelineno-2-350" name="__codelineno-2-350" href="#__codelineno-2-350"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-351" name="__codelineno-2-351" href="#__codelineno-2-351"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-352" name="__codelineno-2-352" href="#__codelineno-2-352"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-353" name="__codelineno-2-353" href="#__codelineno-2-353"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mqtt-gtfs-rt-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-354" name="__codelineno-2-354" href="#__codelineno-2-354"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcp://pred.rt.hsl.fi&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-355" name="__codelineno-2-355" href="#__codelineno-2-355"></a><span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gtfsrt/v2/fi/hsl/tu&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-356" name="__codelineno-2-356" href="#__codelineno-2-356"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HSL&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-357" name="__codelineno-2-357" href="#__codelineno-2-357"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-358" name="__codelineno-2-358" href="#__codelineno-2-358"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-359" name="__codelineno-2-359" href="#__codelineno-2-359"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-360" name="__codelineno-2-360" href="#__codelineno-2-360"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-positions&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-361" name="__codelineno-2-361" href="#__codelineno-2-361"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://s3.amazonaws.com/kcm-alerts-realtime-prod/vehiclepositions.pb&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-362" name="__codelineno-2-362" href="#__codelineno-2-362"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-363" name="__codelineno-2-363" href="#__codelineno-2-363"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-364" name="__codelineno-2-364" href="#__codelineno-2-364"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-365" name="__codelineno-2-365" href="#__codelineno-2-365"></a><span class="w">        </span><span class="nt">&quot;Header-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Header-Value&quot;</span>
+<a id="__codelineno-2-366" name="__codelineno-2-366" href="#__codelineno-2-366"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-367" name="__codelineno-2-367" href="#__codelineno-2-367"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-368" name="__codelineno-2-368" href="#__codelineno-2-368"></a><span class="w">      </span><span class="nt">&quot;features&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-369" name="__codelineno-2-369" href="#__codelineno-2-369"></a><span class="w">        </span><span class="s2">&quot;position&quot;</span>
+<a id="__codelineno-2-370" name="__codelineno-2-370" href="#__codelineno-2-370"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-2-371" name="__codelineno-2-371" href="#__codelineno-2-371"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-372" name="__codelineno-2-372" href="#__codelineno-2-372"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-373" name="__codelineno-2-373" href="#__codelineno-2-373"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-374" name="__codelineno-2-374" href="#__codelineno-2-374"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-375" name="__codelineno-2-375" href="#__codelineno-2-375"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-376" name="__codelineno-2-376" href="#__codelineno-2-376"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-377" name="__codelineno-2-377" href="#__codelineno-2-377"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-378" name="__codelineno-2-378" href="#__codelineno-2-378"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Some-Token&quot;</span>
+<a id="__codelineno-2-379" name="__codelineno-2-379" href="#__codelineno-2-379"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-380" name="__codelineno-2-380" href="#__codelineno-2-380"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-381" name="__codelineno-2-381" href="#__codelineno-2-381"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-382" name="__codelineno-2-382" href="#__codelineno-2-382"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-sx-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-383" name="__codelineno-2-383" href="#__codelineno-2-383"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-384" name="__codelineno-2-384" href="#__codelineno-2-384"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-385" name="__codelineno-2-385" href="#__codelineno-2-385"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-386" name="__codelineno-2-386" href="#__codelineno-2-386"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-387" name="__codelineno-2-387" href="#__codelineno-2-387"></a><span class="w">        </span><span class="nt">&quot;Key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Value&quot;</span>
+<a id="__codelineno-2-388" name="__codelineno-2-388" href="#__codelineno-2-388"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-389" name="__codelineno-2-389" href="#__codelineno-2-389"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-390" name="__codelineno-2-390" href="#__codelineno-2-390"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-391" name="__codelineno-2-391" href="#__codelineno-2-391"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-azure-sx-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-392" name="__codelineno-2-392" href="#__codelineno-2-392"></a><span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some_topic&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-393" name="__codelineno-2-393" href="#__codelineno-2-393"></a><span class="w">      </span><span class="nt">&quot;servicebus-url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;service_bus_url&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-394" name="__codelineno-2-394" href="#__codelineno-2-394"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-395" name="__codelineno-2-395" href="#__codelineno-2-395"></a><span class="w">      </span><span class="nt">&quot;customMidnight&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-2-396" name="__codelineno-2-396" href="#__codelineno-2-396"></a><span class="w">      </span><span class="nt">&quot;history&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-397" name="__codelineno-2-397" href="#__codelineno-2-397"></a><span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endpoint_url&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-398" name="__codelineno-2-398" href="#__codelineno-2-398"></a><span class="w">        </span><span class="nt">&quot;fromDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-P1D&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-399" name="__codelineno-2-399" href="#__codelineno-2-399"></a><span class="w">        </span><span class="nt">&quot;toDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P1D&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-400" name="__codelineno-2-400" href="#__codelineno-2-400"></a><span class="w">        </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300000</span>
+<a id="__codelineno-2-401" name="__codelineno-2-401" href="#__codelineno-2-401"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-402" name="__codelineno-2-402" href="#__codelineno-2-402"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-403" name="__codelineno-2-403" href="#__codelineno-2-403"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-404" name="__codelineno-2-404" href="#__codelineno-2-404"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-azure-et-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-405" name="__codelineno-2-405" href="#__codelineno-2-405"></a><span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;some_topic&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-406" name="__codelineno-2-406" href="#__codelineno-2-406"></a><span class="w">      </span><span class="nt">&quot;authenticationType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SharedAccessKey&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-407" name="__codelineno-2-407" href="#__codelineno-2-407"></a><span class="w">      </span><span class="nt">&quot;fullyQualifiedNamespace&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fully_qualified_namespace&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-408" name="__codelineno-2-408" href="#__codelineno-2-408"></a><span class="w">      </span><span class="nt">&quot;servicebus-url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;service_bus_url&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-409" name="__codelineno-2-409" href="#__codelineno-2-409"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-410" name="__codelineno-2-410" href="#__codelineno-2-410"></a><span class="w">      </span><span class="nt">&quot;customMidnight&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-2-411" name="__codelineno-2-411" href="#__codelineno-2-411"></a><span class="w">      </span><span class="nt">&quot;history&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-412" name="__codelineno-2-412" href="#__codelineno-2-412"></a><span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;endpoint_url&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-413" name="__codelineno-2-413" href="#__codelineno-2-413"></a><span class="w">        </span><span class="nt">&quot;fromDateTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-P1D&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-414" name="__codelineno-2-414" href="#__codelineno-2-414"></a><span class="w">        </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300000</span>
+<a id="__codelineno-2-415" name="__codelineno-2-415" href="#__codelineno-2-415"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-416" name="__codelineno-2-416" href="#__codelineno-2-416"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-417" name="__codelineno-2-417" href="#__codelineno-2-417"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-418" name="__codelineno-2-418" href="#__codelineno-2-418"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-google-pubsub-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-419" name="__codelineno-2-419" href="#__codelineno-2-419"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-420" name="__codelineno-2-420" href="#__codelineno-2-420"></a><span class="w">      </span><span class="nt">&quot;reconnectPeriod&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-421" name="__codelineno-2-421" href="#__codelineno-2-421"></a><span class="w">      </span><span class="nt">&quot;initialGetDataTimeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m20s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-422" name="__codelineno-2-422" href="#__codelineno-2-422"></a><span class="w">      </span><span class="nt">&quot;topicProjectName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google_pubsub_topic_project_name&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-423" name="__codelineno-2-423" href="#__codelineno-2-423"></a><span class="w">      </span><span class="nt">&quot;subscriptionProjectName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google_pubsub_subscription_project_name&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-424" name="__codelineno-2-424" href="#__codelineno-2-424"></a><span class="w">      </span><span class="nt">&quot;topicName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;estimated_timetables&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-425" name="__codelineno-2-425" href="#__codelineno-2-425"></a><span class="w">      </span><span class="nt">&quot;dataInitializationUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-426" name="__codelineno-2-426" href="#__codelineno-2-426"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-427" name="__codelineno-2-427" href="#__codelineno-2-427"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-428" name="__codelineno-2-428" href="#__codelineno-2-428"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-429" name="__codelineno-2-429" href="#__codelineno-2-429"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-430" name="__codelineno-2-430" href="#__codelineno-2-430"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bikeep&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-431" name="__codelineno-2-431" href="#__codelineno-2-431"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bikeep&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-432" name="__codelineno-2-432" href="#__codelineno-2-432"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://services.bikeep.com/location/v1/public-areas/no-baia-mobility/locations&quot;</span>
+<a id="__codelineno-2-433" name="__codelineno-2-433" href="#__codelineno-2-433"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-434" name="__codelineno-2-434" href="#__codelineno-2-434"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-435" name="__codelineno-2-435" href="#__codelineno-2-435"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vehicle-parking&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-436" name="__codelineno-2-436" href="#__codelineno-2-436"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;parking&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-437" name="__codelineno-2-437" href="#__codelineno-2-437"></a><span class="w">      </span><span class="nt">&quot;sourceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-fm&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-438" name="__codelineno-2-438" href="#__codelineno-2-438"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://transmodel.api.opendatahub.com/siri-lite/fm/parking&quot;</span>
+<a id="__codelineno-2-439" name="__codelineno-2-439" href="#__codelineno-2-439"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-440" name="__codelineno-2-440" href="#__codelineno-2-440"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-441" name="__codelineno-2-441" href="#__codelineno-2-441"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-lite&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-442" name="__codelineno-2-442" href="#__codelineno-2-442"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sta&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-443" name="__codelineno-2-443" href="#__codelineno-2-443"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/siri-lite/estimated-timetable/xml&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-444" name="__codelineno-2-444" href="#__codelineno-2-444"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-445" name="__codelineno-2-445" href="#__codelineno-2-445"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-446" name="__codelineno-2-446" href="#__codelineno-2-446"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-447" name="__codelineno-2-447" href="#__codelineno-2-447"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-sx-lite&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-448" name="__codelineno-2-448" href="#__codelineno-2-448"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sta&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-449" name="__codelineno-2-449" href="#__codelineno-2-449"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/siri-lite/situation-exchange/xml&quot;</span>
+<a id="__codelineno-2-450" name="__codelineno-2-450" href="#__codelineno-2-450"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-451" name="__codelineno-2-451" href="#__codelineno-2-451"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-2-452" name="__codelineno-2-452" href="#__codelineno-2-452"></a><span class="w">  </span><span class="nt">&quot;rideHailingServices&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-453" name="__codelineno-2-453" href="#__codelineno-2-453"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-454" name="__codelineno-2-454" href="#__codelineno-2-454"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uber-car-hailing&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-455" name="__codelineno-2-455" href="#__codelineno-2-455"></a><span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret-id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-456" name="__codelineno-2-456" href="#__codelineno-2-456"></a><span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;very-secret&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-457" name="__codelineno-2-457" href="#__codelineno-2-457"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibleProductId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;545de0c4-659f-49c6-be65-0d5e448dffd5&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-458" name="__codelineno-2-458" href="#__codelineno-2-458"></a><span class="w">      </span><span class="nt">&quot;bannedProductIds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-459" name="__codelineno-2-459" href="#__codelineno-2-459"></a><span class="w">        </span><span class="s2">&quot;1196d0dd-423b-4a81-a1d8-615367d3a365&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-460" name="__codelineno-2-460" href="#__codelineno-2-460"></a><span class="w">        </span><span class="s2">&quot;f58761e5-8dd5-4940-a472-872f1236c596&quot;</span>
+<a id="__codelineno-2-461" name="__codelineno-2-461" href="#__codelineno-2-461"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-2-462" name="__codelineno-2-462" href="#__codelineno-2-462"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-463" name="__codelineno-2-463" href="#__codelineno-2-463"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-464" name="__codelineno-2-464" href="#__codelineno-2-464"></a><span class="p">}</span>
+</code></pre></div>
+<!-- JSON-EXAMPLE END -->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
