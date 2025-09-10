@@ -2860,7 +2860,7 @@ text inserted is valid JSON object (starts with <code>{</code> and ends with <co
 (starts with <code>[</code> and ends with <code>]</code>). </p>
 <p>Variable substitution is performed on configuration file after the include file directive; Hence
 variable substitution is also performed on the text in the injected file.</p>
-<p>Here is an example including variable substitution, assuming version 2.7.0 of OTP:</p>
+<p>Here is an example including variable substitution, assuming version 2.8.0 of OTP:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// build-config.json</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;transitFeeds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${includeFile:transit.json}&quot;</span>
@@ -2877,7 +2877,7 @@ variable substitution is also performed on the text in the injected file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">      </span><span class="nt">&quot;transitFeeds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;netex-v2.7.0.obj&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;netex-v2.8.0.obj&quot;</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="p">]</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span><span class="w"> </span>
