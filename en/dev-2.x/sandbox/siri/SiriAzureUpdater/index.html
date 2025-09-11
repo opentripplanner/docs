@@ -2654,6 +2654,14 @@ developer.otp@skanetrafiken.se</p>
 <td style="text-align: center;">2.2</td>
 </tr>
 <tr>
+<td><a href="#u__11__startupTimeout">startupTimeout</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Maximum time to wait for real-time services during startup.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT5M"</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
 <td>topic</td>
 <td style="text-align: center;"><code>string</code></td>
 <td>Service Bus topic to connect to.</td>
@@ -2720,6 +2728,12 @@ developer.otp@skanetrafiken.se</p>
 <strong>Path:</strong> /updaters/[11] </p>
 <p>Service Bus connection used for authentication.</p>
 <p>Has to be present for authenticationMethod SharedAccessKey. This should be Primary/Secondary connection string from service bus.</p>
+<h4 id="u__11__startupTimeout">startupTimeout</h4>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT5M"</code> <br />
+<strong>Path:</strong> /updaters/[11] </p>
+<p>Maximum time to wait for real-time services during startup.</p>
+<p>Maximum time to wait for real-time services during startup. If real-time services are unavailable, OTP will start without real-time data after this timeout.</p>
 <h5 id="example-configuration">Example configuration</h5>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
@@ -2832,6 +2846,14 @@ developer.otp@skanetrafiken.se</p>
 <td style="text-align: center;">2.2</td>
 </tr>
 <tr>
+<td><a href="#u__10__startupTimeout">startupTimeout</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Maximum time to wait for real-time services during startup.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT5M"</code></td>
+<td style="text-align: center;">na</td>
+</tr>
+<tr>
 <td>topic</td>
 <td style="text-align: center;"><code>string</code></td>
 <td>Service Bus topic to connect to.</td>
@@ -2906,6 +2928,12 @@ developer.otp@skanetrafiken.se</p>
 <strong>Path:</strong> /updaters/[10] </p>
 <p>Service Bus connection used for authentication.</p>
 <p>Has to be present for authenticationMethod SharedAccessKey. This should be Primary/Secondary connection string from service bus.</p>
+<h4 id="u__10__startupTimeout">startupTimeout</h4>
+
+<p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT5M"</code> <br />
+<strong>Path:</strong> /updaters/[10] </p>
+<p>Maximum time to wait for real-time services during startup.</p>
+<p>Maximum time to wait for real-time services during startup. If real-time services are unavailable, OTP will start without real-time data after this timeout.</p>
 <h5 id="example-configuration_1">Example configuration</h5>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
