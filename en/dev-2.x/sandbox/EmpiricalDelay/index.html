@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/IslandPruning/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/EmpiricalDelay/">
       
       
-        <link rel="prev" href="../StopAreas/">
+        <link rel="prev" href="../Emission/">
       
       
-        <link rel="next" href="../Accessibility/">
+        <link rel="next" href="../StopConsolidation/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
-        <title>Street Graph Pruning - OpenTripPlanner 2</title>
+        <title>Empirical Delay - OpenTripPlanner 2</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#street-graph-pruning" class="md-skip">
+        <a href="#empirical-delay" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href="../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Street Graph Pruning
+              Empirical Delay
             
           </span>
         </div>
@@ -206,7 +206,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href="../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -236,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -296,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Product-Overview/" class="md-nav__link">
+      <a href="../../Product-Overview/" class="md-nav__link">
         
   
   
@@ -319,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Governance/" class="md-nav__link">
+      <a href="../../Governance/" class="md-nav__link">
         
   
   
@@ -342,7 +342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../History/" class="md-nav__link">
+      <a href="../../History/" class="md-nav__link">
         
   
   
@@ -365,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Presentations/" class="md-nav__link">
+      <a href="../../Presentations/" class="md-nav__link">
         
   
   
@@ -388,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Roadmap/" class="md-nav__link">
+      <a href="../../Roadmap/" class="md-nav__link">
         
   
   
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Deployments/" class="md-nav__link">
+      <a href="../../Deployments/" class="md-nav__link">
         
   
   
@@ -434,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Changelog/" class="md-nav__link">
+      <a href="../../Changelog/" class="md-nav__link">
         
   
   
@@ -457,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Visual-Identity/" class="md-nav__link">
+      <a href="../../Visual-Identity/" class="md-nav__link">
         
   
   
@@ -525,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic-Tutorial/" class="md-nav__link">
+      <a href="../../Basic-Tutorial/" class="md-nav__link">
         
   
   
@@ -548,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Netex-Tutorial/" class="md-nav__link">
+      <a href="../../Netex-Tutorial/" class="md-nav__link">
         
   
   
@@ -571,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Getting-OTP/" class="md-nav__link">
+      <a href="../../Getting-OTP/" class="md-nav__link">
         
   
   
@@ -594,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Data-Sources/" class="md-nav__link">
+      <a href="../../Data-Sources/" class="md-nav__link">
         
   
   
@@ -617,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Container-Image/" class="md-nav__link">
+      <a href="../../Container-Image/" class="md-nav__link">
         
   
   
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../System-Requirements/" class="md-nav__link">
+      <a href="../../System-Requirements/" class="md-nav__link">
         
   
   
@@ -663,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Preparing-OSM/" class="md-nav__link">
+      <a href="../../Preparing-OSM/" class="md-nav__link">
         
   
   
@@ -686,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Troubleshooting-Routing/" class="md-nav__link">
+      <a href="../../Troubleshooting-Routing/" class="md-nav__link">
         
   
   
@@ -709,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Version-Comparison/" class="md-nav__link">
+      <a href="../../Version-Comparison/" class="md-nav__link">
         
   
   
@@ -732,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Frontends/" class="md-nav__link">
+      <a href="../../Frontends/" class="md-nav__link">
         
   
   
@@ -800,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/Apis/" class="md-nav__link">
+      <a href="../../apis/Apis/" class="md-nav__link">
         
   
   
@@ -823,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/GraphQL-Tutorial/" class="md-nav__link">
+      <a href="../../apis/GraphQL-Tutorial/" class="md-nav__link">
         
   
   
@@ -846,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/GTFS-GraphQL-API/" class="md-nav__link">
+      <a href="../../apis/GTFS-GraphQL-API/" class="md-nav__link">
         
   
   
@@ -869,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/TransmodelApi/" class="md-nav__link">
+      <a href="../../apis/TransmodelApi/" class="md-nav__link">
         
   
   
@@ -937,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Configuration/" class="md-nav__link">
+      <a href="../../Configuration/" class="md-nav__link">
         
   
   
@@ -960,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BuildConfiguration/" class="md-nav__link">
+      <a href="../../BuildConfiguration/" class="md-nav__link">
         
   
   
@@ -1021,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/OsmTag/" class="md-nav__link">
+      <a href="../../osm/OsmTag/" class="md-nav__link">
         
   
   
@@ -1044,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/Finland/" class="md-nav__link">
+      <a href="../../osm/Finland/" class="md-nav__link">
         
   
   
@@ -1067,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/Germany/" class="md-nav__link">
+      <a href="../../osm/Germany/" class="md-nav__link">
         
   
   
@@ -1090,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/Norway/" class="md-nav__link">
+      <a href="../../osm/Norway/" class="md-nav__link">
         
   
   
@@ -1113,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/UK/" class="md-nav__link">
+      <a href="../../osm/UK/" class="md-nav__link">
         
   
   
@@ -1144,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RouterConfiguration/" class="md-nav__link">
+      <a href="../../RouterConfiguration/" class="md-nav__link">
         
   
   
@@ -1167,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RouteRequest/" class="md-nav__link">
+      <a href="../../RouteRequest/" class="md-nav__link">
         
   
   
@@ -1228,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Realtime-Updaters/" class="md-nav__link">
+      <a href="../../Realtime-Updaters/" class="md-nav__link">
         
   
   
@@ -1251,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GTFS-RT-Config/" class="md-nav__link">
+      <a href="../../GTFS-RT-Config/" class="md-nav__link">
         
   
   
@@ -1274,7 +1274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SIRI-Config/" class="md-nav__link">
+      <a href="../../SIRI-Config/" class="md-nav__link">
         
   
   
@@ -1297,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GBFS-Config/" class="md-nav__link">
+      <a href="../../GBFS-Config/" class="md-nav__link">
         
   
   
@@ -1328,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DebugUiConfiguration/" class="md-nav__link">
+      <a href="../../DebugUiConfiguration/" class="md-nav__link">
         
   
   
@@ -1351,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Migrating-Configuration/" class="md-nav__link">
+      <a href="../../Migrating-Configuration/" class="md-nav__link">
         
   
   
@@ -1378,20 +1378,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1407,7 +1405,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Features explained
@@ -1421,7 +1419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features-explained/Feed-ID/" class="md-nav__link">
+      <a href="../../features-explained/Feed-ID/" class="md-nav__link">
         
   
   
@@ -1444,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RoutingModes/" class="md-nav__link">
+      <a href="../../RoutingModes/" class="md-nav__link">
         
   
   
@@ -1467,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../In-Station-Navigation/" class="md-nav__link">
+      <a href="../../In-Station-Navigation/" class="md-nav__link">
         
   
   
@@ -1490,7 +1488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BoardingLocations/" class="md-nav__link">
+      <a href="../../BoardingLocations/" class="md-nav__link">
         
   
   
@@ -1513,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../StopAreas/" class="md-nav__link">
+      <a href="../../StopAreas/" class="md-nav__link">
         
   
   
@@ -1533,32 +1531,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Street Graph Pruning
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../IslandPruning/" class="md-nav__link">
         
   
   
@@ -1569,62 +1545,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#access-restriction-islands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Access restriction islands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pruning-algorithm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pruning algorithm
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#some-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Some examples
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#issue-reports" class="md-nav__link">
-    <span class="md-ellipsis">
-      Issue reports
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1637,7 +1557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Accessibility/" class="md-nav__link">
+      <a href="../../Accessibility/" class="md-nav__link">
         
   
   
@@ -1660,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features-explained/Netex-Siri-Compatibility/" class="md-nav__link">
+      <a href="../../features-explained/Netex-Siri-Compatibility/" class="md-nav__link">
         
   
   
@@ -1683,7 +1603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Analysis/" class="md-nav__link">
+      <a href="../../Analysis/" class="md-nav__link">
         
   
   
@@ -1706,7 +1626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Logging/" class="md-nav__link">
+      <a href="../../Logging/" class="md-nav__link">
         
   
   
@@ -1774,7 +1694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Developers-Guide/" class="md-nav__link">
+      <a href="../../Developers-Guide/" class="md-nav__link">
         
   
   
@@ -1797,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Bibliography/" class="md-nav__link">
+      <a href="../../Bibliography/" class="md-nav__link">
         
   
   
@@ -1820,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SandboxExtension/" class="md-nav__link">
+      <a href="../../SandboxExtension/" class="md-nav__link">
         
   
   
@@ -1843,7 +1763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ReleaseChecklist/" class="md-nav__link">
+      <a href="../../ReleaseChecklist/" class="md-nav__link">
         
   
   
@@ -1870,18 +1790,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1897,7 +1819,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Sandbox
@@ -1911,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SandboxExtension/" class="md-nav__link">
+      <a href="../../SandboxExtension/" class="md-nav__link">
         
   
   
@@ -1934,7 +1856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
+      <a href="../ActuatorAPI/" class="md-nav__link">
         
   
   
@@ -1957,7 +1879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/DebugRasterTiles/" class="md-nav__link">
+      <a href="../DebugRasterTiles/" class="md-nav__link">
         
   
   
@@ -1980,7 +1902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
+      <a href="../transferanalyzer/" class="md-nav__link">
         
   
   
@@ -2003,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
+      <a href="../GoogleCloudStorage/" class="md-nav__link">
         
   
   
@@ -2026,7 +1948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/siri/SiriGooglePubSubUpdater/" class="md-nav__link">
+      <a href="../siri/SiriGooglePubSubUpdater/" class="md-nav__link">
         
   
   
@@ -2049,7 +1971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
+      <a href="../siri/SiriAzureUpdater/" class="md-nav__link">
         
   
   
@@ -2072,7 +1994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
         
   
   
@@ -2095,7 +2017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
+      <a href="../SmooveBikeRental/" class="md-nav__link">
         
   
   
@@ -2118,7 +2040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
         
   
   
@@ -2141,7 +2063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Flex/" class="md-nav__link">
+      <a href="../Flex/" class="md-nav__link">
         
   
   
@@ -2164,7 +2086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/ReportApi/" class="md-nav__link">
+      <a href="../ReportApi/" class="md-nav__link">
         
   
   
@@ -2187,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
+      <a href="../InteractiveOtpMain/" class="md-nav__link">
         
   
   
@@ -2210,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
+      <a href="../ParkAndRideApi/" class="md-nav__link">
         
   
   
@@ -2233,7 +2155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/DataOverlay/" class="md-nav__link">
+      <a href="../DataOverlay/" class="md-nav__link">
         
   
   
@@ -2256,7 +2178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/VehicleParking/" class="md-nav__link">
+      <a href="../VehicleParking/" class="md-nav__link">
         
   
   
@@ -2279,7 +2201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
+      <a href="../GeocoderAPI/" class="md-nav__link">
         
   
   
@@ -2302,7 +2224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../IBIAccessibilityScore/" class="md-nav__link">
         
   
   
@@ -2325,7 +2247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Fares/" class="md-nav__link">
+      <a href="../Fares/" class="md-nav__link">
         
   
   
@@ -2348,7 +2270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/RideHailing/" class="md-nav__link">
+      <a href="../RideHailing/" class="md-nav__link">
         
   
   
@@ -2371,7 +2293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Emission/" class="md-nav__link">
+      <a href="../Emission/" class="md-nav__link">
         
   
   
@@ -2391,10 +2313,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../sandbox/EmpiricalDelay/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Empirical Delay
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2405,6 +2349,161 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contact-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contact Info
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#empirical-delay-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Empirical Delay Data Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empirical-delay-stop-times-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Empirical Delay Stop Times Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empirical-delay-calendar-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Empirical Delay Calendar Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphql-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      GraphQL API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traveler-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traveler Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#journey-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Journey Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-quality-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Quality Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changelog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#otp-29" class="md-nav__link">
+    <span class="md-ellipsis">
+      OTP 2.9
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2417,7 +2516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/StopConsolidation/" class="md-nav__link">
+      <a href="../StopConsolidation/" class="md-nav__link">
         
   
   
@@ -2440,7 +2539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Sorlandsbanen/" class="md-nav__link">
+      <a href="../Sorlandsbanen/" class="md-nav__link">
         
   
   
@@ -2463,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/TriasApi/" class="md-nav__link">
+      <a href="../TriasApi/" class="md-nav__link">
         
   
   
@@ -2505,71 +2604,232 @@
   
 
 
-<h1 id="street-graph-pruning">Street graph pruning</h1>
-<p>A street graph created from OpenStreetMap data has sections which cannot be reached with some or all traverse modes. For example,
-true geographic islands are usually disconnected from the main graph. The street network of such islands should be kept so that routing
-within the island or continuing from a ferry stop on it works as expected. Even a tiny street network connected to a ferry stop improves
-routing to an island a lot, because coordinate based itinerary searches find something to project onto.</p>
-<p><img alt="" src="../images/badprojection.png" /><br />
-<em>Removing a small subgraph from an island causes poor routing. A ferry stop on the island links directly to mainland.</em></p>
-<p>Disconnected parts can also represent a strictly forbidden area, such as connections within an industrial unit, roads of a military base or another
-region which cannot and should not be accessed when using door to door routing of a public transit journey planner. Existence
-of such graph sections is harmful, because start and end points of an itinerary search request may accidentally get projected to such a private pathway.
-As a result, a user does not receive any itineraries and gets no explanation for the routing problem.</p>
-<p>In most cases, connectivity problems are caused by incorrect modeling of OSM data. The number of such errors is usually very large,
-and the problem cannot be solved by simply fixing OSM data as soon as errors are detected - the OSM street network in Finland contains
-over 10 000 detected walk connectivity issues! An algorithmic solution is needed to address a problem of such magnitude.</p>
-<p><img alt="" src="../images/osmislands.png" /><br />
-<em>A typical error: bus platforms are not connected to the street network at all</em></p>
-<p>A simple and efficient solution is to detect harmful disconnected parts and remove them from the street graph. Routing then uses the properly connected
-part of the graph and finds itineraries. As a side effect, the start point of an itinerary search which departs from the removed graph projects at the border of it,
-which usually is good enough. Transfers may include strange teleportation and unexpected walking, as public transit stops may link to somewhat remote streets,
-but at least transfers will work.</p>
-<p><img alt="" src="../images/stopislandproblem.png" /><br />
-<em>A disconnected railway platform breaks routing. Traveler is guided to take a round trip around the country although there is one hour direct train connection.</em></p>
-<h2 id="access-restriction-islands">Access restriction islands</h2>
-<p>One common reason for OSM connectivity problems is access tagging. It is perfectly OK to tag a front yard of a private residence using <code>access=private</code> or <code>access=destination</code> tags, so that
-strangers are not guided to travel through the private area. Routing will still use the private streets if a trip starts or ends there - only pass through traversal gets prohibited.
-However, sometimes OSM contributors try to block the traffic by tagging only entrance segments of streets leading to a restricted area. Unfortunately this totally
-prevents access to the interior part of the network, because OTP interprets it as pass through traffic. Pruning handles such problems by converting streets behind an access restriction
-to have the same access properties.</p>
-<p><img alt="" src="../images/nothruisland.png" /><br />
-<em>Some regular (gray colored) streets are blocked behind access restricted (red colored) connections. Walk routing to them fails because it would be considered as pass through traffic.
-The image on the right shows that pruning added walk nothrough restriction to those streets, and routing works again.</em></p>
-<h2 id="pruning-algorithm">Pruning algorithm</h2>
-<p>Pruning analyses the three traverse modes - walk, bike and car - separately. For example, a resting area by a motorway may include some walking paths, but the only way to get there is
-to use a car. Therefore, it represents a disconnected 'island' when considering the walk mode. Pruning does not erase disconnected graph geometry as long as it
-can be reached using any of the traverse modes. Instead, pruning removes traversal permission for each disconnected mode from the island.</p>
-<p>Pruning uses four parameters and some heuristics to decide if a disconnected sub graph is a real island to be retained, or a harmful data error:</p>
+<h1 id="empirical-delay">Empirical Delay</h1>
+<h2 id="contact-info">Contact Info</h2>
 <ul>
-<li><code>islandWithStopsMaxSize</code> defines the threshold for graph islands, which include public transit stops. All stop islands which have less graph edges than this get pruned. Default value is 2.  </li>
-<li><code>islandWithoutStopsMaxSize</code> defines the threshold for graph islands, which do not have public transit stops. All stopless islands which have less edges than this get pruned. Defaults to 10.  </li>
-<li><code>adaptivePruningFactor</code> defines the maximal value for a distance based multiplier for the two thresholds defined above (default value 20).  </li>
-<li><code>adaptivePruningDistance</code> defines the search radius as meters when estimating distance between graphs (default value 250).  </li>
+<li>Entur AS</li>
 </ul>
-<p>Pruning thresholds are increased adaptively so that if the distance between an examined sub graph and the other graph is zero, the threshold is multiplied by a full adaptivePruningFactor value.
-The idea is that if a sub graph is closely entangled with another graph, it is likely to be a harmful modeling error, not a remote place like a true geographic island.
-If the distance is more than <code>adaptivePruningDistance</code>, the actual nominal threshold values will be used. So, adaptiveness prunes much larger disconnected graphs in places where they
-have potential to cause routing errors.</p>
-<p>Adaptive pruning can be disabled by setting adaptivePruningFactor to 1. Constant pruning thresholds will then be applied.</p>
-<p>Pruning also examines the transport modes of graph islands with stops. If land transportation modes are not found (only ferry or no modes at all), the graph is retained.
-Unknown mode is accepted for island status, because ferry lines often operate only during warm seasons.</p>
-<h2 id="some-examples">Some examples</h2>
-<p><img alt="" src="../images/trueisland.png" /><br />
-<em>A disconnected small graph should be preserved, if it is located on a real island.</em></p>
-<p><img alt="" src="../images/stopisland.png" /><br />
-<em>A street section has tags which prevent traversal on it, and OTP has removed it from the graph. Some isolated streets remain left, and a public transit stop gets linked to them. Routing cannot use the stop unless traveler
-is leaving from or going to the small isolated sub graph. Isolated streets cannot be reached by walking either. After pruning, the stop is projected to the main graph. Transfers at the stop work fine.
-Itineraries can guide traveler quite close to the removed streets.</em></p>
-<p><img alt="" src="../images/stationisland.png" /><br />
-<em>The platform structure of a bus station is disconnected from the other graph. Most bus traffic of a medium size city becomes unusable.
-Despite of the complexity of the sub graph (54 edges and 21 stops), it must be removed in pruning, so that stops get linked to reachable and well connected streets.</em></p>
-<h2 id="issue-reports">Issue reports</h2>
-<p>Pruning creates a <code>GraphIsland</code> issue every time it prunes a sub graph. Issues may show up as duplicates, because pruning is run for each traverse mode.</p>
-<p>A <code>PrunedStopIsland</code> issue is added for every pruned graph island which has stops linked to it. Such islands are particularly
-harmful, because they are places where public transit transfers take place and hence are frequently used. Pruned stop island issues should be studied
-frequently and underlying OSM errors fixed, especially if the island has many stops and edges (i.e it is most likely a public transit station,
-see station island example above).</p>
+<h2 id="documentation">Documentation</h2>
+<p>The empirical delay module enables import of historical delay data which OTP can use to provide
+typical delay information based on actual observed service delays. Empirical delay data is loaded
+during the graph build process and provides percentile-based delay estimates (p50 and p90) for
+service journeys at specific stops.</p>
+<p>This feature helps users understand the typical reliability of a service based on historical data,
+allowing them to make more informed travel decisions. For example, a service that historically
+arrives 5 minutes late 50% of the time (p50 = 5 minutes) gives travelers a more realistic
+expectation than just the scheduled time.</p>
+<h3 id="empirical-delay-data-files">Empirical Delay Data Files</h3>
+<p>Empirical delay data is provided through two CSV files that must be supplied as standalone files
+listed in the <code>build-config.json</code>. Both files must be provided together:</p>
+<ul>
+<li><code>empirical_delay_stop_times.txt</code> - Contains delay percentiles for each trip stop</li>
+<li><code>empirical_delay_calendar.txt</code> - Defines service calendars for the delay data</li>
+</ul>
+<p>The file names must include "empirical_delay" and the extension must be <code>.csv</code> or <code>.txt</code>. Both
+NeTEx and GTFS feeds are supported through the feedId configuration.</p>
+<h3 id="empirical-delay-stop-times-format">Empirical Delay Stop Times Format</h3>
+<p>This file contains the delay data for each stop on each trip, organized by service calendar periods (e.g., weekdays, weekends).</p>
+<p>CSV file columns:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">CSV Header</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>empirical_delay_service_id</code></td>
+<td style="text-align: left;">The service calendar identifier that determines when this delay data applies (references calendar file).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>trip_id</code></td>
+<td style="text-align: left;">The GTFS trip id or NeTEx ServiceJourney id.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>stop_id</code></td>
+<td style="text-align: left;">The GTFS stop id or NeTEx Quay id for this stop.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>stop_sequence</code></td>
+<td style="text-align: left;">The stop sequence number in the trip pattern. First stop is 1, not 0.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>p50</code></td>
+<td style="text-align: left;">The median (50th percentile) delay in seconds. Half of historical observations are better than this.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>p90</code></td>
+<td style="text-align: left;">The 90th percentile delay in seconds. 90% of observations are better, 10% are worse.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constraints:</strong>
+- Percentile values (p50, p90) must be between 0 and 18000 seconds (5 hours)
+- Stop sequence must be between 0 and 10,000
+- If the stop_id does not match the transit feed, the row is dropped and an issue is added to the
+  build report</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>empirical_delay_service_id,trip_id,stop_id,stop_sequence,p50,p90
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Friday,RUT:ServiceJourney:1,NSR:Quay:1001,1,0,30
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Friday,RUT:ServiceJourney:1,NSR:Quay:1002,2,120,240
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Friday,RUT:ServiceJourney:1,NSR:Quay:1003,3,180,360
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Saturday,RUT:ServiceJourney:1,NSR:Quay:1001,1,30,60
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Saturday,RUT:ServiceJourney:1,NSR:Quay:1002,2,45,120
+</code></pre></div>
+<p>In this example:
+- On Fridays, stop 2 has a median delay of 2 minutes (120s) and is delayed by 4+ minutes 10% of the
+  time
+- On Saturdays, the same stop has better performance with only 45 seconds median delay</p>
+<h3 id="empirical-delay-calendar-format">Empirical Delay Calendar Format</h3>
+<p>This file defines service calendars that determine when specific delay patterns apply, similar to
+GTFS calendar.txt format.</p>
+<p>CSV file columns:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">CSV Header</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>empirical_delay_service_id</code></td>
+<td style="text-align: left;">Unique identifier for this service calendar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>monday</code></td>
+<td style="text-align: left;">Boolean (0 or 1) - whether this calendar applies on Mondays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tuesday</code></td>
+<td style="text-align: left;">Boolean (0 or 1) - whether this calendar applies on Tuesdays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>wednesday</code></td>
+<td style="text-align: left;">Boolean (0 or 1) - whether this calendar applies on Wednesdays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>thursday</code></td>
+<td style="text-align: left;">Boolean (0 or 1) - whether this calendar applies on Thursdays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>friday</code></td>
+<td style="text-align: left;">Boolean (0 or 1) - whether this calendar applies on Fridays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>saturday</code></td>
+<td style="text-align: left;">Boolean (0 or 1) - whether this calendar applies on Saturdays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sunday</code></td>
+<td style="text-align: left;">Boolean (0 or 1) - whether this calendar applies on Sundays.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>start_date</code></td>
+<td style="text-align: left;">Start date in YYYY-MM-DD format (inclusive).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>end_date</code></td>
+<td style="text-align: left;">End date in YYYY-MM-DD format (inclusive).</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>empirical_delay_service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Weekday,1,1,1,1,1,0,0,2025-01-01,2030-12-31
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Weekend,0,0,0,0,0,1,1,2025-01-01,2030-12-31
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Friday,0,0,0,0,1,0,0,2025-01-01,2030-12-31
+</code></pre></div>
+<h3 id="configuration">Configuration</h3>
+<p>To enable this functionality, you need to enable the "EmpiricalDelay" feature in the 
+<code>otp-config.json</code> file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// otp-config.json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;EmpiricalDelay&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Include the <code>empiricalDelay</code> object in the <code>build-config.json</code> file with a list of feeds containing
+empirical delay data:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;empiricalDelay&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;feeds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="nt">&quot;feedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RUT&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.org/empirical-delay/rut-delays.zip&quot;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="nt">&quot;feedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NSB&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///data/empirical-delay/nsb-delays.zip&quot;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>Each feed configuration requires:
+- <code>feedId</code> (required): The feed ID to use for matching transit IDs in the empirical delay data. 
+  This must match the feed ID of the corresponding GTFS or NeTEx feed.
+- <code>source</code> (required): URI pointing to the empirical delay data. Can be a local file, HTTP(S) URL,
+  or cloud storage URI (e.g., gs://).</p>
+<p>The source can be:
+- A ZIP file containing both <code>empirical_delay_stop_times.txt</code> and <code>empirical_delay_calendar.txt</code>
+- A directory containing these files
+- Individual files (both must be provided)</p>
+<h3 id="graphql-api">GraphQL API</h3>
+<p>The empirical delay data is exposed through the Transmodel GraphQL API on the <code>EstimatedCall</code> type:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">type</span><span class="w"> </span><span class="err">EstimatedCall</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="c"># ... other fields ...</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="err">&quot;</span><span class="n">The</span><span class="w"> </span><span class="n">typical</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">trip</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">historical</span><span class="w"> </span><span class="n">data</span><span class="err">.&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nl">empiricalDelay</span><span class="p">:</span><span class="w"> </span><span class="n">EmpiricalDelay</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">type</span><span class="w"> </span><span class="err">EmpiricalDelay</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="err">&quot;</span><span class="n">The</span><span class="w"> </span><span class="n">median</span><span class="err">/50%</span><span class="w"> </span><span class="n">percentile</span><span class="err">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">middle</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">distribution</span><span class="err">.&quot;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nl">p50</span><span class="p">:</span><span class="w"> </span><span class="n">Duration</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="err">&quot;</span><span class="n">The</span><span class="w"> </span><span class="err">90%</span><span class="w"> </span><span class="n">percentile</span><span class="err">.</span><span class="w"> </span><span class="err">90%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">distribution</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="err">10%</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">delayed</span><span class="err">.&quot;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="nl">p90</span><span class="p">:</span><span class="w"> </span><span class="n">Duration</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>Example query:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="n">stopPlace</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NSR:StopPlace:1&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">estimatedCalls</span><span class="p">(</span><span class="n">numberOfDepartures</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="n">expectedDepartureTime</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="n">destinationDisplay</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">frontText</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="n">empiricalDelay</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="n">p50</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="n">p90</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>If no empirical delay data is available for the specific combination, the field returns <code>null</code>.</p>
+<h2 id="use-cases">Use Cases</h2>
+<h3 id="traveler-information">Traveler Information</h3>
+<p>Empirical delay data can be displayed to travelers to set realistic expectations:
+- "This service is typically 2-3 minutes late at this stop"
+- "90% of the time, this bus arrives within 5 minutes of schedule"</p>
+<h3 id="journey-planning">Journey Planning</h3>
+<p>Journey planners can use empirical delay to:
+- Add realistic buffer times when suggesting transfers
+- Rank alternatives based on historical reliability
+- Adjust arrival time predictions beyond real-time data</p>
+<h3 id="service-quality-monitoring">Service Quality Monitoring</h3>
+<p>Transit operators can:
+- Identify consistently delayed services
+- Compare different time periods (weekday vs weekend)
+- Track improvement over time as new delay data is imported</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="otp-29">OTP 2.9</h3>
+<ul>
+<li>Initial implementation of empirical delay with percentile-based delay data (p50, p90), service
+  calendar support for day-of-week patterns, and available in the Transmodel GraphQL API.</li>
+</ul>
 
 
 
@@ -2618,10 +2878,10 @@ see station island example above).</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
