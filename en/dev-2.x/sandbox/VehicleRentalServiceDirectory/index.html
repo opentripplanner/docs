@@ -2545,6 +2545,7 @@ like OTP can connect to the directory and get the necessary configuration from i
 <li>Make json tag names configurable <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3447">#3447</a></li>
 <li>Enable GBFS geofencing with VehicleRentalServiceDirectory <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5324">#5324</a></li>
 <li>Enable <code>allowKeepingVehicleAtDestination</code> <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5944">#5944</a></li>
+<li>Rewrite to use manifest.json from GBFS v3 as the service directory <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6900">#6900</a></li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <p>To enable this you need to specify a url for the <code>vehicleRentalServiceDirectory</code> in
@@ -2568,39 +2569,15 @@ the <code>router-config.json</code></p>
 <tr>
 <td>language</td>
 <td style="text-align: center;"><code>string</code></td>
-<td>Language code.</td>
+<td>Language code for GBFS feeds.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
-<td>sourcesName</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Json tag name for updater sources.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"systems"</code></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td>updaterNetworkName</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Json tag name for the network name for each source.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"id"</code></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td>updaterUrlName</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>Json tag name for endpoint urls for each source.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"url"</code></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td>url</td>
+<td><a href="#vehicleRentalServiceDirectory_url">url</a></td>
 <td style="text-align: center;"><code>uri</code></td>
-<td>Endpoint for the VehicleRentalServiceDirectory</td>
+<td>URL or file path to the GBFS v3 manifest.json</td>
 <td style="text-align: center;"><em>Required</em></td>
 <td></td>
 <td style="text-align: center;">2.1</td>
@@ -2653,6 +2630,12 @@ the <code>router-config.json</code></p>
 <!-- PARAMETERS-DETAILS BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
+<h4 id="vehicleRentalServiceDirectory_url">url</h4>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /vehicleRentalServiceDirectory </p>
+<p>URL or file path to the GBFS v3 manifest.json</p>
+<p>Can be either a remote URL (http/https) or a local file path (file://). The manifest must conform to the GBFS v3.0 specification.</p>
 <h4 id="vehicleRentalServiceDirectory_headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -2690,21 +2673,18 @@ be kept at the end of the trip.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;vehicleRentalServiceDirectory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;sourcesName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;systems&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;updaterUrlName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;updaterNetworkName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;ET-Client-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otp&quot;</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">&quot;networks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oslo-by-sykkel&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">&quot;geofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">]</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/gbfs/v3/manifest.json&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;ET-Client-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otp&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;networks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oslo-by-sykkel&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nt">&quot;geofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
