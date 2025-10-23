@@ -3238,6 +3238,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.7</td>
 </tr>
 <tr>
+<td>      <a href="#tpfm_BIKE_bikesAllowedStopMaxTransferDuration">bikesAllowedStopMaxTransferDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow bikes.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.9</td>
+</tr>
+<tr>
 <td>      <a href="#tpfm_BIKE_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow cars.</td>
@@ -3268,6 +3276,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
 <td style="text-align: center;">2.7</td>
+</tr>
+<tr>
+<td>      <a href="#tpfm_CAR_bikesAllowedStopMaxTransferDuration">bikesAllowedStopMaxTransferDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow bikes.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.9</td>
 </tr>
 <tr>
 <td>      <a href="#tpfm_CAR_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</a></td>
@@ -4079,6 +4095,20 @@ To configure mode-specific parameters, the modes should also be used in the <cod
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">}</span>
 </code></pre></div>
+<h3 id="tpfm_BIKE_bikesAllowedStopMaxTransferDuration">bikesAllowedStopMaxTransferDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transferParametersForMode/BIKE </p>
+<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow bikes.</p>
+<p>This parameter configures additional transfers to be calculated for the specified mode only between stops that have trips with bikes.
+The transfers are calculated for the mode in a range based on the given duration.
+By default, these transfers are not calculated unless specified for a mode with this field.</p>
+<p>When compared to walking, using a bike can cover larger distances within the same duration specified in the <code>maxTransferDuration</code> field.
+This can lead to large amounts of transfers calculated between stops that do not require bike transfers between them.
+This in turn can lead to a large increase in memory for the stored graph, depending on the data used in the graph.</p>
+<p>For bikes, using this parameter in conjunction with <code>disableDefaultTransfers</code> allows calculating transfers only between stops
+which have trips which allow carrying bikes. This avoids storing and calculating transfers which are never used so the transit search
+can be faster compared to the default transfers.</p>
 <h3 id="tpfm_BIKE_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</h3>
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -4107,8 +4137,22 @@ In Finland this is useful for bike routes that use ferries near the Turku archip
 which limits transfers from stops to only be calculated to other stops that are in range.
 This parameter disables these transfers.
 A motivation to disable default transfers could be related to using the <code>carsAllowedStopMaxTransferDuration</code> field which only
-calculates transfers between stops that have trips with cars.
+calculates transfers between stops that have trips with cars, or <code>bikesAllowedStopMaxTransferDuration</code> field for bikes.
 For example, when using the <code>carsAllowedStopMaxTransferDuration</code> field with cars, the default transfers can be redundant.</p>
+<h3 id="tpfm_CAR_bikesAllowedStopMaxTransferDuration">bikesAllowedStopMaxTransferDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transferParametersForMode/CAR </p>
+<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow bikes.</p>
+<p>This parameter configures additional transfers to be calculated for the specified mode only between stops that have trips with bikes.
+The transfers are calculated for the mode in a range based on the given duration.
+By default, these transfers are not calculated unless specified for a mode with this field.</p>
+<p>When compared to walking, using a bike can cover larger distances within the same duration specified in the <code>maxTransferDuration</code> field.
+This can lead to large amounts of transfers calculated between stops that do not require bike transfers between them.
+This in turn can lead to a large increase in memory for the stored graph, depending on the data used in the graph.</p>
+<p>For bikes, using this parameter in conjunction with <code>disableDefaultTransfers</code> allows calculating transfers only between stops
+which have trips which allow carrying bikes. This avoids storing and calculating transfers which are never used so the transit search
+can be faster compared to the default transfers.</p>
 <h3 id="tpfm_CAR_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</h3>
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -4137,7 +4181,7 @@ In Finland this is useful for bike routes that use ferries near the Turku archip
 which limits transfers from stops to only be calculated to other stops that are in range.
 This parameter disables these transfers.
 A motivation to disable default transfers could be related to using the <code>carsAllowedStopMaxTransferDuration</code> field which only
-calculates transfers between stops that have trips with cars.
+calculates transfers between stops that have trips with cars, or <code>bikesAllowedStopMaxTransferDuration</code> field for bikes.
 For example, when using the <code>carsAllowedStopMaxTransferDuration</code> field with cars, the default transfers can be redundant.</p>
 <h3 id="transitFeeds">transitFeeds</h3>
 
@@ -4316,20 +4360,28 @@ the centroid.</p>
 <a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="w">  </span><span class="nt">&quot;stopConsolidationFile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;consolidated-stops.csv&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="w">  </span><span class="nt">&quot;transferParametersForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a><span class="w">    </span><span class="nt">&quot;CAR&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
-<a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a><span class="w">    </span><span class="nt">&quot;BIKE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a><span class="w">      </span><span class="nt">&quot;maxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30m&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
-<a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a><span class="p">}</span>
+<a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BICYCLE&quot;</span>
+<a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CAR&quot;</span>
+<a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a><span class="w">  </span><span class="nt">&quot;stopConsolidationFile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;consolidated-stops.csv&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a><span class="w">  </span><span class="nt">&quot;transferParametersForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a><span class="w">    </span><span class="nt">&quot;CAR&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
+<a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-94" name="__codelineno-8-94" href="#__codelineno-8-94"></a><span class="w">    </span><span class="nt">&quot;BIKE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-95" name="__codelineno-8-95" href="#__codelineno-8-95"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-96" name="__codelineno-8-96" href="#__codelineno-8-96"></a><span class="w">      </span><span class="nt">&quot;maxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30m&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a><span class="w">      </span><span class="nt">&quot;bikesAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1h&quot;</span>
+<a id="__codelineno-8-99" name="__codelineno-8-99" href="#__codelineno-8-99"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-101" name="__codelineno-8-101" href="#__codelineno-8-101"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
