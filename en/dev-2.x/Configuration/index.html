@@ -3011,6 +3011,12 @@ managed in this one file. </p>
 <td style="text-align: center;"></td>
 </tr>
 <tr>
+<td><code>OnDemandRaptorTransfer</code></td>
+<td>Calculate transfers only when accessed by Raptor, instead of calculating and caching all transfers for the whole graph, for runtime requests which are not pre-cached in <code>transferCacheRequests</code> in router-config.json. This may help performance when doing local journey planning in a large graph.  Requests which are specified in <code>transferCacheRequests</code> in router-config.json are not affected and are always pre-cached for the whole graph.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
 <td><code>OptimizeTransfers</code></td>
 <td>OTP will inspect all itineraries found and optimize where (which stops) the transfer will happen. Waiting time, priority and guaranteed transfers are taken into account.</td>
 <td style="text-align: center;">✓️</td>
