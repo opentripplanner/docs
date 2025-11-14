@@ -2564,6 +2564,7 @@ have one of the following tag combinations:</p>
 <li><code>railway=tram_stop</code></li>
 <li><code>railway=station</code></li>
 <li><code>railway=halt</code></li>
+<li><code>railway=platform_edge</code></li>
 <li><code>amenity=bus_station</code></li>
 <li><code>amenity=ferry_terminal</code></li>
 </ul>
@@ -2590,8 +2591,12 @@ add the following to <code>build-config.json</code>:</p>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="multiple-stops-on-the-same-platform">Multiple stops on the same platform</h2>
-<p>Some stations have a middle platform with a stop on either side of it. In such a case, you can 
-simply add two or more references separated by a semicolon, as seen in <a href="https://www.openstreetmap.org/way/27558650">this example</a>.</p>
+<p>Some stations have a middle platform with a stop on either side of it. In such a case, you have two
+possibilities:</p>
+<ul>
+<li>Add two or more references separated by a semicolon, as seen in <a href="https://www.openstreetmap.org/way/27558650">this example</a>. </li>
+<li>Use several ways tagged with <code>railway=platform_edge</code> as seen <a href="https://www.openstreetmap.org/way/1420108957">here</a>.</li>
+</ul>
 <h2 id="related-chat-threads">Related chat threads</h2>
 <ul>
 <li><a href="https://matrix.to/#/!oXNNoHKzbaSOlFzLEt:gitter.im/$740KuVeCc65IW7HO9VjvYk92ACk0cOcjKA_BJhnDMSU?via=gitter.im&amp;via=matrix.org&amp;via=builtin.io">Thread by Tim Fowle</a></li>
