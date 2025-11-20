@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/Developers-Guide/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/Carpooling/">
       
       
-        <link rel="prev" href="../Logging/">
+        <link rel="prev" href="../ActuatorAPI/">
       
       
-        <link rel="next" href="../Bibliography/">
+        <link rel="next" href="../DebugRasterTiles/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
-        <title>Developers' Guide - OpenTripPlanner 2</title>
+        <title>Carpooling - OpenTripPlanner 2</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#developers-guide" class="md-skip">
+        <a href="#carpooling" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href="../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Developers' Guide
+              Carpooling
             
           </span>
         </div>
@@ -206,7 +206,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href="../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -236,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -296,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Product-Overview/" class="md-nav__link">
+      <a href="../../Product-Overview/" class="md-nav__link">
         
   
   
@@ -319,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Governance/" class="md-nav__link">
+      <a href="../../Governance/" class="md-nav__link">
         
   
   
@@ -342,7 +342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../History/" class="md-nav__link">
+      <a href="../../History/" class="md-nav__link">
         
   
   
@@ -365,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Presentations/" class="md-nav__link">
+      <a href="../../Presentations/" class="md-nav__link">
         
   
   
@@ -388,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Roadmap/" class="md-nav__link">
+      <a href="../../Roadmap/" class="md-nav__link">
         
   
   
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Deployments/" class="md-nav__link">
+      <a href="../../Deployments/" class="md-nav__link">
         
   
   
@@ -434,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Changelog/" class="md-nav__link">
+      <a href="../../Changelog/" class="md-nav__link">
         
   
   
@@ -457,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Visual-Identity/" class="md-nav__link">
+      <a href="../../Visual-Identity/" class="md-nav__link">
         
   
   
@@ -525,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Basic-Tutorial/" class="md-nav__link">
+      <a href="../../Basic-Tutorial/" class="md-nav__link">
         
   
   
@@ -548,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Netex-Tutorial/" class="md-nav__link">
+      <a href="../../Netex-Tutorial/" class="md-nav__link">
         
   
   
@@ -571,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Getting-OTP/" class="md-nav__link">
+      <a href="../../Getting-OTP/" class="md-nav__link">
         
   
   
@@ -594,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Data-Sources/" class="md-nav__link">
+      <a href="../../Data-Sources/" class="md-nav__link">
         
   
   
@@ -617,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Container-Image/" class="md-nav__link">
+      <a href="../../Container-Image/" class="md-nav__link">
         
   
   
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../System-Requirements/" class="md-nav__link">
+      <a href="../../System-Requirements/" class="md-nav__link">
         
   
   
@@ -663,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Preparing-OSM/" class="md-nav__link">
+      <a href="../../Preparing-OSM/" class="md-nav__link">
         
   
   
@@ -686,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Troubleshooting-Routing/" class="md-nav__link">
+      <a href="../../Troubleshooting-Routing/" class="md-nav__link">
         
   
   
@@ -709,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Version-Comparison/" class="md-nav__link">
+      <a href="../../Version-Comparison/" class="md-nav__link">
         
   
   
@@ -732,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Frontends/" class="md-nav__link">
+      <a href="../../Frontends/" class="md-nav__link">
         
   
   
@@ -800,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/Apis/" class="md-nav__link">
+      <a href="../../apis/Apis/" class="md-nav__link">
         
   
   
@@ -823,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/GraphQL-Tutorial/" class="md-nav__link">
+      <a href="../../apis/GraphQL-Tutorial/" class="md-nav__link">
         
   
   
@@ -846,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/GTFS-GraphQL-API/" class="md-nav__link">
+      <a href="../../apis/GTFS-GraphQL-API/" class="md-nav__link">
         
   
   
@@ -869,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apis/TransmodelApi/" class="md-nav__link">
+      <a href="../../apis/TransmodelApi/" class="md-nav__link">
         
   
   
@@ -937,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Configuration/" class="md-nav__link">
+      <a href="../../Configuration/" class="md-nav__link">
         
   
   
@@ -960,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BuildConfiguration/" class="md-nav__link">
+      <a href="../../BuildConfiguration/" class="md-nav__link">
         
   
   
@@ -1021,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/OsmTag/" class="md-nav__link">
+      <a href="../../osm/OsmTag/" class="md-nav__link">
         
   
   
@@ -1044,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/Finland/" class="md-nav__link">
+      <a href="../../osm/Finland/" class="md-nav__link">
         
   
   
@@ -1067,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/Germany/" class="md-nav__link">
+      <a href="../../osm/Germany/" class="md-nav__link">
         
   
   
@@ -1090,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/Norway/" class="md-nav__link">
+      <a href="../../osm/Norway/" class="md-nav__link">
         
   
   
@@ -1113,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../osm/UK/" class="md-nav__link">
+      <a href="../../osm/UK/" class="md-nav__link">
         
   
   
@@ -1144,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RouterConfiguration/" class="md-nav__link">
+      <a href="../../RouterConfiguration/" class="md-nav__link">
         
   
   
@@ -1167,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RouteRequest/" class="md-nav__link">
+      <a href="../../RouteRequest/" class="md-nav__link">
         
   
   
@@ -1228,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Realtime-Updaters/" class="md-nav__link">
+      <a href="../../Realtime-Updaters/" class="md-nav__link">
         
   
   
@@ -1251,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GTFS-RT-Config/" class="md-nav__link">
+      <a href="../../GTFS-RT-Config/" class="md-nav__link">
         
   
   
@@ -1274,7 +1274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SIRI-Config/" class="md-nav__link">
+      <a href="../../SIRI-Config/" class="md-nav__link">
         
   
   
@@ -1297,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GBFS-Config/" class="md-nav__link">
+      <a href="../../GBFS-Config/" class="md-nav__link">
         
   
   
@@ -1328,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DebugUiConfiguration/" class="md-nav__link">
+      <a href="../../DebugUiConfiguration/" class="md-nav__link">
         
   
   
@@ -1351,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Migrating-Configuration/" class="md-nav__link">
+      <a href="../../Migrating-Configuration/" class="md-nav__link">
         
   
   
@@ -1419,7 +1419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features-explained/Feed-ID/" class="md-nav__link">
+      <a href="../../features-explained/Feed-ID/" class="md-nav__link">
         
   
   
@@ -1442,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RoutingModes/" class="md-nav__link">
+      <a href="../../RoutingModes/" class="md-nav__link">
         
   
   
@@ -1465,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../In-Station-Navigation/" class="md-nav__link">
+      <a href="../../In-Station-Navigation/" class="md-nav__link">
         
   
   
@@ -1488,7 +1488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../BoardingLocations/" class="md-nav__link">
+      <a href="../../BoardingLocations/" class="md-nav__link">
         
   
   
@@ -1511,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../StopAreas/" class="md-nav__link">
+      <a href="../../StopAreas/" class="md-nav__link">
         
   
   
@@ -1534,7 +1534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IslandPruning/" class="md-nav__link">
+      <a href="../../IslandPruning/" class="md-nav__link">
         
   
   
@@ -1557,7 +1557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Accessibility/" class="md-nav__link">
+      <a href="../../Accessibility/" class="md-nav__link">
         
   
   
@@ -1580,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features-explained/Netex-Siri-Compatibility/" class="md-nav__link">
+      <a href="../../features-explained/Netex-Siri-Compatibility/" class="md-nav__link">
         
   
   
@@ -1603,7 +1603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Analysis/" class="md-nav__link">
+      <a href="../../Analysis/" class="md-nav__link">
         
   
   
@@ -1626,12 +1626,149 @@
   
   
     <li class="md-nav__item">
-      <a href="../Logging/" class="md-nav__link">
+      <a href="../../Logging/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developers-Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developers' Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bibliography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bibliography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SandboxExtension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sandbox Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ReleaseChecklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Release Checklist
     
   </span>
   
@@ -1666,15 +1803,15 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
-    Development
+    Sandbox
     
   </span>
   
@@ -1682,12 +1819,58 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Development
+            Sandbox
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SandboxExtension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sandbox Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ActuatorAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuator API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1710,7 +1893,7 @@
   
   
   <span class="md-ellipsis">
-    Developers' Guide
+    Carpooling
     
   </span>
   
@@ -1723,7 +1906,7 @@
   
   
   <span class="md-ellipsis">
-    Developers' Guide
+    Carpooling
     
   </span>
   
@@ -1746,134 +1929,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-setup" class="md-nav__link">
+  <a href="#contact-info" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick setup
+      Contact Info
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#working-on-otp-in-an-ide" class="md-nav__link">
-    <span class="md-ellipsis">
-      Working on OTP in an IDE
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing-to-the-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing to the project
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Contributing to the project">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#branches-and-branch-protection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Branches and Branch Protection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Issues
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unit-tests-using-real-osm-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Unit tests using real OSM data
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#itinerary-and-api-snapshot-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      Itinerary and API Snapshot Tests
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Documentation
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debug-layers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debug layers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#date-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      Date format
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-conventions-and-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code conventions and architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#continuous-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Continuous Integration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Continuous Integration">
+    <nav class="md-nav" aria-label="Documentation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changelog-workflow" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Changelog workflow
+      Configuration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Changelog workflow">
+    <nav class="md-nav" aria-label="Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-update-the-changelog_token" class="md-nav__link">
+  <a href="#configuration-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      How-to update the CHANGELOG_TOKEN
+      Configuration Parameters
     </span>
   </a>
   
@@ -1881,6 +1968,15 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siri-et-data-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      SIRI-ET Data Format
+    </span>
+  </a>
   
 </li>
         
@@ -1890,11 +1986,104 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#release-process" class="md-nav__link">
+  <a href="#features" class="md-nav__link">
     <span class="md-ellipsis">
-      Release Process
+      Features
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trip-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trip Matching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints-and-protections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints and Protections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-stop-trips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Stop Trips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Limitations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Enhancements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Future Enhancements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short Term
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Medium Term
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Long Term
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1914,190 +2103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Bibliography/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Bibliography
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SandboxExtension/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Sandbox Development
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ReleaseChecklist/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Release Checklist
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Sandbox
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            Sandbox
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SandboxExtension/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Sandbox Development
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Actuator API
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sandbox/Carpooling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Carpooling
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sandbox/DebugRasterTiles/" class="md-nav__link">
+      <a href="../DebugRasterTiles/" class="md-nav__link">
         
   
   
@@ -2120,7 +2126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
+      <a href="../transferanalyzer/" class="md-nav__link">
         
   
   
@@ -2143,7 +2149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
+      <a href="../GoogleCloudStorage/" class="md-nav__link">
         
   
   
@@ -2166,7 +2172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/siri/SiriGooglePubSubUpdater/" class="md-nav__link">
+      <a href="../siri/SiriGooglePubSubUpdater/" class="md-nav__link">
         
   
   
@@ -2189,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
+      <a href="../siri/SiriAzureUpdater/" class="md-nav__link">
         
   
   
@@ -2212,7 +2218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/siri/SiriMqttUpdater/" class="md-nav__link">
+      <a href="../siri/SiriMqttUpdater/" class="md-nav__link">
         
   
   
@@ -2235,7 +2241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
         
   
   
@@ -2258,7 +2264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/SmooveBikeRental/" class="md-nav__link">
+      <a href="../SmooveBikeRental/" class="md-nav__link">
         
   
   
@@ -2281,7 +2287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
         
   
   
@@ -2304,7 +2310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Flex/" class="md-nav__link">
+      <a href="../Flex/" class="md-nav__link">
         
   
   
@@ -2327,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/ReportApi/" class="md-nav__link">
+      <a href="../ReportApi/" class="md-nav__link">
         
   
   
@@ -2350,7 +2356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
+      <a href="../InteractiveOtpMain/" class="md-nav__link">
         
   
   
@@ -2373,7 +2379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
+      <a href="../ParkAndRideApi/" class="md-nav__link">
         
   
   
@@ -2396,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/DataOverlay/" class="md-nav__link">
+      <a href="../DataOverlay/" class="md-nav__link">
         
   
   
@@ -2419,7 +2425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/VehicleParking/" class="md-nav__link">
+      <a href="../VehicleParking/" class="md-nav__link">
         
   
   
@@ -2442,7 +2448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
+      <a href="../GeocoderAPI/" class="md-nav__link">
         
   
   
@@ -2465,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../IBIAccessibilityScore/" class="md-nav__link">
         
   
   
@@ -2488,7 +2494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Fares/" class="md-nav__link">
+      <a href="../Fares/" class="md-nav__link">
         
   
   
@@ -2511,7 +2517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/RideHailing/" class="md-nav__link">
+      <a href="../RideHailing/" class="md-nav__link">
         
   
   
@@ -2534,7 +2540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Emission/" class="md-nav__link">
+      <a href="../Emission/" class="md-nav__link">
         
   
   
@@ -2557,7 +2563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/EmpiricalDelay/" class="md-nav__link">
+      <a href="../EmpiricalDelay/" class="md-nav__link">
         
   
   
@@ -2580,7 +2586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/StopConsolidation/" class="md-nav__link">
+      <a href="../StopConsolidation/" class="md-nav__link">
         
   
   
@@ -2603,7 +2609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/Sorlandsbanen/" class="md-nav__link">
+      <a href="../Sorlandsbanen/" class="md-nav__link">
         
   
   
@@ -2626,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sandbox/TriasApi/" class="md-nav__link">
+      <a href="../TriasApi/" class="md-nav__link">
         
   
   
@@ -2668,191 +2674,159 @@
   
 
 
-<h1 id="developers-guide">Developers Guide</h1>
-<h2 id="quick-setup">Quick setup</h2>
-<p><em>A Quick guide to setting up the OpenTripPlanner project.</em></p>
-<p>You need Git, Maven and Java(JDK) and an IDE installed on your computer. Your IDE might have JDK and
-Maven embedded, if so you may skip step 3.</p>
-<ol>
-<li>Clone OpenTripPlanner from GitHub.</li>
-<li>Checkout the desired branch <code>git checkout dev-2.x</code></li>
-<li>Run <code>mvn package</code>- this will download all dependencies, build the project and run tests.</li>
-<li>Open the project in your IDE.</li>
-</ol>
-<h2 id="working-on-otp-in-an-ide">Working on OTP in an IDE</h2>
-<p>Most people writing or modifying OTP code use an Integrated Development Environment (IDE). Some of
-the most popular IDEs for Java development are <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>,
-<a href="http://eclipse.org">Eclipse</a>, and <a href="https://netbeans.org">NetBeans</a>. All three of these environments
-are good for working on OTP. IntelliJ is used by most OTP developers, and the only IDE we support
-with a code style formatter. You may choose another IDE, but Maven and Git integration is a plus
-since OTP is under Git version control and build with Maven.</p>
-<p>Many of the Core OTP developers use IntelliJ IDEA. It is an excellent IDE, and in my experience is
-quicker and more stable than the competition. IntelliJ IDEA is a commercial product, but there is an
-open source "community edition" that is completely sufficient for working on OTP.</p>
-<p>Rather than using the version control support in my IDE, I usually find it more straightforward to
-clone the OTP GitHub repository manually (on the command line or using some other Git interface
-tool), then import the resulting local OTP repository into my IDE as a Maven project. The IDE should
-then take care of fetching all the libraries OTP depends on, based on the Maven project
-description (POM file) in the base of the OTP repository. This step can take a long time because it
-involves downloading a lot of JAR files.</p>
-<p>When running your local copy of the OTP source within an IDE, all command line switches and
-configuration options will be identical to the ones used when running the OTP JAR from the command
-line (as described in the <a href="../Basic-Tutorial/">OpenTripPlanner Basic Tutorial</a> and
-<a href="../Configuration/">configuration reference</a>). The only difference is that you need to manually
-specify the main class. When you run a JAR from the command line, the JVM automatically knows which
-class contains the entry point into the program (the <code>main</code> function), but in IDEs you must create
-a "run configuration".</p>
-<p>Both IntelliJ and Eclipse have "run" menus, from which you can select an option to edit the run
-configurations. You want to create a configuration for a Java Application, specifying the main class
-<code>org.opentripplanner.standalone.OTPMain</code>. Unlike on the command line, the arguments to the JVM and
-to the main class you are running are specified separately. In the field for the VM options you'll
-want to put your maximum memory parameter (<code>-Xmx2G</code>, or whatever limit you want to place on JVM
-memory usage). The rest of the parameters to OTP itself will go in a different field with a name
-like "program arguments".</p>
-<h2 id="contributing-to-the-project">Contributing to the project</h2>
-<p>OpenTripPlanner is a community based open source project, and we welcome all who wish to contribute.
-There are several ways to get involved:</p>
+<h1 id="carpooling">Carpooling</h1>
+<h2 id="contact-info">Contact Info</h2>
 <ul>
-<li>
-<p>Join the <a href="https://gitter.im/opentripplanner/OpenTripPlanner">Gitter chat room</a> and the 
-  <a href="http://groups.google.com/group/opentripplanner-users">user mailing list</a>.</p>
-</li>
-<li>
-<p>Fix typos and improve the documentation within the <code>/doc/user</code> directory of the project (details
-  below).</p>
-</li>
-<li>
-<p><a href="http://github.com/openplans/OpenTripPlanner/issues/new">File a bug or new feature request</a>.
-  If you want a GitHub issue to be addressed, you should also discuss it in
-  <a href="https://gitter.im/opentripplanner/OpenTripPlanner">Gitter</a> or in the
-  <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CONTRIBUTING.md#developer-meetings">developer meetings</a>.</p>
-</li>
-<li>
-<p>Create pull requests citing the relevant issue.</p>
-</li>
-<li>
-<p>Join developer meetings hosted twice a week. Check the specific times and URLs 
-  on <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CONTRIBUTING.md#developer-meetings">this page</a></p>
-</li>
+<li>Entur (Norway)</li>
+<li>Eivind Bakke</li>
 </ul>
-<h3 id="branches-and-branch-protection">Branches and Branch Protection</h3>
-<p>As of August 2022, we work on OTP 2.x and are using a Git branching model derived from 
-<a href="https://nvie.com/posts/a-successful-git-branching-model/">Gitflow</a>. All development will occur
-on the <code>dev-2.x</code> branch. Only release commits setting the Maven artifact version to a non-snapshot
-number should be pushed to the <code>master</code> branch of OTP. All other changes to master should result 
-from fast-forward merges of a Github pull request from the <code>dev-2.x</code> branch. In turn, all changes 
-to <code>dev-2.x</code> should result from a fast-forward merge of a Github pull request for a single feature, 
-fix, or other change. These pull requests are subject to code review. We require two pull request 
-approvals from developers part of the OTP Review Team. These developers act on behalf of the 
-leadership committee members. The reviewers should be from two different organizations. We also 
-have validation rules ensuring that the code compiles and all tests pass before pull requests can 
-be merged.</p>
-<h3 id="issues">Issues</h3>
-<p>If no ticket exists for the feature or bug your
-code implements or fixes, you
-should <a href="http://github.com/openplans/OpenTripPlanner/issues/new">create a new ticket</a> prior to
-checking in, or ideally even prior to your development work since this provides a place to carry out
-implementation discussions (in the comments). The created issue should be referenced in a pull
-request. For really minor and uncontroversial pull requests, it is ok to not create an issue.</p>
-<p><strong>If you want a GitHub issue to be addressed, you should also discuss it in
-<a href="https://gitter.im/opentripplanner/OpenTripPlanner">Gitter</a> or in the
-<a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CONTRIBUTING.md#developer-meetings">developer meetings</a>.</strong></p>
-<h3 id="unit-tests-using-real-osm-data">Unit tests using real OSM data</h3>
-<p>Sometimes it is useful to build a graph from actual OSM or GTFS data. Since building these graphs in
-a test can be quite slow they will be accepted in pull requests only if they conform to certain
-standards:</p>
-<ol>
-<li>
-<p>Use the smallest possible regional extract - the OSM file should not contain more than a few
-   hundred ways. Use <code>osmium-extract</code> to cut down a larger OSM file into a tiny subset of it.</p>
-</li>
-<li>
-<p>Strip out any unneeded information by using the <code>osmium filter-tags</code> as describe
-   in <a href="../Preparing-OSM/">Preparing OSM</a></p>
-</li>
-</ol>
-<h3 id="itinerary-and-api-snapshot-tests">Itinerary and API Snapshot Tests</h3>
-<p>To test the itinerary generation, and the API there are snapshot test which save the result of the
-requests as <code>*.snap</code> JSON-like files. These are stored in git so that it is possible to compare to
-the expected result when running the tests.</p>
-<p>If the snapshots need to be recreated than running <code>mvn clean -Pclean-test-snapshots</code> will remove
-the existing <code>*.snap</code> files so that the next time the tests are run the snapshots will be recreated.
-The updated files may be committed after checking that the changes in the files are expected.</p>
-<h3 id="documentation">Documentation</h3>
-<p>OTP documentation is included directly in the OpenTripPlanner repository. This allows version
-control to be applied to documentation as well as program source code. All pull requests that change
-how OTP is used or configured should include changes to the documentation alongside code
-modifications.</p>
-<p>The documentation files are in Markdown format and are in the <code>/doc/user</code> directory under the root of
-the project. On every push to the <code>dev-2.x</code> branch the documentation will be rebuilt and deployed as
-static pages to our subdomain of <a href="https://github.com/opentripplanner/docs">Github Pages</a>. 
-MkDocs is a Python program and should run on any major platform. 
-See <a href="http://www.mkdocs.org/">http://www.mkdocs.org/</a> for information on how to install it and 
-how to generate a live local preview of the documentation while you're writing it.</p>
-<p>In short:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ pip install -r doc/user/requirements.txt
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$ mkdocs serve
+<h2 id="documentation">Documentation</h2>
+<p>The carpooling feature enables passengers to join existing driver journeys by being picked up and dropped off along the driver's route. The system finds optimal insertion points for new passengers while respecting capacity constraints, time windows, and route deviation budgets.</p>
+<h3 id="configuration">Configuration</h3>
+<p>The carpooling extension is a sandbox feature that must be enabled in <code>otp-config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;otpFeatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;CarPooling&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
 </code></pre></div>
-<p>The OTP GTFS GraphQL API documentation is available online at </p>
-<p><a href="https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/">https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/</a></p>
-<p>You can also use the interactive GraphQL API client that is built into every instance at</p>
-<p><a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a></p>
-<h3 id="debug-layers">Debug layers</h3>
-<p>Debug layers are implemented as vector tile layers. New layers can be added by
-editing <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/apis/vectortiles/DebugStyleSpec.java">DebugStyleSpec</a>.
-It might be also necessary to add new information
-to <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/inspector/vector/edge/EdgePropertyMapper.java">edges</a>
-or <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/inspector/vector/vertex/VertexPropertyMapper.java">vertices</a>.</p>
-<h3 id="date-format">Date format</h3>
-<p>Please use only ISO 8601 date format (YYYY-MM-DD) in documentation, comments, and throughout the
-project. This avoids the ambiguity that can result from differing local interpretations of date
-formats like 02/01/12.</p>
-<h2 id="code-conventions-and-architecture">Code conventions and architecture</h2>
-<p>The development and architecture documentation are only available on GitHub, not in the user project
-documentation (https://www.opentripplanner.org/). These documents contain relative links to code, 
-so they are a bit easier to maintain that way. The primary audience is also active OTP developers 
-that have the code checked out locally.</p>
+<p>To enable receiving carpooling data, add the <code>SiriETCarpoolingUpdater</code> to your <code>router-config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-carpooling-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;carpooling&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/siri-et&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15s&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;requestorRef&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTP&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="nt">&quot;blockReadinessUntilInitialized&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nt">&quot;producerMetrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="configuration-parameters">Configuration Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feedId</code></td>
+<td><code>string</code></td>
+<td></td>
+<td><strong>Required</strong>. The ID of the feed to apply the updates to.</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>string</code></td>
+<td></td>
+<td><strong>Required</strong>. The URL to send HTTP requests to for SIRI-ET updates.</td>
+</tr>
+<tr>
+<td><code>frequency</code></td>
+<td><code>duration</code></td>
+<td><code>1m</code></td>
+<td>How often updates should be retrieved.</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td><code>duration</code></td>
+<td><code>15s</code></td>
+<td>HTTP timeout for downloading updates.</td>
+</tr>
+<tr>
+<td><code>requestorRef</code></td>
+<td><code>string</code></td>
+<td><code>null</code></td>
+<td>The requester reference sent in SIRI requests.</td>
+</tr>
+<tr>
+<td><code>blockReadinessUntilInitialized</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Whether catching up with updates should block readiness check.</td>
+</tr>
+<tr>
+<td><code>fuzzyTripMatching</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>If the fuzzy trip matcher should be used to match trips.</td>
+</tr>
+<tr>
+<td><code>producerMetrics</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>If failure, success, and warning metrics should be collected per producer.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="siri-et-data-format">SIRI-ET Data Format</h3>
+<p>The carpooling system uses SIRI-ET (Estimated Timetable) messages to receive real-time updates about carpool trips. The system maps SIRI-ET data as follows:</p>
 <ul>
-<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/ARCHITECTURE.md">Architecture</a> </li>
-<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/doc/dev/decisionrecords/Codestyle.md">Code Style</a></li>
-<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/doc/dev/decisionrecords/NamingConventions.md">Naming Conventions</a></li>
-<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/DEVELOPMENT_DECISION_RECORDS.md">Development Decision Records</a></li>
+<li><code>EstimatedVehicleJourneyCode</code> → Trip ID</li>
+<li><code>EstimatedCalls</code> → Stops on the carpooling trip. The first and the last are origin and destination stops, intermediate ones represent passenger pickup/dropoff</li>
 </ul>
-<h2 id="continuous-integration">Continuous Integration</h2>
-<p>The OpenTripPlanner project uses
-the <a href="https://github.com/opentripplanner/OpenTripPlanner/actions">Github actions continuous integration system</a>
-. Any time a change is pushed to the main OpenTripPlanner repository on GitHub or to an open pull
-request, Github actions will
-compile and test the new code, providing feedback on the stability of the build.</p>
-<h3 id="changelog-workflow">Changelog workflow</h3>
-<p>The <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/doc/user/Changelog.md">changelog file</a>
-is generated from the pull-request(PR) <em>title</em> using the
-<a href="https://github.com/opentripplanner/OpenTripPlanner/actions/workflows/automatic-changelog.yml">changelog workflow</a>
-. The workflow runs after the PR is merged, and it changes, commits and pushes the <em>Changelog.md</em>. A
-secret <em>personal access token</em> is used to bypass the "Require PR with 2 approvals" rule. To exclude
-a PR from the changelog add the label <code>+Skip Changelog</code> to the PR.</p>
-<h4 id="how-to-update-the-changelog_token">How-to update the CHANGELOG_TOKEN</h4>
-<p>The <code>CHANGELOG_TOKEN</code> is used by the changelog workflow. It contains a Personal Access Token. The
-token must be generated by a Repository Owner and have the following rights (<em>Settings / Developer
-settings / Personal access tokens</em>):</p>
-<p><img alt="Skjermbilde 2021-11-18 kl  12 08 27" src="https://user-images.githubusercontent.com/5525340/142404549-c0bf2aba-608b-4feb-a114-6e4992c57073.png" /></p>
-<h2 id="release-process">Release Process</h2>
-<p>New releases can be found on <a href="https://github.com/opentripplanner/OpenTripPlanner/releases">GitHub</a>. 
-Releases are performed off the master branch, and are tagged with git annotated tags.</p>
-<p>OpenTripPlanner is currently configured such that builds including releases upload JAR files to
-GitHub Packages. This is not the most convenient place for end users to find and download the files.
-Therefore, we also attach a stand-alone "shaded" JAR to the GitHub tag/release page. We have
-historically also uploaded Maven artifacts to Maven Central including compiled and source code JARs
-as well as the "shaded" JAR containing all dependencies, allowing stand-alone usage. This release
-process is handled by the Sonatype Nexus Staging plugin, which is no longer configured in the
-OpenTripPlanner POM. This step currently requires making a few significant manual modifications to
-the POM.</p>
-<p>We no longer trigger deployment of artifacts to Maven Central automatically in our build scripts 
-(GitHub Actions). These steps are prone to failure and require storing a lot of infrequently used 
-secret information in the repo and environment variables on GitHub. Our releases are currently not 
-very frequent so we just carry out these steps manually by following the checklist. We aim to make 
-a release every 6 months.</p>
-<p>Use the <a href="../ReleaseChecklist/">Release Checklist</a> to perform the release.</p>
+<p>The system supports multi-stop trips where drivers have already accepted multiple passengers.</p>
+<h2 id="features">Features</h2>
+<h3 id="trip-matching">Trip Matching</h3>
+<p>The carpooling service matches passengers with compatible carpool trips based on several criteria:</p>
+<ul>
+<li><strong>Availability</strong>: Checks if seats are available in the vehicle</li>
+<li><strong>Time Compatibility</strong>: Ensures the trip timing works for the passenger</li>
+<li><strong>Route Alignment</strong>: Validates that pickup and dropoff locations are reasonably close to the driver's route</li>
+<li><strong>Direction</strong>: Verifies the passenger's travel direction aligns with the trip route</li>
+</ul>
+<p>The system automatically calculates the optimal pickup and dropoff points along the driver's route that minimize additional travel time while respecting all constraints.</p>
+<h3 id="constraints-and-protections">Constraints and Protections</h3>
+<p>To ensure a good experience for all users, the system enforces several constraints:</p>
+<ul>
+<li><strong>Vehicle Capacity</strong>: Never exceeds the maximum number of seats</li>
+<li><strong>Route Logic</strong>: Prevents backtracking or illogical detours</li>
+<li><strong>Existing Passenger Protection</strong>: Limits additional delay to existing passengers (maximum 5 minutes)</li>
+<li><strong>Driver Deviation Budget</strong>: Respects the driver's maximum acceptable detour time (currently 15 minutes)</li>
+</ul>
+<h3 id="multi-stop-trips">Multi-Stop Trips</h3>
+<p>The system supports trips where drivers have already accepted multiple passengers. When matching a new passenger to such a trip, the system:
+- Considers all existing pickup and dropoff points
+- Ensures the vehicle capacity is never exceeded at any point in the trip
+- Protects all existing passengers from excessive delays
+- Finds the optimal insertion point for the new passenger</p>
+<h3 id="api-integration">API Integration</h3>
+<p>Carpooling results are available through the standard OTP GraphQL API. Carpool legs appear as a distinct mode (<code>CARPOOL</code>) in multi-modal itineraries, alongside transit, walking, and biking legs.</p>
+<h2 id="current-limitations">Current Limitations</h2>
+<ul>
+<li><strong>Static deviation budget</strong>: We currently assume a 15 minute budget for carpooling</li>
+<li><strong>Static capacity</strong>: Available seats are static trip properties; no reservation system</li>
+<li><strong>Basic time windows</strong>: Only simple departure time compatibility; no "arrive by" constraints</li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<h3 id="short-term">Short Term</h3>
+<ul>
+<li>Improved time window handling (including arrive by constraints)</li>
+<li>Add a street mode for carpooling (car_pool) for filtering carpooling searches</li>
+<li>Access/Egress searches for carpooling in order to integrate with transit searches</li>
+<li>Establish an exchange mechanism for deviation budget and occupancy</li>
+</ul>
+<h3 id="medium-term">Medium Term</h3>
+<ul>
+<li>Improved carpool stop representation</li>
+<li>Stable IDs for trips and stops for use in reservation</li>
+<li>Lookup of specific trips and stops in API, not just routing</li>
+<li>Support for multiple providers</li>
+</ul>
+<h3 id="long-term">Long Term</h3>
+<ul>
+<li>Driver and passenger preference matching (eg. smoker, talker, pets, front/back seat)</li>
+<li>References to scheduled data (eg. areas in NeTEx)</li>
+</ul>
 
 
 
@@ -2901,10 +2875,10 @@ a release every 6 months.</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
