@@ -2507,6 +2507,11 @@ This mode needs to be combined with at least one transit mode otherwise it behav
 <p>Driving your own car the entirety of the route.
 This can be combined with transit, where will return routes with a <a href="https://en.wikipedia.org/wiki/Park_and_ride#Kiss_and_ride_/_kiss_and_fly">Kiss &amp; Ride</a> component.
 This means that the car is not parked in a permanent parking area but rather the passenger is dropped off (for example, at an airport) and the driver continues driving the car away from the drop off location.</p>
+<h4 id="CARPOOL">CARPOOL</h4>
+
+<p>Carpool or rideshare with other passengers going in the same direction.</p>
+<p>This is the request mode for enabling carpooling in street route searches.</p>
+<p>Use this <em>street</em> mode, if your data source for trips is SIRI, not GTFS static.</p>
 <h4 id="CAR_HAILING">CAR_HAILING</h4>
 
 <p>Using a car hailing app like Uber or Lyft to get to a train station or all the way to the destination.</p>
@@ -2556,8 +2561,11 @@ See <a href="../GBFS-Config/">Configuring GBFS</a> on how to add one.</p>
 <p>Used for street-level rail cars where the cable runs beneath the vehicle.</p>
 <h4 id="CARPOOL">CARPOOL</h4>
 
-<p>Private car trips shared with others.</p>
-<p>This is currently not specified in GTFS so we use the mode type values 1550-1560 which are in the range of private taxis.</p>
+<p>Private car trips shared with others, operating on scheduled routes similar to transit.</p>
+<p>Use the <em>transit mode</em>, as opposed to the street mode <code>CARPOOL</code>, if your data source comes from
+static GTFS feeds. This is currently not part of the specification, so we use the mode type values 1550-1560
+which are in the range of private taxis.</p>
+<p>If your data source for the carpool trips is SIRI use the <code>CARPOOL</code> street mode instead.</p>
 <h4 id="COACH">COACH</h4>
 
 <p>Used for long-distance bus routes.</p>

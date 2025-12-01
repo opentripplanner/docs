@@ -4087,7 +4087,7 @@ does not exist.</p>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults/accessEgress <br />
-<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>carpool</code> | <code>flexible</code></p>
 <p>Limit access/egress per street mode.</p>
 <p>Override the settings in <code>maxDuration</code> for specific street modes. This is
 done because some street modes searches are much more resource intensive than others.</p>
@@ -4095,7 +4095,7 @@ done because some street modes searches are much more resource intensive than ot
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>enum map of integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults/accessEgress <br />
-<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>carpool</code> | <code>flexible</code></p>
 <p>Maximal number of stops collected in access/egress routing for the given mode</p>
 <p>Safety limit to prevent access to and egress from too many stops.
 Mode-specific version of <code>maxStopCount</code>.</p>
@@ -4103,7 +4103,7 @@ Mode-specific version of <code>maxStopCount</code>.</p>
 
 <p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>enum map of object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults/accessEgress <br />
-<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>carpool</code> | <code>flexible</code></p>
 <p>Penalty for access/egress by street mode.</p>
 <p>Use this to add a time and cost penalty to an access/egress legs for a given street
 mode. This will favour other street-modes and transit. This has a performance penalty,
@@ -4418,7 +4418,7 @@ time, compared to those, that have exactly the same arrival and departure times.
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>enum map of duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults <br />
-<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>flexible</code></p>
+<strong>Enum keys:</strong> <code>not-set</code> | <code>walk</code> | <code>bike</code> | <code>bike-to-park</code> | <code>bike-rental</code> | <code>scooter-rental</code> | <code>car</code> | <code>car-to-park</code> | <code>car-pickup</code> | <code>car-rental</code> | <code>car-hailing</code> | <code>carpool</code> | <code>flexible</code></p>
 <p>Limit direct route duration per street mode.</p>
 <p>Override the settings in <code>maxDirectStreetDuration</code> for specific street modes. This is
 done because some street modes searches are much more resource intensive than others.</p>
