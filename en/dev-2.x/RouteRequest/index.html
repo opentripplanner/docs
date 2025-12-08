@@ -2998,6 +2998,14 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
+<td>      <a href="#rd_bicycle_rental_electricAssistSlopeSensitivity">electricAssistSlopeSensitivity</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How sensitive electric-assist rental vehicles are to slopes.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.3</code></td>
+<td style="text-align: center;">2.8</td>
+</tr>
+<tr>
 <td>      keepingAtDestinationCost</td>
 <td style="text-align: center;"><code>integer</code></td>
 <td>The cost of arriving at the destination with the rented vehicle, to discourage doing so.</td>
@@ -3278,6 +3286,14 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
+<td>      <a href="#rd_car_rental_electricAssistSlopeSensitivity">electricAssistSlopeSensitivity</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How sensitive electric-assist rental vehicles are to slopes.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.3</code></td>
+<td style="text-align: center;">2.8</td>
+</tr>
+<tr>
 <td>      keepingAtDestinationCost</td>
 <td style="text-align: center;"><code>integer</code></td>
 <td>The cost of arriving at the destination with the rented vehicle, to discourage doing so.</td>
@@ -3532,6 +3548,14 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>"PT30S"</code></td>
 <td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td>      <a href="#rd_scooter_rental_electricAssistSlopeSensitivity">electricAssistSlopeSensitivity</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How sensitive electric-assist rental vehicles are to slopes.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.3</code></td>
+<td style="text-align: center;">2.8</td>
 </tr>
 <tr>
 <td>      keepingAtDestinationCost</td>
@@ -4171,6 +4195,15 @@ extra cost, while 1.0 will add the same amount to both time and cost.</p>
 <strong>Path:</strong> /routingDefaults/bicycle/parking </p>
 <p>Tags without which a vehicle parking will not be used. If empty, no tags are required.</p>
 <p>Vehicle parking tags can originate from different places depending on the origin of the parking (OSM or RT feed).</p>
+<h3 id="rd_bicycle_rental_electricAssistSlopeSensitivity">electricAssistSlopeSensitivity</h3>
+
+<p><strong>Since version:</strong> <code>2.8</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.3</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle/rental </p>
+<p>How sensitive electric-assist rental vehicles are to slopes.</p>
+<p>A value between 0 and 1 where:
+- 0.0 means the motor fully compensates for slopes (like fully electric vehicles)
+- 1.0 means no motor assistance on slopes (like human-powered vehicles)
+- 0.3 (default) means the motor compensates for 70% of slope difficulty</p>
 <h3 id="rd_bicycle_rental_allowedNetworks">allowedNetworks</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -4246,6 +4279,15 @@ ferries, where the check-in process needs to be done in good time before ride.</
 <strong>Path:</strong> /routingDefaults/car/parking </p>
 <p>Tags without which a vehicle parking will not be used. If empty, no tags are required.</p>
 <p>Vehicle parking tags can originate from different places depending on the origin of the parking (OSM or RT feed).</p>
+<h3 id="rd_car_rental_electricAssistSlopeSensitivity">electricAssistSlopeSensitivity</h3>
+
+<p><strong>Since version:</strong> <code>2.8</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.3</code> <br />
+<strong>Path:</strong> /routingDefaults/car/rental </p>
+<p>How sensitive electric-assist rental vehicles are to slopes.</p>
+<p>A value between 0 and 1 where:
+- 0.0 means the motor fully compensates for slopes (like fully electric vehicles)
+- 1.0 means no motor assistance on slopes (like human-powered vehicles)
+- 0.3 (default) means the motor compensates for 70% of slope difficulty</p>
 <h3 id="rd_car_rental_allowedNetworks">allowedNetworks</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -4429,6 +4471,15 @@ done because some street modes searches are much more resource intensive than ot
 <strong>Enum values:</strong> <code>shortest-duration</code> | <code>safe-streets</code> | <code>flat-streets</code> | <code>safest-streets</code> | <code>triangle</code></p>
 <p>The set of characteristics that the user wants to optimize for.</p>
 <p>If the triangle optimization is used, it's enough to just define the triangle parameters</p>
+<h3 id="rd_scooter_rental_electricAssistSlopeSensitivity">electricAssistSlopeSensitivity</h3>
+
+<p><strong>Since version:</strong> <code>2.8</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.3</code> <br />
+<strong>Path:</strong> /routingDefaults/scooter/rental </p>
+<p>How sensitive electric-assist rental vehicles are to slopes.</p>
+<p>A value between 0 and 1 where:
+- 0.0 means the motor fully compensates for slopes (like fully electric vehicles)
+- 1.0 means no motor assistance on slopes (like human-powered vehicles)
+- 0.3 (default) means the motor compensates for 70% of slope difficulty</p>
 <h3 id="rd_scooter_rental_allowedNetworks">allowedNetworks</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
