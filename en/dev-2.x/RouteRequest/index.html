@@ -2726,14 +2726,6 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.5</td>
 </tr>
 <tr>
-<td><a href="#rd_relaxTransitSearchGeneralizedCostAtDestination">relaxTransitSearchGeneralizedCostAtDestination</a></td>
-<td style="text-align: center;"><code>double</code></td>
-<td>Whether non-optimal transit paths at the destination should be returned</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.3</td>
-</tr>
-<tr>
 <td><a href="#rd_searchWindow">searchWindow</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>The duration of the search-window.</td>
@@ -4026,17 +4018,6 @@ search, hence, making it a bit slower. Recommended values would be from 12 hours
 <p>A path is considered optimal if the generalized-cost is less than the generalized-cost of
 another path. If this parameter is set, the comparison is relaxed further if they belong
 to different transit groups.</p>
-<h3 id="rd_relaxTransitSearchGeneralizedCostAtDestination">relaxTransitSearchGeneralizedCostAtDestination</h3>
-
-<p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /routingDefaults </p>
-<p>Whether non-optimal transit paths at the destination should be returned</p>
-<p>Let c be the existing minimum pareto optimal generalized cost to beat. Then a trip
-with cost c' is accepted if the following is true:
-<code>c' &lt; Math.round(c * relaxRaptorCostCriteria)</code>.</p>
-<p>The parameter is optional. If not set a normal comparison is performed.</p>
-<p>Values equals or less than zero is not allowed. Values greater than 2.0 are not
-supported, due to performance reasons.</p>
 <h3 id="rd_searchWindow">searchWindow</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
