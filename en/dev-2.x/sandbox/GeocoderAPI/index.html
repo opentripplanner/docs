@@ -2326,15 +2326,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#debug-ui" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debug UI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#stop-clusters" class="md-nav__link">
     <span class="md-ellipsis">
       Stop clusters
@@ -2584,7 +2575,6 @@
 <h1 id="geocoder-api">Geocoder API</h1>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
-<li>realCity, Hungary</li>
 <li>Leonard Ehrenfried, <a href="mailto:mail@leonard.io">mail@leonard.io</a></li>
 </ul>
 <h2 id="documentation">Documentation</h2>
@@ -2598,41 +2588,11 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="endpoints">Endpoints</h3>
-<h4 id="debug-ui">Debug UI</h4>
-<p>The required geocode API for Stop and From/To searches in the debug client.</p>
-<p>Path: <code>/otp/geocode</code></p>
-<p>It supports the following URL parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>query</code></td>
-<td>The query string we want to geocode</td>
-</tr>
-<tr>
-<td><code>autocomplete</code></td>
-<td>Whether we should use the query string to do a prefix match</td>
-</tr>
-<tr>
-<td><code>stops</code></td>
-<td>Search for stops, either by name or stop code</td>
-</tr>
-<tr>
-<td><code>clusters</code></td>
-<td>Search for clusters by their name</td>
-</tr>
-</tbody>
-</table>
 <h4 id="stop-clusters">Stop clusters</h4>
 <p>A stop cluster is a deduplicated groups of stops. This means that for any stop that has a parent
 station only the parent is returned and for stops that have <em>identical</em> names and are very close
 to each other, only one is returned.</p>
-<p>This is useful for a general purpose fuzzy stop search.</p>
+<p>This is useful for a general-purpose fuzzy stop search.</p>
 <p>Path: <code>/otp/geocode/stopClusters</code></p>
 <p>It supports the following URL parameters:</p>
 <table>
@@ -2647,6 +2607,14 @@ to each other, only one is returned.</p>
 <td><code>query</code></td>
 <td>The query string we want to geocode</td>
 </tr>
+<tr>
+<td><code>focusLatitude</code></td>
+<td>Optional latitude of the focus point</td>
+</tr>
+<tr>
+<td><code>focusLongitude</code></td>
+<td>Optional longitude of the focus point</td>
+</tr>
 </tbody>
 </table>
 <h2 id="changelog">Changelog</h2>
@@ -2654,6 +2622,7 @@ to each other, only one is returned.</p>
 <li>Initial version (June 2021)</li>
 <li>Updated to use Lucene (March 2022)</li>
 <li>Add stop clusters (May 2023)</li>
+<li>Remove API originally added for the old debug UI (November 2025)</li>
 </ul>
 
 
