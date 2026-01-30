@@ -3080,7 +3080,7 @@ to use a car. Therefore, it represents a disconnected 'island' when considering 
 can be reached using any of the traverse modes. Instead, pruning removes traversal permission for each disconnected mode from the island.</p>
 <p>Pruning uses four parameters and some heuristics to decide if a disconnected sub graph is a real island to be retained, or a harmful data error:</p>
 <ul>
-<li><code>islandWithStopsMaxSize</code> defines the threshold for graph islands, which include public transit stops. All stop islands which have less graph edges than this get pruned. Default value is 2.  </li>
+<li><code>islandWithStopsMaxSize</code> defines the threshold for graph islands, which include public transit stops. All stop islands which have fewer graph edges than this get pruned. Default value is 2.  </li>
 <li><code>islandWithoutStopsMaxSize</code> defines the threshold for graph islands, which do not have public transit stops. All stopless islands which have less edges than this get pruned. Defaults to 10.  </li>
 <li><code>adaptivePruningFactor</code> defines the maximal value for a distance based multiplier for the two thresholds defined above (default value 20).  </li>
 <li><code>adaptivePruningDistance</code> defines the search radius as meters when estimating distance between graphs (default value 250).  </li>
