@@ -3792,6 +3792,46 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
+<td><a href="#rd_directTransitSearch">directTransitSearch</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Extend the search result with extra results using a direct transit search</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.9</td>
+</tr>
+<tr>
+<td>   <a href="#rd_directTransitSearch_costRelaxFunction">costRelaxFunction</a></td>
+<td style="text-align: center;"><code>cost-linear-function</code></td>
+<td>The generalized-cost window for which paths to include.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"15m + 1.50 t"</code></td>
+<td style="text-align: center;">2.9</td>
+</tr>
+<tr>
+<td>   enabled</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Enable the direct transit search</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.9</td>
+</tr>
+<tr>
+<td>   <a href="#rd_directTransitSearch_extraAccessEgressReluctance">extraAccessEgressReluctance</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Add an extra cost factor to access/egress legs for these results</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.9</td>
+</tr>
+<tr>
+<td>   <a href="#rd_directTransitSearch_maxAccessEgressDuration">maxAccessEgressDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>A limit on the duration of access/egress for the direct transit search</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.9</td>
+</tr>
+<tr>
 <td>elevator</td>
 <td style="text-align: center;"><code>object</code></td>
 <td>Elevator preferences.</td>
@@ -4777,6 +4817,41 @@ ferries, where the check-in process needs to be done in good time before ride.</
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /routingDefaults/car/rental </p>
 <p>The vehicle rental networks which may not be used. If empty, no networks are banned.</p>
+<h3 id="rd_directTransitSearch">directTransitSearch</h3>
+
+<p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults </p>
+<p>Extend the search result with extra results using a direct transit search</p>
+<p>The direct transit search finds results using a single transit leg, limited to a specified
+cost relaxation. It will include results even if they are not optimal in regard to the criteria
+in the main raptor search.</p>
+<p>This feature is off by default!</p>
+<h3 id="rd_directTransitSearch_costRelaxFunction">costRelaxFunction</h3>
+
+<p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"15m + 1.50 t"</code> <br />
+<strong>Path:</strong> /routingDefaults/directTransitSearch </p>
+<p>The generalized-cost window for which paths to include.</p>
+<p>A generalized-cost relax function of <code>2x + 10m</code> will include paths that have a cost up
+to 2 times plus 10 minutes compared to the cheapest path. I.e. if the cheapest path has
+a cost of 100m the results will include paths with a cost 210m.</p>
+<h3 id="rd_directTransitSearch_extraAccessEgressReluctance">extraAccessEgressReluctance</h3>
+
+<p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
+<strong>Path:</strong> /routingDefaults/directTransitSearch </p>
+<p>Add an extra cost factor to access/egress legs for these results</p>
+<p>The cost for access/egress will be multiplied by this reluctance. This can be used to limit
+the amount of walking.</p>
+<h3 id="rd_directTransitSearch_maxAccessEgressDuration">maxAccessEgressDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /routingDefaults/directTransitSearch </p>
+<p>A limit on the duration of access/egress for the direct transit search</p>
+<p>This will limit the duration of access/egress for this search only. The default is the
+as for the regular search. Setting this to a higher value than what is used for the regular
+search will have have no effect.</p>
+<p>If set to zero, the search won't include results where access or egress is necessary. In
+this case the direct transit search will only be used when searching to and from a stop
+or station.</p>
 <h3 id="rd_itineraryFilters">itineraryFilters</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -5295,9 +5370,15 @@ include stairs as a last result.</p>
 <a id="__codelineno-0-151" name="__codelineno-0-151" href="#__codelineno-0-151"></a><span class="w">      </span><span class="nt">&quot;maxSlope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.083</span><span class="p">,</span>
 <a id="__codelineno-0-152" name="__codelineno-0-152" href="#__codelineno-0-152"></a><span class="w">      </span><span class="nt">&quot;slopeExceededReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <a id="__codelineno-0-153" name="__codelineno-0-153" href="#__codelineno-0-153"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
-<a id="__codelineno-0-154" name="__codelineno-0-154" href="#__codelineno-0-154"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-155" name="__codelineno-0-155" href="#__codelineno-0-155"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-156" name="__codelineno-0-156" href="#__codelineno-0-156"></a><span class="p">}</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154" href="#__codelineno-0-154"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-155" name="__codelineno-0-155" href="#__codelineno-0-155"></a><span class="w">    </span><span class="nt">&quot;directTransitSearch&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-156" name="__codelineno-0-156" href="#__codelineno-0-156"></a><span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157" href="#__codelineno-0-157"></a><span class="w">      </span><span class="nt">&quot;costRelaxFunction&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m + 1.5t&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-158" name="__codelineno-0-158" href="#__codelineno-0-158"></a><span class="w">      </span><span class="nt">&quot;maxAccessEgressDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5m&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-159" name="__codelineno-0-159" href="#__codelineno-0-159"></a><span class="w">      </span><span class="nt">&quot;extraAccessEgressReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160" href="#__codelineno-0-160"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161" href="#__codelineno-0-161"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-162" name="__codelineno-0-162" href="#__codelineno-0-162"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
