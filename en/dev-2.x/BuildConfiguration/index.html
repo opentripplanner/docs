@@ -4422,7 +4422,7 @@ to check in to a flight (2-3 hours for international flights) than to alight and
 <p>The date is inclusive. If set, any transit service on a day AFTER the given date is dropped and
 will not be part of the graph. Use an absolute date or a period relative to the date the graph is
 build(BUILD_DAY).</p>
-<p>Use an empty string to make it unbounded.</p>
+<p>To get an effectively unbounded value, use a very large period like <code>"P100Y"</code>.</p>
 <h3 id="transitServiceStart">transitServiceStart</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"-P1Y"</code> <br />
@@ -4432,7 +4432,7 @@ build(BUILD_DAY).</p>
 <p>The date is inclusive. If set, any transit service on a day BEFORE the given date is dropped and
 will not be part of the graph. Use an absolute date or a period relative to the date the graph is
 build(BUILD_DAY).</p>
-<p>Use an empty string to make unbounded.</p>
+<p>To get an effectively unbounded value, use a very large period like <code>"-P100Y"</code>.</p>
 <h3 id="writeCachedElevations">writeCachedElevations</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
