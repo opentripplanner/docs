@@ -3092,7 +3092,7 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
   semantic versioning)</li>
 <li><code>mvn versions:set -DnewVersion=x.y.z</code></li>
 <li><code>git add pom.xml</code></li>
-<li><code>git commit -m "prepare release x.y.z"</code></li>
+<li><code>git commit -m "Prepare release x.y.z"</code></li>
 </ul>
 </li>
 <li>Run a test build of the release locally, without deploying it<ul>
@@ -3105,7 +3105,7 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 </ul>
 </li>
 <li>Finally, if everything looks good, tag and push this release to make it official<ul>
-<li><code>git tag -a vX.Y.Z -m "release X.Y.Z"</code></li>
+<li><code>git tag -a vX.Y.Z -m "Release X.Y.Z"</code></li>
 <li><code>git push origin vX.Y.Z</code></li>
 <li><code>git push origin master</code></li>
 <li>Note that <strong>only one</strong> commit may have a particular non-snapshot version in the POM (this is
@@ -3132,7 +3132,7 @@ manually is more tedious, but keeps eyes on each step and is less prone to failu
 </ul>
 </li>
 <li>Check that Maven artifact appears on Maven Central<ul>
-<li><a href="https://repo1.maven.org/maven2/org/opentripplanner/otp/">Directory listing of OTP releases on Maven Central</a></li>
+<li><a href="https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/">Directory listing of OTP releases on Maven Central</a></li>
 <li>It may take a while (half an hour) for releases to show up in the central repo after Travis
   uploads the artifacts</li>
 </ul>
