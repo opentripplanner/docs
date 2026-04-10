@@ -3146,6 +3146,14 @@ of the <code>router-config.json</code>.</p>
 <td style="text-align: center;">1.5</td>
 </tr>
 <tr>
+<td><a href="#u__17__connectionStartupTimeout">connectionStartupTimeout</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>How long to wait for the MQTT broker to be available at startup.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30S"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
 <td>feedId</td>
 <td style="text-align: center;"><code>string</code></td>
 <td>The feed ID this updater should be applied to</td>
@@ -3228,6 +3236,17 @@ of the <code>router-config.json</code>.</p>
 </tbody>
 </table>
 <h5 id="parameter-details">Parameter details</h5>
+<h4 id="u__17__connectionStartupTimeout">connectionStartupTimeout</h4>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30S"</code> <br />
+<strong>Path:</strong> /updaters/[17] </p>
+<p>How long to wait for the MQTT broker to be available at startup.</p>
+<p>If the MQTT broker is unavailable when OTP starts, OTP will wait up to this duration for
+the broker to become available before allowing routing requests. If the broker connects
+within this time, normal priming occurs: retained messages are processed before routing is
+enabled. If the broker does not connect within this time, OTP will start routing without
+real-time data. The MQTT client will continue attempting to reconnect in the background, and
+live messages will be processed once the broker is available.</p>
 <h4 id="u__17__maxPrimingIdleTime">maxPrimingIdleTime</h4>
 
 <p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT1S"</code> <br />
