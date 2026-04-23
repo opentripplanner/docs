@@ -3434,6 +3434,86 @@ value which will be applied unless it is overridden in a web API request.</p>
 <td></td>
 <td style="text-align: center;">2.0</td>
 </tr>
+<tr>
+<td><a href="#warmup">warmup</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configure application warmup by running transit searches during startup.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#warmup_api">api</a></td>
+<td style="text-align: center;"><code>enum</code></td>
+<td>Which GraphQL API to use for warmup queries.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"transmodel"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#warmup_accessModes">accessModes</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Access modes to cycle through in warmup queries.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#warmup_egressModes">egressModes</a></td>
+<td style="text-align: center;"><code>string[]</code></td>
+<td>Egress modes to cycle through in warmup queries.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   from</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Origin location for warmup searches.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      lat</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Latitude of the origin.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      lon</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Longitude of the origin.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   to</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Destination location for warmup searches.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      lat</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Latitude of the destination.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      lon</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Longitude of the destination.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
 </tbody>
 </table>
 <!-- PARAMETERS-TABLE END -->
@@ -3742,6 +3822,101 @@ imported Stops.</p>
 <p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /transmodelApi </p>
 <p>Used to group requests when monitoring OTP.</p>
+<h3 id="warmup">warmup</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / </p>
+<p>Configure application warmup by running transit searches during startup.</p>
+<p>When configured, OTP runs transit routing queries between the given locations
+during startup. This warms up the application (JIT compilation, GraphQL schema
+caches, routing data structures, etc.) before production traffic arrives.
+Queries start after the Raptor transit data is created and stop when all updaters
+are primed (the health endpoint would return "UP").
+If no updaters are configured, no warmup queries are run.</p>
+<h3 id="warmup_api">api</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"transmodel"</code> <br />
+<strong>Path:</strong> /warmup <br />
+<strong>Enum values:</strong> <code>transmodel</code> | <code>gtfs</code></p>
+<p>Which GraphQL API to use for warmup queries.</p>
+<ul>
+<li><code>transmodel</code> Use the TransModel GraphQL API for warmup queries.</li>
+<li><code>gtfs</code> Use the GTFS GraphQL API for warmup queries.</li>
+</ul>
+<h3 id="warmup_accessModes">accessModes</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /warmup </p>
+<p>Access modes to cycle through in warmup queries.</p>
+<p>Ordered list of <code>StreetMode</code> values used as access modes. Each entry is paired with the egress mode at the same index.  - <code>not-set</code> 
+ - <code>walk</code> Walking some or all of the way of the route.
+ - <code>bike</code> Cycling for the entirety of the route or taking a bicycle onto the public transport and cycling from the arrival station to the destination.</p>
+<p>Taking a bicycle onto transit is only possible if information about the permission to do so is supplied in the source data. In GTFS this field
+   is called <code>bikesAllowed</code>.
+ - <code>bike-to-park</code> Leaving the bicycle at the departure station and walking from the arrival station to the destination.
+   This mode needs to be combined with at least one transit mode otherwise it behaves like an ordinary bicycle journey.</p>
+<p><em>Prerequisite:</em> Bicycle parking stations present in the OSM file and visible to OTP by enabling the property <code>staticBikeParkAndRide</code> during graph build.
+ - <code>bike-rental</code> Taking a rented, shared-mobility bike for part or the entirety of the route.</p>
+<p><em>Prerequisite:</em> Vehicle or station locations need to be added to OTP from dynamic data feeds.
+   See <a href="../GBFS-Config/">Configuring GBFS</a> on how to add one.
+ - <code>scooter-rental</code> Walking to a scooter rental point, riding a scooter to a scooter rental drop-off point, and walking the rest of the way.
+   This can include scooter rental at fixed locations or free-floating services.</p>
+<p><em>Prerequisite:</em> Vehicle or station locations need to be added to OTP from dynamic data feeds.
+   See <a href="../GBFS-Config/">Configuring GBFS</a> on how to add one.
+ - <code>car</code> Driving your own car the entirety of the route.
+   This can be combined with transit, where will return routes with a <a href="https://en.wikipedia.org/wiki/Park_and_ride#Kiss_and_ride_/_kiss_and_fly">Kiss &amp; Ride</a> component.
+   This means that the car is not parked in a permanent parking area but rather the passenger is dropped off (for example, at an airport) and the driver continues driving the car away from the drop off location.
+ - <code>car-to-park</code> Driving a car to the park-and-ride facilities near a station and taking publictransport.
+   This mode needs to be combined with at least one transit mode otherwise, it behaves like an ordinary car journey.
+   <em>Prerequisite:</em> Park-and-ride areas near the stations need to be present in the OSM input file.
+ - <code>car-pickup</code> Walking to a pickup point along the road, driving to a drop-off point along the road, and walking the rest of the way. <br/> This can include various taxi-services or kiss &amp; ride.
+ - <code>car-rental</code> Walk to a car rental point, drive to a car rental drop-off point and walk the rest of the way.
+   This can include car rental at fixed locations or free-floating services.</p>
+<p><em>Prerequisite:</em> Vehicle or station locations need to be added to OTP from dynamic data feeds.
+   See <a href="../GBFS-Config/">Configuring GBFS</a> on how to add one.
+ - <code>car-hailing</code> Using a car hailing app like Uber or Lyft to get to a train station or all the way to the destination.</p>
+<p>See <a href="../sandbox/RideHailing/">the sandbox documentation</a> on how to configure it.
+ - <code>carpool</code> Carpool or rideshare with other passengers going in the same direction.</p>
+<p>This is the request mode for enabling carpooling in street route searches.</p>
+<p>Use this <em>street</em> mode, if your data source for trips is SIRI, not GTFS static.
+ - <code>flexible</code> Encompasses all types of on-demand and flexible transportation for example GTFS Flex or NeTEx Flexible Stop Places.</p>
+<h3 id="warmup_egressModes">egressModes</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /warmup </p>
+<p>Egress modes to cycle through in warmup queries.</p>
+<p>Ordered list of <code>StreetMode</code> values used as egress modes. Each entry is paired with the access mode at the same index.  - <code>not-set</code> 
+ - <code>walk</code> Walking some or all of the way of the route.
+ - <code>bike</code> Cycling for the entirety of the route or taking a bicycle onto the public transport and cycling from the arrival station to the destination.</p>
+<p>Taking a bicycle onto transit is only possible if information about the permission to do so is supplied in the source data. In GTFS this field
+   is called <code>bikesAllowed</code>.
+ - <code>bike-to-park</code> Leaving the bicycle at the departure station and walking from the arrival station to the destination.
+   This mode needs to be combined with at least one transit mode otherwise it behaves like an ordinary bicycle journey.</p>
+<p><em>Prerequisite:</em> Bicycle parking stations present in the OSM file and visible to OTP by enabling the property <code>staticBikeParkAndRide</code> during graph build.
+ - <code>bike-rental</code> Taking a rented, shared-mobility bike for part or the entirety of the route.</p>
+<p><em>Prerequisite:</em> Vehicle or station locations need to be added to OTP from dynamic data feeds.
+   See <a href="../GBFS-Config/">Configuring GBFS</a> on how to add one.
+ - <code>scooter-rental</code> Walking to a scooter rental point, riding a scooter to a scooter rental drop-off point, and walking the rest of the way.
+   This can include scooter rental at fixed locations or free-floating services.</p>
+<p><em>Prerequisite:</em> Vehicle or station locations need to be added to OTP from dynamic data feeds.
+   See <a href="../GBFS-Config/">Configuring GBFS</a> on how to add one.
+ - <code>car</code> Driving your own car the entirety of the route.
+   This can be combined with transit, where will return routes with a <a href="https://en.wikipedia.org/wiki/Park_and_ride#Kiss_and_ride_/_kiss_and_fly">Kiss &amp; Ride</a> component.
+   This means that the car is not parked in a permanent parking area but rather the passenger is dropped off (for example, at an airport) and the driver continues driving the car away from the drop off location.
+ - <code>car-to-park</code> Driving a car to the park-and-ride facilities near a station and taking publictransport.
+   This mode needs to be combined with at least one transit mode otherwise, it behaves like an ordinary car journey.
+   <em>Prerequisite:</em> Park-and-ride areas near the stations need to be present in the OSM input file.
+ - <code>car-pickup</code> Walking to a pickup point along the road, driving to a drop-off point along the road, and walking the rest of the way. <br/> This can include various taxi-services or kiss &amp; ride.
+ - <code>car-rental</code> Walk to a car rental point, drive to a car rental drop-off point and walk the rest of the way.
+   This can include car rental at fixed locations or free-floating services.</p>
+<p><em>Prerequisite:</em> Vehicle or station locations need to be added to OTP from dynamic data feeds.
+   See <a href="../GBFS-Config/">Configuring GBFS</a> on how to add one.
+ - <code>car-hailing</code> Using a car hailing app like Uber or Lyft to get to a train station or all the way to the destination.</p>
+<p>See <a href="../sandbox/RideHailing/">the sandbox documentation</a> on how to configure it.
+ - <code>carpool</code> Carpool or rideshare with other passengers going in the same direction.</p>
+<p>This is the request mode for enabling carpooling in street route searches.</p>
+<p>Use this <em>street</em> mode, if your data source for trips is SIRI, not GTFS static.
+ - <code>flexible</code> Encompasses all types of on-demand and flexible transportation for example GTFS Flex or NeTEx Flexible Stop Places.</p>
 <!-- PARAMETERS-DETAILS END -->
 
 <h2 id="router-config-example">Router Config Example</h2>
@@ -4217,19 +4392,38 @@ imported Stops.</p>
 <a id="__codelineno-2-467" name="__codelineno-2-467" href="#__codelineno-2-467"></a><span class="w">      </span><span class="nt">&quot;maxPrimingIdleTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1s&quot;</span>
 <a id="__codelineno-2-468" name="__codelineno-2-468" href="#__codelineno-2-468"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-469" name="__codelineno-2-469" href="#__codelineno-2-469"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-2-470" name="__codelineno-2-470" href="#__codelineno-2-470"></a><span class="w">  </span><span class="nt">&quot;rideHailingServices&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-2-471" name="__codelineno-2-471" href="#__codelineno-2-471"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-472" name="__codelineno-2-472" href="#__codelineno-2-472"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uber-car-hailing&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-473" name="__codelineno-2-473" href="#__codelineno-2-473"></a><span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret-id&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-474" name="__codelineno-2-474" href="#__codelineno-2-474"></a><span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;very-secret&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-475" name="__codelineno-2-475" href="#__codelineno-2-475"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibleProductId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;545de0c4-659f-49c6-be65-0d5e448dffd5&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-476" name="__codelineno-2-476" href="#__codelineno-2-476"></a><span class="w">      </span><span class="nt">&quot;bannedProductIds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-2-477" name="__codelineno-2-477" href="#__codelineno-2-477"></a><span class="w">        </span><span class="s2">&quot;1196d0dd-423b-4a81-a1d8-615367d3a365&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-478" name="__codelineno-2-478" href="#__codelineno-2-478"></a><span class="w">        </span><span class="s2">&quot;f58761e5-8dd5-4940-a472-872f1236c596&quot;</span>
-<a id="__codelineno-2-479" name="__codelineno-2-479" href="#__codelineno-2-479"></a><span class="w">      </span><span class="p">]</span>
-<a id="__codelineno-2-480" name="__codelineno-2-480" href="#__codelineno-2-480"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-481" name="__codelineno-2-481" href="#__codelineno-2-481"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-2-482" name="__codelineno-2-482" href="#__codelineno-2-482"></a><span class="p">}</span>
+<a id="__codelineno-2-470" name="__codelineno-2-470" href="#__codelineno-2-470"></a><span class="w">  </span><span class="nt">&quot;warmup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-471" name="__codelineno-2-471" href="#__codelineno-2-471"></a><span class="w">    </span><span class="nt">&quot;api&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transmodel&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-472" name="__codelineno-2-472" href="#__codelineno-2-472"></a><span class="w">    </span><span class="nt">&quot;from&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-473" name="__codelineno-2-473" href="#__codelineno-2-473"></a><span class="w">      </span><span class="nt">&quot;lat&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">59.9139</span><span class="p">,</span>
+<a id="__codelineno-2-474" name="__codelineno-2-474" href="#__codelineno-2-474"></a><span class="w">      </span><span class="nt">&quot;lon&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">10.7522</span>
+<a id="__codelineno-2-475" name="__codelineno-2-475" href="#__codelineno-2-475"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-476" name="__codelineno-2-476" href="#__codelineno-2-476"></a><span class="w">    </span><span class="nt">&quot;to&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-477" name="__codelineno-2-477" href="#__codelineno-2-477"></a><span class="w">      </span><span class="nt">&quot;lat&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">59.95</span><span class="p">,</span>
+<a id="__codelineno-2-478" name="__codelineno-2-478" href="#__codelineno-2-478"></a><span class="w">      </span><span class="nt">&quot;lon&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">10.76</span>
+<a id="__codelineno-2-479" name="__codelineno-2-479" href="#__codelineno-2-479"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-480" name="__codelineno-2-480" href="#__codelineno-2-480"></a><span class="w">    </span><span class="nt">&quot;accessModes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-481" name="__codelineno-2-481" href="#__codelineno-2-481"></a><span class="w">      </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-482" name="__codelineno-2-482" href="#__codelineno-2-482"></a><span class="w">      </span><span class="s2">&quot;CAR_TO_PARK&quot;</span>
+<a id="__codelineno-2-483" name="__codelineno-2-483" href="#__codelineno-2-483"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-2-484" name="__codelineno-2-484" href="#__codelineno-2-484"></a><span class="w">    </span><span class="nt">&quot;egressModes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-485" name="__codelineno-2-485" href="#__codelineno-2-485"></a><span class="w">      </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-486" name="__codelineno-2-486" href="#__codelineno-2-486"></a><span class="w">      </span><span class="s2">&quot;WALK&quot;</span>
+<a id="__codelineno-2-487" name="__codelineno-2-487" href="#__codelineno-2-487"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-2-488" name="__codelineno-2-488" href="#__codelineno-2-488"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-2-489" name="__codelineno-2-489" href="#__codelineno-2-489"></a><span class="w">  </span><span class="nt">&quot;rideHailingServices&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-490" name="__codelineno-2-490" href="#__codelineno-2-490"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-491" name="__codelineno-2-491" href="#__codelineno-2-491"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uber-car-hailing&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-492" name="__codelineno-2-492" href="#__codelineno-2-492"></a><span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret-id&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-493" name="__codelineno-2-493" href="#__codelineno-2-493"></a><span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;very-secret&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-494" name="__codelineno-2-494" href="#__codelineno-2-494"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibleProductId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;545de0c4-659f-49c6-be65-0d5e448dffd5&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-495" name="__codelineno-2-495" href="#__codelineno-2-495"></a><span class="w">      </span><span class="nt">&quot;bannedProductIds&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-496" name="__codelineno-2-496" href="#__codelineno-2-496"></a><span class="w">        </span><span class="s2">&quot;1196d0dd-423b-4a81-a1d8-615367d3a365&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-497" name="__codelineno-2-497" href="#__codelineno-2-497"></a><span class="w">        </span><span class="s2">&quot;f58761e5-8dd5-4940-a472-872f1236c596&quot;</span>
+<a id="__codelineno-2-498" name="__codelineno-2-498" href="#__codelineno-2-498"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-2-499" name="__codelineno-2-499" href="#__codelineno-2-499"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-500" name="__codelineno-2-500" href="#__codelineno-2-500"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-501" name="__codelineno-2-501" href="#__codelineno-2-501"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
