@@ -3296,14 +3296,12 @@
 <li><strong>Availability</strong>: Checks if seats are available in the vehicle</li>
 <li><strong>Time Compatibility</strong>: Ensures the trip timing works for the passenger</li>
 <li><strong>Route Alignment</strong>: Validates that pickup and dropoff locations are reasonably close to the driver's route</li>
-<li><strong>Direction</strong>: Verifies the passenger's travel direction aligns with the trip route</li>
 </ul>
 <p>The system automatically calculates the optimal pickup and dropoff points along the driver's route that minimize additional travel time while respecting all constraints.</p>
 <h3 id="constraints-and-protections">Constraints and Protections</h3>
 <p>To ensure a good experience for all users, the system enforces several constraints:</p>
 <ul>
 <li><strong>Vehicle Capacity</strong>: Never exceeds the maximum number of seats</li>
-<li><strong>Route Logic</strong>: Prevents backtracking or illogical detours</li>
 <li><strong>Existing Passenger Protection</strong>: Limits additional delay to existing passengers (maximum 5 minutes)</li>
 <li><strong>Driver Deviation Budget</strong>: Respects the driver's maximum acceptable detour time (currently 15 minutes)</li>
 </ul>
