@@ -3119,6 +3119,14 @@ Furthermore, support is limited to the following form factors:</p>
 <td style="text-align: center;">1.5</td>
 </tr>
 <tr>
+<td><a href="#u_1_startupRetryPeriod">startupRetryPeriod</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>How long to retry loading the vehicle rental data source on startup if it initially fails.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
 <td>url</td>
 <td style="text-align: center;"><code>string</code></td>
 <td>The URL to download the data from.</td>
@@ -3180,6 +3188,14 @@ This is useful if vehicles may only be rented for round trips, or the destinatio
 <strong>Path:</strong> /updaters/[1] <br />
 <strong>Enum values:</strong> <code>gbfs</code></p>
 <p>What source of vehicle rental updater to use.</p>
+<h4 id="u_1_startupRetryPeriod">startupRetryPeriod</h4>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /updaters/[1] </p>
+<p>How long to retry loading the vehicle rental data source on startup if it initially fails.</p>
+<p>The first time the data source is loaded, OTP will retry for this duration every
+5 seconds before giving up. This is useful to handle temporary network failures during
+OTP startup. Set to <code>PT0S</code> to disable retries.</p>
 <h4 id="u_1_headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>1.5</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
