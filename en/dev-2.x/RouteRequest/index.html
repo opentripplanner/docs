@@ -3180,7 +3180,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><code>string</code></td>
 <td>The relax function for transit-group-priority</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>"0s + 1.00 t"</code></td>
+<td><code>"0s + 1.0 t"</code></td>
 <td style="text-align: center;">2.5</td>
 </tr>
 <tr>
@@ -3228,7 +3228,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><code>cost-linear-function</code></td>
 <td>A cost function used to calculate penalty for an unpreferred route.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>"0s + 1.00 t"</code></td>
+<td><code>"0s + 1.0 t"</code></td>
 <td style="text-align: center;">2.2</td>
 </tr>
 <tr>
@@ -3308,7 +3308,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><code>time-penalty</code></td>
 <td>Penalty added to the time of a path/leg.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>"0s + 0.00 t"</code></td>
+<td><code>"0s + 0.0 t"</code></td>
 <td style="text-align: center;">2.4</td>
 </tr>
 <tr>
@@ -3572,7 +3572,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><code>double</code></td>
 <td>The user's vehicle walking speed in meters/second. Defaults to approximately 3 MPH.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>1.33</code></td>
+<td><code>1.35</code></td>
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
@@ -3804,7 +3804,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><code>cost-linear-function</code></td>
 <td>The generalized-cost window for which paths to include.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>"15m + 1.50 t"</code></td>
+<td><code>"15m + 1.5 t"</code></td>
 <td style="text-align: center;">2.9</td>
 </tr>
 <tr>
@@ -3980,7 +3980,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><code>cost-linear-function</code></td>
 <td>Limit function for generalized-cost computed from street-only itineries applied to transit itineraries.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>"1m + 1.30 t"</code></td>
+<td><code>"1m + 1.3 t"</code></td>
 <td style="text-align: center;">2.4</td>
 </tr>
 <tr>
@@ -3996,7 +3996,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><code>cost-linear-function</code></td>
 <td>The base function used by the filter.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>"15m + 1.50 t"</code></td>
+<td><code>"15m + 1.5 t"</code></td>
 <td style="text-align: center;">2.2</td>
 </tr>
 <tr>
@@ -4284,7 +4284,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;"><code>double</code></td>
 <td>The user's walking speed in meters/second.</td>
 <td style="text-align: center;"><em>Optional</em></td>
-<td><code>1.33</code></td>
+<td><code>1.35</code></td>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
@@ -4550,7 +4550,7 @@ search, hence, making it a bit slower. Recommended values would be from 12 hours
 <p>We return number of seconds that we are willing to wait for preferred route.</p>
 <h3 id="rd_relaxTransitGroupPriority">relaxTransitGroupPriority</h3>
 
-<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.00 t"</code> <br />
+<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.0 t"</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
 <p>The relax function for transit-group-priority</p>
 <p>A path is considered optimal if the generalized-cost is less than the generalized-cost of
@@ -4605,7 +4605,7 @@ agency policies. This time is in addition to how long it might take to walk, boa
 close to zero for everyday commuters and short distance searches in high-frequency transit areas.</p>
 <h3 id="rd_unpreferredCost">unpreferredCost</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.00 t"</code> <br />
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"0s + 1.0 t"</code> <br />
 <strong>Path:</strong> /routingDefaults </p>
 <p>A cost function used to calculate penalty for an unpreferred route.</p>
 <p>Function should return number of seconds that we are willing to wait for preferred route
@@ -4655,11 +4655,11 @@ the access legs used. In other cases where the access (CAR) is faster than trans
 performance will be better.</p>
 <p>The default values are</p>
 <ul>
-<li><code>car-to-park</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
-<li><code>car-pickup</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
-<li><code>car-rental</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
-<li><code>car-hailing</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.50)</li>
-<li><code>flexible</code> = (timePenalty: 10m + 1.30 t, costFactor: 1.30)</li>
+<li><code>car-to-park</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.5)</li>
+<li><code>car-pickup</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.5)</li>
+<li><code>car-rental</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.5)</li>
+<li><code>car-hailing</code> = (timePenalty: 20m + 2.0 t, costFactor: 1.5)</li>
+<li><code>flexible</code> = (timePenalty: 10m + 1.3 t, costFactor: 1.3)</li>
 </ul>
 <p>Example: <code>"car-to-park" : { "timePenalty": "10m + 1.5t", "costFactor": 2.5 }</code></p>
 <p><strong>Time penalty</strong></p>
@@ -4828,7 +4828,7 @@ in the main raptor search.</p>
 <p>This feature is off by default!</p>
 <h3 id="rd_directTransitSearch_costRelaxFunction">costRelaxFunction</h3>
 
-<p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"15m + 1.50 t"</code> <br />
+<p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"15m + 1.5 t"</code> <br />
 <strong>Path:</strong> /routingDefaults/directTransitSearch </p>
 <p>The generalized-cost window for which paths to include.</p>
 <p>A generalized-cost relax function of <code>2x + 10m</code> will include paths that have a cost up
@@ -4975,7 +4975,7 @@ result to be included. However, if there is only a single result, it is never fi
 <p>Itineraries visiting the same set of stops and riding the exact same routes, departing later are removed from the result.</p>
 <h3 id="rd_if_removeTransitWithHigherCostThanBestOnStreetOnly">removeTransitWithHigherCostThanBestOnStreetOnly</h3>
 
-<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"1m + 1.30 t"</code> <br />
+<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"1m + 1.3 t"</code> <br />
 <strong>Path:</strong> /routingDefaults/itineraryFilters </p>
 <p>Limit function for generalized-cost computed from street-only itineries applied to transit itineraries.</p>
 <p>The max-limit is applied to itineraries with transit <em>legs</em>, and only itineraries
@@ -4998,7 +4998,7 @@ dropped. The <code>transitGeneralizedCostLimit</code> is calculated using the <c
 <em>1 hour plus 2 times cost</em> use: <code>3600 + 2.0 x</code>. To set an absolute value (3000s) use: <code>3000 + 0x</code></p>
 <h3 id="rd_if_transitGeneralizedCostLimit_costLimitFunction">costLimitFunction</h3>
 
-<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"15m + 1.50 t"</code> <br />
+<p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"15m + 1.5 t"</code> <br />
 <strong>Path:</strong> /routingDefaults/itineraryFilters/transitGeneralizedCostLimit </p>
 <p>The base function used by the filter.</p>
 <p>This function calculates the threshold for the filter, when the itineraries have exactly the same arrival and departure times.</p>
