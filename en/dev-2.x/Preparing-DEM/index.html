@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/siri/SiriGooglePubSubUpdater/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/Preparing-DEM/">
       
       
-        <link rel="prev" href="../../GoogleCloudStorage/">
+        <link rel="prev" href="../Preparing-OSM/">
       
       
-        <link rel="next" href="../SiriAzureUpdater/">
+        <link rel="next" href="../Troubleshooting-Routing/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>SIRI Google Cloud Updater - OpenTripPlanner 2</title>
+        <title>Preparing DEM Data - OpenTripPlanner 2</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#siri-et-google-pubsub-updater" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SIRI Google Cloud Updater
+              Preparing DEM Data
             
           </span>
         </div>
@@ -208,7 +208,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -238,7 +238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Product-Overview/" class="md-nav__link">
+      <a href="../Product-Overview/" class="md-nav__link">
         
   
   
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Governance/" class="md-nav__link">
+      <a href="../Governance/" class="md-nav__link">
         
   
   
@@ -368,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../History/" class="md-nav__link">
+      <a href="../History/" class="md-nav__link">
         
   
   
@@ -396,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Presentations/" class="md-nav__link">
+      <a href="../Presentations/" class="md-nav__link">
         
   
   
@@ -424,7 +424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Roadmap/" class="md-nav__link">
+      <a href="../Roadmap/" class="md-nav__link">
         
   
   
@@ -452,7 +452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Deployments/" class="md-nav__link">
+      <a href="../Deployments/" class="md-nav__link">
         
   
   
@@ -480,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Changelog/" class="md-nav__link">
+      <a href="../Changelog/" class="md-nav__link">
         
   
   
@@ -508,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Visual-Identity/" class="md-nav__link">
+      <a href="../Visual-Identity/" class="md-nav__link">
         
   
   
@@ -540,18 +540,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -572,7 +574,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -590,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Basic-Tutorial/" class="md-nav__link">
+      <a href="../Basic-Tutorial/" class="md-nav__link">
         
   
   
@@ -618,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Netex-Tutorial/" class="md-nav__link">
+      <a href="../Netex-Tutorial/" class="md-nav__link">
         
   
   
@@ -646,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Getting-OTP/" class="md-nav__link">
+      <a href="../Getting-OTP/" class="md-nav__link">
         
   
   
@@ -674,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Data-Sources/" class="md-nav__link">
+      <a href="../Data-Sources/" class="md-nav__link">
         
   
   
@@ -702,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Container-Image/" class="md-nav__link">
+      <a href="../Container-Image/" class="md-nav__link">
         
   
   
@@ -730,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../System-Requirements/" class="md-nav__link">
+      <a href="../System-Requirements/" class="md-nav__link">
         
   
   
@@ -758,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Preparing-OSM/" class="md-nav__link">
+      <a href="../Preparing-OSM/" class="md-nav__link">
         
   
   
@@ -783,10 +785,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../Preparing-DEM/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preparing DEM Data
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -802,6 +829,101 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nodata-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NoData flag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-convert-a-stripped-untagged-dem-to-otp-ready-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: convert a stripped, untagged DEM to OTP-ready form
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -814,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Troubleshooting-Routing/" class="md-nav__link">
+      <a href="../Troubleshooting-Routing/" class="md-nav__link">
         
   
   
@@ -842,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Version-Comparison/" class="md-nav__link">
+      <a href="../Version-Comparison/" class="md-nav__link">
         
   
   
@@ -870,7 +992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Frontends/" class="md-nav__link">
+      <a href="../Frontends/" class="md-nav__link">
         
   
   
@@ -952,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../apis/Apis/" class="md-nav__link">
+      <a href="../apis/Apis/" class="md-nav__link">
         
   
   
@@ -980,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../apis/GraphQL-Tutorial/" class="md-nav__link">
+      <a href="../apis/GraphQL-Tutorial/" class="md-nav__link">
         
   
   
@@ -1008,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../apis/GTFS-GraphQL-API/" class="md-nav__link">
+      <a href="../apis/GTFS-GraphQL-API/" class="md-nav__link">
         
   
   
@@ -1036,7 +1158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../apis/TransmodelApi/" class="md-nav__link">
+      <a href="../apis/TransmodelApi/" class="md-nav__link">
         
   
   
@@ -1118,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Configuration/" class="md-nav__link">
+      <a href="../Configuration/" class="md-nav__link">
         
   
   
@@ -1146,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../BuildConfiguration/" class="md-nav__link">
+      <a href="../BuildConfiguration/" class="md-nav__link">
         
   
   
@@ -1221,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../osm/OsmTag/" class="md-nav__link">
+      <a href="../osm/OsmTag/" class="md-nav__link">
         
   
   
@@ -1249,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../osm/Finland/" class="md-nav__link">
+      <a href="../osm/Finland/" class="md-nav__link">
         
   
   
@@ -1277,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../osm/Germany/" class="md-nav__link">
+      <a href="../osm/Germany/" class="md-nav__link">
         
   
   
@@ -1305,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../osm/Norway/" class="md-nav__link">
+      <a href="../osm/Norway/" class="md-nav__link">
         
   
   
@@ -1333,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../osm/UK/" class="md-nav__link">
+      <a href="../osm/UK/" class="md-nav__link">
         
   
   
@@ -1369,7 +1491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../RouterConfiguration/" class="md-nav__link">
+      <a href="../RouterConfiguration/" class="md-nav__link">
         
   
   
@@ -1397,7 +1519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../RouteRequest/" class="md-nav__link">
+      <a href="../RouteRequest/" class="md-nav__link">
         
   
   
@@ -1472,7 +1594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Realtime-Updaters/" class="md-nav__link">
+      <a href="../Realtime-Updaters/" class="md-nav__link">
         
   
   
@@ -1500,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../GTFS-RT-Config/" class="md-nav__link">
+      <a href="../GTFS-RT-Config/" class="md-nav__link">
         
   
   
@@ -1528,7 +1650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../SIRI-Config/" class="md-nav__link">
+      <a href="../SIRI-Config/" class="md-nav__link">
         
   
   
@@ -1556,7 +1678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../GBFS-Config/" class="md-nav__link">
+      <a href="../GBFS-Config/" class="md-nav__link">
         
   
   
@@ -1592,7 +1714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DebugUiConfiguration/" class="md-nav__link">
+      <a href="../DebugUiConfiguration/" class="md-nav__link">
         
   
   
@@ -1620,7 +1742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Migrating-Configuration/" class="md-nav__link">
+      <a href="../Migrating-Configuration/" class="md-nav__link">
         
   
   
@@ -1702,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../features-explained/Feed-ID/" class="md-nav__link">
+      <a href="../features-explained/Feed-ID/" class="md-nav__link">
         
   
   
@@ -1730,7 +1852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../RoutingModes/" class="md-nav__link">
+      <a href="../RoutingModes/" class="md-nav__link">
         
   
   
@@ -1758,7 +1880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../In-Station-Navigation/" class="md-nav__link">
+      <a href="../In-Station-Navigation/" class="md-nav__link">
         
   
   
@@ -1786,7 +1908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../BoardingLocations/" class="md-nav__link">
+      <a href="../BoardingLocations/" class="md-nav__link">
         
   
   
@@ -1814,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../StopAreas/" class="md-nav__link">
+      <a href="../StopAreas/" class="md-nav__link">
         
   
   
@@ -1842,7 +1964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../IslandPruning/" class="md-nav__link">
+      <a href="../IslandPruning/" class="md-nav__link">
         
   
   
@@ -1870,7 +1992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Accessibility/" class="md-nav__link">
+      <a href="../Accessibility/" class="md-nav__link">
         
   
   
@@ -1898,7 +2020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../features-explained/Netex-Siri-Compatibility/" class="md-nav__link">
+      <a href="../features-explained/Netex-Siri-Compatibility/" class="md-nav__link">
         
   
   
@@ -1926,7 +2048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Analysis/" class="md-nav__link">
+      <a href="../Analysis/" class="md-nav__link">
         
   
   
@@ -1954,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Logging/" class="md-nav__link">
+      <a href="../Logging/" class="md-nav__link">
         
   
   
@@ -2036,7 +2158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Developers-Guide/" class="md-nav__link">
+      <a href="../Developers-Guide/" class="md-nav__link">
         
   
   
@@ -2064,7 +2186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Bibliography/" class="md-nav__link">
+      <a href="../Bibliography/" class="md-nav__link">
         
   
   
@@ -2092,7 +2214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../SandboxExtension/" class="md-nav__link">
+      <a href="../SandboxExtension/" class="md-nav__link">
         
   
   
@@ -2120,7 +2242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ReleaseChecklist/" class="md-nav__link">
+      <a href="../ReleaseChecklist/" class="md-nav__link">
         
   
   
@@ -2152,20 +2274,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -2186,7 +2306,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2204,7 +2324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../SandboxExtension/" class="md-nav__link">
+      <a href="../SandboxExtension/" class="md-nav__link">
         
   
   
@@ -2232,7 +2352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ActuatorAPI/" class="md-nav__link">
+      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
         
   
   
@@ -2260,7 +2380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Carpooling/" class="md-nav__link">
+      <a href="../sandbox/Carpooling/" class="md-nav__link">
         
   
   
@@ -2288,7 +2408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../DebugRasterTiles/" class="md-nav__link">
+      <a href="../sandbox/DebugRasterTiles/" class="md-nav__link">
         
   
   
@@ -2316,7 +2436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transferanalyzer/" class="md-nav__link">
+      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
         
   
   
@@ -2344,7 +2464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../GoogleCloudStorage/" class="md-nav__link">
+      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
         
   
   
@@ -2369,37 +2489,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SIRI Google Cloud Updater
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriGooglePubSubUpdater/" class="md-nav__link">
         
   
   
@@ -2415,104 +2508,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contact-info" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contact Info
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#siri-et-via-google-pubsub" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SIRI-ET via Google PubSub
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="SIRI-ET via Google PubSub">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameter-details" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameter details
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2525,7 +2520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SiriAzureUpdater/" class="md-nav__link">
+      <a href="../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
         
   
   
@@ -2553,7 +2548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SiriMqttUpdater/" class="md-nav__link">
+      <a href="../sandbox/siri/SiriMqttUpdater/" class="md-nav__link">
         
   
   
@@ -2581,7 +2576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
         
   
   
@@ -2609,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
         
   
   
@@ -2637,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Flex/" class="md-nav__link">
+      <a href="../sandbox/Flex/" class="md-nav__link">
         
   
   
@@ -2665,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ReportApi/" class="md-nav__link">
+      <a href="../sandbox/ReportApi/" class="md-nav__link">
         
   
   
@@ -2693,7 +2688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../InteractiveOtpMain/" class="md-nav__link">
+      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
         
   
   
@@ -2721,7 +2716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ParkAndRideApi/" class="md-nav__link">
+      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
         
   
   
@@ -2749,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../DataOverlay/" class="md-nav__link">
+      <a href="../sandbox/DataOverlay/" class="md-nav__link">
         
   
   
@@ -2777,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../VehicleParking/" class="md-nav__link">
+      <a href="../sandbox/VehicleParking/" class="md-nav__link">
         
   
   
@@ -2805,7 +2800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../GeocoderAPI/" class="md-nav__link">
+      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
         
   
   
@@ -2833,7 +2828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
         
   
   
@@ -2861,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Fares/" class="md-nav__link">
+      <a href="../sandbox/Fares/" class="md-nav__link">
         
   
   
@@ -2889,7 +2884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RideHailing/" class="md-nav__link">
+      <a href="../sandbox/RideHailing/" class="md-nav__link">
         
   
   
@@ -2917,7 +2912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Emission/" class="md-nav__link">
+      <a href="../sandbox/Emission/" class="md-nav__link">
         
   
   
@@ -2945,7 +2940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../EmpiricalDelay/" class="md-nav__link">
+      <a href="../sandbox/EmpiricalDelay/" class="md-nav__link">
         
   
   
@@ -2973,7 +2968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../StopConsolidation/" class="md-nav__link">
+      <a href="../sandbox/StopConsolidation/" class="md-nav__link">
         
   
   
@@ -3001,7 +2996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Sorlandsbanen/" class="md-nav__link">
+      <a href="../sandbox/Sorlandsbanen/" class="md-nav__link">
         
   
   
@@ -3029,7 +3024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../TriasApi/" class="md-nav__link">
+      <a href="../sandbox/TriasApi/" class="md-nav__link">
         
   
   
@@ -3057,7 +3052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OjpApi/" class="md-nav__link">
+      <a href="../sandbox/OjpApi/" class="md-nav__link">
         
   
   
@@ -3105,173 +3100,96 @@
   
 
 
-<h1 id="siri-et-google-pubsub-updater">SIRI-ET Google PubSub Updater</h1>
-<p>Support for consuming SIRI-ET messages over a Google Cloud PubSub subscription.
-Similarly to the SIRI-ET HTTP updater, this updater is developed to support the Nordic SIRI profile
-which is a subset of the SIRI specification.</p>
-<h2 id="contact-info">Contact Info</h2>
-<p>Entur, Norway
-https://entur.no/</p>
-<h2 id="documentation">Documentation</h2>
-<p>This updater consumes SIRI real time information over an asynchronous publisher/subscriber feed
-provided by a Google Cloud PubSub topic.</p>
-<p>For more documentation see
-the <a href="https://developer.entur.org/pages-real-time-intro">Entur Real-Time Data</a> documentation and
-the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Norwegian+SIRI+profile">Norwegian SIRI profile</a>
-.</p>
-<h2 id="configuration">Configuration</h2>
-<p>To enable the SIRI-ET Google PubSub updater you need to add it to the updaters section
-of the <code>router-config.json</code>.</p>
-<h3 id="siri-et-via-google-pubsub">SIRI-ET via Google PubSub</h3>
-<!-- siri-et-google-pubsub-updater BEGIN -->
-<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+  <h1>Preparing DEM Data</h1>
 
-<table>
-<thead>
-<tr>
-<th>Config Parameter</th>
-<th style="text-align: center;">Type</th>
-<th>Summary</th>
-<th style="text-align: center;">Req./Opt.</th>
-<th>Default Value</th>
-<th style="text-align: center;">Since</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type = "siri-et-google-pubsub-updater"</td>
-<td style="text-align: center;"><code>enum</code></td>
-<td>The type of the updater.</td>
-<td style="text-align: center;"><em>Required</em></td>
-<td></td>
-<td style="text-align: center;">1.5</td>
-</tr>
-<tr>
-<td><a href="#u__12__dataInitializationUrl">dataInitializationUrl</a></td>
-<td style="text-align: center;"><code>string</code></td>
-<td>URL used to download over HTTP the recent history of SIRI-ET messages.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td>feedId</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>The ID of the feed to apply the updates to.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td>fuzzyTripMatching</td>
-<td style="text-align: center;"><code>boolean</code></td>
-<td>If the trips should be matched fuzzily.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>false</code></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td><a href="#u__12__initialGetDataTimeout">initialGetDataTimeout</a></td>
-<td style="text-align: center;"><code>duration</code></td>
-<td>Timeout for retrieving the recent history of SIRI-ET messages.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"PT30S"</code></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td>producerMetrics</td>
-<td style="text-align: center;"><code>boolean</code></td>
-<td>If failure, success, and warning metrics should be collected per producer.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>false</code></td>
-<td style="text-align: center;">2.7</td>
-</tr>
-<tr>
-<td><a href="#u__12__reconnectPeriod">reconnectPeriod</a></td>
-<td style="text-align: center;"><code>duration</code></td>
-<td>Wait this amount of time before trying to reconnect to the PubSub subscription.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>"PT30S"</code></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td><a href="#u__12__subscriptionProjectName">subscriptionProjectName</a></td>
-<td style="text-align: center;"><code>string</code></td>
-<td>The Google Cloud project that hosts the PubSub subscription.</td>
-<td style="text-align: center;"><em>Required</em></td>
-<td></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td>topicName</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>The name of the PubSub topic that publishes the updates.</td>
-<td style="text-align: center;"><em>Required</em></td>
-<td></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-<tr>
-<td>topicProjectName</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>The Google Cloud project that hosts the PubSub topic that publishes the updates.</td>
-<td style="text-align: center;"><em>Required</em></td>
-<td></td>
-<td style="text-align: center;">2.1</td>
-</tr>
-</tbody>
-</table>
-<h5 id="parameter-details">Parameter details</h5>
-<h4 id="u__12__dataInitializationUrl">dataInitializationUrl</h4>
-
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /updaters/[12] </p>
-<p>URL used to download over HTTP the recent history of SIRI-ET messages.</p>
-<p>Optionally the updater can download the recent history of SIRI-ET messages from this URL.
-If this parameter is set, the updater will be marked as initialized (primed) only when
-the message history is fully downloaded and applied.</p>
-<h4 id="u__12__initialGetDataTimeout">initialGetDataTimeout</h4>
-
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30S"</code> <br />
-<strong>Path:</strong> /updaters/[12] </p>
-<p>Timeout for retrieving the recent history of SIRI-ET messages.</p>
-<p>When trying to fetch the message history over HTTP, the updater will wait this amount
-of time for the connection to be established.
-If the connection times out, the updater will retry indefinitely with exponential backoff.</p>
-<h4 id="u__12__reconnectPeriod">reconnectPeriod</h4>
-
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30S"</code> <br />
-<strong>Path:</strong> /updaters/[12] </p>
-<p>Wait this amount of time before trying to reconnect to the PubSub subscription.</p>
-<p>In case of a network error, the updater will try periodically to reconnect to the
-Google PubSub subscription.</p>
-<h4 id="u__12__subscriptionProjectName">subscriptionProjectName</h4>
-
-<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
-<strong>Path:</strong> /updaters/[12] </p>
-<p>The Google Cloud project that hosts the PubSub subscription.</p>
-<p>During startup, the updater creates a PubSub subscription that listens
-to the PubSub topic that publishes SIRI-ET updates.
-This parameter specifies in which Google Cloud project the subscription will be created.
-The topic and the subscription can be hosted in two different projects.</p>
-<h5 id="example-configuration">Example configuration</h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-google-pubsub-updater&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;reconnectPeriod&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5s&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;initialGetDataTimeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m20s&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;topicProjectName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google_pubsub_topic_project_name&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;subscriptionProjectName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google_pubsub_subscription_project_name&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">&quot;topicName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;estimated_timetables&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;dataInitializationUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+<h3 id="overview">Overview</h3>
+<p>This page describes how to prepare a DEM GeoTIFF for use as elevation input to OTP. For the
+<code>build-config.json</code> options that control elevation handling, see the
+<a href="../BuildConfiguration/#elevation-data">Elevation data</a> section of the build configuration reference.</p>
+<p>During the graph build, OTP samples the DEM along every street edge using bilinear interpolation, at
+intervals controlled by <code>distanceBetweenElevationSamples</code> (default 10 m). The file format choices
+below — resolution, projection, tile layout, NoData declaration, and compression — affect both the
+duration of this step and the correctness of the resulting profiles.</p>
+<h3 id="resolution">Resolution</h3>
+<p>DEM horizontal resolution determines how much terrain detail OTP can see.</p>
+<ul>
+<li><strong>50 m</strong> (e.g. SRTM) smooths out short hills, underestimates climbs on undulating
+  terrain, and produces visibly piecewise-linear elevation profiles. Acceptable for small or flat areas
+  but a poor fit for bicycle/walk routing in hilly regions.</li>
+<li><strong>10 m</strong> (e.g. national lidar-derived products) produces noticeably more realistic
+  profiles for bicycling and walking, captures short climbs, and matches the default
+  <code>distanceBetweenElevationSamples</code> of 10 m.</li>
+</ul>
+<h3 id="projection">Projection</h3>
+<p>OTP queries each elevation as a WGS84 lon/lat point (<code>ElevationModule#WGS84_XY</code> in
+<code>application/src/main/java/org/opentripplanner/graph_builder/module/ned/ElevationModule.java</code>).
+GeoTools then transforms that single query point into the coverage's native CRS at sample time, on the
+fly. A coordinate-by-coordinate transform is essentially free compared to the bilinear interpolation
+itself.</p>
+<p><strong>Therefore: do not reproject the DEM raster to WGS84.</strong> Keep the DEM in its native projected CRS
+(typically the same UTM zone used by the national survey that produced it) and tag the file with its
+true EPSG code. Reprojecting the pixels would resample every cell, blur the data, and pay a one-time
+cost for no runtime benefit.</p>
+<p>If you are using a DEM in unprojected geographic coordinates (EPSG:4326), make sure the axis order is
+(longitude, latitude). There is no reliable standard for WGS84 axis order; OTP follows the convention
+used by SRTM and Proj4.</p>
+<h3 id="tile-layout">Tile layout</h3>
+<p>DEM GeoTIFFs can be organised as <strong>strips</strong> (each block is one row of the full raster width) or as
+<strong>tiles</strong> (each block is a small square, typically 256×256 or 512×512 pixels). For DEMs consumed by OTP,
+<strong>use tiled layout</strong>.</p>
+<p>OTP samples DEMs through GeoTools, which uses JAI's tile cache. Every bilinear sample reads a 2×2 pixel
+footprint. With strip layout (<code>RowsPerStrip = 1</code> is common for DEMs produced by mosaicing tools that do
+not set tiling explicitly), each footprint spans two strips, doubling the number of cache lookups and
+thrashing the cache as the build walks across the country. With tiled 512×512 layout, the vast majority
+of 2×2 footprints fall inside a single tile, the working set stays compact, and the elevation pass runs
+substantially faster — observed at multiple times faster for country-scale builds.</p>
+<p><strong>Recommended:</strong> <code>TILED=YES</code>, <code>BLOCKXSIZE=512</code>, <code>BLOCKYSIZE=512</code>.</p>
+<p>You can check the tile layout of an existing file with <code>gdalinfo</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gdalinfo dem.tif | grep -i &#39;block\|tile&#39;
 </code></pre></div>
-<!-- siri-et-google-pubsub-updater END -->
+<p>A stripped file will report <code>Block=&lt;width&gt;x1</code>. A tiled file will report e.g. <code>Block=512x512</code>.</p>
+<h3 id="nodata-flag">NoData flag</h3>
+<p>DEMs typically use a sentinel pixel value (commonly <code>-32767</code> for int16 rasters) to mark "no data" —
+ocean, areas outside the survey, missing tiles. <strong>The output GeoTIFF must declare this sentinel in its
+NoData metadata.</strong></p>
+<p>OTP's <code>ElevationModule</code> reads the declared NoData value through <code>CoverageUtilities.getNoDataProperty</code>
+and rejects matching samples in <code>NoDataGridCoverage</code>. If the file does not declare the sentinel:</p>
+<ul>
+<li>OTP treats the sentinel value as a literal elevation (e.g. <code>-32767 m</code>).</li>
+<li>Bilinear interpolation across the coastline or any outside-coverage boundary mixes real elevations
+  with the sentinel and silently produces wildly wrong profiles for coastal and island streets.</li>
+</ul>
+<p>This bug is invisible in build logs — the build completes successfully but the resulting profiles are
+corrupt. Always confirm the NoData flag is set, and that it matches the actual sentinel used in the
+pixel data.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>gdalinfo dem.tif | grep -i nodata
+</code></pre></div>
+<p>If the file does not declare NoData but you know the sentinel value, you can set it in place:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gdal_edit.py -a_nodata -32767 dem.tif
+</code></pre></div>
+<h3 id="compression">Compression</h3>
+<p>Compression (typically LZW with <code>predictor=2</code> for integer DEMs) trades runtime cost for disk size:</p>
+<ul>
+<li><strong>Without compression</strong>, every tile read is a direct memory-mapped slice of the file — fastest at
+  sample time.</li>
+<li><strong>With LZW</strong>, every tile read includes a decode step. For a single-threaded build the per-sample cost
+  is small, but it does add up.</li>
+</ul>
+<p>Use uncompressed output for moderate DEMs (a 50 m DEM of a country is typically 1–2 GB uncompressed and
+fits comfortably on disk and in the page cache). Use LZW for large DEMs where uncompressed size becomes
+a problem — a 10 m DEM of a country can be several tens of GB uncompressed and 5–10 GB with LZW.</p>
+<h3 id="example-convert-a-stripped-untagged-dem-to-otp-ready-form">Example: convert a stripped, untagged DEM to OTP-ready form</h3>
+<p>If you have a DEM that is stripped, missing NoData, or both, you can fix it in one pass with GDAL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>gdal_translate \
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  -co TILED=YES -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 \
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  -a_nodata -32767 \
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  input.tif output.tif
+</code></pre></div>
+<p>Add <code>-co COMPRESS=LZW -co PREDICTOR=2</code> if you need compression. Add <code>-co BIGTIFF=YES</code> if the output
+will exceed 4 GB.</p>
+<p>For mosaicing many source tiles into a single monolithic DEM (recommended — OTP handles multiple DEM
+files but a single file simplifies deployment), <code>gdalbuildvrt</code> followed by <code>gdal_translate</code> works well,
+or <code>rasterio.merge</code> in Python.</p>
 
 
 
@@ -3321,10 +3239,10 @@ The topic and the subscription can be hosted in two different projects.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
