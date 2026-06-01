@@ -3279,6 +3279,14 @@ value which will be applied unless it is overridden in a web API request.</p>
 <td style="text-align: center;">na</td>
 </tr>
 <tr>
+<td>   <a href="#transit_earlyTransferPruning">earlyTransferPruning</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Enable the Transfer Early Pruning optimization for standard RAPTOR.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>true</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
 <td>   <a href="#transit_iterationDepartureStepInSeconds">iterationDepartureStepInSeconds</a></td>
 <td style="text-align: center;"><code>integer</code></td>
 <td>Step for departure times between each RangeRaptor iterations.</td>
@@ -3641,6 +3649,17 @@ log framework for details. Only log4j and logback support this.</p>
 <p>Some of these parameters for tuning transit routing are only available through configuration and
 cannot be set in the routing request. These parameters work together with the default routing
 request and the actual routing request.</p>
+<h3 id="transit_earlyTransferPruning">earlyTransferPruning</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>true</code> <br />
+<strong>Path:</strong> /transit </p>
+<p>Enable the Transfer Early Pruning optimization for standard RAPTOR.</p>
+<p>When enabled, the transfer relaxation loop breaks early once the current arrival time
+exceeds the best known destination arrival time. Transfers must be sorted by duration for
+this to be correct (which OTP ensures). This optimization only applies to Standard RAPTOR
+(not Multi-Criteria searches).</p>
+<p>See <em>Rohovyi, Abuaisha, Walsh — "Early Pruning for Public Transport Routing", WCTR 2026</em>
+in the <a href="../Bibliography/">Bibliography</a>.</p>
 <h3 id="transit_iterationDepartureStepInSeconds">iterationDepartureStepInSeconds</h3>
 
 <p><strong>Since version:</strong> <code>na</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>60</code> <br />
