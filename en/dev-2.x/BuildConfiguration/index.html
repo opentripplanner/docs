@@ -3374,14 +3374,6 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td><a href="#readCachedElevations">readCachedElevations</a></td>
-<td style="text-align: center;"><code>boolean</code></td>
-<td>Whether to read cached elevation data.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>true</code></td>
-<td style="text-align: center;">2.0</td>
-</tr>
-<tr>
 <td>staticBikeParkAndRide</td>
 <td style="text-align: center;"><code>boolean</code></td>
 <td>Whether we should create bike P+R stations from OSM data.</td>
@@ -3446,20 +3438,44 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td><a href="#writeCachedElevations">writeCachedElevations</a></td>
-<td style="text-align: center;"><code>boolean</code></td>
-<td>Reusing elevation data from previous builds</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>false</code></td>
-<td style="text-align: center;">2.0</td>
-</tr>
-<tr>
 <td><a href="#boardingLocationTags">boardingLocationTags</a></td>
 <td style="text-align: center;"><code>string[]</code></td>
 <td>What OSM tags should be looked on for the source of matching stops to platforms and stops.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td></td>
 <td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td><a href="#cache">cache</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for the graph-build file cache.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#cache_enabled">enabled</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Master switch for the graph-build cache.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#cache_path">path</a></td>
+<td style="text-align: center;"><code>uri</code></td>
+<td>Root directory for cache files.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#cache_tasks">tasks</a></td>
+<td style="text-align: center;"><code>enum set</code></td>
+<td>Which graph-build computations to cache between builds.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
 </tr>
 <tr>
 <td><a href="../sandbox/DataOverlay/">dataOverlay</a></td>
@@ -4398,14 +4414,6 @@ data, and to <code>false</code> to read the stream from the source each time.</p
 <strong>Path:</strong> / <br />
 <strong>Enum values:</strong> <code>default</code> | <code>portland</code> | <code>sidewalks</code> | <code>sidewalks-crosswalks</code></p>
 <p>A custom OSM namer to use.</p>
-<h3 id="readCachedElevations">readCachedElevations</h3>
-
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>true</code> <br />
-<strong>Path:</strong> / </p>
-<p>Whether to read cached elevation data.</p>
-<p>When set to true, the elevation module will attempt to read this file in
-order to reuse calculations of elevation data for various coordinate sequences instead of
-recalculating them all over again.</p>
 <h3 id="streetGraph">streetGraph</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -4453,35 +4461,59 @@ build(BUILD_DAY).</p>
 will not be part of the graph. Use an absolute date or a period relative to the date the graph is
 build(BUILD_DAY).</p>
 <p>To get an effectively unbounded value, use a very large period like <code>"-P100Y"</code>.</p>
-<h3 id="writeCachedElevations">writeCachedElevations</h3>
-
-<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
-<strong>Path:</strong> / </p>
-<p>Reusing elevation data from previous builds</p>
-<p>When set to true, the elevation module will create a file cache for calculated elevation data.
-Subsequent graph builds can reuse the data in this file.</p>
-<p>After building the graph, a file called <code>cached_elevations.obj</code> will be written to the cache
-directory. By default, this file is not written during graph builds. There is also a graph build
-parameter called <code>readCachedElevations</code> which is set to <code>true</code> by default.</p>
-<p>In graph builds, the elevation module will attempt to read the <code>cached_elevations.obj</code> file from
-the cache directory. The cache directory defaults to <code>/var/otp/cache</code>, but this can be overridden
-via the CLI argument <code>--cache &lt;directory&gt;</code>. For the same graph build for multiple Northeast US
-states, the time it took with using this pre-downloaded and precalculated data became roughly 9
-minutes.</p>
-<p>The cached data is a lookup table where the coordinate sequences of respective street edges are
-used as keys for calculated data. It is assumed that all of the other input data except for the
-OpenStreetMap data remains the same between graph builds. Therefore, if the underlying elevation
-data is changed, or different configuration values for <code>elevationUnitMultiplier</code> or
-<code>includeEllipsoidToGeoidDifference</code> are used, then this data becomes invalid and all elevation data
-should be recalculated. Over time, various edits to OpenStreetMap will cause this cached data to
-become stale and not include new OSM ways. Therefore, periodic update of this cached data is
-recommended.</p>
 <h3 id="boardingLocationTags">boardingLocationTags</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> / </p>
 <p>What OSM tags should be looked on for the source of matching stops to platforms and stops.</p>
 <p><a href="../BoardingLocations/">Detailed documentation</a></p>
+<h3 id="cache">cache</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / </p>
+<p>Configuration for the graph-build file cache.</p>
+<p>OTP can cache the results of expensive graph-build computations between builds. Both
+cached tasks can take a significant portion of total graph-build time; enabling the cache
+skips their computation on subsequent builds and can cut build time considerably when the
+same OSM and DEM files are reused.</p>
+<p><strong>When to enable:</strong> any pipeline that rebuilds the graph repeatedly from the same OSM
+and elevation data (e.g. nightly GTFS-only updates).</p>
+<p>Cache files are named <code>&lt;task&gt;-cache-&lt;version&gt;.obj</code> (for example <code>elevation-cache-1.obj</code>).
+When OTP bumps the internal serialization version the old file is ignored automatically
+and a new one is written, so old versioned files can be deleted safely at any time.</p>
+<p>Caching is <strong>disabled by default</strong>. Set <code>enabled: true</code> to activate it.</p>
+<h3 id="cache_enabled">enabled</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /cache </p>
+<p>Master switch for the graph-build cache.</p>
+<p>When <code>false</code> no cache files are read or written during graph builds.</p>
+<h3 id="cache_path">path</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /cache </p>
+<p>Root directory for cache files.</p>
+<p>Path to the directory where cache files are stored. Defaults to the OTP base directory
+(the directory containing <code>build-config.json</code>) when not set.</p>
+<h3 id="cache_tasks">tasks</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>enum set</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /cache <br />
+<strong>Enum values:</strong> <code>elevation</code> | <code>visibility</code></p>
+<p>Which graph-build computations to cache between builds.</p>
+<ul>
+<li><code>elevation</code> Caches the elevation profile sampled for every street edge. The cache key is the encoded edge
+   geometry; OSM changes are handled automatically (new or modified edges cause a cache miss,
+   removed edges are omitted from the next save).</li>
+</ul>
+<p><strong>Delete the elevation cache when the DEM source file is replaced</strong>, because edge geometries
+   are unchanged but the sampled height values would be stale.
+ - <code>visibility</code> Caches pre-computed visibility graphs for walkable OSM areas (parks, plazas, etc.). The cache
+   key is a hash of the OSM entity IDs and all polygon coordinates, so any geometry change
+   causes a cache miss automatically. Only entries accessed during a build are written back, so
+   deleted areas are pruned from the saved file automatically.</p>
+<p><strong>The visibility cache never needs to be deleted manually.</strong></p>
+<p>When not set, all tasks are enabled. Omit a task from the list to disable its cache.</p>
 <h3 id="dem">dem</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -4992,8 +5024,11 @@ the centroid.</p>
 <a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span><span class="p">,</span>
 <a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a><span class="w">      </span><span class="nt">&quot;bikesAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1h&quot;</span>
 <a id="__codelineno-8-99" name="__codelineno-8-99" href="#__codelineno-8-99"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-101" name="__codelineno-8-101" href="#__codelineno-8-101"></a><span class="p">}</span>
+<a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-101" name="__codelineno-8-101" href="#__codelineno-8-101"></a><span class="w">  </span><span class="nt">&quot;cache&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-102" name="__codelineno-8-102" href="#__codelineno-8-102"></a><span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-8-103" name="__codelineno-8-103" href="#__codelineno-8-103"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-104" name="__codelineno-8-104" href="#__codelineno-8-104"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
