@@ -3400,7 +3400,7 @@ and in the <a href="../BuildConfiguration/#transferRequests">transferRequests in
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td>   reluctance</td>
+<td>   <a href="#rd_bicycle_reluctance">reluctance</a></td>
 <td style="text-align: center;"><code>double</code></td>
 <td>A multiplier for how bad cycling is, compared to being in transit for equal lengths of time.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -4746,6 +4746,24 @@ extra cost, while 1.0 will add the same amount to both time and cost.</p>
 <strong>Enum values:</strong> <code>shortest-duration</code> | <code>safe-streets</code> | <code>flat-streets</code> | <code>safest-streets</code> | <code>triangle</code></p>
 <p>The set of characteristics that the user wants to optimize for.</p>
 <p>If the triangle optimization is used, it's enough to just define the triangle parameters</p>
+<h3 id="rd_bicycle_reluctance">reluctance</h3>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>2.0</code> <br />
+<strong>Path:</strong> /routingDefaults/bicycle </p>
+<p>A multiplier for how bad cycling is, compared to being in transit for equal lengths of time.</p>
+<p>If the optimization is set to <code>safe-streets</code> or <code>safest-streets</code>, or if <code>safety</code> is non-zero
+in the triangle, the actual effect will further be affected by the safety of the cycle
+route.</p>
+<p>The effect of safety has changed between versions 2.9 and 2.10 by the removal of the
+safety normalizer. Before the change, all the safety values were multiplied such that
+the safest way in the whole map would have an effective value of 1, and traversal on any
+ways which are not the safest in the whole map would further multiply the cost. Since
+version 2.10, this multiplication is not done and the values set in the
+<a href="../osm/OsmTag/">OSM Tag Mapper</a> are used as-is, so it is now possible to decrease the
+effective reluctance if a safe route is present.</p>
+<p>For further information, please see <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/6782">#6782</a>.
+In particular, you may need to increase the reluctance if you have found that the
+upgrade has resulted in too much cycling than you would like to.</p>
 <h3 id="rd_bicycle_parking_unpreferredVehicleParkingTagCost">unpreferredVehicleParkingTagCost</h3>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>300</code> <br />
@@ -4800,8 +4818,12 @@ extra cost, while 1.0 will add the same amount to both time and cost.</p>
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
 <strong>Path:</strong> /routingDefaults/bicycle/triangle </p>
 <p>Relative importance of safety (range 0.0, 1.0).</p>
-<p>This factor can also include other concerns such as convenience and general cyclist
-preferences by taking into account road surface etc.</p>
+<p>If this factor is set to 1.0, the safety value is applied in whole as a multiplier on
+top of the reluctance.</p>
+<p>The safety value is set for tags in OpenStreetMap by the <a href="../osm/OsmTag/">OSM Tag Mapper</a>
+which is mainly determined by the amount of traffic, but can also include other
+concerns such as convenience and general cyclist preferences by taking into account road
+surface etc.</p>
 <h3 id="rd_bicycle_walk_mountDismountCost">mountDismountCost</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0</code> <br />
@@ -5111,8 +5133,12 @@ done because some street modes searches are much more resource intensive than ot
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
 <strong>Path:</strong> /routingDefaults/scooter/triangle </p>
 <p>Relative importance of safety (range 0.0, 1.0).</p>
-<p>This factor can also include other concerns such as convenience and general cyclist
-preferences by taking into account road surface etc.</p>
+<p>If this factor is set to 1.0, the safety value is applied in whole as a multiplier on
+top of the reluctance.</p>
+<p>The safety value is set for tags in OpenStreetMap by the <a href="../osm/OsmTag/">OSM Tag Mapper</a>
+which is mainly determined by the amount of traffic, but can also include other
+concerns such as convenience and general cyclist preferences by taking into account road
+surface etc.</p>
 <h3 id="rd_transferOptimization">transferOptimization</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -5224,12 +5250,18 @@ too much without asking for totally ridiculous itineraries, but this observation
 be taken as scientific or definitive. Your mileage may vary.
 See https://github.com/opentripplanner/OpenTripPlanner/issues/4090 for impact on performance with
 high values.</p>
+<p>If safetyFactor is greater than 0, the actual effect will further be affected by the safety of the
+walk route. See <code>safetyFactor</code> for more details.</p>
 <h3 id="rd_walk_safetyFactor">safetyFactor</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
 <strong>Path:</strong> /routingDefaults/walk </p>
 <p>Factor for how much the walk safety is considered in routing.</p>
-<p>Value should be between 0 and 1. If the value is set to be 0, safety is ignored.</p>
+<p>Value should be between 0 and 1.</p>
+<p>If the value is set to be 0, safety is ignored.</p>
+<p>If the value is set to 1, the safety factor for the traversed way is applied in whole
+  as a multiplier on the cost, on top of the reluctance. The safety factors are set in
+  the <a href="../osm/OsmTag/">OSM Tag Mapper</a> for tags in OpenStreetMap.</p>
 <h3 id="rd_walk_stairsTimeFactor">stairsTimeFactor</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>3.0</code> <br />
