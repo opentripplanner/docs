@@ -3233,6 +3233,14 @@ following to <code>router-config.json</code>.</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="#flex_boardCost">boardCost</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>A board cost added to the generalized cost of a flex leg.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>600</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
 <td><a href="#flex_maxAccessWalkDuration">maxAccessWalkDuration</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>The maximum duration the passenger will be allowed to walk to reach a flex stop or zone.</td>
@@ -3264,9 +3272,24 @@ following to <code>router-config.json</code>.</p>
 <td><code>"PT5M"</code></td>
 <td style="text-align: center;">2.3</td>
 </tr>
+<tr>
+<td>reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A factor multiplied with the travel time of a flex leg to calculate the weight.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
 </tbody>
 </table>
 <h3 id="details">Details</h3>
+<h4 id="flex_boardCost">boardCost</h4>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>600</code> <br />
+<strong>Path:</strong> /flex </p>
+<p>A board cost added to the generalized cost of a flex leg.</p>
+<p>This cost is applied once per any type of flex leg including access/egress and direct legs,
+penalizing the act of boarding the flex vehicle.</p>
 <h4 id="flex_maxAccessWalkDuration">maxAccessWalkDuration</h4>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT45M"</code> <br />
