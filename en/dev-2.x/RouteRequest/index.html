@@ -4743,7 +4743,7 @@ extra cost, while 1.0 will add the same amount to both time and cost.</p>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"safe-streets"</code> <br />
 <strong>Path:</strong> /routingDefaults/bicycle <br />
-<strong>Enum values:</strong> <code>shortest-duration</code> | <code>safe-streets</code> | <code>flat-streets</code> | <code>safest-streets</code> | <code>triangle</code></p>
+<strong>Enum values:</strong> <code>shortest-duration</code> | <code>safe-streets</code> | <code>flat-streets</code> | <code>triangle</code></p>
 <p>The set of characteristics that the user wants to optimize for.</p>
 <p>If the triangle optimization is used, it's enough to just define the triangle parameters</p>
 <h3 id="rd_bicycle_reluctance">reluctance</h3>
@@ -4751,9 +4751,8 @@ extra cost, while 1.0 will add the same amount to both time and cost.</p>
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>2.0</code> <br />
 <strong>Path:</strong> /routingDefaults/bicycle </p>
 <p>A multiplier for how bad cycling is, compared to being in transit for equal lengths of time.</p>
-<p>If the optimization is set to <code>safe-streets</code> or <code>safest-streets</code>, or if <code>safety</code> is non-zero
-in the triangle, the actual effect will further be affected by the safety of the cycle
-route.</p>
+<p>If the optimization is set to <code>safe-streets</code>, or if <code>safety</code> is non-zero in the triangle,
+the actual effect will further be affected by the safety of the cycle route.</p>
 <p>The effect of safety has changed between versions 2.9 and 2.10 by the removal of the
 safety normalizer. Before the change, all the safety values were multiplied such that
 the safest way in the whole map would have an effective value of 1, and traversal on any
@@ -5100,7 +5099,7 @@ done because some street modes searches are much more resource intensive than ot
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"safe-streets"</code> <br />
 <strong>Path:</strong> /routingDefaults/scooter <br />
-<strong>Enum values:</strong> <code>shortest-duration</code> | <code>safe-streets</code> | <code>flat-streets</code> | <code>safest-streets</code> | <code>triangle</code></p>
+<strong>Enum values:</strong> <code>shortest-duration</code> | <code>safe-streets</code> | <code>flat-streets</code> | <code>triangle</code></p>
 <p>The set of characteristics that the user wants to optimize for.</p>
 <p>If the triangle optimization is used, it's enough to just define the triangle parameters</p>
 <h3 id="rd_scooter_rental_electricAssistSlopeSensitivity">electricAssistSlopeSensitivity</h3>
