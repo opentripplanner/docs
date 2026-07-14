@@ -3262,16 +3262,16 @@ open source "community edition" that is completely sufficient for working on OTP
 <p>Rather than using the version control support in my IDE, I usually find it more straightforward to
 clone the OTP GitHub repository manually (on the command line or using some other Git interface
 tool), then import the resulting local OTP repository into my IDE as a Maven project. The IDE should
-then take care of fetching all the libraries OTP depends on, based on the Maven project
-description (POM file) in the base of the OTP repository. This step can take a long time because it
-involves downloading a lot of JAR files.</p>
+then take care of fetching all the libraries OTP depends on, based on the Maven project description
+(POM file) in the base of the OTP repository. This step can take a long time because it involves
+downloading a lot of JAR files.</p>
 <p>When running your local copy of the OTP source within an IDE, all command line switches and
 configuration options will be identical to the ones used when running the OTP JAR from the command
 line (as described in the <a href="../Basic-Tutorial/">OpenTripPlanner Basic Tutorial</a> and
 <a href="../Configuration/">configuration reference</a>). The only difference is that you need to manually
 specify the main class. When you run a JAR from the command line, the JVM automatically knows which
-class contains the entry point into the program (the <code>main</code> function), but in IDEs you must create
-a "run configuration".</p>
+class contains the entry point into the program (the <code>main</code> function), but in IDEs you must create a
+"run configuration".</p>
 <p>Both IntelliJ and Eclipse have "run" menus, from which you can select an option to edit the run
 configurations. You want to create a configuration for a Java Application, specifying the main class
 <code>org.opentripplanner.standalone.OTPMain</code>. Unlike on the command line, the arguments to the JVM and
@@ -3284,7 +3284,7 @@ like "program arguments".</p>
 There are several ways to get involved:</p>
 <ul>
 <li>
-<p>Join the <a href="https://gitter.im/opentripplanner/OpenTripPlanner">Gitter chat room</a> and the 
+<p>Join the <a href="https://gitter.im/opentripplanner/OpenTripPlanner">Gitter chat room</a> and the
   <a href="http://groups.google.com/group/opentripplanner-users">user mailing list</a>.</p>
 </li>
 <li>
@@ -3292,8 +3292,8 @@ There are several ways to get involved:</p>
   below).</p>
 </li>
 <li>
-<p><a href="http://github.com/openplans/OpenTripPlanner/issues/new">File a bug or new feature request</a>.
-  If you want a GitHub issue to be addressed, you should also discuss it in
+<p><a href="http://github.com/openplans/OpenTripPlanner/issues/new">File a bug or new feature request</a>. If
+  you want a GitHub issue to be addressed, you should also discuss it in
   <a href="https://gitter.im/opentripplanner/OpenTripPlanner">Gitter</a> or in the
   <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CONTRIBUTING.md#developer-meetings">developer meetings</a>.</p>
 </li>
@@ -3301,27 +3301,26 @@ There are several ways to get involved:</p>
 <p>Create pull requests citing the relevant issue.</p>
 </li>
 <li>
-<p>Join developer meetings hosted twice a week. Check the specific times and URLs 
-  on <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CONTRIBUTING.md#developer-meetings">this page</a></p>
+<p>Join developer meetings hosted twice a week. Check the specific times and URLs on
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/CONTRIBUTING.md#developer-meetings">this page</a></p>
 </li>
 </ul>
 <h3 id="branches-and-branch-protection">Branches and Branch Protection</h3>
-<p>As of August 2022, we work on OTP 2.x and are using a Git branching model derived from 
-<a href="https://nvie.com/posts/a-successful-git-branching-model/">Gitflow</a>. All development will occur
-on the <code>dev-2.x</code> branch. Only release commits setting the Maven artifact version to a non-snapshot
-number should be pushed to the <code>master</code> branch of OTP. All other changes to master should result 
-from fast-forward merges of a Github pull request from the <code>dev-2.x</code> branch. In turn, all changes 
-to <code>dev-2.x</code> should result from a fast-forward merge of a Github pull request for a single feature, 
-fix, or other change. These pull requests are subject to code review. We require two pull request 
-approvals from developers part of the OTP Review Team. These developers act on behalf of the 
-leadership committee members. The reviewers should be from two different organizations. We also 
-have validation rules ensuring that the code compiles and all tests pass before pull requests can 
-be merged.</p>
+<p>As of August 2022, we work on OTP 2.x and are using a Git branching model derived from
+<a href="https://nvie.com/posts/a-successful-git-branching-model/">Gitflow</a>. All development will occur on
+the <code>dev-2.x</code> branch. Only release commits setting the Maven artifact version to a non-snapshot
+number should be pushed to the <code>master</code> branch of OTP. All other changes to master should result
+from fast-forward merges of a Github pull request from the <code>dev-2.x</code> branch. In turn, all changes to
+<code>dev-2.x</code> should result from a fast-forward merge of a Github pull request for a single feature,
+fix, or other change. These pull requests are subject to code review. We require two pull request
+approvals from developers part of the OTP Review Team. These developers act on behalf of the
+leadership committee members. The reviewers should be from two different organizations. We also have
+validation rules ensuring that the code compiles and all tests pass before pull requests can be
+merged.</p>
 <h3 id="issues">Issues</h3>
-<p>If no ticket exists for the feature or bug your
-code implements or fixes, you
-should <a href="http://github.com/openplans/OpenTripPlanner/issues/new">create a new ticket</a> prior to
-checking in, or ideally even prior to your development work since this provides a place to carry out
+<p>If no ticket exists for the feature or bug your code implements or fixes, you should
+<a href="http://github.com/openplans/OpenTripPlanner/issues/new">create a new ticket</a> prior to checking in,
+or ideally even prior to your development work since this provides a place to carry out
 implementation discussions (in the comments). The created issue should be referenced in a pull
 request. For really minor and uncontroversial pull requests, it is ok to not create an issue.</p>
 <p><strong>If you want a GitHub issue to be addressed, you should also discuss it in
@@ -3337,8 +3336,8 @@ standards:</p>
    hundred ways. Use <code>osmium-extract</code> to cut down a larger OSM file into a tiny subset of it.</p>
 </li>
 <li>
-<p>Strip out any unneeded information by using the <code>osmium filter-tags</code> as describe
-   in <a href="../Preparing-OSM/">Preparing OSM</a></p>
+<p>Strip out any unneeded information by using the <code>osmium filter-tags</code> as describe in
+   <a href="../Preparing-OSM/">Preparing OSM</a></p>
 </li>
 </ol>
 <h3 id="itinerary-and-api-snapshot-tests">Itinerary and API Snapshot Tests</h3>
@@ -3353,49 +3352,51 @@ The updated files may be committed after checking that the changes in the files 
 control to be applied to documentation as well as program source code. All pull requests that change
 how OTP is used or configured should include changes to the documentation alongside code
 modifications.</p>
-<p>The documentation files are in Markdown format and are in the <code>/doc/user</code> directory under the root of
-the project. On every push to the <code>dev-2.x</code> branch the documentation will be rebuilt and deployed as
-static pages to our subdomain of <a href="https://github.com/opentripplanner/docs">Github Pages</a>. 
-MkDocs is a Python program and should run on any major platform. 
-See <a href="http://www.mkdocs.org/">http://www.mkdocs.org/</a> for information on how to install it and 
-how to generate a live local preview of the documentation while you're writing it.</p>
+<p>The documentation files are in Markdown format and are in the <code>/doc/user</code> directory under the root
+of the project. On every push to the <code>dev-2.x</code> branch the documentation will be rebuilt and deployed
+as static pages to our subdomain of <a href="https://github.com/opentripplanner/docs">Github Pages</a>. MkDocs
+is a Python program and should run on any major platform. See
+<a href="http://www.mkdocs.org/">http://www.mkdocs.org/</a> for information on how to install it and how to
+generate a live local preview of the documentation while you're writing it.</p>
 <p>In short:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ pip install -r doc/user/requirements.txt
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$ mkdocs serve
 </code></pre></div>
-<p>The OTP GTFS GraphQL API documentation is available online at </p>
+<p>The OTP GTFS GraphQL API documentation is available online at</p>
 <p><a href="https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/">https://docs.opentripplanner.org/api/dev-2.x/graphql-gtfs/</a></p>
 <p>You can also use the interactive GraphQL API client that is built into every instance at</p>
 <p><a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a></p>
 <h3 id="debug-layers">Debug layers</h3>
-<p>Debug layers are implemented as vector tile layers. New layers can be added by
-editing <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/apis/vectortiles/DebugStyleSpec.java">DebugStyleSpec</a>.
-It might be also necessary to add new information
-to <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/inspector/vector/edge/EdgePropertyMapper.java">edges</a>
-or <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/inspector/vector/vertex/VertexPropertyMapper.java">vertices</a>.</p>
+<p>Debug layers are implemented as vector tile layers. New layers can be added by editing
+<a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/apis/vectortiles/DebugStyleSpec.java">DebugStyleSpec</a>.
+It might be also necessary to add new information to
+<a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/inspector/vector/edge/EdgePropertyMapper.java">edges</a>
+or
+<a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/application/src/main/java/org/opentripplanner/inspector/vector/vertex/VertexPropertyMapper.java">vertices</a>.</p>
 <h3 id="date-format">Date format</h3>
 <p>Please use only ISO 8601 date format (YYYY-MM-DD) in documentation, comments, and throughout the
 project. This avoids the ambiguity that can result from differing local interpretations of date
 formats like 02/01/12.</p>
 <h2 id="code-conventions-and-architecture">Code conventions and architecture</h2>
 <p>The development and architecture documentation are only available on GitHub, not in the user project
-documentation (https://www.opentripplanner.org/). These documents contain relative links to code, 
-so they are a bit easier to maintain that way. The primary audience is also active OTP developers 
-that have the code checked out locally.</p>
+documentation (https://www.opentripplanner.org/). These documents contain relative links to code, so
+they are a bit easier to maintain that way. The primary audience is also active OTP developers that
+have the code checked out locally.</p>
 <ul>
-<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/ARCHITECTURE.md">Architecture</a> </li>
+<li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/ARCHITECTURE.md">Architecture</a></li>
 <li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/doc/dev/decisionrecords/Codestyle.md">Code Style</a></li>
 <li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/doc/dev/decisionrecords/NamingConventions.md">Naming Conventions</a></li>
 <li><a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/DEVELOPMENT_DECISION_RECORDS.md">Development Decision Records</a></li>
 </ul>
 <h2 id="continuous-integration">Continuous Integration</h2>
-<p>The OpenTripPlanner project uses
-the <a href="https://github.com/opentripplanner/OpenTripPlanner/actions">Github actions continuous integration system</a>
+<p>The OpenTripPlanner project uses the
+<a href="https://github.com/opentripplanner/OpenTripPlanner/actions">Github actions continuous integration system</a>
 . Any time a change is pushed to the main OpenTripPlanner repository on GitHub or to an open pull
-request, Github actions will
-compile and test the new code, providing feedback on the stability of the build.</p>
+request, Github actions will compile and test the new code, providing feedback on the stability of
+the build.</p>
 <h3 id="changelog-workflow">Changelog workflow</h3>
-<p>The <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/doc/user/Changelog.md">changelog file</a>
+<p>The
+<a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/doc/user/Changelog.md">changelog file</a>
 is generated from the pull-request(PR) <em>title</em> using the
 <a href="https://github.com/opentripplanner/OpenTripPlanner/actions/workflows/automatic-changelog.yml">changelog workflow</a>
 . The workflow runs after the PR is merged, and it changes, commits and pushes the <em>Changelog.md</em>. A
@@ -3407,7 +3408,7 @@ token must be generated by a Repository Owner and have the following rights (<em
 settings / Personal access tokens</em>):</p>
 <p><img alt="Skjermbilde 2021-11-18 kl  12 08 27" src="https://user-images.githubusercontent.com/5525340/142404549-c0bf2aba-608b-4feb-a114-6e4992c57073.png" /></p>
 <h2 id="release-process">Release Process</h2>
-<p>New releases can be found on <a href="https://github.com/opentripplanner/OpenTripPlanner/releases">GitHub</a>. 
+<p>New releases can be found on <a href="https://github.com/opentripplanner/OpenTripPlanner/releases">GitHub</a>.
 Releases are performed off the master branch, and are tagged with git annotated tags.</p>
 <p>OpenTripPlanner is currently configured such that builds including releases upload JAR files to
 GitHub Packages. This is not the most convenient place for end users to find and download the files.
@@ -3417,11 +3418,11 @@ as well as the "shaded" JAR containing all dependencies, allowing stand-alone us
 process is handled by the Sonatype Nexus Staging plugin, which is no longer configured in the
 OpenTripPlanner POM. This step currently requires making a few significant manual modifications to
 the POM.</p>
-<p>We no longer trigger deployment of artifacts to Maven Central automatically in our build scripts 
-(GitHub Actions). These steps are prone to failure and require storing a lot of infrequently used 
-secret information in the repo and environment variables on GitHub. Our releases are currently not 
-very frequent so we just carry out these steps manually by following the checklist. We aim to make 
-a release every 6 months.</p>
+<p>We no longer trigger deployment of artifacts to Maven Central automatically in our build scripts
+(GitHub Actions). These steps are prone to failure and require storing a lot of infrequently used
+secret information in the repo and environment variables on GitHub. Our releases are currently not
+very frequent so we just carry out these steps manually by following the checklist. We aim to make a
+release every 6 months.</p>
 <p>Use the <a href="../ReleaseChecklist/">Release Checklist</a> to perform the release.</p>
 
 

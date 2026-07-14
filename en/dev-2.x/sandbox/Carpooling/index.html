@@ -3251,7 +3251,9 @@
 <li>Eivind Bakke</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>The carpooling feature enables passengers to join existing driver journeys by being picked up and dropped off along the driver's route. The system finds optimal insertion points for new passengers while respecting capacity constraints, time windows, and route deviation budgets.</p>
+<p>The carpooling feature enables passengers to join existing driver journeys by being picked up and
+dropped off along the driver's route. The system finds optimal insertion points for new passengers
+while respecting capacity constraints, time windows, and route deviation budgets.</p>
 <h3 id="configuration">Configuration</h3>
 <p>The carpooling extension is a sandbox feature that must be enabled in <code>otp-config.json</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
@@ -3339,10 +3341,12 @@
 </tbody>
 </table>
 <h3 id="siri-et-data-format">SIRI-ET Data Format</h3>
-<p>The carpooling system uses SIRI-ET (Estimated Timetable) messages to receive real-time updates about carpool trips. The system maps SIRI-ET data as follows:</p>
+<p>The carpooling system uses SIRI-ET (Estimated Timetable) messages to receive real-time updates about
+carpool trips. The system maps SIRI-ET data as follows:</p>
 <ul>
 <li><code>EstimatedVehicleJourneyCode</code> → Trip ID</li>
-<li><code>EstimatedCalls</code> → Stops on the carpooling trip. The first and the last are origin and destination stops, intermediate ones represent passenger pickup/dropoff</li>
+<li><code>EstimatedCalls</code> → Stops on the carpooling trip. The first and the last are origin and destination
+  stops, intermediate ones represent passenger pickup/dropoff</li>
 </ul>
 <p>The system supports multi-stop trips where drivers have already accepted multiple passengers.</p>
 <h2 id="features">Features</h2>
@@ -3351,24 +3355,32 @@
 <ul>
 <li><strong>Availability</strong>: Checks if seats are available in the vehicle</li>
 <li><strong>Time Compatibility</strong>: Ensures the trip timing works for the passenger</li>
-<li><strong>Route Alignment</strong>: Validates that pickup and dropoff locations are reasonably close to the driver's route</li>
+<li><strong>Route Alignment</strong>: Validates that pickup and dropoff locations are reasonably close to the
+  driver's route</li>
 </ul>
-<p>The system automatically calculates the optimal pickup and dropoff points along the driver's route that minimize additional travel time while respecting all constraints.</p>
+<p>The system automatically calculates the optimal pickup and dropoff points along the driver's route
+that minimize additional travel time while respecting all constraints.</p>
 <h3 id="constraints-and-protections">Constraints and Protections</h3>
 <p>To ensure a good experience for all users, the system enforces several constraints:</p>
 <ul>
 <li><strong>Vehicle Capacity</strong>: Never exceeds the maximum number of seats</li>
-<li><strong>Existing Passenger Protection</strong>: Limits additional delay to existing passengers (maximum 5 minutes)</li>
-<li><strong>Driver Deviation Budget</strong>: Respects the driver's maximum acceptable detour time (currently 15 minutes)</li>
+<li><strong>Existing Passenger Protection</strong>: Limits additional delay to existing passengers (maximum 5
+  minutes)</li>
+<li><strong>Driver Deviation Budget</strong>: Respects the driver's maximum acceptable detour time (currently 15
+  minutes)</li>
 </ul>
 <h3 id="multi-stop-trips">Multi-Stop Trips</h3>
-<p>The system supports trips where drivers have already accepted multiple passengers. When matching a new passenger to such a trip, the system:
-- Considers all existing pickup and dropoff points
-- Ensures the vehicle capacity is never exceeded at any point in the trip
-- Protects all existing passengers from excessive delays
-- Finds the optimal insertion point for the new passenger</p>
+<p>The system supports trips where drivers have already accepted multiple passengers. When matching a
+new passenger to such a trip, the system:</p>
+<ul>
+<li>Considers all existing pickup and dropoff points</li>
+<li>Ensures the vehicle capacity is never exceeded at any point in the trip</li>
+<li>Protects all existing passengers from excessive delays</li>
+<li>Finds the optimal insertion point for the new passenger</li>
+</ul>
 <h3 id="api-integration">API Integration</h3>
-<p>Carpooling results are available through the standard OTP GraphQL API. Carpool legs appear as a distinct mode (<code>CARPOOL</code>) in multi-modal itineraries, alongside transit, walking, and biking legs.</p>
+<p>Carpooling results are available through the standard OTP GraphQL API. Carpool legs appear as a
+distinct mode (<code>CARPOOL</code>) in multi-modal itineraries, alongside transit, walking, and biking legs.</p>
 <h2 id="current-limitations">Current Limitations</h2>
 <ul>
 <li><strong>Static deviation budget</strong>: We currently assume a 15 minute budget for carpooling</li>

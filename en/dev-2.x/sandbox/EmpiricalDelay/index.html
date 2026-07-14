@@ -3237,10 +3237,11 @@ listed in the <code>build-config.json</code>. Both files must be provided togeth
 <li><code>empirical_delay_stop_times.txt</code> - Contains delay percentiles for each trip stop</li>
 <li><code>empirical_delay_calendar.txt</code> - Defines service calendars for the delay data</li>
 </ul>
-<p>The file names must include "empirical_delay" and the extension must be <code>.csv</code> or <code>.txt</code>. Both
-NeTEx and GTFS feeds are supported through the feedId configuration.</p>
+<p>The file names must include "empirical_delay" and the extension must be <code>.csv</code> or <code>.txt</code>. Both NeTEx
+and GTFS feeds are supported through the feedId configuration.</p>
 <h3 id="empirical-delay-stop-times-format">Empirical Delay Stop Times Format</h3>
-<p>This file contains the delay data for each stop on each trip, organized by service calendar periods (e.g., weekdays, weekends).</p>
+<p>This file contains the delay data for each stop on each trip, organized by service calendar periods
+(e.g., weekdays, weekends).</p>
 <p>CSV file columns:</p>
 <table>
 <thead>
@@ -3276,11 +3277,13 @@ NeTEx and GTFS feeds are supported through the feedId configuration.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Constraints:</strong>
-- Percentile values (p50, p90) must be between 0 and 18000 seconds (5 hours)
-- Stop sequence must be between 0 and 10,000
-- If the stop_id does not match the transit feed, the row is dropped and an issue is added to the
-  build report</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>Percentile values (p50, p90) must be between 0 and 18000 seconds (5 hours)</li>
+<li>Stop sequence must be between 0 and 10,000</li>
+<li>If the stop_id does not match the transit feed, the row is dropped and an issue is added to the
+  build report</li>
+</ul>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>empirical_delay_service_id,trip_id,stop_id,stop_sequence,p50,p90
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Friday,RUT:ServiceJourney:1,NSR:Quay:1001,1,0,30
@@ -3289,10 +3292,12 @@ NeTEx and GTFS feeds are supported through the feedId configuration.</p>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Saturday,RUT:ServiceJourney:1,NSR:Quay:1001,1,30,60
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Saturday,RUT:ServiceJourney:1,NSR:Quay:1002,2,45,120
 </code></pre></div>
-<p>In this example:
-- On Fridays, stop 2 has a median delay of 2 minutes (120s) and is delayed by 4+ minutes 10% of the
-  time
-- On Saturdays, the same stop has better performance with only 45 seconds median delay</p>
+<p>In this example:</p>
+<ul>
+<li>On Fridays, stop 2 has a median delay of 2 minutes (120s) and is delayed by 4+ minutes 10% of the
+  time</li>
+<li>On Saturdays, the same stop has better performance with only 45 seconds median delay</li>
+</ul>
 <h3 id="empirical-delay-calendar-format">Empirical Delay Calendar Format</h3>
 <p>This file defines service calendars that determine when specific delay patterns apply, similar to
 GTFS calendar.txt format.</p>
@@ -3354,7 +3359,7 @@ GTFS calendar.txt format.</p>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Friday,0,0,0,0,1,0,0,2025-01-01,2030-12-31
 </code></pre></div>
 <h3 id="configuration">Configuration</h3>
-<p>To enable this functionality, you need to enable the "EmpiricalDelay" feature in the 
+<p>To enable this functionality, you need to enable the "EmpiricalDelay" feature in the
 <code>otp-config.json</code> file:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// otp-config.json</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
@@ -3379,15 +3384,19 @@ empirical delay data:</p>
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
 </code></pre></div>
-<p>Each feed configuration requires:
-- <code>feedId</code> (required): The feed ID to use for matching transit IDs in the empirical delay data. 
-  This must match the feed ID of the corresponding GTFS or NeTEx feed.
-- <code>source</code> (required): URI pointing to the empirical delay data. Can be a local file, HTTP(S) URL,
-  or cloud storage URI (e.g., gs://).</p>
-<p>The source can be:
-- A ZIP file containing both <code>empirical_delay_stop_times.txt</code> and <code>empirical_delay_calendar.txt</code>
-- A directory containing these files
-- Individual files (both must be provided)</p>
+<p>Each feed configuration requires:</p>
+<ul>
+<li><code>feedId</code> (required): The feed ID to use for matching transit IDs in the empirical delay data. This
+  must match the feed ID of the corresponding GTFS or NeTEx feed.</li>
+<li><code>source</code> (required): URI pointing to the empirical delay data. Can be a local file, HTTP(S) URL,
+  or cloud storage URI (e.g., gs://).</li>
+</ul>
+<p>The source can be:</p>
+<ul>
+<li>A ZIP file containing both <code>empirical_delay_stop_times.txt</code> and <code>empirical_delay_calendar.txt</code></li>
+<li>A directory containing these files</li>
+<li>Individual files (both must be provided)</li>
+</ul>
 <h3 id="graphql-api">GraphQL API</h3>
 <p>The empirical delay data is exposed through the Transmodel GraphQL API on the <code>EstimatedCall</code> type:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">type</span><span class="w"> </span><span class="err">EstimatedCall</span><span class="w"> </span><span class="p">{</span>
@@ -3423,19 +3432,25 @@ empirical delay data:</p>
 <p>If no empirical delay data is available for the specific combination, the field returns <code>null</code>.</p>
 <h2 id="use-cases">Use Cases</h2>
 <h3 id="traveler-information">Traveler Information</h3>
-<p>Empirical delay data can be displayed to travelers to set realistic expectations:
-- "This service is typically 2-3 minutes late at this stop"
-- "90% of the time, this bus arrives within 5 minutes of schedule"</p>
+<p>Empirical delay data can be displayed to travelers to set realistic expectations:</p>
+<ul>
+<li>"This service is typically 2-3 minutes late at this stop"</li>
+<li>"90% of the time, this bus arrives within 5 minutes of schedule"</li>
+</ul>
 <h3 id="journey-planning">Journey Planning</h3>
-<p>Journey planners can use empirical delay to:
-- Add realistic buffer times when suggesting transfers
-- Rank alternatives based on historical reliability
-- Adjust arrival time predictions beyond real-time data</p>
+<p>Journey planners can use empirical delay to:</p>
+<ul>
+<li>Add realistic buffer times when suggesting transfers</li>
+<li>Rank alternatives based on historical reliability</li>
+<li>Adjust arrival time predictions beyond real-time data</li>
+</ul>
 <h3 id="service-quality-monitoring">Service Quality Monitoring</h3>
-<p>Transit operators can:
-- Identify consistently delayed services
-- Compare different time periods (weekday vs weekend)
-- Track improvement over time as new delay data is imported</p>
+<p>Transit operators can:</p>
+<ul>
+<li>Identify consistently delayed services</li>
+<li>Compare different time periods (weekday vs weekend)</li>
+<li>Track improvement over time as new delay data is imported</li>
+</ul>
 <h2 id="changelog">Changelog</h2>
 <h3 id="otp-29">OTP 2.9</h3>
 <ul>

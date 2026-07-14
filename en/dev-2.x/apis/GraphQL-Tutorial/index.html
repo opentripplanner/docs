@@ -3092,21 +3092,22 @@
   NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
 
    - Template directory is:  /doc/templates
-   - Generated directory is: /doc/user 
+   - Generated directory is: /doc/user
 -->
 
 <h1 id="graphql-tutorial">GraphQL tutorial</h1>
-<p>This document will give you a quick start tutorial on how to get started with OTP's GraphQL APIs. For 
-this tutorial we will be using the <a href="../GTFS-GraphQL-API/">GTFS GraphQL API</a> as this is the most commonly used one.</p>
+<p>This document will give you a quick start tutorial on how to get started with OTP's GraphQL APIs.
+For this tutorial we will be using the <a href="../GTFS-GraphQL-API/">GTFS GraphQL API</a> as this is the most
+commonly used one.</p>
 <p>First of all, make sure that you've loaded street and transit data into your instance by following
 the <a href="../../Basic-Tutorial/">basic tutorial</a></p>
 <h2 id="visual-graphql-api-client">Visual GraphQL API client</h2>
-<p>OTP has a built-in API client to help you build queries and view documentation. After having
-started OTP, visit <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a> to open it.</p>
+<p>OTP has a built-in API client to help you build queries and view documentation. After having started
+OTP, visit <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a> to open it.</p>
 <p>It should look like this:</p>
 <p><img alt="GraphiQL" src="../../images/graphiql.png" /></p>
 <h2 id="sending-your-first-query">Sending your first query</h2>
-<p>For our first query we want to get the list of routes loaded into OTP. Therefore paste the following 
+<p>For our first query we want to get the list of routes loaded into OTP. Therefore paste the following
 GraphQL query in the left hand panel of the page:</p>
 <!-- route-query BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
@@ -3128,10 +3129,10 @@ GraphQL query in the left hand panel of the page:</p>
 
 <p>After pressing the "Execute query" button you should see the result of the query on the right hand
 side panel.</p>
-<p>Now would be a good time to explore the auto-complete capabilities of the tool by moving the
-cursor into the query panel and hitting Ctrl-Space to see what other query parameters are possible.</p>
+<p>Now would be a good time to explore the auto-complete capabilities of the tool by moving the cursor
+into the query panel and hitting Ctrl-Space to see what other query parameters are possible.</p>
 <p><img alt="GraphiQL" src="../../images/graphiql-autocomplete.png" /></p>
-<p>The explorer also has documentation built into it. If you hover your pointer over a property on the 
+<p>The explorer also has documentation built into it. If you hover your pointer over a property on the
 left hand side you can see its documentation.</p>
 <p><img alt="GraphiQL" src="../../images/graphiql-documentation.png" /></p>
 <h2 id="a-more-advanced-query">A more advanced query</h2>
@@ -3205,7 +3206,8 @@ left hand side you can see its documentation.</p>
 
 <p>Again, please use the autocomplete and documentation viewers to figure out what each input parameter
 and property means.</p>
-<p>More examples for a variety of queries can also be found <a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/application/src/test/resources/org/opentripplanner/apis/gtfs/queries">in the test code</a>.</p>
+<p>More examples for a variety of queries can also be found
+<a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/application/src/test/resources/org/opentripplanner/apis/gtfs/queries">in the test code</a>.</p>
 
 
 

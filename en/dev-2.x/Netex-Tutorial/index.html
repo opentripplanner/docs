@@ -3078,13 +3078,15 @@
 
 
 <h1 id="netex-siri-tutorial">NeTEx &amp; SIRI tutorial</h1>
-<p>One important new feature of OTP2 is the ability to
-load <a href="https://en.wikipedia.org/wiki/NeTEx">NeTEx</a> and <a href="https://en.wikipedia.org/wiki/Service_Interface_for_Real_Time_Information">SIRI</a> 
-data. NeTEx is a European <a href="http://netex-cen.eu">specification for transit data exchange</a>, comparable in purpose to
-GTFS but broader in scope. </p>
+<p>One important new feature of OTP2 is the ability to load
+<a href="https://en.wikipedia.org/wiki/NeTEx">NeTEx</a> and
+<a href="https://en.wikipedia.org/wiki/Service_Interface_for_Real_Time_Information">SIRI</a> data. NeTEx is a
+European <a href="http://netex-cen.eu">specification for transit data exchange</a>, comparable in purpose to
+GTFS but broader in scope.</p>
 <p>First of all, you need to download a <a href="../Getting-OTP/">bundled jar of OTP</a>.</p>
 <p>Secondly, you will use the <a href="https://developer.entur.org/pages-intro-files">Norwegian NeTEx file</a> as
-well as the <a href="http://download.geofabrik.de/europe/norway.html">Norwegian OSM data</a>, but OTP can download the NeTEx one for you.</p>
+well as the <a href="http://download.geofabrik.de/europe/norway.html">Norwegian OSM data</a>, but OTP can
+download the NeTEx one for you.</p>
 <h2 id="configuring-the-build">Configuring the build</h2>
 <p>Create a working directory and place the OTP jar file in it and call it <code>otp.jar.</code></p>
 <p>Since we download the OSM data from a free source, we don't want to put undue stress on the server.
@@ -3125,12 +3127,11 @@ OTP downloads.</p>
 <p>Now you can instruct OTP to build a graph from this configuration file:</p>
 <p><code>java -Xmx16G -jar otp.jar --build --save .</code></p>
 <p>This should produce a file <code>graph.obj</code> in the same directory as your <code>build-config.json</code>.</p>
-<p>Building the Norway graph requires downloading about 250MB of input data so stay patient at the beginning
-particularly on a slow internet connection.
-The actual build takes approximately 10 minutes (without elevation data, as is configured above), 
-and can be done within 16GB of heap memory (JVM switch <code>-Xmx16G</code>). The Graph file it produces is 
-about 1.1 GB. The server will take about 30 seconds to load this graph and start up, and will 
-consume about 6GB of heap memory under light use.</p>
+<p>Building the Norway graph requires downloading about 250MB of input data so stay patient at the
+beginning particularly on a slow internet connection. The actual build takes approximately 10
+minutes (without elevation data, as is configured above), and can be done within 16GB of heap memory
+(JVM switch <code>-Xmx16G</code>). The Graph file it produces is about 1.1 GB. The server will take about 30
+seconds to load this graph and start up, and will consume about 6GB of heap memory under light use.</p>
 <p>You can then start up an OTP server with a command like this:</p>
 <p><code>java -Xmx6G -jar otp.jar --load .</code></p>
 <p>Once the server is started up, go to <code>http://localhost:8080</code> in a browser to try out your server
@@ -3138,14 +3139,14 @@ using OTP's built in testing web client. Try some long trips like Oslo to Bergen
 get long distance trains and flights as alternatives. You might need to increase the walking limit
 above its very low default value.</p>
 <h2 id="adding-siri-real-time-data">Adding SIRI real time Data</h2>
-<p>Another important feature in OTP version 2 is the ability to
-use <a href="https://en.wikipedia.org/wiki/Service_Interface_for_Real_Time_Information">SIRI real-time data</a>.
+<p>Another important feature in OTP version 2 is the ability to use
+<a href="https://en.wikipedia.org/wiki/Service_Interface_for_Real_Time_Information">SIRI real-time data</a>.
 Within the EU data standards, SIRI is analogous to GTFS-RT: a way to apply real-time updates on top
 of schedule data. While technically a distinct specification from NeTEx, both NeTEx and SIRI use the
 Transmodel vocabulary, allowing SIRI messages to reference entities in NeTEx schedule data. Like
-GTFS-RT, SIRI is consumed by OTP2 using "graph updaters" which are configured in
-the <code>router-config.json</code> file, which is placed in the same directory as the <code>graph.obj</code> file and
-loaded at server startup.</p>
+GTFS-RT, SIRI is consumed by OTP2 using "graph updaters" which are configured in the
+<code>router-config.json</code> file, which is placed in the same directory as the <code>graph.obj</code> file and loaded
+at server startup.</p>
 <!-- router-config BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 

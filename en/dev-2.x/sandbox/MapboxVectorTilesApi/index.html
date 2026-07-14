@@ -3169,11 +3169,11 @@
 </ul>
 <h2 id="documentation">Documentation</h2>
 <p>This API produces <a href="https://docs.mapbox.com/vector-tiles/reference/">Mapbox vector tiles</a>, which are
-used by <a href="https://github.com/HSLdevcom/digitransit-ui">Digitransit-ui</a> and 
+used by <a href="https://github.com/HSLdevcom/digitransit-ui">Digitransit-ui</a> and
 <a href="https://github.com/opentripplanner/otp-react-redux"><code>otp-react-redux</code></a> to show information about
 public transit entities on the map.</p>
-<p>The tiles can be fetched from <code>/otp/routers/{routerId}/vectorTiles/{layers}/{z}/{x}/{y}.pbf</code>,
-where <code>layers</code> is a comma separated list of layer names from the configuration.</p>
+<p>The tiles can be fetched from <code>/otp/routers/{routerId}/vectorTiles/{layers}/{z}/{x}/{y}.pbf</code>, where
+<code>layers</code> is a comma separated list of layer names from the configuration.</p>
 <p>Maplibre/Mapbox GL JS also requires a tilejson.json endpoint which is available at
 <code>/otp/routers/{routerId}/vectorTiles/{layers}/tilejson.json</code>.</p>
 <p>Translatable fields in the tiles are translated based on the <code>accept-language</code> header in requests.
@@ -3295,14 +3295,14 @@ Currently, only the language with the highest priority from the header is used.<
 <a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a><span class="w">        </span><span class="nt">&quot;cacheMaxSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
 <a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a><span class="w">        </span><span class="nt">&quot;expansionFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
 <a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span>
+<a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a><span class="w">    </span><span class="p">]</span>
 <a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a><span class="p">}</span>
 </code></pre></div>
 <p>For each layer, the configuration includes:</p>
 <ul>
 <li><code>name</code> which is used in the url to fetch tiles, and as the layer name in the vector tiles.</li>
-<li><code>type</code> which tells the type of the layer. Currently supported:<ul>
+<li><code>type</code> which tells the type of the layer. Currently supported:</li>
 <li><code>Stop</code></li>
 <li><code>AreaStop</code>: Flex zones</li>
 <li><code>Station</code></li>
@@ -3311,8 +3311,6 @@ Currently, only the language with the highest priority from the header is used.<
 <li><code>VehicleRentalStation</code>: rental stations</li>
 <li><code>VehicleParking</code></li>
 <li><code>VehicleParkingGroup</code></li>
-</ul>
-</li>
 </ul>
 <!-- parameters BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
@@ -3481,22 +3479,22 @@ elements should not be included in the result.</p>
 <!-- parameters END -->
 
 <h3 id="extending">Extending</h3>
-<p>If more generic layers are created for this API, the code should be moved out from the sandbox, into 
+<p>If more generic layers are created for this API, the code should be moved out from the sandbox, into
 the core, perhaps potentially leaving specific property mappers in place.</p>
 <h4 id="creating-a-new-layer">Creating a new layer</h4>
 <p>In order to create a new type of layer, you need to create a new class extending <code>LayerBuilder&lt;T&gt;</code>.
 You need to implement two methods, <code>List&lt;Geometry&gt; getGeometries(Envelope query)</code>, which returns a
-list of geometries, with an object of type <code>T</code> as their userData in the geometry,
-and <code>double getExpansionFactor()</code>, which describes how much information outside the tile bounds
-should be included. This layer then needs to be added into <code>VectorTilesResource.layers</code>, with a
-new <code>LayerType</code> enum as the key, and the class constructor as the value.</p>
+list of geometries, with an object of type <code>T</code> as their userData in the geometry, and
+<code>double getExpansionFactor()</code>, which describes how much information outside the tile bounds should
+be included. This layer then needs to be added into <code>VectorTilesResource.layers</code>, with a new
+<code>LayerType</code> enum as the key, and the class constructor as the value.</p>
 <p>A new mapper needs to be added every time a new layer is added. See below for information.</p>
 <h4 id="creating-a-new-mapper">Creating a new mapper</h4>
 <p>The mapping contains information of what data to include in the vector tiles. The mappers are
 defined per layer.</p>
-<p>In order to create a new mapper for a layer, you need to create a new class
-extending <code>PropertyMapper&lt;T&gt;</code>. In that class, you need to implement the
-method <code>Collection&lt;KeyValue&lt;String, Object&gt;&gt; map(T input)</code>. The type T is dependent on the layer for which
+<p>In order to create a new mapper for a layer, you need to create a new class extending
+<code>PropertyMapper&lt;T&gt;</code>. In that class, you need to implement the method
+<code>Collection&lt;KeyValue&lt;String, Object&gt;&gt; map(T input)</code>. The type T is dependent on the layer for which
 you implement the mapper for. It needs to return a list of attributes, as key-value pairs which will
 be written into the vector tile.</p>
 <p>The mapper needs to be added to the <code>mappers</code> map in the layer, with a new <code>MapperType</code> enum as the
@@ -3506,20 +3504,28 @@ key, and a function to create the mapper, with a <code>Graph</code> object as a 
 <li>2020-07-09: Initial version of Mapbox vector tiles API</li>
 <li>2021-05-12: Make expansion factor configurable</li>
 <li>2021-09-07: Rename <code>BikeRental</code> to <code>VehicleRental</code></li>
-<li>2021-10-13: Correctly serialize the vehicle rental name <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3648">#3648</a></li>
+<li>2021-10-13: Correctly serialize the vehicle rental name
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3648">#3648</a></li>
 <li>2022-01-03: Add support for VehicleParking entities</li>
-<li>2022-04-27: Read the headsign for frequency-only patterns correctly <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4122">#4122</a></li>
-<li>2022-08-23: Remove patterns and add route gtfsTypes to stop layer <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4404">#4404</a></li>
-<li>2022-10-11: Added layer for VehicleParkingGroups <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4510">#4510</a></li>
-<li>2022-10-14: Add separate layers for vehicle rental place types <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4516">#4516</a></li>
+<li>2022-04-27: Read the headsign for frequency-only patterns correctly
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4122">#4122</a></li>
+<li>2022-08-23: Remove patterns and add route gtfsTypes to stop layer
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4404">#4404</a></li>
+<li>2022-10-11: Added layer for VehicleParkingGroups
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4510">#4510</a></li>
+<li>2022-10-14: Add separate layers for vehicle rental place types
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4516">#4516</a></li>
 <li>2022-10-19 <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4529">#4529</a>:</li>
 <li>Translatable fields are now translated based on accept-language header</li>
 <li>Added DigitransitRealtime for vehicle rental stations</li>
 <li>Changed old vehicle parking mapper to be Stadtnavi</li>
 <li>Added a new Digitransit vehicle parking mapper with no real-time information and less fields</li>
-<li>2024-01-22: Make <code>basePath</code> configurable <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5627">#5627</a></li>
-<li>2024-02-27: Add layer for flex zones <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5704">#5704</a></li>
-<li>2024-03-25: Add layer for realtime stops <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5743">#5743</a></li>
+<li>2024-01-22: Make <code>basePath</code> configurable
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5627">#5627</a></li>
+<li>2024-02-27: Add layer for flex zones
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5704">#5704</a></li>
+<li>2024-03-25: Add layer for realtime stops
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/5743">#5743</a></li>
 </ul>
 
 

@@ -3072,137 +3072,106 @@ the actions taken by the Maven release plugin. Based on past experience, the Mav
 can fail at various points in the process leaving the repo in a confusing state. Taking each action
 manually is more tedious, but keeps eyes on each step and is less prone to failure.</p>
 <ul>
-<li>Check that your local copy of the dev branch is up to date with no uncommitted changes<ul>
+<li>Check that your local copy of the dev branch is up to date with no uncommitted changes</li>
 <li><code>git status</code></li>
 <li><code>git checkout dev-2.x</code></li>
 <li><code>git clean -df</code></li>
 <li><code>git pull</code></li>
-</ul>
-</li>
-<li>Make sure the documentation is up to date<ul>
+<li>Make sure the documentation is up to date</li>
 <li>Check all links and references to the release and update to the target release version. Search
-  all files for with a regular expression: <code>2\.[012]\.0</code> and replace if appropriate with the new
-  version.</li>
-<li>In <code>doc/user/index.md</code> replace what is the latest version and add a new line for the previous one</li>
-</ul>
-</li>
-<li>Update <code>doc/user/Changelog.md</code><ul>
+    all files for with a regular expression: <code>2\.[012]\.0</code> and replace if appropriate with the new
+    version.</li>
+<li>In <code>doc/user/index.md</code> replace what is the latest version and add a new line for the previous
+    one</li>
+<li>Update <code>doc/user/Changelog.md</code></li>
 <li>Lines should have been added or updated as each pull request was merged</li>
-<li>If you suspect any changes are not reflected in the Changelog, review the commit log and add
-  any missing items</li>
+<li>If you suspect any changes are not reflected in the Changelog, review the commit log and add any
+    missing items</li>
 <li>Update the header at the top of the list from <code>x.y.z-SNAPSHOT</code> to just <code>x.y.z (current date)</code></li>
 <li>Check in any changes, and push to GitHub</li>
-<li>It is important to finalize the documentation before tagging the release, to ensure the 
-  published documentation is associated with the release tag </li>
-</ul>
-</li>
-<li>Update the variable MASTER_BRANCH_VERSION in <code>cibuild.yml</code><ul>
-<li>This tells the GH Action that pushes the documentation on master what the name of the 
-  current version is. 
-  For version 2.3.0 Leonard has already done it: <a href="https://github.com/opentripplanner/OpenTripPlanner/commit/3cb061ab1e4253c3977a5d08fa5abab1b0baefd7">Example commit</a></li>
-</ul>
-</li>
+<li>It is important to finalize the documentation before tagging the release, to ensure the
+    published documentation is associated with the release tag</li>
+<li>Update the variable MASTER_BRANCH_VERSION in <code>cibuild.yml</code></li>
+<li>This tells the GH Action that pushes the documentation on master what the name of the current
+    version is. For version 2.3.0 Leonard has already done it:
+    <a href="https://github.com/opentripplanner/OpenTripPlanner/commit/3cb061ab1e4253c3977a5d08fa5abab1b0baefd7">Example commit</a></li>
 <li>Verify that all dependencies in the POM are non-SNAPSHOT versions (e.g. with <code>grep</code>)</li>
-<li>Check <a href="https://github.com/opentripplanner/OpenTripPlanner/actions/workflows/">on GH Actions</a> that the build is currently passing</li>
-<li>Switch to the HEAD of master branch, and ensure it's up to date with no uncommitted changes<ul>
+<li>Check <a href="https://github.com/opentripplanner/OpenTripPlanner/actions/workflows/">on GH Actions</a> that
+  the build is currently passing</li>
+<li>Switch to the HEAD of master branch, and ensure it's up to date with no uncommitted changes</li>
 <li><code>git checkout master</code></li>
 <li><code>git status</code></li>
 <li><code>git clean -df</code></li>
 <li><code>git pull</code></li>
-</ul>
-</li>
-<li>Merge the dev branch into master<ul>
+<li>Merge the dev branch into master</li>
 <li><code>git merge dev-2.x</code></li>
-</ul>
-</li>
-<li>Bump the SNAPSHOT version in the POM to the release version<ul>
+<li>Bump the SNAPSHOT version in the POM to the release version</li>
 <li>Edit version in POM, removing SNAPSHOT and increasing version numbers as needed (following
-  semantic versioning)</li>
+    semantic versioning)</li>
 <li><code>mvn versions:set -DnewVersion=x.y.z</code></li>
 <li><code>git add pom.xml</code></li>
 <li><code>git commit -m "Prepare release x.y.z"</code></li>
-</ul>
-</li>
-<li>Run a test build of the release locally, without deploying it<ul>
+<li>Run a test build of the release locally, without deploying it</li>
 <li><code>mvn clean install -Prelease</code></li>
-<li>The <code>install</code> goal will sign the Maven artifacts so you need the GPG signing certificate set
-  up</li>
-<li>You can also use the <code>package</code> goal instead of the <code>install</code> goal to avoid signing if you
-  don't have the GPG certificate installed.</li>
+<li>The <code>install</code> goal will sign the Maven artifacts so you need the GPG signing certificate set up</li>
+<li>You can also use the <code>package</code> goal instead of the <code>install</code> goal to avoid signing if you don't
+    have the GPG certificate installed.</li>
 <li>All tests should pass</li>
-</ul>
-</li>
-<li>Finally, if everything looks good, tag and push this release to make it official<ul>
+<li>Finally, if everything looks good, tag and push this release to make it official</li>
 <li><code>git tag -a vX.Y.Z -m "Release X.Y.Z"</code></li>
 <li><code>git push origin vX.Y.Z</code></li>
 <li><code>git push origin master</code></li>
-<li>Note that <strong>only one</strong> commit may have a particular non-snapshot version in the POM (this is
-  the commit that should be tagged as the release)</li>
+<li>Note that <strong>only one</strong> commit may have a particular non-snapshot version in the POM (this is the
+    commit that should be tagged as the release)</li>
 <li>Go to the <a href="https://github.com/opentripplanner/OpenTripPlanner/tags">GitHub tags page</a> and use
-  the <code>...</code> button to mark the new tag as a release.</li>
+    the <code>...</code> button to mark the new tag as a release.</li>
 <li>Give the release a name like <code>v2.2.0 (November 2022)</code></li>
 <li>Optionally add a very condensed version of the changelog in the description box, with only the
-  5-10 most significant changes that might affect someone's choice to upgrade.</li>
+    5-10 most significant changes that might affect someone's choice to upgrade.</li>
 <li>Attach the JAR files produced in <code>/target</code> to the GitHub release page you just created.</li>
-</ul>
-</li>
-<li>Check that the push triggered an Actions build and that it was uploaded to GHPR.<ul>
+<li>Check that the push triggered an Actions build and that it was uploaded to GHPR.</li>
 <li>Currently, pushing the tag does not trigger deployment of release Maven artifacts, only GHPR
-  JARs.</li>
-</ul>
-</li>
-<li>Deploy the build artifacts to Maven Central and GitHub and Maven Central<ul>
+    JARs.</li>
+<li>Deploy the build artifacts to Maven Central and GitHub and Maven Central</li>
 <li>This step can get complicated and requires you to have the GPG keys and Maven repo credentials
-  set up.</li>
-<li>Apply the changes recorded
-  in https://github.com/opentripplanner/OpenTripPlanner/tree/signed-deploy-to-central</li>
+    set up.</li>
+<li>Apply the changes recorded in
+    https://github.com/opentripplanner/OpenTripPlanner/tree/signed-deploy-to-central</li>
 <li>While still on the tag commit, run <code>mvn deploy -Prelease</code>.</li>
-</ul>
-</li>
-<li>Check that Maven artifact appears on Maven Central<ul>
+<li>Check that Maven artifact appears on Maven Central</li>
 <li><a href="https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/">Directory listing of OTP releases on Maven Central</a></li>
 <li>It may take a while (half an hour) for releases to show up in the central repo after Travis
-  uploads the artifacts</li>
-</ul>
-</li>
-<li>Merge master back into dev (to sync up the Maven artifact version from the POM)<ul>
+    uploads the artifacts</li>
+<li>Merge master back into dev (to sync up the Maven artifact version from the POM)</li>
 <li><code>git checkout dev-2.x</code></li>
 <li><code>git merge master</code></li>
 <li><code>git push</code></li>
-</ul>
-</li>
-<li>Set up next development iteration<ul>
+<li>Set up next development iteration</li>
 <li>Add a new section header to <code>doc/user/Changelog.md</code> like <code>x.y+1.0-SNAPSHOT (in progress)</code></li>
 <li>Edit version in <code>pom.xml</code>s: <code>mvn versions:set -DnewVersion=x.y.z-SNAPSHOT</code></li>
 <li><code>git add pom.xml doc/user/Changelog.md</code></li>
 <li><code>git commit -m "Prepare next development iteration x.y+1.0-SNAPSHOT"</code></li>
 <li><code>git push</code></li>
-</ul>
-</li>
-<li>Send a message in Gitter and email the OTP users mailing lists<ul>
+<li>Send a message in Gitter and email the OTP users mailing lists</li>
 <li>Mention the new version number.</li>
 <li>Provide links to the new developer documentation.</li>
 <li>Provide links to the artifacts directory on Maven Central.</li>
-</ul>
-</li>
 <li>Prepare for the next release in GitHub by renaming the released milestone and creating a new
   milestone for the next release. Then make sure all issues and PRs are tagged with the correct
-  milestone.<ul>
+  milestone.</li>
 <li>Close open PRs older than 2 years, make sure the milestone is set to <code>Rejected</code>.</li>
-<li>Rename the old milestone from <code>x.y (Next Release)</code> to <code>x.y</code>. All issues and PRs assigned to 
-  this milestone are automatically updated.</li>
+<li>Rename the old milestone from <code>x.y (Next Release)</code> to <code>x.y</code>. All issues and PRs assigned to this
+    milestone are automatically updated.</li>
 <li>Create a new milestone: <code>x.y+1 (Next Release)</code></li>
-<li>All PullRequests SHOULD have a milestone (except some very old ones) <ul>
+<li>All PullRequests SHOULD have a milestone (except some very old ones)<ul>
 <li>Assign all <em>open</em> PRs to this new milestone <code>x.y+1 (Next Release)</code>.</li>
-<li>Assign all <em>closed</em> PRs without a milestone in the release to the released milestone 
-  <code>x.y</code>. Make sure NOT to include very old PRs or PRs merged after the release(if any).</li>
+<li>Assign all <em>closed</em> PRs without a milestone in the release to the released milestone <code>x.y</code>.
+  Make sure NOT to include very old PRs or PRs merged after the release(if any).</li>
 </ul>
 </li>
 <li>Some issues have a milestone, but not all.<ul>
-<li>Move all open issues with the released milestone <code>x.y</code> to the next release 
-  <code>x.y+1 (Next Release)</code>. </li>
-</ul>
-</li>
+<li>Move all open issues with the released milestone <code>x.y</code> to the next release
+  <code>x.y+1 (Next Release)</code>.</li>
 </ul>
 </li>
 </ul>

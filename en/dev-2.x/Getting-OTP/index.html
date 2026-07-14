@@ -3092,17 +3092,17 @@
 <h2 id="pre-built-jars">Pre-built JARs</h2>
 <p>OpenTripPlanner is distributed as a single stand-alone runnable JAR file. We create a tag and
 release page on GitHub for each release version, and also deploy them to the Maven Central
-repository. You can go to
-the <a href="https://github.com/opentripplanner/OpenTripPlanner/releases">release pages on GitHub</a>
-or <a href="https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/">the OTP directory at Maven Central</a>,
+repository. You can go to the
+<a href="https://github.com/opentripplanner/OpenTripPlanner/releases">release pages on GitHub</a> or
+<a href="https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/">the OTP directory at Maven Central</a>,
 navigate to the highest version number, and download the jar file <code>otp-shaded-VERSION.jar</code>.</p>
 <p>Note that version numbers like <code>v2.1.0-rc1</code> or <code>v2.8.1-SNAPSHOT</code> refer to development builds _
-before_ the release version <code>v2.8.1</code>. The existence of a build <code>vX.Y.Z-SNAPSHOT</code> does not mean
-that <code>vX.Y.Z</code> has been released yet.</p>
+before_ the release version <code>v2.8.1</code>. The existence of a build <code>vX.Y.Z-SNAPSHOT</code> does not mean that
+<code>vX.Y.Z</code> has been released yet.</p>
 <p>We use the <a href="https://github.com/opentripplanner/OpenTripPlanner/actions">Github Actions CI system</a> to
-build OTP every time a change is made. You can find the JARs resulting from those builds in
-the <a href="https://github.com/opentripplanner/OpenTripPlanner/packages/562174">Github Packages repository</a>
-. It can be harder to find the specific version you're looking for here, so we recommend using the
+build OTP every time a change is made. You can find the JARs resulting from those builds in the
+<a href="https://github.com/opentripplanner/OpenTripPlanner/packages/562174">Github Packages repository</a> .
+It can be harder to find the specific version you're looking for here, so we recommend using the
 release pages or Maven Central as described above.</p>
 <h2 id="building-from-source">Building from Source</h2>
 <p>You may also choose to build OTP from its source code. If you will be modifying OTP you will need to
@@ -3152,8 +3152,8 @@ including "package", which bundles the compiled program into a single JAR file f
 development occurs. This is not the most stable or deployment-ready code available. To avoid newly
 minted bugs or undocumented behavior, you can use Git to check out a specific release (tag or
 branch) of OTP to work with. The Maven build also includes many time-consuming integration tests.
-When working with a stable release of OTP, you may want to turn them off by adding the
-switch: <code>-DskipTests</code>.</p>
+When working with a stable release of OTP, you may want to turn them off by adding the switch:
+<code>-DskipTests</code>.</p>
 <p>For example, you could do the following:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>OpenTripPlanner
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>v2.8.1
@@ -3162,7 +3162,7 @@ switch: <code>-DskipTests</code>.</p>
 </code></pre></div>
 <p>Please note that the build process multiple jar files. The <code>otp-shaded-VERSION.jar</code> is much bigger
 because it contains copies of all the external libraries that OTP uses. It serves as a stand-alone
-runnable distribution of OTP. The other jar files are regular Java jar files. These JAR files are 
+runnable distribution of OTP. The other jar files are regular Java jar files. These JAR files are
 useful when OTP is included as a component in some other project, where we want the dependency
 management system to gather all the external libraries automatically.</p>
 <h2 id="maven-repository">Maven Repository</h2>
@@ -3172,10 +3172,10 @@ code into runnable form, performs tests, and can then deploy the final "artifact
 file) to the Maven repository, from which it can be automatically included in other Java projects.</p>
 <p>This repository is machine-readable (by Maven or other build systems) and also provides human
 readable directory listings via HTTP. You can fetch an OTP JAR from this repository by constructing
-the proper URL for the release you want. For example, release 2.8.1 will be found
-at <code>https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/2.8.1/otp-shaded-2.8.1-shaded.jar</code>.</p>
-<p>To make use of OTP in another Maven project, you must specify it as a dependency in that
-project's <code>pom.xml</code>:</p>
+the proper URL for the release you want. For example, release 2.8.1 will be found at
+<code>https://repo1.maven.org/maven2/org/opentripplanner/otp-shaded/2.8.1/otp-shaded-2.8.1-shaded.jar</code>.</p>
+<p>To make use of OTP in another Maven project, you must specify it as a dependency in that project's
+<code>pom.xml</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;dependency&gt;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.opentripplanner<span class="nt">&lt;/groupId&gt;</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>otp<span class="nt">&lt;/artifactId&gt;</span>

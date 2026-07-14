@@ -3076,32 +3076,34 @@
   <h1>Migrating between versions/builds</h1>
 
 <p>While OTP's GraphQL APIs are very, very stable even across versions, the JSON configuration schema
-is not. Changes to it are relatively frequent and you can see all PRs that change it with
-the <a href="https://github.com/opentripplanner/OpenTripPlanner/pulls?q=label%3A%22config+change%22">Github tag 'config change'</a>.</p>
+is not. Changes to it are relatively frequent and you can see all PRs that change it with the
+<a href="https://github.com/opentripplanner/OpenTripPlanner/pulls?q=label%3A%22config+change%22">Github tag 'config change'</a>.</p>
 <h3 id="migrating-the-json-configuration">Migrating the JSON configuration</h3>
-<p>OTP validates the configuration and prints warnings during startup. This means that when you
-migrate to a newer version, you should carefully inspect the logs. If you see messages like</p>
+<p>OTP validates the configuration and prints warnings during startup. This means that when you migrate
+to a newer version, you should carefully inspect the logs. If you see messages like</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(NodeAdapter.java:170) Unexpected config parameter: &#39;routingDefaults.stairsReluctance:1.65&#39; in &#39;router-config.json&#39;
 </code></pre></div>
 <p>this means there are properties in your configuration that are unknown to OTP and therefore likely
 to be a configuration error, perhaps because the schema was changed. In such a case you should
-consult the <a href="../Configuration/#otp-features">feature</a>, <a href="../RouterConfiguration/">router</a> or 
-<a href="../BuildConfiguration/">build configuration documentation</a> to find out what the new schema looks like.</p>
-<p>By default, OTP starts up even if unknown configuration parameters exist. This supports forward and backwards
-migration of config parameters independent if the OTP version. This allows the configuration to follow 
-the lifecycle of the environment and still be able to roll back OTP. 
-Combined with the config parameter substitution it also allows using the same configuration in 
-different environments. Tip! Rolling out the configuration before rolling out a new
-version of OTP, ensure you that you are safe and can roll back later. </p>
-<p>An example: you change the location of the graphs, a critical error occurs afterwards and you need to 
-roll back. Any member of the dev-ops team should then be confident that they can roll back without 
-risk - even if the environment changed since the last OTP version was rolled out.</p>
+consult the <a href="../Configuration/#otp-features">feature</a>, <a href="../RouterConfiguration/">router</a> or
+<a href="../BuildConfiguration/">build configuration documentation</a> to find out what the new schema looks
+like.</p>
+<p>By default, OTP starts up even if unknown configuration parameters exist. This supports forward and
+backwards migration of config parameters independent if the OTP version. This allows the
+configuration to follow the lifecycle of the environment and still be able to roll back OTP.
+Combined with the config parameter substitution it also allows using the same configuration in
+different environments. Tip! Rolling out the configuration before rolling out a new version of OTP,
+ensure you that you are safe and can roll back later.</p>
+<p>An example: you change the location of the graphs, a critical error occurs afterwards and you need
+to roll back. Any member of the dev-ops team should then be confident that they can roll back
+without risk - even if the environment changed since the last OTP version was rolled out.</p>
 <h3 id="aborting-on-invalid-configuration">Aborting on invalid configuration</h3>
-<p>If you want OTP to abort the startup when encountering unknown configuration parameters, you can add 
+<p>If you want OTP to abort the startup when encountering unknown configuration parameters, you can add
 the flag <code>--abortOnUnknownConfig</code> to your regular OTP CLI commands.</p>
-<p>This should of course be used wisely as it can also accidentally make your production instances refuse to start up.
-For some deployments this is a good solution - especially if the config substitution feature is used to inject
-environment specific information. Using this feature in the graph-build phase is less risky, than in the OTP serve phase.</p>
+<p>This should of course be used wisely as it can also accidentally make your production instances
+refuse to start up. For some deployments this is a good solution - especially if the config
+substitution feature is used to inject environment specific information. Using this feature in the
+graph-build phase is less risky, than in the OTP serve phase.</p>
 
 
 

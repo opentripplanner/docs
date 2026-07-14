@@ -3140,48 +3140,51 @@
 
 <h1 id="product-overview">Product Overview</h1>
 <h2 id="opentripplanner-project">OpenTripPlanner project</h2>
-<p>OpenTripPlanner is a group of open source software applications that help individuals and organizations 
-calculate and deliver multimodal trip plans based on a combination of open-standard data sources.
-These include public transit services and schedules (GTFS and NeTEx) and OpenStreetMap (OSM), as 
-well as sources describing bicycle sharing or rental, ride hailing, and other services (e.g. GBFS).</p>
-<p>A community of dozens of individuals and organizations work on OpenTripPlanner collaboratively to 
-improve multimodal trip planning best practices and to make it easier for public transit agencies and 
-public transit riders to publish and access information about transit services.</p>
-<p>OpenTripPlanner deployments are locally managed in many different ways by many different types of organizations. 
-OpenTripPlanner consistently and dependably delivers multimodal trip plans to millions of riders 
-every day in dozens of countries around the globe. The project is actively maintained by the community, 
-with more than 50 commits most weeks during 2022, and 20 different developers having made 50 or more 
-commits during the life of the project.</p>
+<p>OpenTripPlanner is a group of open source software applications that help individuals and
+organizations calculate and deliver multimodal trip plans based on a combination of open-standard
+data sources. These include public transit services and schedules (GTFS and NeTEx) and OpenStreetMap
+(OSM), as well as sources describing bicycle sharing or rental, ride hailing, and other services
+(e.g. GBFS).</p>
+<p>A community of dozens of individuals and organizations work on OpenTripPlanner collaboratively to
+improve multimodal trip planning best practices and to make it easier for public transit agencies
+and public transit riders to publish and access information about transit services.</p>
+<p>OpenTripPlanner deployments are locally managed in many different ways by many different types of
+organizations. OpenTripPlanner consistently and dependably delivers multimodal trip plans to
+millions of riders every day in dozens of countries around the globe. The project is actively
+maintained by the community, with more than 50 commits most weeks during 2022, and 20 different
+developers having made 50 or more commits during the life of the project.</p>
 <h2 id="what-exactly-is-otp">What exactly is OTP?</h2>
-<p>The most commonly used OpenTripPlanner component is a server-side Java application that is primarily 
-designed to interpret and combine map, transit service, and other mobility data sets, providing API 
-endpoints that receive user origins and destinations and return trip plans to other applications 
+<p>The most commonly used OpenTripPlanner component is a server-side Java application that is primarily
+designed to interpret and combine map, transit service, and other mobility data sets, providing API
+endpoints that receive user origins and destinations and return trip plans to other applications
 along with vector map tiles, stop departures, and other rider information.</p>
-<p>In other words, OTP is a backend application that can work with other frontend user interfaces. OTP 
-works with your website, mobile app, physical signage or other applications in order to provide 
+<p>In other words, OTP is a backend application that can work with other frontend user interfaces. OTP
+works with your website, mobile app, physical signage or other applications in order to provide
 relevant customer information and meaningful trip plans to riders.</p>
-<p>There's no official OTP user interface, although the OpenTripPlanner ecosystem includes several user 
-interface projects (for example <a href="https://github.com/HSLdevcom/digitransit-ui">Digitransit</a> and 
-<a href="https://github.com/opentripplanner/otp-react-redux">OTP-react-redux</a>). 
-How your OTP deployment looks is entirely up to you. </p>
+<p>There's no official OTP user interface, although the OpenTripPlanner ecosystem includes several user
+interface projects (for example <a href="https://github.com/HSLdevcom/digitransit-ui">Digitransit</a> and
+<a href="https://github.com/opentripplanner/otp-react-redux">OTP-react-redux</a>). How your OTP deployment
+looks is entirely up to you.</p>
 <h2 id="what-otp-can-do-for-you">What OTP can do for you</h2>
 <h3 id="transit-agencies">Transit agencies</h3>
-<p>Transit agencies can use OTP as a backend for their public website/app trip planner or internal trip planner 
-for their customer service team.</p>
+<p>Transit agencies can use OTP as a backend for their public website/app trip planner or internal trip
+planner for their customer service team.</p>
 <ul>
 <li>Fully customizable for use with any frontend</li>
 <li>High-performance trip planning</li>
-<li>Fully multimodal routing, including walking, biking, bikeshare, demand-responsive services in 
-combined trip plans rather than presented in alternative trip plans</li>
+<li>Fully multimodal routing, including walking, biking, bikeshare, demand-responsive services in
+  combined trip plans rather than presented in alternative trip plans</li>
 <li>Support for real-time alerts, trip re-routing based on real-time delays and vehicle positions</li>
-<li>Multi-criteria cost calculation allows for dynamic user inputs and requests including 
-mode, time, transfers, and other preferences while delivering balanced results</li>
-<li>One OTP backend can power both a website and app for use by riders, along with a separate frontend 
-with a different configuration for use by a customer service team</li>
-<li>Active development by dozens of agencies means new features every year <a href="https://github.com/orgs/opentripplanner/projects/3">(see the OTP common roadmap here)</a></li>
+<li>Multi-criteria cost calculation allows for dynamic user inputs and requests including mode, time,
+  transfers, and other preferences while delivering balanced results</li>
+<li>One OTP backend can power both a website and app for use by riders, along with a separate frontend
+  with a different configuration for use by a customer service team</li>
+<li>Active development by dozens of agencies means new features every year
+  <a href="https://github.com/orgs/opentripplanner/projects/3">(see the OTP common roadmap here)</a></li>
 </ul>
 <h3 id="regions-countries-and-private-entities">Regions, countries, and private entities</h3>
-<p>Regional, provincial, or national governments, or any private entity, can set up a trip planner including multiple transit agencies.</p>
+<p>Regional, provincial, or national governments, or any private entity, can set up a trip planner
+including multiple transit agencies.</p>
 <ul>
 <li>Highly scalable software for large regions</li>
 <li>Interagency fare calculation</li>
@@ -3189,16 +3192,17 @@ with a different configuration for use by a customer service team</li>
 <li>Can be provided as a service to agencies for use in their websites and apps</li>
 </ul>
 <h3 id="researchers">Researchers</h3>
-<p>While historically, OpenTripPlanner has often been used by researchers for the programmatic calculation 
-of large numbers of trip plans, this is no longer an intended use case of OTP. You are welcome to use 
-OTP for any purpose, but you may also find applications like <a href="https://github.com/conveyal/r5">r5</a> to 
-be more appropriate for these purposes.</p>
+<p>While historically, OpenTripPlanner has often been used by researchers for the programmatic
+calculation of large numbers of trip plans, this is no longer an intended use case of OTP. You are
+welcome to use OTP for any purpose, but you may also find applications like
+<a href="https://github.com/conveyal/r5">r5</a> to be more appropriate for these purposes.</p>
 <h2 id="talk-to-an-expert-about-otp">Talk to an expert about OTP</h2>
-<p>Everyone interested in OTP is welcome to post questions on the <a href="https://gitter.im/opentripplanner/OpenTripPlanner">Gitter chat</a>
-or <a href="https://groups.google.com/g/opentripplanner-users">OpenTripPlanner-users group</a>.</p>
-<p>If you’re looking for a conversation with an individual from a similar organizational type, you can 
-make that request and include some info about your organization on the forum linked above and a member 
-of the OTP community will connect with you.</p>
+<p>Everyone interested in OTP is welcome to post questions on the
+<a href="https://gitter.im/opentripplanner/OpenTripPlanner">Gitter chat</a> or
+<a href="https://groups.google.com/g/opentripplanner-users">OpenTripPlanner-users group</a>.</p>
+<p>If you’re looking for a conversation with an individual from a similar organizational type, you can
+make that request and include some info about your organization on the forum linked above and a
+member of the OTP community will connect with you.</p>
 
 
 

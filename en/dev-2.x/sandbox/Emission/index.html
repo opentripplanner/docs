@@ -3215,7 +3215,7 @@ import formats (yet to be standarized).</p>
   <code>avg_passenger_count</code>.</li>
 <li>The <em>Trip format</em> provided by Entur decorates each trip hop. The plan is to expand this to include
   service date. This allows the emission provider to calculate acurate data down to each trip
-  departure (except departures operated by more than one vehicle). The input parameters are 
+  departure (except departures operated by more than one vehicle). The input parameters are
   <code>trip_id</code>, <code>from_stop_id</code>, <code>from_stop_sequence</code> and <code>co2</code>.</li>
 </ul>
 <h3 id="emission-input-data-files">Emission input data files</h3>
@@ -3298,17 +3298,17 @@ from separate files provided individually.</p>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Trip:3,Stop:A,3,172.646
 </code></pre></div>
 <h3 id="configuration">Configuration</h3>
-<p>To enable this functionality, you need to enable the "Emission" feature in the
-<code>otp-config.json</code> file.</p>
+<p>To enable this functionality, you need to enable the "Emission" feature in the <code>otp-config.json</code>
+file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">//otp-config.json</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;Emission&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
 </code></pre></div>
-<p>Include the <code>emission</code> object in the
-<code>build-config.json</code> file. The <code>emission</code> object should contain parameters called
-<code>carAvgCo2PerKm</code> and <code>carAvgOccupancy</code>. The <code>carAvgCo2PerKm</code> provides the average emissions value for a car in g/km and
-the <code>carAvgOccupancy</code> provides the average number of passengers in a car.</p>
+<p>Include the <code>emission</code> object in the <code>build-config.json</code> file. The <code>emission</code> object should contain
+parameters called <code>carAvgCo2PerKm</code> and <code>carAvgOccupancy</code>. The <code>carAvgCo2PerKm</code> provides the average
+emissions value for a car in g/km and the <code>carAvgOccupancy</code> provides the average number of
+passengers in a car.</p>
 <!-- config BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
@@ -3393,7 +3393,7 @@ the <code>carAvgOccupancy</code> provides the average number of passengers in a 
 <h2 id="changelog">Changelog</h2>
 <h3 id="otp-25">OTP 2.5</h3>
 <ul>
-<li>Initial implementation of the emissions calculation. Support for the route input data format by 
+<li>Initial implementation of the emissions calculation. Support for the route input data format by
   Digitransit.</li>
 </ul>
 <h3 id="otp-28">OTP 2.8</h3>

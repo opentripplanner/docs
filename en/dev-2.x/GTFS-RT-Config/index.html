@@ -3215,19 +3215,19 @@
   NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
 
    - Template directory is:  /doc/templates
-   - Generated directory is: /doc/user 
+   - Generated directory is: /doc/user
 -->
 
-<p>GTFS feeds contain <em>schedule</em> data that is published by an agency or operator in advance. The
-feed does not account for unexpected service changes or traffic disruptions that occur from day to
-day. Thus, this kind of data is also referred to as 'static' data or 'scheduled' arrival and
-departure times.</p>
-<p><a href="https://gtfs.org/realtime/">GTFS-Realtime</a> complements GTFS with 
-additional kinds of feeds. In contrast to the base GTFS schedule feed, they provide <em>real-time</em>
-updates (<em>'dynamic'</em> data) and are updated from minute to minute.</p>
+<p>GTFS feeds contain <em>schedule</em> data that is published by an agency or operator in advance. The feed
+does not account for unexpected service changes or traffic disruptions that occur from day to day.
+Thus, this kind of data is also referred to as 'static' data or 'scheduled' arrival and departure
+times.</p>
+<p><a href="https://gtfs.org/realtime/">GTFS-Realtime</a> complements GTFS with additional kinds of feeds. In
+contrast to the base GTFS schedule feed, they provide <em>real-time</em> updates (<em>'dynamic'</em> data) and are
+updated from minute to minute.</p>
 <h2 id="alerts">Alerts</h2>
-<p>Alerts are text messages attached to GTFS objects, informing riders of disruptions and changes. 
-The information is downloaded in a single HTTP request and polled regularly.</p>
+<p>Alerts are text messages attached to GTFS objects, informing riders of disruptions and changes. The
+information is downloaded in a single HTTP request and polled regularly.</p>
 <!-- real-time-alerts BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
@@ -3326,9 +3326,9 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 <!-- real-time-alerts END -->
 
 <h2 id="tripupdates-via-https">TripUpdates via HTTP(S)</h2>
-<p>TripUpdates report on the status of scheduled trips as they happen, providing observed and 
-predicted arrival and departure times for the remainder of the trip.
-The information is downloaded in a single HTTP request and polled regularly.</p>
+<p>TripUpdates report on the status of scheduled trips as they happen, providing observed and predicted
+arrival and departure times for the remainder of the trip. The information is downloaded in a single
+HTTP request and polled regularly.</p>
 <!-- stop-time-updater BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
@@ -3480,8 +3480,9 @@ The information is downloaded in a single HTTP request and polled regularly.</p>
 
 <h2 id="streaming-tripupdates-via-mqtt">Streaming TripUpdates via MQTT</h2>
 <p>This updater connects to an MQTT broker and processes TripUpdates in a streaming fashion. This means
-that they will be applied individually in near-real-time rather than in batches at a certain interval.</p>
-<p>This system powers the real-time updates in Helsinki and more information can be found 
+that they will be applied individually in near-real-time rather than in batches at a certain
+interval.</p>
+<p>This system powers the real-time updates in Helsinki and more information can be found
 <a href="https://github.com/HSLdevcom/transitdata">on Github</a>.</p>
 <!-- mqtt-gtfs-rt-updater BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
@@ -3619,9 +3620,9 @@ that they will be applied individually in near-real-time rather than in batches 
 <!-- mqtt-gtfs-rt-updater END -->
 
 <h2 id="vehicle-positions">Vehicle Positions</h2>
-<p>VehiclePositions give the location of some or all vehicles currently in service, in terms of 
-geographic coordinates or position relative to their scheduled stops.
-The information is downloaded in a single HTTP request and polled regularly.</p>
+<p>VehiclePositions give the location of some or all vehicles currently in service, in terms of
+geographic coordinates or position relative to their scheduled stops. The information is downloaded
+in a single HTTP request and polled regularly.</p>
 <!-- vehicle-positions BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 

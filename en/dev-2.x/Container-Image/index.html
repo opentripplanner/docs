@@ -3078,18 +3078,18 @@
 
 
 <h1 id="container-image">Container image</h1>
-<p>The CI pipeline deploys container images for runtimes like Docker, Kubernetes or Podman to 
+<p>The CI pipeline deploys container images for runtimes like Docker, Kubernetes or Podman to
 <a href="https://hub.docker.com/r/opentripplanner/opentripplanner/tags">Dockerhub</a>.</p>
-<p>The image assumes you use a volume to mount the input data (GTFS/NeTEx, OSM) and config files into 
-<code>/var/opentripplanner/</code>. When serving a graph it's also expected to be in this directory. If a logback
-extensions file needs to be used, it should be mounted to the root location <code>/logback-include-extensions.xml</code>
-instead of the <code>/var/opentripplanner/</code> directory.</p>
+<p>The image assumes you use a volume to mount the input data (GTFS/NeTEx, OSM) and config files into
+<code>/var/opentripplanner/</code>. When serving a graph it's also expected to be in this directory. If a
+logback extensions file needs to be used, it should be mounted to the root location
+<code>/logback-include-extensions.xml</code> instead of the <code>/var/opentripplanner/</code> directory.</p>
 <h2 id="quick-start">Quick start</h2>
 <p>Let's use the image to build a graph in Berlin.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># create directory for data and config</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>berlin
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># download OSM</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf<span class="w"> </span>-o<span class="w"> </span>berlin/osm.pbf<span class="w">  </span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf<span class="w"> </span>-o<span class="w"> </span>berlin/osm.pbf
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># download GTFS</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://vbb.de/vbbgtfs<span class="w"> </span>-o<span class="w"> </span>berlin/vbb-gtfs.zip
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># build graph and save it onto the host system via the volume</span>
@@ -3105,9 +3105,10 @@ instead of the <code>/var/opentripplanner/</code> directory.</p>
 </code></pre></div>
 <p>Now open <a href="http://localhost:8080">http://localhost:8080</a> to see your running OTP instance.</p>
 <h2 id="additional-notes">Additional notes</h2>
-<p>Make sure to include the word "gtfs" when naming the gtfs files that you want to use for OTP. Otherwise, graph build will fail.</p>
-<p>If you want to set JVM options you can use the environment variable <code>JAVA_TOOL_OPTIONS</code>, so
-a full example to add to your docker command is <code>-e JAVA_TOOL_OPTIONS='-Xmx4g'</code>. </p>
+<p>Make sure to include the word "gtfs" when naming the gtfs files that you want to use for OTP.
+Otherwise, graph build will fail.</p>
+<p>If you want to set JVM options you can use the environment variable <code>JAVA_TOOL_OPTIONS</code>, so a full
+example to add to your docker command is <code>-e JAVA_TOOL_OPTIONS='-Xmx4g'</code>.</p>
 
 
 

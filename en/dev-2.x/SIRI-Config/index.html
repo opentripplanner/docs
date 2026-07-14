@@ -3211,15 +3211,17 @@
 
   <h1>SIRI</h1>
 
-<p>These updaters support consuming SIRI-ET and SX messages via HTTPS. They aim to support the <a href="../features-explained/Netex-Siri-Compatibility/">Nordic
-and EPIP SIRI profiles</a> which 
-are subsets of the SIRI specification.</p>
-<p>For more documentation about the Norwegian profile and data, go to the <a href="https://developer.entur.org/pages-real-time-intro">Entur Real-Time Data</a> documentation and
-the <a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Norwegian+SIRI+profile">Norwegian SIRI profile</a>.</p>
-<p>To enable one of the SIRI updaters you need to add it to the <code>updaters</code> section of the <code>router-config.json</code>.</p>
+<p>These updaters support consuming SIRI-ET and SX messages via HTTPS. They aim to support the
+<a href="../features-explained/Netex-Siri-Compatibility/">Nordic and EPIP SIRI profiles</a> which are subsets
+of the SIRI specification.</p>
+<p>For more documentation about the Norwegian profile and data, go to the
+<a href="https://developer.entur.org/pages-real-time-intro">Entur Real-Time Data</a> documentation and the
+<a href="https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Norwegian+SIRI+profile">Norwegian SIRI profile</a>.</p>
+<p>To enable one of the SIRI updaters you need to add it to the <code>updaters</code> section of the
+<code>router-config.json</code>.</p>
 <h2 id="siri-et-requestresponse-via-https">SIRI-ET Request/Response via HTTPS</h2>
-<p>This requires there to be a SIRI server that handles SIRI POST requests, stores requestor refs 
-and responds only with the newest data.</p>
+<p>This requires there to be a SIRI server that handles SIRI POST requests, stores requestor refs and
+responds only with the newest data.</p>
 <!-- siri-et-updater BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
@@ -3490,17 +3492,15 @@ renamed by the loader when processed:</p>
 <!-- siri-sx-updater END -->
 
 <h2 id="siri-et-lite">SIRI-ET Lite</h2>
-<p>SIRI Lite is 
-not very well specified
-<a href="https://nextcloud.leonard.io/s/8kZGNA7LHjd6ZbJ?dir=/">[1]</a>
+<p>SIRI Lite is not very well specified <a href="https://nextcloud.leonard.io/s/8kZGNA7LHjd6ZbJ?dir=/">[1]</a>
 <a href="https://normes.transport.data.gouv.fr/normes/siri/profil-france/#protocoles-d%C3%A9change-des-donn%C3%A9es-siri">[2]</a>
-but this updater supports the following definition: </p>
+but this updater supports the following definition:</p>
 <blockquote>
-<p>Fetching XML-formatted SIRI messages as a single GET request rather than the more common request/response 
-flow. </p>
+<p>Fetching XML-formatted SIRI messages as a single GET request rather than the more common
+request/response flow.</p>
 </blockquote>
-<p>This means that the XML feed must contain all updates for all trips, just like it is the case 
- for GTFS-RT TripUpdates.</p>
+<p>This means that the XML feed must contain all updates for all trips, just like it is the case for
+GTFS-RT TripUpdates.</p>
 <!-- siri-et-lite BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 

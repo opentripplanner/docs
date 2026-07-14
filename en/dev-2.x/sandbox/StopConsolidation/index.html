@@ -3103,38 +3103,41 @@
   NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
 
    - Template directory is:  /doc/templates
-   - Generated directory is: /doc/user 
+   - Generated directory is: /doc/user
 -->
+
 <h1 id="stop-consolidation">Stop consolidation</h1>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li><a href="mailto:jon.campbell@arcadis.com">Jon Campbell</a>, Arcadis, USA</li>
 </ul>
 <h2 id="feature-explanation">Feature explanation</h2>
-<p>This sandbox feature allows you to "combine" equivalent stops from across several feeds into a single,
-consolidated one. </p>
+<p>This sandbox feature allows you to "combine" equivalent stops from across several feeds into a
+single, consolidated one.</p>
 <p>It is achieved by defining a "primary" stop and one or more "secondary" stops. During the graph
-build all trip patterns are modified so that the secondary ones are swapped out for their
-primary equivalent.</p>
+build all trip patterns are modified so that the secondary ones are swapped out for their primary
+equivalent.</p>
 <h2 id="effects">Effects</h2>
-<p>This has the following consequences </p>
+<p>This has the following consequences</p>
 <ul>
-<li>When you query the departures for a primary stop you see a consolidated view of all the equivalent departures.</li>
-<li>When transferring at a consolidated stop you no longer get instructions like "walk 5 meters to stop X"</li>
+<li>When you query the departures for a primary stop you see a consolidated view of all the equivalent
+  departures.</li>
+<li>When transferring at a consolidated stop you no longer get instructions like "walk 5 meters to
+  stop X"</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Downsides</p>
 <p>However, this feature has also severe downsides:</p>
 <ul>
-<li>It makes real-time trip updates referencing a stop id much more complicated and in many cases 
-  impossible to resolve. 
+<li>It makes real-time trip updates referencing a stop id much more complicated and in many cases
+  impossible to resolve.
   You can only reference a stop by its sequence, which only works in GTFS-RT, not SIRI.</li>
 <li>Fare calculation and transfers are unlikely to work as expected.</li>
 </ul>
 </div>
 <h2 id="configuration">Configuration</h2>
-<p>To enable this feature you need to add a file to OTP's working directory and configure
-its name like this:</p>
+<p>To enable this feature you need to add a file to OTP's working directory and configure its name like
+this:</p>
 <!-- config BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 

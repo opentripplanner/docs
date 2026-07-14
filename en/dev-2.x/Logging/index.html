@@ -3095,9 +3095,9 @@
 
 
 <h1 id="logging">Logging</h1>
-<p>OTP uses <a href="http://logback.qos.ch/">logback</a> and <a href="http://www.slf4j.org/">slj4j</a> as a logging framework.
-Logging is configured in the <code>logback.xml</code> file inside the OTP jar file. See these frameworks for
-more documentation on log configuration.</p>
+<p>OTP uses <a href="http://logback.qos.ch/">logback</a> and <a href="http://www.slf4j.org/">slj4j</a> as a logging
+framework. Logging is configured in the <code>logback.xml</code> file inside the OTP jar file. See these
+frameworks for more documentation on log configuration.</p>
 <p>For developers, starting OTP using the <code>InteractiveOtpMain</code> is an easy way to configure debug
 logging.</p>
 <p>Some loggers useful for debugging.</p>
@@ -3107,18 +3107,20 @@ logging.</p>
 <li><code>org.opentripplanner.raptor.RaptorService</code>: Debug Raptor request and response</li>
 </ul>
 <h2 id="format">Format</h2>
-<p>By default, OTP logs in plain text to the console. However, it is possible to also log in JSON format.</p>
+<p>By default, OTP logs in plain text to the console. However, it is possible to also log in JSON
+format.</p>
 <p>To enable it, set the Java property <code>otp.logging.format</code> to one of these values:</p>
 <ul>
 <li><code>plain</code>: regular plain text logging (default, no need to configure it)</li>
-<li><code>json</code>: Logstash-encoded JSON format understood by many log ingestion tools (Datadog, Loggly, Loki...)</li>
+<li><code>json</code>: Logstash-encoded JSON format understood by many log ingestion tools (Datadog, Loggly,
+  Loki...)</li>
 </ul>
 <h3 id="complete-example">Complete example</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java -Dotp.logging.format=json -jar otp.jar --load --serve data
 </code></pre></div>
 <h3 id="further-customization">Further customization</h3>
-<p>If you want to customize the exact log output even further you can use your own logback configuration 
-by starting OTP with the following parameter:</p>
+<p>If you want to customize the exact log output even further you can use your own logback
+configuration by starting OTP with the following parameter:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>java -Dlogback.configurationFile=/path/to/logback.xml -jar otp.jar --load --serve data
 </code></pre></div>
 <p>For example, Entur has their own custom log format configured as follows:</p>

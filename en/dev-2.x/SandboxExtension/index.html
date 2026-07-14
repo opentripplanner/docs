@@ -3175,8 +3175,8 @@
 <li>Consider forking if the feature is valuable to one deployment only.</li>
 </ul>
 <h2 id="terminology">Terminology</h2>
-<p><strong>Main/core</strong>   -- All OTP code and additional files, NOT part of the sandbox.
-(<code>docs</code>, <code>src/main</code>, <code>src/test</code> and so on)</p>
+<p><strong>Main/core</strong> -- All OTP code and additional files, NOT part of the sandbox. (<code>docs</code>, <code>src/main</code>,
+<code>src/test</code> and so on)</p>
 <p><strong>Extensions</strong> -- All features implemented in the OTP Sandbox, provided with no guarantees.
 (<code>src/ext</code>, <code>src/ext-test</code>)</p>
 <h2 id="sandbox-goals">Sandbox Goals</h2>
@@ -3185,11 +3185,9 @@
 <li>Allow experimental code to evolve (in a Sandbox)</li>
 <li>Encourage refactoring and creation of extension points in the main code.</li>
 <li>Increase visibility and cooperation of development of new features.</li>
-<li>Feature toggle<ul>
-<li>Sandbox features should use the <em>OTPFeature</em> to enable the code. Sandbox features are by
-  default off. To toggle features on/off se the <a href="../Configuration/">configuration documentation</a>.</li>
-</ul>
-</li>
+<li>Feature toggle</li>
+<li>Sandbox features should use the <em>OTPFeature</em> to enable the code. Sandbox features are by default
+    off. To toggle features on/off se the <a href="../Configuration/">configuration documentation</a>.</li>
 </ul>
 <h2 id="contract">Contract</h2>
 <ul>
@@ -3199,13 +3197,11 @@
   added in the test directory: <code>src/ext-test</code></li>
 <li>To integrate the new feature into OTP you may have to create new extension points in the main/core
   code. Changes to the core OTP are subject to normal a review process.</li>
-<li>Create a readme file (<code>doc/user/sandbox/&lt;Extension Name&gt;.md</code> package including:<ul>
+<li>Create a readme file (<code>doc/user/sandbox/&lt;Extension Name&gt;.md</code> package including:</li>
 <li>Extension Name</li>
 <li>Contact info</li>
 <li>Change log</li>
 <li>Documentation of the feature (optional)</li>
-</ul>
-</li>
 <li>List your extension in the <a href="#Available extensions">Available extensions</a> section and in the
   <a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/mkdocs.yml">mkdocs config file</a>.</li>
 <li>Use feature toggling to enable a feature at runtime. The feature must be disabled by default. A
@@ -3221,12 +3217,10 @@
   need to provide any guarantees or support. If the extension is merged into the main code the
   author will in fact need to provide support and maintenance.</li>
 <li>When someone at a later point in time want to change the main code the only thing they are
-  responsible for - with regard to the extension code - is:<ul>
+  responsible for - with regard to the extension code - is:</li>
 <li>that it compiles.</li>
-<li>that the unit tests run. If a test is not easy to fix, it can be tagged with @Ignore. If
-  ignored it would be polite to notify the author.</li>
-</ul>
-</li>
+<li>that the unit tests run. If a test is not easy to fix, it can be tagged with @Ignore. If ignored
+    it would be polite to notify the author.</li>
 <li>Changes to the main OTP API that cannot be toggled <em>in</em> must be clearly marked/tagged as part of
   an experimental feature and documented - This code is subject to review.</li>
 <li>If a feature is old and not maintained it can be removed 1 month after notifying the submitter

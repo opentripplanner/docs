@@ -3111,53 +3111,53 @@
 <li>Entur, Norway</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>This is the official OTP2 API for Transmodel (NeTEx). The terminology is based on the 
-Transmodel (NeTEx) with some limitations/simplification. It provides both a routing API 
-(trip query) and index API for transit data.</p>
-<p>Entur provides a <a href="https://api.entur.io/graphql-explorer">GraphQL explorer</a> where you may browse the GraphQL schema and try your own
-queries.</p>
+<p>This is the official OTP2 API for Transmodel (NeTEx). The terminology is based on the Transmodel
+(NeTEx) with some limitations/simplification. It provides both a routing API (trip query) and index
+API for transit data.</p>
+<p>Entur provides a <a href="https://api.entur.io/graphql-explorer">GraphQL explorer</a> where you may browse the
+GraphQL schema and try your own queries.</p>
 <p>When running OTP locally the endpoint is available at: <code>http://localhost:8080/otp/transmodel/v3</code></p>
-<p><strong>Note!</strong> Versions <code>v1</code> and <code>v2</code> do not exist in the main OTP git repository, but in 
-the <a href="https://github.com/entur/OpenTripPlanner">Entur fork</a> from which this code originates from.</p>
+<p><strong>Note!</strong> Versions <code>v1</code> and <code>v2</code> do not exist in the main OTP git repository, but in the
+<a href="https://github.com/entur/OpenTripPlanner">Entur fork</a> from which this code originates from.</p>
 <h3 id="configuration">Configuration</h3>
 <p>To turn this API off, add the feature <code>TransmodelGraphQlApi : false</code> in <code>otp-config.json</code>.</p>
 <h2 id="changelog-old">Changelog - old</h2>
-<p>The Transmodel API is now part of the main OTP supported APIs. New changes in the changelog 
-will be added to the main change log, and NOT here (2023-12-13).</p>
+<p>The Transmodel API is now part of the main OTP supported APIs. New changes in the changelog will be
+added to the main change log, and NOT here (2023-12-13).</p>
 <ul>
 <li>Initial version of Transmodel Graph QL API (September 2019)</li>
 <li>Added support for multimodal StopPlaces (November 2019)</li>
 <li>Fix bug querying stopPlaces <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3591">#3591</a></li>
 <li>Fix the field bikesAllowed <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3586">#3586</a></li>
-<li>Add triangle factors for bicycle
-  routing <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3585">#3585</a></li>
+<li>Add triangle factors for bicycle routing
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3585">#3585</a></li>
 <li>Fix correct type for BookingArrangementType#latestBookingDay</li>
-<li>Fix NPE in BookingArrangementType data
-  fetchers <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3649">#3649</a></li>
-<li>Add BookingInfo to TimetabledPassingTime and
-  EstimatedCall <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3666">#3666</a></li>
-<li>Use correct capitalization for GraphQL
-  fields <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3707">#3707</a></li>
-<li>Allow filtering by a list of
-  ids <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3738">#3738</a></li>
-<li>Don't filter out stops who don't have multimodal parents in the nearest
-  query <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3752">#3752</a></li>
-<li>Restore ability to filter by private
-  code <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3764">#3764</a></li>
-<li>Narrow down non-null types
-  type <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3803">#3803</a></li>
-<li>Fix issue with fetching parent StopPlaces in nearest query in Transmodel
-  API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3807">#3807</a></li>
-<li>Fix invalid cast in situations resolver for line
-  type <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3810">#3810</a></li>
-<li>Deduce enum for bookWhen in Transmodel
-  API <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3854">#3854</a></li>
-<li>Fix coercion of default parameter for maximumDistance in
-  nearest <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
-<li>Expose stopPositionInPattern on
-  EstimatedCall <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
-<li>Allow selecting first or last quays in a
-  ServiceJourney <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
+<li>Fix NPE in BookingArrangementType data fetchers
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3649">#3649</a></li>
+<li>Add BookingInfo to TimetabledPassingTime and EstimatedCall
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3666">#3666</a></li>
+<li>Use correct capitalization for GraphQL fields
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3707">#3707</a></li>
+<li>Allow filtering by a list of ids
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3738">#3738</a></li>
+<li>Don't filter out stops who don't have multimodal parents in the nearest query
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3752">#3752</a></li>
+<li>Restore ability to filter by private code
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3764">#3764</a></li>
+<li>Narrow down non-null types type
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3803">#3803</a></li>
+<li>Fix issue with fetching parent StopPlaces in nearest query in Transmodel API
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3807">#3807</a></li>
+<li>Fix invalid cast in situations resolver for line type
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3810">#3810</a></li>
+<li>Deduce enum for bookWhen in Transmodel API
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3854">#3854</a></li>
+<li>Fix coercion of default parameter for maximumDistance in nearest
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
+<li>Expose stopPositionInPattern on EstimatedCall
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
+<li>Allow selecting first or last quays in a ServiceJourney
+  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/3846">#3846</a></li>
 <li>Make language nullable in MultilingualString, as it is not set in NonLocalizedString
   <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4074">#4074</a></li>
 <li>Transmodel API transport mode not present or null is all transport modes
@@ -3174,8 +3174,7 @@ will be added to the main change log, and NOT here (2023-12-13).</p>
   <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4365">#4365</a></li>
 <li>Allow specifying allowed/banned rental networks in trip query
   <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4459">#4459</a></li>
-<li>Add flexible stops
-  <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4485">#4485</a></li>
+<li>Add flexible stops <a href="https://github.com/opentripplanner/OpenTripPlanner/pull/4485">#4485</a></li>
 </ul>
 
 
