@@ -1,1 +1,0 @@
-import{h as e}from"../chunks/pages.Cz5s-NHG.js";import{r as o}from"../chunks/index.BkfGHY0P.js";function r(){throw o(301,e)}const l=Object.freeze(Object.defineProperty({__proto__:null,load:r},Symbol.toStringTag,{value:"Module"}));export{l as universal};
