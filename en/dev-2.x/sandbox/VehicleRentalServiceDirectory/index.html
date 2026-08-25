@@ -3192,38 +3192,6 @@ necessary configuration from it.</p>
 <td></td>
 <td style="text-align: center;">2.1</td>
 </tr>
-<tr>
-<td><a href="#vehicleRentalServiceDirectory_networks">networks</a></td>
-<td style="text-align: center;"><code>object[]</code></td>
-<td>List all networks to include. Use "network": "default-network" to set defaults.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td></td>
-<td style="text-align: center;">2.4</td>
-</tr>
-<tr>
-<td>      <a href="#vehicleRentalServiceDirectory_networks_0_allowKeepingVehicleAtDestination">allowKeepingVehicleAtDestination</a></td>
-<td style="text-align: center;"><code>boolean</code></td>
-<td>Enables <code>allowKeepingVehicleAtDestination</code> for the given network.</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>false</code></td>
-<td style="text-align: center;">2.5</td>
-</tr>
-<tr>
-<td>      <a href="#vehicleRentalServiceDirectory_networks_0_geofencingZones">geofencingZones</a></td>
-<td style="text-align: center;"><code>boolean</code></td>
-<td>Enables geofencingZones for the given network</td>
-<td style="text-align: center;"><em>Optional</em></td>
-<td><code>false</code></td>
-<td style="text-align: center;">2.4</td>
-</tr>
-<tr>
-<td>      network</td>
-<td style="text-align: center;"><code>string</code></td>
-<td>The network name</td>
-<td style="text-align: center;"><em>Required</em></td>
-<td></td>
-<td style="text-align: center;">2.4</td>
-</tr>
 </tbody>
 </table>
 <!-- PARAMETERS-TABLE END -->
@@ -3243,29 +3211,6 @@ necessary configuration from it.</p>
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /vehicleRentalServiceDirectory </p>
 <p>HTTP headers to add to the request. Any header key, value can be inserted.</p>
-<h4 id="vehicleRentalServiceDirectory_networks">networks</h4>
-
-<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
-<strong>Path:</strong> /vehicleRentalServiceDirectory </p>
-<p>List all networks to include. Use "network": "default-network" to set defaults.</p>
-<p>If no default network exists only the listed networks are used. Configure a network with
-name "default-network" to include all unlisted networks. If not present, all unlisted
-networks are dropped. Note! The values in the "default-network" are not used to set
-missing field values in networks listed.</p>
-<h4 id="vehicleRentalServiceDirectory_networks_0_allowKeepingVehicleAtDestination">allowKeepingVehicleAtDestination</h4>
-
-<p><strong>Since version:</strong> <code>2.5</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
-<strong>Path:</strong> /vehicleRentalServiceDirectory/networks/[0] </p>
-<p>Enables <code>allowKeepingVehicleAtDestination</code> for the given network.</p>
-<p>Configures if a vehicle rented from a station must be returned to another one or can
-be kept at the end of the trip.</p>
-<p>See the regular <a href="../../GBFS-Config/">GBFS documentation</a> for more information.</p>
-<h4 id="vehicleRentalServiceDirectory_networks_0_geofencingZones">geofencingZones</h4>
-
-<p><strong>Since version:</strong> <code>2.4</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
-<strong>Path:</strong> /vehicleRentalServiceDirectory/networks/[0] </p>
-<p>Enables geofencingZones for the given network</p>
-<p>See the regular <a href="../../GBFS-Config/">GBFS documentation</a> for more information.</p>
 <!-- PARAMETERS-DETAILS END -->
 
 <h3 id="example">Example</h3>
@@ -3278,15 +3223,9 @@ be kept at the end of the trip.</p>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/gbfs/v3/manifest.json&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;ET-Client-Name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otp&quot;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;networks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oslo-by-sykkel&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nt">&quot;geofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">]</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
