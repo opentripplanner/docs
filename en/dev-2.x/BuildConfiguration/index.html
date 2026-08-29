@@ -3906,7 +3906,7 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.7</td>
 </tr>
 <tr>
-<td>      maxTransferDuration</td>
+<td>      <a href="#tpfm_BIKE_maxTransferDuration">maxTransferDuration</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>This overwrites the default <code>maxTransferDuration</code> for the given mode.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -3946,7 +3946,7 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.7</td>
 </tr>
 <tr>
-<td>      maxTransferDuration</td>
+<td>      <a href="#tpfm_CAR_maxTransferDuration">maxTransferDuration</a></td>
 <td style="text-align: center;"><code>duration</code></td>
 <td>This overwrites the default <code>maxTransferDuration</code> for the given mode.</td>
 <td style="text-align: center;"><em>Optional</em></td>
@@ -4792,90 +4792,96 @@ To configure mode-specific parameters, the modes should also be used in the <cod
 
 <p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /transferParametersForMode/BIKE </p>
-<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow bikes.</p>
-<p>This parameter configures additional transfers to be calculated for the specified mode only between stops that have trips with bikes.
-The transfers are calculated for the mode in a range based on the given duration.
-By default, these transfers are not calculated unless specified for a mode with this field.</p>
-<p>When compared to walking, using a bike can cover larger distances within the same duration specified in the <code>maxTransferDuration</code> field.
-This can lead to large amounts of transfers calculated between stops that do not require bike transfers between them.
-This in turn can lead to a large increase in memory for the stored graph, depending on the data used in the graph.</p>
-<p>For bikes, using this parameter in conjunction with <code>disableDefaultTransfers</code> allows calculating transfers only between stops
-which have trips which allow carrying bikes. This avoids storing and calculating transfers which are never used so the transit search
-can be faster compared to the default transfers.</p>
+<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between
+stops which are visited by trips that allow bikes.</p>
+<p>Configures a separate <code>maxTransferDuration</code> for the given mode, used only for transfers
+between stops visited by trips that allow bikes, instead of the given mode's
+<code>maxTransferDuration</code>.</p>
+<p>In combination with the mode's <code>maxTransferDuration</code> you can include transfers for bikes
+between all stops in a smaller radius, and use a larger radius for transfers between
+stops where bikes are explicit allowed.</p>
 <h3 id="tpfm_BIKE_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</h3>
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /transferParametersForMode/BIKE </p>
-<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow cars.</p>
-<p>This parameter configures additional transfers to be calculated for the specified mode only between stops that have trips with cars.
-The transfers are calculated for the mode in a range based on the given duration.
-By default, these transfers are not calculated unless specified for a mode with this field.</p>
-<p>Calculating transfers only between stops that have trips with cars can be useful with car ferries, for example.
-Using transit with cars can only occur between certain stops.
-These kinds of stops require support for loading cars into ferries, for example.
-The default transfers are calculated based on a configurable range (configurable by using the <code>maxTransferDuration</code> field)
-which limits transfers from stops to only be calculated to other stops that are in range.
-When compared to walking, using a car can cover larger distances within the same duration specified in the <code>maxTransferDuration</code> field.
-This can lead to large amounts of transfers calculated between stops that do not require car transfers between them.
-This in turn can lead to a large increase in memory for the stored graph, depending on the data used in the graph.</p>
-<p>For cars, using this parameter in conjunction with <code>disableDefaultTransfers</code> allows calculating transfers only between relevant stops.
-For bikes, using this parameter can enable transfers between ferry stops that would normally not be in range.
-In Finland this is useful for bike routes that use ferries near the Turku archipelago, for example.</p>
+<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between
+stops which are visited by trips that allow cars.</p>
+<p>Configures a separate <code>maxTransferDuration</code> for the given mode, used only for transfers
+between stops visited by trips that allow cars (e.g. car ferries), instead of the given
+mode's <code>maxTransferDuration</code>.</p>
+<p>This can also be configured for other modes. For example, for bikes, this can enable
+transfers between ferry stops that would otherwise be out of range, since car ferries
+usually also allow bikes. This is useful for bike routes using ferries near the Turku
+archipelago in Finland, for example.</p>
 <h3 id="tpfm_BIKE_disableDefaultTransfers">disableDefaultTransfers</h3>
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> /transferParametersForMode/BIKE </p>
 <p>This disables default transfer calculations.</p>
-<p>The default transfers are calculated based on a configurable range (configurable by using the <code>maxTransferDuration</code> field)
-which limits transfers from stops to only be calculated to other stops that are in range.
-This parameter disables these transfers.
-A motivation to disable default transfers could be related to using the <code>carsAllowedStopMaxTransferDuration</code> field which only
-calculates transfers between stops that have trips with cars, or <code>bikesAllowedStopMaxTransferDuration</code> field for bikes.
-For example, when using the <code>carsAllowedStopMaxTransferDuration</code> field with cars, the default transfers can be redundant.</p>
+<p>By default, transfers are calculated between all stop pairs within the given mode's
+<code>maxTransferDuration</code>. This parameter disables that default calculation for the mode.</p>
+<p>This is used together with <code>carsAllowedStopMaxTransferDuration</code> or
+<code>bikesAllowedStopMaxTransferDuration</code>, so that only the restricted, relevant transfers are
+calculated.</p>
+<h3 id="tpfm_BIKE_maxTransferDuration">maxTransferDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transferParametersForMode/BIKE </p>
+<p>This overwrites the default <code>maxTransferDuration</code> for the given mode.</p>
+<p>A car or a bike can cover a much larger distance than walking within the same duration.
+Reusing this value would reduce the search radius, calculating fewer transfers and
+decreases the graph memory usage.</p>
+<p>If it isn't known which stops actually allow cars/bikes, combine a lower value here with
+<code>carsAllowedStopMaxTransferDuration</code> or <code>bikesAllowedStopMaxTransferDuration</code> as a
+compromise: this bounds memory usage for stops in general, while the allowed-stop field
+still supplies a longer range for the stops it is known to be needed for.</p>
 <h3 id="tpfm_CAR_bikesAllowedStopMaxTransferDuration">bikesAllowedStopMaxTransferDuration</h3>
 
 <p><strong>Since version:</strong> <code>2.9</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /transferParametersForMode/CAR </p>
-<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow bikes.</p>
-<p>This parameter configures additional transfers to be calculated for the specified mode only between stops that have trips with bikes.
-The transfers are calculated for the mode in a range based on the given duration.
-By default, these transfers are not calculated unless specified for a mode with this field.</p>
-<p>When compared to walking, using a bike can cover larger distances within the same duration specified in the <code>maxTransferDuration</code> field.
-This can lead to large amounts of transfers calculated between stops that do not require bike transfers between them.
-This in turn can lead to a large increase in memory for the stored graph, depending on the data used in the graph.</p>
-<p>For bikes, using this parameter in conjunction with <code>disableDefaultTransfers</code> allows calculating transfers only between stops
-which have trips which allow carrying bikes. This avoids storing and calculating transfers which are never used so the transit search
-can be faster compared to the default transfers.</p>
+<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between
+stops which are visited by trips that allow bikes.</p>
+<p>Configures a separate <code>maxTransferDuration</code> for the given mode, used only for transfers
+between stops visited by trips that allow bikes, instead of the given mode's
+<code>maxTransferDuration</code>.</p>
+<p>In combination with the mode's <code>maxTransferDuration</code> you can include transfers for bikes
+between all stops in a smaller radius, and use a larger radius for transfers between
+stops where bikes are explicit allowed.</p>
 <h3 id="tpfm_CAR_carsAllowedStopMaxTransferDuration">carsAllowedStopMaxTransferDuration</h3>
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
 <strong>Path:</strong> /transferParametersForMode/CAR </p>
-<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between stops which are visited by trips that allow cars.</p>
-<p>This parameter configures additional transfers to be calculated for the specified mode only between stops that have trips with cars.
-The transfers are calculated for the mode in a range based on the given duration.
-By default, these transfers are not calculated unless specified for a mode with this field.</p>
-<p>Calculating transfers only between stops that have trips with cars can be useful with car ferries, for example.
-Using transit with cars can only occur between certain stops.
-These kinds of stops require support for loading cars into ferries, for example.
-The default transfers are calculated based on a configurable range (configurable by using the <code>maxTransferDuration</code> field)
-which limits transfers from stops to only be calculated to other stops that are in range.
-When compared to walking, using a car can cover larger distances within the same duration specified in the <code>maxTransferDuration</code> field.
-This can lead to large amounts of transfers calculated between stops that do not require car transfers between them.
-This in turn can lead to a large increase in memory for the stored graph, depending on the data used in the graph.</p>
-<p>For cars, using this parameter in conjunction with <code>disableDefaultTransfers</code> allows calculating transfers only between relevant stops.
-For bikes, using this parameter can enable transfers between ferry stops that would normally not be in range.
-In Finland this is useful for bike routes that use ferries near the Turku archipelago, for example.</p>
+<p>This is used for specifying a <code>maxTransferDuration</code> value to use with transfers between
+stops which are visited by trips that allow cars.</p>
+<p>Configures a separate <code>maxTransferDuration</code> for the given mode, used only for transfers
+between stops visited by trips that allow cars (e.g. car ferries), instead of the given
+mode's <code>maxTransferDuration</code>.</p>
+<p>This can also be configured for other modes. For example, for bikes, this can enable
+transfers between ferry stops that would otherwise be out of range, since car ferries
+usually also allow bikes. This is useful for bike routes using ferries near the Turku
+archipelago in Finland, for example.</p>
 <h3 id="tpfm_CAR_disableDefaultTransfers">disableDefaultTransfers</h3>
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
 <strong>Path:</strong> /transferParametersForMode/CAR </p>
 <p>This disables default transfer calculations.</p>
-<p>The default transfers are calculated based on a configurable range (configurable by using the <code>maxTransferDuration</code> field)
-which limits transfers from stops to only be calculated to other stops that are in range.
-This parameter disables these transfers.
-A motivation to disable default transfers could be related to using the <code>carsAllowedStopMaxTransferDuration</code> field which only
-calculates transfers between stops that have trips with cars, or <code>bikesAllowedStopMaxTransferDuration</code> field for bikes.
-For example, when using the <code>carsAllowedStopMaxTransferDuration</code> field with cars, the default transfers can be redundant.</p>
+<p>By default, transfers are calculated between all stop pairs within the given mode's
+<code>maxTransferDuration</code>. This parameter disables that default calculation for the mode.</p>
+<p>This is used together with <code>carsAllowedStopMaxTransferDuration</code> or
+<code>bikesAllowedStopMaxTransferDuration</code>, so that only the restricted, relevant transfers are
+calculated.</p>
+<h3 id="tpfm_CAR_maxTransferDuration">maxTransferDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transferParametersForMode/CAR </p>
+<p>This overwrites the default <code>maxTransferDuration</code> for the given mode.</p>
+<p>A car or a bike can cover a much larger distance than walking within the same duration.
+Reusing this value would reduce the search radius, calculating fewer transfers and
+decreases the graph memory usage.</p>
+<p>If it isn't known which stops actually allow cars/bikes, combine a lower value here with
+<code>carsAllowedStopMaxTransferDuration</code> or <code>bikesAllowedStopMaxTransferDuration</code> as a
+compromise: this bounds memory usage for stops in general, while the allowed-stop field
+still supplies a longer range for the stops it is known to be needed for.</p>
 <h3 id="transitFeeds">transitFeeds</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
