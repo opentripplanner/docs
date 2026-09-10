@@ -2588,6 +2588,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../sandbox/VehicleRentalGeofencing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vehicle Rental Geofencing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
         
   
@@ -3124,7 +3152,7 @@ into a shared <code>gbfs</code> section in <code>otp-config.json</code>. See <a 
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>      network: &quot;default-network&quot;      ------&gt;     defaults { ... }
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                                  includeUnlistedNetworks: true
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      network: &quot;&lt;other&gt;&quot;              ------&gt;     networks[].network
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>      geofencingZones: true           ------&gt;     applyGeofencingZones: &quot;realtime&quot;
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>      geofencingZones: true           ------&gt;     applyGeofencingZones: &quot;serve&quot;
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>      geofencingZones: false          ------&gt;     applyGeofencingZones: &quot;off&quot;
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      allowKeepingVehicleAtDestination -----&gt;     allowKeepingVehicleAtDestination
 </code></pre></div>
@@ -3137,7 +3165,8 @@ into a shared <code>gbfs</code> section in <code>otp-config.json</code>. See <a 
   explicitly did not. Check listed networks that omit <code>requireDropOffInsideBusinessArea</code> or
   <code>allowKeepingVehicleAtDestination</code>.</li>
 <li><code>geofencingZones</code> becomes <code>applyGeofencingZones</code> and is no longer a boolean. It names when the
-  zones are computed and applied - <code>realtime</code> or <code>off</code>.</li>
+  zones are computed and applied - <code>graph-build</code>, <code>serve</code> or <code>off</code> - so a network cannot have its
+  zones applied twice.</li>
 </ul>
 <p><code>geofencingBusinessAreaBorders</code> is renamed <code>requireDropOffInsideBusinessArea</code> and is configurable
 per network rather than hardcoded to <code>true</code>. The default is unchanged.</p>

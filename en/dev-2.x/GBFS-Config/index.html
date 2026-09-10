@@ -2607,6 +2607,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../sandbox/VehicleRentalGeofencing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vehicle Rental Geofencing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
         
   
@@ -3347,14 +3375,17 @@ area, preventing routes that leave the operator's service area with a rented veh
 <!-- vehicle-rental END -->
 
 <h2 id="shared-network-configuration">Shared network configuration</h2>
-<p>The <a href="../sandbox/VehicleRentalServiceDirectory/">vehicle rental service directory</a> discovers its feeds
-from a GBFS manifest and takes its per-network settings from the <code>gbfs</code> section of
-<code>otp-config.json</code>, keyed by the GBFS <code>system_id</code>.</p>
+<p>Both the <a href="../sandbox/VehicleRentalServiceDirectory/">vehicle rental service directory</a> and the
+<code>vehicleRentalGeofencing</code> discover their feeds from a GBFS manifest and need the same per-network
+settings. Those are configured once in the <code>gbfs</code> section of <code>otp-config.json</code>, keyed by the GBFS
+<code>system_id</code>.</p>
 <p>These values are <em>not</em> embedded in the graph, so <code>otp-config.json</code> must be present in the deployment
 directory when the graph is served as well as when it is built.</p>
 <p><code>defaults</code> is applied per field: a listed network overrides only the fields it names and inherits
 the rest. <code>includeUnlistedNetworks</code> is a separate switch so that adding defaults to avoid repetition
 cannot silently widen which networks OTP loads.</p>
+<p><code>applyGeofencingZones</code> names when a network's zones are computed and applied, so the two phases are
+mutually exclusive and zones cannot be applied twice.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// otp-config.json</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;gbfs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3363,13 +3394,53 @@ cannot silently widen which networks OTP loads.</p>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;requireDropOffInsideBusinessArea&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;allowKeepingVehicleAtDestination&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">&quot;includeUnlistedNetworks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">&quot;includeUnlistedNetworks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">&quot;networks&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oslobysykkel&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;applyGeofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;realtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;allowKeepingVehicleAtDestination&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">]</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tier&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;applyGeofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;graph-build&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;voi&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;applyGeofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;graph-build&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;requireDropOffInsideBusinessArea&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oslobysykkel&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;applyGeofencingZones&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;serve&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;allowKeepingVehicleAtDestination&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;network&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;noisy-operator&quot;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
 </code></pre></div>
+<p>Given a manifest listing <code>tier</code>, <code>voi</code>, <code>oslobysykkel</code>, <code>noisy-operator</code> and <code>ryde</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Network</th>
+<th>Graph build</th>
+<th>Runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tier</code></td>
+<td>zones applied, drop-off required inside the area</td>
+<td>updater created, no zone computation</td>
+</tr>
+<tr>
+<td><code>voi</code></td>
+<td>zones applied, no business area enforcement</td>
+<td>updater created, no zone computation</td>
+</tr>
+<tr>
+<td><code>oslobysykkel</code></td>
+<td>skipped</td>
+<td>updater computes zones, may keep at destination</td>
+</tr>
+<tr>
+<td><code>noisy-operator</code></td>
+<td>skipped (inherits <code>"off"</code>)</td>
+<td>updater created, no zones</td>
+</tr>
+<tr>
+<td><code>ryde</code></td>
+<td>skipped, not listed</td>
+<td>skipped with a warning</td>
+</tr>
+</tbody>
+</table>
 <!-- gbfs-networks BEGIN -->
 <!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
 
@@ -3494,10 +3565,11 @@ itinerary can only end with the vehicle parked at one.</p>
 
 <p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"off"</code> <br />
 <strong>Path:</strong> /gbfs/defaults <br />
-<strong>Enum values:</strong> <code>realtime</code> | <code>off</code></p>
+<strong>Enum values:</strong> <code>graph-build</code> | <code>serve</code> | <code>off</code></p>
 <p>When this network's geofencing zones are computed and applied.</p>
 <ul>
-<li><code>realtime</code> The vehicle rental updater loads and applies the zones.</li>
+<li><code>graph-build</code> The vehicle rental geofencing graph builder loads and applies the zones.</li>
+<li><code>serve</code> The vehicle rental updater loads and applies the zones.</li>
 <li><code>off</code> The zones are not processed for this network. Use this to opt a single network out of a
    <code>defaults</code> block that enables them.</li>
 </ul>
@@ -3526,10 +3598,11 @@ itinerary can only end with the vehicle parked at one.</p>
 
 <p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>enum</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"off"</code> <br />
 <strong>Path:</strong> /gbfs/networks/[0] <br />
-<strong>Enum values:</strong> <code>realtime</code> | <code>off</code></p>
+<strong>Enum values:</strong> <code>graph-build</code> | <code>serve</code> | <code>off</code></p>
 <p>When this network's geofencing zones are computed and applied.</p>
 <ul>
-<li><code>realtime</code> The vehicle rental updater loads and applies the zones.</li>
+<li><code>graph-build</code> The vehicle rental geofencing graph builder loads and applies the zones.</li>
+<li><code>serve</code> The vehicle rental updater loads and applies the zones.</li>
 <li><code>off</code> The zones are not processed for this network. Use this to opt a single network out of a
    <code>defaults</code> block that enables them.</li>
 </ul>

@@ -2726,6 +2726,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../sandbox/VehicleRentalGeofencing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vehicle Rental Geofencing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
         
   
@@ -4153,6 +4181,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td></td>
 <td style="text-align: center;">2.7</td>
 </tr>
+<tr>
+<td><a href="#vehicleRentalGeofencing">vehicleRentalGeofencing</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Load GBFS geofencing zones into the graph during graph build.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
 </tbody>
 </table>
 <!-- PARAMETERS-TABLE END -->
@@ -5005,6 +5041,21 @@ origin/destination. In this case the centroid will be used both for direct stree
 access/egress street search where the station is used as the start/end of the access/egress. But
 transit that starts/ends at the station will work as usual without any additional street leg from/to
 the centroid.</p>
+<h3 id="vehicleRentalGeofencing">vehicleRentalGeofencing</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> / </p>
+<p>Load GBFS geofencing zones into the graph during graph build.</p>
+<p>Discovers the networks a provider publishes from a GBFS v3 <code>manifest.json</code> and, for each
+network configured with <code>"applyGeofencingZones": "graph-build"</code> in the <code>gbfs</code> section of
+<code>otp-config.json</code>, loads its geofencing zones and applies them to the street graph during
+the graph build. This moves the cost of computing zone boundaries off the runtime path.</p>
+<p>A network is only loaded if its GBFS feed actually publishes a <code>geofencing_zones</code> feed;
+this is checked against the feed list in <code>gbfs.json</code> before the feed is fetched.</p>
+<p>Vehicles and stations remain realtime data, so a vehicle rental updater is still required.</p>
+<p>Note: a GBFS updater configured directly under <code>updaters</code> in <code>router-config.json</code> does not
+read the shared <code>gbfs</code> section. Enabling <code>geofencing.enabled</code> on such an updater for a
+network that is also built here applies the zones twice.</p>
 <!-- PARAMETERS-DETAILS END -->
 
 <h2 id="build-config-example">Build Config Example</h2>
