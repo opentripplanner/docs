@@ -2407,6 +2407,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="SIRI-ET Data Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#booking-url-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Booking URL templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contact validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3377,6 +3405,51 @@ carpool trips. The system maps SIRI-ET data as follows:</p>
   stops, intermediate ones represent passenger pickup/dropoff</li>
 </ul>
 <p>The system supports multi-stop trips where drivers have already accepted multiple passengers.</p>
+<h4 id="booking-url-templates">Booking URL templates</h4>
+<p>A trip's <code>PublicContact/Url</code> is treated as a URL template. OTP expands two placeholders in it
+before returning the URL on the carpool leg's booking information:</p>
+<table>
+<thead>
+<tr>
+<th>Placeholder</th>
+<th>Expanded with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{from}</code></td>
+<td>The carpool <strong>boarding</strong> point — where the passenger gets in the car</td>
+</tr>
+<tr>
+<td><code>{to}</code></td>
+<td>The carpool <strong>alighting</strong> point — where the passenger gets out</td>
+</tr>
+</tbody>
+</table>
+<p>Each is replaced by <code>latitude,longitude</code> at six decimals, for example
+<code>59.911491,10.750184</code>. These are the points on the driver's route, which are generally <em>not</em> the
+passenger's requested origin and destination (the passenger walks to and from them) and not the
+driver's own origin and destination.</p>
+<p>So a provider publishing</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>https://example.com/book/ENT:ServiceJourney:1?pickup={from}&amp;dropoff={to}
+</code></pre></div>
+<p>receives</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>https://example.com/book/ENT:ServiceJourney:1?pickup=59.911491,10.750184&amp;dropoff=59.933077,10.784618
+</code></pre></div>
+<p>Notes:</p>
+<ul>
+<li><strong>The provider owns the URL.</strong> OTP does not choose the parameter names, their order, or where in
+  the URL the coordinates land. Placeholders are expanded wherever they appear — query string,
+  path segment or fragment — and every occurrence is expanded.</li>
+<li><strong>Both placeholders are optional.</strong> A URL containing neither is passed through unchanged, so a
+  provider that does not want the passenger's coordinates simply publishes a plain URL.</li>
+<li><strong>Names are case-sensitive.</strong> <code>{From}</code> is not recognised, and since curly braces are not legal
+  URI characters, its leftover braces would make the expanded URL unparseable.</li>
+</ul>
+<h4 id="contact-validation">Contact validation</h4>
+<p>The booking URL of an incoming SIRI message is checked when the message is read: it must expand to
+a parseable URI. A URL that fails is logged and left off the trip; the trip itself is kept either
+way, and the booking information on the carpool leg advertises only the channels that survived.</p>
 <h2 id="features">Features</h2>
 <h3 id="trip-matching">Trip Matching</h3>
 <p>The carpooling service matches passengers with compatible carpool trips based on several criteria:</p>
