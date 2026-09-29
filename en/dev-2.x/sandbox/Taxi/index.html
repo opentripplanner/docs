@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/apis/GraphQL-Tutorial/">
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/sandbox/Taxi/">
       
       
-        <link rel="prev" href="../Apis/">
+        <link rel="prev" href="../Emission/">
       
       
-        <link rel="next" href="../GTFS-GraphQL-API/">
+        <link rel="next" href="../EmpiricalDelay/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>GraphQL Tutorial - OpenTripPlanner 2</title>
+        <title>Taxi Routing - OpenTripPlanner 2</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#graphql-tutorial" class="md-skip">
+        <a href="#taxi-routing" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GraphQL Tutorial
+              Taxi Routing
             
           </span>
         </div>
@@ -902,20 +902,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -936,7 +934,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -954,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Apis/" class="md-nav__link">
+      <a href="../../apis/Apis/" class="md-nav__link">
         
   
   
@@ -979,37 +977,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GraphQL Tutorial
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../apis/GraphQL-Tutorial/" class="md-nav__link">
         
   
   
@@ -1025,59 +996,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#visual-graphql-api-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual GraphQL API client
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sending-your-first-query" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sending your first query
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-more-advanced-query" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A more advanced query
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1090,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../GTFS-GraphQL-API/" class="md-nav__link">
+      <a href="../../apis/GTFS-GraphQL-API/" class="md-nav__link">
         
   
   
@@ -1118,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TransmodelApi/" class="md-nav__link">
+      <a href="../../apis/TransmodelApi/" class="md-nav__link">
         
   
   
@@ -2234,18 +2152,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -2266,7 +2186,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2312,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/ActuatorAPI/" class="md-nav__link">
+      <a href="../ActuatorAPI/" class="md-nav__link">
         
   
   
@@ -2340,7 +2260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/Carpooling/" class="md-nav__link">
+      <a href="../Carpooling/" class="md-nav__link">
         
   
   
@@ -2368,7 +2288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/DebugRasterTiles/" class="md-nav__link">
+      <a href="../DebugRasterTiles/" class="md-nav__link">
         
   
   
@@ -2396,7 +2316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/transferanalyzer/" class="md-nav__link">
+      <a href="../transferanalyzer/" class="md-nav__link">
         
   
   
@@ -2424,7 +2344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/GoogleCloudStorage/" class="md-nav__link">
+      <a href="../GoogleCloudStorage/" class="md-nav__link">
         
   
   
@@ -2452,7 +2372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/siri/SiriGooglePubSubUpdater/" class="md-nav__link">
+      <a href="../siri/SiriGooglePubSubUpdater/" class="md-nav__link">
         
   
   
@@ -2480,7 +2400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
+      <a href="../siri/SiriAzureUpdater/" class="md-nav__link">
         
   
   
@@ -2508,7 +2428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/siri/SiriMqttUpdater/" class="md-nav__link">
+      <a href="../siri/SiriMqttUpdater/" class="md-nav__link">
         
   
   
@@ -2536,7 +2456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
+      <a href="../VehicleRentalServiceDirectory/" class="md-nav__link">
         
   
   
@@ -2564,7 +2484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/VehicleRentalGeofencing/" class="md-nav__link">
+      <a href="../VehicleRentalGeofencing/" class="md-nav__link">
         
   
   
@@ -2592,7 +2512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
+      <a href="../MapboxVectorTilesApi/" class="md-nav__link">
         
   
   
@@ -2620,7 +2540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/Flex/" class="md-nav__link">
+      <a href="../Flex/" class="md-nav__link">
         
   
   
@@ -2648,7 +2568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/ReportApi/" class="md-nav__link">
+      <a href="../ReportApi/" class="md-nav__link">
         
   
   
@@ -2676,7 +2596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/InteractiveOtpMain/" class="md-nav__link">
+      <a href="../InteractiveOtpMain/" class="md-nav__link">
         
   
   
@@ -2704,7 +2624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/ParkAndRideApi/" class="md-nav__link">
+      <a href="../ParkAndRideApi/" class="md-nav__link">
         
   
   
@@ -2732,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/DataOverlay/" class="md-nav__link">
+      <a href="../DataOverlay/" class="md-nav__link">
         
   
   
@@ -2760,7 +2680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/VehicleParking/" class="md-nav__link">
+      <a href="../VehicleParking/" class="md-nav__link">
         
   
   
@@ -2788,7 +2708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/GeocoderAPI/" class="md-nav__link">
+      <a href="../GeocoderAPI/" class="md-nav__link">
         
   
   
@@ -2816,7 +2736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/IBIAccessibilityScore/" class="md-nav__link">
+      <a href="../IBIAccessibilityScore/" class="md-nav__link">
         
   
   
@@ -2844,7 +2764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/Fares/" class="md-nav__link">
+      <a href="../Fares/" class="md-nav__link">
         
   
   
@@ -2872,7 +2792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/RideHailing/" class="md-nav__link">
+      <a href="../RideHailing/" class="md-nav__link">
         
   
   
@@ -2900,7 +2820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/Emission/" class="md-nav__link">
+      <a href="../Emission/" class="md-nav__link">
         
   
   
@@ -2925,10 +2845,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../sandbox/Taxi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taxi Routing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2944,6 +2891,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contact-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contact Info
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taxi-provider-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taxi Provider Data Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gtfs-data-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GTFS Data Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gtfs-api-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GTFS API Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decorated-leg-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decorated Leg Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changelog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#otp-211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTP 2.11
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2956,7 +3034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/EmpiricalDelay/" class="md-nav__link">
+      <a href="../EmpiricalDelay/" class="md-nav__link">
         
   
   
@@ -2984,7 +3062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/StopConsolidation/" class="md-nav__link">
+      <a href="../StopConsolidation/" class="md-nav__link">
         
   
   
@@ -3012,7 +3090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/Sorlandsbanen/" class="md-nav__link">
+      <a href="../Sorlandsbanen/" class="md-nav__link">
         
   
   
@@ -3040,7 +3118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/TriasApi/" class="md-nav__link">
+      <a href="../TriasApi/" class="md-nav__link">
         
   
   
@@ -3068,7 +3146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sandbox/OjpApi/" class="md-nav__link">
+      <a href="../OjpApi/" class="md-nav__link">
         
   
   
@@ -3116,126 +3194,143 @@
   
 
 
-<!--
-  NOTE! Part of this document is generated. Make sure you edit the template, not the generated doc.
-
-   - Template directory is:  /doc/templates
-   - Generated directory is: /doc/user
--->
-
-<h1 id="graphql-tutorial">GraphQL tutorial</h1>
-<p>This document will give you a quick start tutorial on how to get started with OTP's GraphQL APIs.
-For this tutorial we will be using the <a href="../GTFS-GraphQL-API/">GTFS GraphQL API</a> as this is the most
-commonly used one.</p>
-<p>First of all, make sure that you've loaded street and transit data into your instance by following
-the <a href="../../Basic-Tutorial/">basic tutorial</a></p>
-<h2 id="visual-graphql-api-client">Visual GraphQL API client</h2>
-<p>OTP has a built-in API client to help you build queries and view documentation. After having started
-OTP, visit <a href="http://localhost:8080/graphiql">http://localhost:8080/graphiql</a> to open it.</p>
-<p>It should look like this:</p>
-<p><img alt="GraphiQL" src="../../images/graphiql.png" /></p>
-<h2 id="sending-your-first-query">Sending your first query</h2>
-<p>For our first query we want to get the list of routes loaded into OTP. Therefore paste the following
-GraphQL query in the left hand panel of the page:</p>
-<!-- route-query BEGIN -->
-<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">routes</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">longName</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">shortName</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">gtfsId</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">agency</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="n">gtfsId</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="n">name</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">mode</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+<h1 id="taxi-routing">Taxi Routing</h1>
+<h2 id="contact-info">Contact Info</h2>
+<ul>
+<li>HSL</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>The taxi module filters and decorates taxi itineraries using spatial provider data
+loaded from dedicated GTFS Flex feeds.</p>
+<p>For a transit itinerary with a <code>TAXI</code> access and/or egress leg:
+- Before the transit search runs, each candidate access/egress stop is checked against
+  the request's origin/destination coordinate: if <strong>no provider covers both</strong>, the candidate is
+  dropped and never reaches the transit search. Access and egress are filtered independently of
+  each other.
+- Once the transit search has picked a surviving access/egress candidate and the itinerary's legs
+  are built, the plain driving leg is decorated with the matched provider's route, agency, and
+  booking information. Because the candidate has already passed the pre-search check, a matching
+  provider is expected to always be found here.</p>
+<p>For a direct (non-transit) <code>TAXI</code> itinerary, the same two-phase approach is used:
+- Before the street search runs, OTP checks whether the request's origin and destination share a
+  common provider; if not, an empty result is returned immediately without running a street
+  search.
+- Otherwise, once the itinerary has been built, the driving leg is decorated the same way,
+  looked up using those same request origin/destination coordinates rather than the leg's own
+  local coordinates.</p>
+<p>Decoration is only applied when the request's access, egress, or direct mode is <code>TAXI</code>, and only
+when the feature flag is on and taxi provider data is configured (see Configuration). If the flag
+is off or no taxi provider data is configured, <code>TAXI</code> requests return no itineraries rather than
+falling back to undecorated street routing.</p>
+<p><strong>TODO:</strong>
+- Multi-provider support. Currently only the first matching provider is used.
+- Calendar/service-date validation?</p>
+<h3 id="taxi-provider-data-files">Taxi Provider Data Files</h3>
+<p>Taxi provider data is provided as standard GTFS Flex zip files, configured explicitly in the
+<code>transitFeeds</code> list in <code>build-config.json</code> like any other GTFS feed (with <code>"type": "gtfs"</code>), but
+with <code>isTaxiData</code> set to <code>true</code> (this can also be set as a default for all GTFS feeds via
+the top-level <code>gtfsDefaults.isTaxiData</code>, overridable per-feed). Such feeds are <strong>not</strong> added
+to normal transit or flex routing — they are processed exclusively by this module.</p>
+<p>Example graph directory layout:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  build-config.json
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  HSL-gtfs.zip
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  TaxiProvider-gtfs.zip
 </code></pre></div>
-<!-- route-query END -->
-
-<p>After pressing the "Execute query" button you should see the result of the query on the right hand
-side panel.</p>
-<p>Now would be a good time to explore the auto-complete capabilities of the tool by moving the cursor
-into the query panel and hitting Ctrl-Space to see what other query parameters are possible.</p>
-<p><img alt="GraphiQL" src="../../images/graphiql-autocomplete.png" /></p>
-<p>The explorer also has documentation built into it. If you hover your pointer over a property on the
-left hand side you can see its documentation.</p>
-<p><img alt="GraphiQL" src="../../images/graphiql-documentation.png" /></p>
-<h2 id="a-more-advanced-query">A more advanced query</h2>
-<p>Most people want to get routing results out of OTP, so lets see the query for this:</p>
-<!-- plan-query BEGIN -->
-<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="n">planConnection</span><span class="p">(</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">origin</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="c"># these coordinates are in Portland, change this to YOUR origin</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="n">location</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">coordinate</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">latitude</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="err">5.5552</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">:</span><span class="w"> </span><span class="mi">-12</span><span class="err">2.6534</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">destination</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="c"># these coordinates are in Portland, change this to YOUR destination</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="n">location</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">coordinate</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">latitude</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="err">5.4908</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">:</span><span class="w"> </span><span class="mi">-12</span><span class="err">2.5519</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="c"># use the correct date and time of your request</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="n">dateTime</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">earliestDeparture</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-06-13T14:30-07:00&quot;</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="c"># choose the transport modes you need</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="n">modes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="n">direct</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="no">WALK</span><span class="p">]</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="n">transit</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">transit</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">mode</span><span class="p">:</span><span class="w"> </span><span class="no">BUS</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">mode</span><span class="p">:</span><span class="w"> </span><span class="no">RAIL</span><span class="w"> </span><span class="p">}]</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="n">edges</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="n">start</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">        </span><span class="n">end</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="n">legs</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">          </span><span class="n">mode</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">          </span><span class="n">from</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">            </span><span class="n">name</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">            </span><span class="n">lat</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">            </span><span class="n">lon</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">            </span><span class="n">departure</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">              </span><span class="n">scheduledTime</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">              </span><span class="n">estimated</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">                </span><span class="n">time</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">                </span><span class="n">delay</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">              </span><span class="p">}</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">          </span><span class="p">}</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">          </span><span class="n">to</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">            </span><span class="n">name</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">            </span><span class="n">lat</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">            </span><span class="n">lon</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">            </span><span class="n">arrival</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">              </span><span class="n">scheduledTime</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">              </span><span class="n">estimated</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">                </span><span class="n">time</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">                </span><span class="n">delay</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">              </span><span class="p">}</span>
-<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">          </span><span class="p">}</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">          </span><span class="n">route</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">            </span><span class="n">gtfsId</span>
-<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">            </span><span class="n">longName</span>
-<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">            </span><span class="n">shortName</span>
-<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">          </span><span class="p">}</span>
-<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">          </span><span class="n">legGeometry</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">            </span><span class="n">points</span>
-<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">          </span><span class="p">}</span>
-<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;transitFeeds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gtfs&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HSL-gtfs.zip&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gtfs&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TaxiProvider-gtfs.zip&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TaxiProvider&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nt">&quot;isTaxiData&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
 </code></pre></div>
-<!-- plan-query END -->
-
-<p>Again, please use the autocomplete and documentation viewers to figure out what each input parameter
-and property means.</p>
-<p>More examples for a variety of queries can also be found
-<a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/application/src/test/resources/org/opentripplanner/apis/gtfs/queries">in the test code</a>.</p>
+<h3 id="gtfs-data-requirements">GTFS Data Requirements</h3>
+<p>Each flex trip in the feed must satisfy all of the following, otherwise the trip is skipped with
+a warning in the build report:</p>
+<ol>
+<li>The trip must be an unscheduled (demand-responsive) flex trip. Scheduled-deviated trips are
+   not supported.</li>
+<li>The trip's route must have <code>route_type</code> <code>1500</code>-<code>1599</code> (the GTFS "Taxi Service" family, mapped
+   to OTP's <code>TAXI</code> transit mode). Trips on any other route type are skipped.</li>
+<li>At most one trip is kept per route. If multiple trips otherwise satisfy all of these
+   requirements for the same route, only the first one is kept and the rest are skipped.</li>
+<li>No stop may have a meaningful time restriction (<code>start_pickup_dropoff_window</code> /
+   <code>end_pickup_dropoff_window</code>). A full-day window (<code>0:00:00</code>–<code>24:00:00</code>) is accepted and treated
+   as "always available". Any other bounded window causes the trip to be skipped.</li>
+<li>The trip must have exactly 2 stop times: stop 0 is the pickup stop and stop 1 is the
+   drop-off stop.</li>
+<li>Both stop times must reference the same GTFS Flex area (<code>location_id</code>) and that area must
+   have a geometry. Trips with separate departure and arrival zones are not supported.</li>
+<li>Stop 0 must have <code>pickup_type</code> <code>2</code> (CALL_AGENCY) and stop 1 must have <code>drop_off_type</code> <code>2</code>
+   (CALL_AGENCY). <code>0</code> (SCHEDULED) and <code>3</code> (COORDINATE_WITH_DRIVER) are not accepted.</li>
+</ol>
+<h3 id="gtfs-api-modes">GTFS API Modes</h3>
+<p>To opt into taxi provider matching, requests must use the <code>TAXI</code> mode
+(<code>PlanAccessMode</code>, <code>PlanEgressMode</code>, or <code>PlanDirectMode</code>) for the relevant part of the journey.
+Internally this maps to the <code>TAXI</code> street mode, which behaves identically to
+<code>CAR_PICKUP</code> for routing purposes but additionally triggers taxi decoration (see above).</p>
+<h3 id="decorated-leg-fields">Decorated Leg Fields</h3>
+<p>A decorated taxi leg is <strong>not</strong> considered a transit leg (<code>transitLeg</code>/<code>isTransit</code> is <code>false</code> in
+the API), even though it carries operator and booking information from the matched provider.
+Everything else about the leg (geometry, distance, duration, generalized cost, etc.) is the same
+as for a plain driving leg.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field (GTFS GraphQL / Transmodel)</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>agency</code> / <code>authority</code></td>
+<td style="text-align: left;">Operator of the matched taxi provider.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>route</code> / <code>line</code></td>
+<td style="text-align: left;">Route of the matched taxi provider.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>pickupBookingInfo</code> / <code>bookingArrangements</code></td>
+<td style="text-align: left;">Booking info for the pickup.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dropOffBookingInfo</code> (GTFS GraphQL only)</td>
+<td style="text-align: left;">Booking info for the drop-off.</td>
+</tr>
+</tbody>
+</table>
+<p>A <code>TAXI</code> request whose origin and destination (for direct routing) or whose logical
+access/egress endpoints (for transit routing) don't share a common provider never reaches leg
+decoration at all — it is filtered out before routing runs (see above), rather than being
+built and then discarded.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Enable the feature flag in <code>otp-config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// otp-config.json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;TaxiRouting&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="changelog">Changelog</h2>
+<h3 id="otp-211">OTP 2.11</h3>
+<ul>
+<li>Initial implementation: spatial route index, itinerary filtering, and leg decoration with
+  provider information from GTFS Flex data. Taxi provider feeds are configured explicitly in
+  <code>transitFeeds</code> with <code>isTaxiData: true</code>.</li>
+<li>Moved route checking before routing runs (for both transit access/egress and direct routing),
+  filtering out non-matching requests instead of discarding built itineraries afterward, and
+  decorate using request-level origin/destination coordinates rather than a leg's own local
+  coordinates.</li>
+</ul>
 
 
 
