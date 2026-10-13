@@ -3374,6 +3374,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
+<td><a href="#maxDataImportIssuesPerType">maxDataImportIssuesPerType</a></td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The maximum number of issues of each type written to the import report.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1000</code></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+<tr>
 <td>maxElevationPropagationMeters</td>
 <td style="text-align: center;"><code>integer</code></td>
 <td>The maximum distance to propagate elevation to vertices which have no elevation.</td>
@@ -4476,8 +4484,17 @@ all of the elevation values in the street edges.</p>
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1000</code> <br />
 <strong>Path:</strong> / </p>
 <p>When to split the import report.</p>
-<p>If the number of issues is larger then <code>maxDataImportIssuesPerFile</code>, then the files will
+<p>If the number of issues is larger than <code>maxDataImportIssuesPerFile</code>, then the files will
   be split in multiple files. Since browsers have problems opening large HTML files.</p>
+<h3 id="maxDataImportIssuesPerType">maxDataImportIssuesPerType</h3>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>integer</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1000</code> <br />
+<strong>Path:</strong> / </p>
+<p>The maximum number of issues of each type written to the import report.</p>
+<p>When an issue type has more issues than <code>maxDataImportIssuesPerType</code>, only the issues
+  with the highest priority are written to the HTML and GeoJSON report. The others are left
+  out of the report, but they are still counted in the issue summary logged at the end of
+  the graph build. Set the value to <code>-1</code> to write all issues.</p>
 <h3 id="maxStopToShapeSnapDistance">maxStopToShapeSnapDistance</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>150.0</code> <br />
