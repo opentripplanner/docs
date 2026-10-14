@@ -3499,8 +3499,8 @@ an instance about the version, instead of tracking the deployment pipeline backw
 version used. How you inject a version into the configuration file is up to you, but you can do it
 in your build-pipeline, at deployment time or use system environment variable substitution.</p>
 <h2 id="otp-serialization-version-id-and-graphobj-file-header">OTP Serialization version id and <em>Graph.obj</em> file header</h2>
-<p>OTP has a <em>OTP Serialization Version Id</em> maintained in the pom.xml<em> file. OTP stores the id in the
-serialized _Graph.obj</em> file header, allowing OTP to check for compatibility issues when loading the
+<p>OTP has a <em>OTP Serialization Version Id</em> maintained in the pom.xml* file. OTP stores the id in the
+serialized _Graph.obj* file header, allowing OTP to check for compatibility issues when loading the
 graph. The header info is available to configuration substitution:</p>
 <ul>
 <li><code>${graph.file.header}</code> Will expand to: <code>OpenTripPlannerGraph;0000007;</code></li>
