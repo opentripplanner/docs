@@ -3502,6 +3502,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
+<td><a href="#transitShapeSimplificationToleranceMeters">transitShapeSimplificationToleranceMeters</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Douglas-Peucker simplification tolerance for transit route shapes, in meters.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+<tr>
 <td><a href="#boardingLocationTags">boardingLocationTags</a></td>
 <td style="text-align: center;"><code>string[]</code></td>
 <td>What OSM tags should be looked on for the source of matching stops to platforms and stops.</td>
@@ -4595,6 +4603,17 @@ build(BUILD_DAY).</p>
 will not be part of the graph. Use an absolute date or a period relative to the date the graph is
 build(BUILD_DAY).</p>
 <p>To get an effectively unbounded value, use a very large period like <code>"-P100Y"</code>.</p>
+<h3 id="transitShapeSimplificationToleranceMeters">transitShapeSimplificationToleranceMeters</h3>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.0</code> <br />
+<strong>Path:</strong> / </p>
+<p>Douglas-Peucker simplification tolerance for transit route shapes, in meters.</p>
+<p>Simplifies each trip pattern's shape geometry once, at graph-build time, using the Douglas-Peucker algorithm
+with this distance tolerance as the epsilon parameter of the algorithm. A larger tolerance removes more
+points (and any shape detail smaller than it); points are never removed from an individual hop's endpoints,
+so stop locations are unaffected.</p>
+<p>This is opt-in - leave it unset to keep the raw, unsimplified shapes. 0.5 or 3.0 meters may save a significant
+amount of memory - if some of the feeds contains shapes with a lot of detail.</p>
 <h3 id="boardingLocationTags">boardingLocationTags</h3>
 
 <p><strong>Since version:</strong> <code>2.2</code> ∙ <strong>Type:</strong> <code>string[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
