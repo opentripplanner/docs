@@ -1710,6 +1710,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#211-boarding-location-configuration-moved-into-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.11: boarding location configuration moved into an object
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3170,6 +3181,19 @@ into a shared <code>gbfs</code> section in <code>otp-config.json</code>. See <a 
 </ul>
 <p><code>geofencingBusinessAreaBorders</code> is renamed <code>requireDropOffInsideBusinessArea</code> and is configurable
 per network rather than hardcoded to <code>true</code>. The default is unchanged.</p>
+<h3 id="211-boarding-location-configuration-moved-into-an-object">2.11: boarding location configuration moved into an object</h3>
+<p><code>boardingLocationTags</code> in <code>build-config.json</code> moved into a new <code>boardingLocations</code> object and is
+renamed <code>refTags</code>. The new <code>coordinateSource</code> parameter lives beside it. See
+<a href="../BoardingLocations/">boarding locations</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>before                                   after
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  boardingLocationTags: [...]    ------&gt;   boardingLocations
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>                                             refTags: [...]
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                                             coordinateSource: &quot;osm&quot; | &quot;transit&quot;
+</code></pre></div>
+<p>The default for <code>refTags</code> is unchanged (<code>["ref"]</code>), so a deployment that never set
+<code>boardingLocationTags</code> needs no change. One that did will otherwise fall back to the default and
+silently stop matching stops on its other tags - check the startup log for
+<code>Unexpected config parameter: 'boardingLocationTags'</code>.</p>
 
 
 
