@@ -3806,6 +3806,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;">2.2</td>
 </tr>
 <tr>
+<td>   <a href="#nd_allowStopPlaceAsPassengerStopAssignment">allowStopPlaceAsPassengerStopAssignment</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether it is allowed for a <code>PassengerStopAssigment</code> to be assigned to a <code>StopPlace</code> only (not a <code>Quay</code>).</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+<tr>
 <td>   feedId</td>
 <td style="text-align: center;"><code>string</code></td>
 <td>This field is used to identify the specific NeTEx feed. It is used instead of the feed_id field in GTFS file feed_info.txt.</td>
@@ -4140,6 +4148,14 @@ Sections follow that describe particular settings in more depth.</p>
 <td style="text-align: center;"><em>Required</em></td>
 <td></td>
 <td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      <a href="#tf_1_allowStopPlaceAsPassengerStopAssignment">allowStopPlaceAsPassengerStopAssignment</a></td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether it is allowed for a <code>PassengerStopAssigment</code> to be assigned to a <code>StopPlace</code> only (not a <code>Quay</code>).</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.11</td>
 </tr>
 <tr>
 <td>      feedId</td>
@@ -4860,6 +4876,13 @@ pattern it is considered a match. Any legal Java Regular expression is allowed.<
 <p>Pattern for matching Open Street Map input files.</p>
 <p>If the filename contains the given pattern
 it is considered a match. Any legal Java Regular expression is allowed.</p>
+<h3 id="nd_allowStopPlaceAsPassengerStopAssignment">allowStopPlaceAsPassengerStopAssignment</h3>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /netexDefaults </p>
+<p>Whether it is allowed for a <code>PassengerStopAssigment</code> to be assigned to a <code>StopPlace</code> only (not a <code>Quay</code>).</p>
+<p>The <a href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/728891481/Nordic%2BNeTEx%2BProfile">Nordic Profile</a> only allows <code>PassengerStopAssignment</code>s to be assigned to a <code>Quay</code> (not a <code>StopPlace</code>).</p>
+<p><a href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/728891481/Nordic%2BNeTEx%2BProfile">EPIP</a> and the <a href="https://opentdatach.github.io/netexRealisationGuideSwitzerland/main/06_service.html#passengerstopassignment">Swiss Profile</a> allow this.</p>
 <h3 id="nd_groupFilePattern">groupFilePattern</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})-.*\.xml"</code> <br />
@@ -5085,6 +5108,13 @@ out itineraries that don't fall within a recognized taxi provider's coverage are
 <p>Should there be some preference or aversion for transfers at stops that are part of a station. Overrides the value specified in <code>gtfsDefaults</code>.</p>
 <p>This parameter sets the generic level of preference. What is the actual cost can be changed
 with the <code>stopBoardAlightDuringTransferCost</code> parameter in the router configuration.</p>
+<h3 id="tf_1_allowStopPlaceAsPassengerStopAssignment">allowStopPlaceAsPassengerStopAssignment</h3>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /transitFeeds/[1] </p>
+<p>Whether it is allowed for a <code>PassengerStopAssigment</code> to be assigned to a <code>StopPlace</code> only (not a <code>Quay</code>).</p>
+<p>The <a href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/728891481/Nordic%2BNeTEx%2BProfile">Nordic Profile</a> only allows <code>PassengerStopAssignment</code>s to be assigned to a <code>Quay</code> (not a <code>StopPlace</code>).</p>
+<p><a href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/728891481/Nordic%2BNeTEx%2BProfile">EPIP</a> and the <a href="https://opentdatach.github.io/netexRealisationGuideSwitzerland/main/06_service.html#passengerstopassignment">Swiss Profile</a> allow this.</p>
 <h3 id="tf_1_groupFilePattern">groupFilePattern</h3>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>regexp</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"(\w{3})-.*\.xml"</code> <br />
@@ -5247,50 +5277,51 @@ network that is also built here applies the zones twice.</p>
 <a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a><span class="w">      </span><span class="nt">&quot;sharedFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_stops.xml&quot;</span><span class="p">,</span>
 <a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a><span class="w">      </span><span class="nt">&quot;sharedGroupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_(\\w{3})_shared_data.xml&quot;</span><span class="p">,</span>
 <a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a><span class="w">      </span><span class="nt">&quot;groupFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(\\w{3})_.*\\.xml&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a><span class="w">      </span><span class="nt">&quot;ignoreFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(temp|tmp)&quot;</span>
-<a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a><span class="w">  </span><span class="nt">&quot;transferRequests&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span>
-<a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BICYCLE&quot;</span>
-<a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CAR&quot;</span>
-<a id="__codelineno-8-94" name="__codelineno-8-94" href="#__codelineno-8-94"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-95" name="__codelineno-8-95" href="#__codelineno-8-95"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-8-96" name="__codelineno-8-96" href="#__codelineno-8-96"></a><span class="w">  </span><span class="nt">&quot;stopConsolidationFile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;consolidated-stops.csv&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a><span class="w">  </span><span class="nt">&quot;transferParametersForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a><span class="w">    </span><span class="nt">&quot;CAR&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-99" name="__codelineno-8-99" href="#__codelineno-8-99"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
-<a id="__codelineno-8-101" name="__codelineno-8-101" href="#__codelineno-8-101"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-8-102" name="__codelineno-8-102" href="#__codelineno-8-102"></a><span class="w">    </span><span class="nt">&quot;BIKE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-103" name="__codelineno-8-103" href="#__codelineno-8-103"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-8-104" name="__codelineno-8-104" href="#__codelineno-8-104"></a><span class="w">      </span><span class="nt">&quot;maxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30m&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-105" name="__codelineno-8-105" href="#__codelineno-8-105"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-106" name="__codelineno-8-106" href="#__codelineno-8-106"></a><span class="w">      </span><span class="nt">&quot;bikesAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1h&quot;</span>
-<a id="__codelineno-8-107" name="__codelineno-8-107" href="#__codelineno-8-107"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-8-108" name="__codelineno-8-108" href="#__codelineno-8-108"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-8-109" name="__codelineno-8-109" href="#__codelineno-8-109"></a><span class="w">  </span><span class="nt">&quot;cache&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-110" name="__codelineno-8-110" href="#__codelineno-8-110"></a><span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-8-111" name="__codelineno-8-111" href="#__codelineno-8-111"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-8-112" name="__codelineno-8-112" href="#__codelineno-8-112"></a><span class="w">  </span><span class="nt">&quot;boardingLocations&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-113" name="__codelineno-8-113" href="#__codelineno-8-113"></a><span class="w">    </span><span class="nt">&quot;refTags&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-8-114" name="__codelineno-8-114" href="#__codelineno-8-114"></a><span class="w">      </span><span class="s2">&quot;ref&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-115" name="__codelineno-8-115" href="#__codelineno-8-115"></a><span class="w">      </span><span class="s2">&quot;ref:IFOPT&quot;</span>
-<a id="__codelineno-8-116" name="__codelineno-8-116" href="#__codelineno-8-116"></a><span class="w">    </span><span class="p">],</span>
-<a id="__codelineno-8-117" name="__codelineno-8-117" href="#__codelineno-8-117"></a><span class="w">    </span><span class="nt">&quot;coordinateSource&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transit&quot;</span>
-<a id="__codelineno-8-118" name="__codelineno-8-118" href="#__codelineno-8-118"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-119" name="__codelineno-8-119" href="#__codelineno-8-119"></a><span class="p">}</span>
+<a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a><span class="w">      </span><span class="nt">&quot;ignoreFilePattern&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(temp|tmp)&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a><span class="w">      </span><span class="nt">&quot;allowStopPlaceAsPassengerStopAssignment&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a><span class="w">  </span><span class="nt">&quot;transferRequests&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span>
+<a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="w">      </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BICYCLE&quot;</span>
+<a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-94" name="__codelineno-8-94" href="#__codelineno-8-94"></a><span class="w">      </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CAR&quot;</span>
+<a id="__codelineno-8-95" name="__codelineno-8-95" href="#__codelineno-8-95"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-96" name="__codelineno-8-96" href="#__codelineno-8-96"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a><span class="w">  </span><span class="nt">&quot;stopConsolidationFile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;consolidated-stops.csv&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a><span class="w">  </span><span class="nt">&quot;transferParametersForMode&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-99" name="__codelineno-8-99" href="#__codelineno-8-99"></a><span class="w">    </span><span class="nt">&quot;CAR&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-101" name="__codelineno-8-101" href="#__codelineno-8-101"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span>
+<a id="__codelineno-8-102" name="__codelineno-8-102" href="#__codelineno-8-102"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-103" name="__codelineno-8-103" href="#__codelineno-8-103"></a><span class="w">    </span><span class="nt">&quot;BIKE&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-104" name="__codelineno-8-104" href="#__codelineno-8-104"></a><span class="w">      </span><span class="nt">&quot;disableDefaultTransfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-105" name="__codelineno-8-105" href="#__codelineno-8-105"></a><span class="w">      </span><span class="nt">&quot;maxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30m&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-106" name="__codelineno-8-106" href="#__codelineno-8-106"></a><span class="w">      </span><span class="nt">&quot;carsAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-107" name="__codelineno-8-107" href="#__codelineno-8-107"></a><span class="w">      </span><span class="nt">&quot;bikesAllowedStopMaxTransferDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1h&quot;</span>
+<a id="__codelineno-8-108" name="__codelineno-8-108" href="#__codelineno-8-108"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-109" name="__codelineno-8-109" href="#__codelineno-8-109"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-110" name="__codelineno-8-110" href="#__codelineno-8-110"></a><span class="w">  </span><span class="nt">&quot;cache&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-111" name="__codelineno-8-111" href="#__codelineno-8-111"></a><span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-8-112" name="__codelineno-8-112" href="#__codelineno-8-112"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-8-113" name="__codelineno-8-113" href="#__codelineno-8-113"></a><span class="w">  </span><span class="nt">&quot;boardingLocations&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-114" name="__codelineno-8-114" href="#__codelineno-8-114"></a><span class="w">    </span><span class="nt">&quot;refTags&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-115" name="__codelineno-8-115" href="#__codelineno-8-115"></a><span class="w">      </span><span class="s2">&quot;ref&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-116" name="__codelineno-8-116" href="#__codelineno-8-116"></a><span class="w">      </span><span class="s2">&quot;ref:IFOPT&quot;</span>
+<a id="__codelineno-8-117" name="__codelineno-8-117" href="#__codelineno-8-117"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-8-118" name="__codelineno-8-118" href="#__codelineno-8-118"></a><span class="w">    </span><span class="nt">&quot;coordinateSource&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transit&quot;</span>
+<a id="__codelineno-8-119" name="__codelineno-8-119" href="#__codelineno-8-119"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-120" name="__codelineno-8-120" href="#__codelineno-8-120"></a><span class="p">}</span>
 </code></pre></div>
 <!-- JSON-EXAMPLE END -->
 
