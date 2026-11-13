@@ -4005,17 +4005,17 @@
 <td style="text-align: center;">2.2</td>
 </tr>
 <tr>
-<td>   groupSimilarityKeepOne</td>
+<td>   <a href="#rd_if_groupSimilarityKeepOne">groupSimilarityKeepOne</a></td>
 <td style="text-align: center;"><code>double</code></td>
-<td>Pick ONE itinerary from each group after putting itineraries that are 85% similar together.</td>
+<td>Group itineraries that are at least this similar, and keep ONE itinerary from each group.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.85</code></td>
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
-<td>   groupSimilarityKeepThree</td>
+<td>   <a href="#rd_if_groupSimilarityKeepThree">groupSimilarityKeepThree</a></td>
 <td style="text-align: center;"><code>double</code></td>
-<td>Reduce the number of itineraries to three itineraries by reducing each group of itineraries grouped by 68% similarity.</td>
+<td>Group itineraries that are at least this similar, and keep at most three itineraries from each group.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>0.68</code></td>
 <td style="text-align: center;">2.1</td>
@@ -5039,6 +5039,20 @@ filtered by earliest-departure-time.</p>
 during comparison. Before filtering, trips are sorted by their generalized cost. The algorithm loops
 through the list from top to bottom. If an itinerary matches from any other itinerary from above, it is
 removed from list.</p>
+<h3 id="rd_if_groupSimilarityKeepOne">groupSimilarityKeepOne</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.85</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Group itineraries that are at least this similar, and keep ONE itinerary from each group.</p>
+<p>Similarity is the share of the travel distance two itineraries have in common.</p>
+<p>The value must be between 0 and 1. A value below 0.5 turns this filter off.</p>
+<h3 id="rd_if_groupSimilarityKeepThree">groupSimilarityKeepThree</h3>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.68</code> <br />
+<strong>Path:</strong> /routingDefaults/itineraryFilters </p>
+<p>Group itineraries that are at least this similar, and keep at most three itineraries from each group.</p>
+<p>Similarity is the share of the travel distance two itineraries have in common.</p>
+<p>The value must be between 0 and 1. A value below 0.5 turns this filter off.</p>
 <h3 id="rd_if_groupedOtherThanSameLegsMaxCostMultiplier">groupedOtherThanSameLegsMaxCostMultiplier</h3>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>2.0</code> <br />
