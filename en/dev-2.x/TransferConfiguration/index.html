@@ -1,0 +1,4981 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.opentripplanner.org/dev-2.x/TransferConfiguration/">
+      
+      
+        <link rel="prev" href="../BuildConfiguration/">
+      
+      
+        <link rel="next" href="../osm/OsmTag/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Transfers - OpenTripPlanner 2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transfer-configuration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OpenTripPlanner 2" class="md-header__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenTripPlanner 2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transfers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/opentripplanner/OpenTripPlanner" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OpenTripPlanner 2" class="md-nav__button md-logo" aria-label="OpenTripPlanner 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OpenTripPlanner 2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/opentripplanner/OpenTripPlanner" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Product-Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../History/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    History
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Presentations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visual-Identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-Tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Netex-Tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netex and SIRI Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Getting-OTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting OTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data-Sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Container-Image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Requirements and Suggestions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Preparing-OSM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preparing OSM Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Preparing-DEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preparing DEM Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting-Routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Frontends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontends
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APIs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    APIs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/Apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/GraphQL-Tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/GTFS-GraphQL-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GTFS GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/TransmodelApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transmodel (NeTEx) GraphQL API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BuildConfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transfers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transfers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User preferences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#street-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Street parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#street-path-reuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Street path reuse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warmup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warmup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warmup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-warmup-entries-with-the-cache-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding the warmup entries with the cache report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#max-durations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Max durations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stops-with-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stops with transfers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flex-and-via-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flex and via transfers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-from-the-old-configuration-210-and-earlier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating from the old configuration (2.10 and earlier)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSM Tag Mapping
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OSM Tag Mapping
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/OsmTag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Default
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Finland/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Finland
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Germany/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Germany
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/Norway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Norway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osm/UK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RouterConfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RouteRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Route Request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Realtime Updaters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Realtime Updaters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Realtime-Updaters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GTFS-RT-Config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GTFS-RT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIRI-Config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIRI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GBFS-Config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GBFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DebugUiConfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debug UI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migrating-Configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migrating between versions/builds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features explained
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features explained
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-explained/Feed-ID/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feed ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RoutingModes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../In-Station-Navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    In-Station Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BoardingLocations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boarding Locations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StopAreas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stop Area Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IslandPruning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Street Graph Pruning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Accessibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accessibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features-explained/Netex-Siri-Compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NeTEx and SIRI Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travel Time Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developers-Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developers' Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bibliography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxExtension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sandbox Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ReleaseChecklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sandbox
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sandbox
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxExtension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sandbox Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ActuatorAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actuator API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Carpooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carpooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/DebugRasterTiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debug Raster Tiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/transferanalyzer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Direct Transfer Analyzer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/GoogleCloudStorage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Cloud Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriGooglePubSubUpdater/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIRI Google Cloud Updater
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriAzureUpdater/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIRI Azure Updater
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/siri/SiriMqttUpdater/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIRI MQTT Updater
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleRentalServiceDirectory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vehicle Rental Service Directory API support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleRentalGeofencing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vehicle Rental Geofencing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/MapboxVectorTilesApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapbox Vector Tiles API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Flex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flex Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ReportApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Report API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/InteractiveOtpMain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive OTP Launcher
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/ParkAndRideApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Park and Ride API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/DataOverlay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Overlay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/VehicleParking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vehicle Parking Updaters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/GeocoderAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geocoder API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/IBIAccessibilityScore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IBI Accessibility Score
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Fares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fares
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/RideHailing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ride Hailing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Emission/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Emissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Taxi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taxi Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/EmpiricalDelay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Empirical Delay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/StopConsolidation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stop Consolidation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/Sorlandsbanen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sørlandsbanen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/TriasApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TRIAS API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sandbox/OjpApi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenJourneyPlanner API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="transfer-configuration">Transfer configuration</h1>
+<p>Transfers are the walks between two stops that transit routing uses to change from one trip to
+another. This page describes the <code>transfers</code> section of <code>build-config.json</code>, which controls the
+<em>regular</em> transfers between stops. The transfers of flex routing and of via coordinates are
+configured in the <code>transfers.flex</code> and <code>transfers.via</code> blocks, see
+<a href="#flex-and-via-transfers">Flex and via transfers</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>transfers</code> configuration is new (since version 2.11) and under development. Walk,
+wheelchair, bicycle and car transfers can be configured.</p>
+</div>
+<h2 id="concepts">Concepts</h2>
+<p><strong>Template.</strong> When the graph is built, OTP searches the street graph from each stop and finds the
+street paths to the stops nearby. The paths are stored as templates in the serialized graph. A
+template does not have a final duration or cost. Templates take up a lot of memory, since they
+contain the street path used for any pair of nearby stops, and the number of paths grows with the
+number of profiles. To save memory a profile can reuse the street paths of the profiles before it,
+if they are almost the same. A reuse limit decides when to reuse.</p>
+<p><strong>Routing transfer.</strong> A routing transfer is used by the transit routing at request time. OTP creates
+the routing transfers from the templates when they are needed. The user preferences are taken from
+the routing request: it re-calculates the duration and the generalized cost of every template path.
+A routing transfer holds the result, but not the street paths, so routing transfers take up little
+memory compared to templates. They are cached, so the next request with the same preferences is
+fast.</p>
+<p><strong>Profile.</strong> A profile is the set of templates for one kind of traveler, found with the user
+preferences of that traveler, for example a <em>slow walker</em>. When a routing request arrives, OTP picks
+the profile with the user preferences closest to the request, and creates the routing transfers from
+the templates of the profile. A profile that is less safe than the request wants (the walk safety
+factor, the bicycle safety) is further away than one that is safer. Since the cost of a profile is
+memory, a profile is only worth it if its travelers need other paths than the ones of the other
+profiles. Other preferences are handled when the routing transfers are created, see
+<a href="#warmup">Warmup</a>. Profiles are grouped by type (<code>walk</code>, <code>wheelchair</code>, <code>bicycle</code> or <code>car</code>), and each
+type has its own configuration properties relevant for that specific type.</p>
+<p><strong>User preferences.</strong> The preferences of a traveler, like walking speed and reluctance, that are
+used to find and cost the templates, and to create the routing transfers. A profile without
+<code>userPreferences</code> gets the defaults of the type, see <a href="#user-preferences">User preferences</a>. The user
+preferences of the profiles must be unique.</p>
+<h2 id="configuration-structure">Configuration structure</h2>
+<p>The <code>transfers</code> section has one block for each profile type: <code>walk</code>, <code>wheelchair</code>, <code>bicycle</code> and
+<code>car</code>. A block has the <code>profiles</code> of the type, and the settings that are shared by them:</p>
+<ul>
+<li><code>profiles</code>: the profiles of the type, each with an <code>id</code> and optionally <code>userPreferences</code> and a
+  <code>reuseLimit</code>. Each profile makes its own templates, for one kind of traveler.</li>
+<li><code>maxDuration</code>: how far from a stop the transfers are searched.</li>
+<li><code>warmup</code>: preferences that are common in the requests, to create the transfers for at startup.</li>
+<li>the street parameters of the type, for example <code>stairsReluctance</code>.</li>
+</ul>
+<p>The <code>flex</code> and <code>via</code> blocks are not profile types, see
+<a href="#flex-and-via-transfers">Flex and via transfers</a>. Details are in
+<a href="#configuration-reference">Configuration reference</a>.</p>
+<h2 id="example">Example</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;transfers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;walk&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;profiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;walk&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reluctance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slow-walk&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">          </span><span class="nt">&quot;reuseLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s + 0.05x&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reluctance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;40m&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="nt">&quot;warmup&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;avoid-walking&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.15</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reluctance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="p">}</span>
+</code></pre></div>
+<p>If the <code>transfers</code> section is left out, a single <code>walk</code> profile with the preferences of the default
+request and a max duration of 30 minutes is used. The <code>maxDuration</code> of a profile type is optional,
+the default is 30 minutes.</p>
+<p>A profile type with a block and without <code>profiles</code>, also an empty one, gets one profile with the
+name of the type as its id and the default preferences. This configures a <code>wheelchair</code> profile and
+no <code>walk</code> profile:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;transfers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;wheelchair&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>walk</code> profile is only the default if no profile type is configured, which is also the case with
+a <code>transfers</code> section that only has <code>flex</code> or <code>via</code>. Then only walking is supported: a request for
+another profile type, like wheelchair or bicycle, has no transfers to use and fails. This is the
+same if a profile type is configured: a request for a type that is not configured fails, so
+configure all the types the clients ask for.</p>
+<p>A routing request is matched to a type by its transfer street mode, and for walking by the
+wheelchair flag: a request for a wheelchair accessible trip uses the <code>wheelchair</code> profiles, any
+other walking request uses the <code>walk</code> profiles, a request that transfers by bike uses the <code>bicycle</code>
+profiles, and a request that transfers by car uses the <code>car</code> profiles.</p>
+<h2 id="user-preferences">User preferences</h2>
+<p>The <code>walk</code>, <code>wheelchair</code> and <code>bicycle</code> types have <code>speed</code> and <code>reluctance</code>, and the <code>car</code> type only
+has <code>reluctance</code>. The values that are not set are the defaults of OTP. The <code>routingDefaults</code> of
+<code>router-config.json</code> are not used for them, since the graph is built without the router
+configuration. The defaults of <code>walk</code> and <code>wheelchair</code> are the same, and the default <code>speed</code> of
+<code>bicycle</code> is <code>5.0</code>. The street model decides which streets and elevators a wheelchair can use, and
+where a bicycle or a car can go. The <code>bicycle</code> type also has the preferences for walking with the
+bicycle, when it is pushed, and how the route is optimized:</p>
+<p>The <code>optimize</code> values are normalized so they sum to 1.0. If <code>optimize</code> is set, the values that are
+not set are <code>0.0</code>, so <code>optimize: { time: 0.1 }</code> is <code>time: 1.0</code>, <code>slope: 0.0</code> and <code>safety: 0.0</code>. If
+it is not set in a profile, the default is used, the safest streets (<code>safety: 1.0</code>).</p>
+<h2 id="street-parameters">Street parameters</h2>
+<p>User preferences are user facing parameters available through the api, parameters that are not use
+facing are set in the profile block. They are the same for all profile types, and the default is the
+default of the route request defined in code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The value in <code>routingDefaults</code> of <code>router-config.json</code> is not used for the transfers, since the
+router configuration is not available when the graph is built!</p>
+</div>
+<p>When the server starts, OTP logs a warning for each profile type that has one of these parameters
+different from the same parameter in <code>routingDefaults</code> of <code>router-config.json</code>. The user
+preferences, like the walking speed, are not compared, they are set by each request.</p>
+<p>The elevator settings of the street search (<code>ElevatorPreferences</code>), the street-level settings like
+<code>turnReluctance</code> and <code>drivingDirection</code>, and the wheelchair <code>stairsTimeFactor</code> are not configurable
+for the transfers, they have the default values.</p>
+<p>By default the <code>wheelchair</code> profile only uses the stops that are marked as wheelchair accessible. If
+the accessibility data of the stops is incomplete, almost all the transfers are lost. Set
+<code>unknownCost</code> and <code>inaccessibleCost</code> of <code>wheelchair.stop</code> to use the other stops with a cost:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;transfers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;wheelchair&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;unknownCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="street-path-reuse">Street path reuse</h2>
+<p>The profiles are generated in the order they are declared. The profile types come in the order
+<code>walk</code>, <code>wheelchair</code>, <code>bicycle</code> and <code>car</code>, whatever the order in the configuration. To save memory a
+profile can reuse the street path between a pair of stops from the profiles before it, of any type,
+for example a <code>wheelchair</code> profile can reuse the paths of a <code>walk</code> profile. Each profile still
+searches for its own transfers, but a transfer that is the same, or almost the same, as the transfer
+of an earlier profile uses the street path of that profile, and the path is stored once.</p>
+<p>To do a fair comparison, each street path between the pair of stops of the earlier profiles is
+re-traversed with the user preferences of the profile, and its generalized cost is compared with the
+cost of the street path the profile found itself. If the cost is close enough then the street path
+is shared. If several are, the one that costs least for the profile is used. If none is, the profile
+keeps the street path found with its own preferences. A street path that the profile cannot use, for
+example a path of another type, is not reused.</p>
+<p>"Close enough" is set with <code>reuseLimit</code>. It is optional, and the default is <code>10s + 0.01x</code>. The limit
+is a linear function of the cost <code>x</code> of the street path of the earlier profile. For example
+<code>10s + 0.01x</code>: a path that costs up to 1% and 10 seconds more than the best path is used. A limit of
+<code>0s + 0x</code> only shares the paths with the same cost. The limit applies to the generalized cost only,
+not to the duration. This is acceptable for two reasons:</p>
+<ol>
+<li>The street graph uses the generalized cost as the main criterion.</li>
+<li>If the cost is almost the same, the users are not likely to be able to tell them apart and the
+   uncertainty in the cost calculation by far exceeds the simplification of the optimization.</li>
+</ol>
+<p>The order matters, since a profile can only reuse the paths of the profiles before it. Declare the
+profile that most of the other profiles are close to first, for example the default walk profile.
+Profiles that are close to another profile, like a slightly slower walker, cost little memory.</p>
+<p>The graph build logs how many of the paths of each profile are the paths of an earlier profile:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Profile &#39;slow-walk&#39;. Street paths: 85 142, 97% reused from earlier profiles (10s + 1%) - No transfers: 14% stops, 837 (3%) patterns - WalkPreferences{speed: 0.9m/s}.
+</code></pre></div>
+<h2 id="warmup">Warmup</h2>
+<p>When a routing request arrives, OTP creates the transfers for the preferences of the request, by
+re-calculating the duration and the generalized cost of the stored transfers of a profile. This
+takes a moment, and it is done by the first request with these preferences. The result is cached, so
+the following requests are fast.</p>
+<p>When the server starts, before the first request, OTP creates the routing transfers for the <em>known
+set of user preferences</em>. The set is all profile user preferences and all preferences in the
+<code>warmup</code> section. Use it for the preferences that are common in the requests, for example the
+default preferences of a client, but that are not different enough from a profile to be worth a
+profile of their own. A warmup entry needs:</p>
+<ul>
+<li>an <code>id</code>, unique among all profiles and warmup entries. It is used in the logs.</li>
+<li><code>userPreferences</code>. The values that are not set are the defaults, like for a profile. They must be
+  different from the preferences of every profile and every other warmup entry.</li>
+</ul>
+<p>The transfers of a warmup entry are created from the stored transfers of the profile with the
+closest user preferences, like for a request. No transfers are searched for or stored for a warmup
+entry, so it adds nothing to the serialized graph.</p>
+<p>The server start waits for the transfers to be created. The time of each profile and each entry is
+logged:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Warmed up the Routing Transfer Cache for the profile &#39;walk&#39; in 150 ms.
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Warmed up the Routing Transfer Cache for &#39;avoid-walking&#39; from the paths of &#39;walk&#39; in 170 ms.
+</code></pre></div>
+<p>The transfers for other preferences are created by the first request that uses them. The cache holds
+a limited number of preference sets, and the least recently used are dropped first, so a large
+number of warmup entries and profiles may drop the first ones.</p>
+<h3 id="finding-the-warmup-entries-with-the-cache-report">Finding the warmup entries with the cache report</h3>
+<p>The cache report lists the user preferences that routing requests used, and how many requests used
+each. Use it to find the preferences that are common in your traffic, but have no profile or warmup
+entry yet. The report is part of the <a href="../sandbox/ReportApi/">Report API</a>, and the statistics are only
+collected if the <code>ReportApi</code> feature is on.</p>
+<ol>
+<li>Enable the <code>ReportApi</code> feature and run OTP with real traffic, for example the requests of your
+   clients, for some time.</li>
+<li>Fetch the report: <code>http://localhost:8080/otp/report/regular-transfers/cache.json</code>. The entries
+   with the most hits come first.</li>
+<li>Look at the entries with the source <code>ON_DEMAND</code>: the preferences of the requests that were not a
+   profile or a warmup entry. These are created by the first request that uses them. An entry with
+   many hits is a good candidate for a <code>warmup</code> entry.</li>
+<li>Add a <code>warmup</code> entry with the same <code>userPreferences</code>.</li>
+</ol>
+<p>Each entry in the report has:</p>
+<ul>
+<li><code>type</code>: the profile type of the preferences.</li>
+<li><code>source</code>: <code>PROFILE</code>, <code>WARMUP</code> or <code>ON_DEMAND</code>. The first two are created when the server starts.</li>
+<li><code>id</code>: the id of the profile or the warmup entry, and nothing for an <code>ON_DEMAND</code> entry.</li>
+<li><code>closestProfileId</code>: the profile the routing transfers are created from.</li>
+<li><code>userPreferences</code>: the user preferences, as text. Values that are not shown are the defaults.</li>
+<li><code>hits</code>: the number of requests that used the preferences.</li>
+<li><code>cached</code>: whether the routing transfers of the preferences are in the cache now.</li>
+</ul>
+<p>The report only tracks a limited number of keys. If there are many different preferences, the least
+used are dropped, so the report is not complete and the numbers are approximate.</p>
+<h2 id="max-durations">Max durations</h2>
+<p>The max duration is how far from a stop the transfers are searched when the graph is built, measured
+with the user preferences of the profile. A longer duration finds more transfers and makes the graph
+larger and slower to build. There is one <code>maxDuration</code> for each profile type, and it is shared by
+all the profiles of the type. It is optional, and the default is 30 minutes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;walk&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;maxDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;40m&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p><code>maxDuration</code> is the duration between the stops the mode can use:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th><code>maxDuration</code> is the max duration between</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>walk</code></td>
+<td>all stops</td>
+</tr>
+<tr>
+<td><code>wheelchair</code></td>
+<td>all stops</td>
+</tr>
+<tr>
+<td><code>bicycle</code></td>
+<td>stops that allow bicycles</td>
+</tr>
+<tr>
+<td><code>car</code></td>
+<td>stops that allow cars</td>
+</tr>
+</tbody>
+</table>
+<p>A stop allows bicycles or cars if a trip that allows them visits the stop, for example a ferry. Both
+stops of a transfer must allow the mode.</p>
+<p>A bicycle can cover a much longer distance than a walker, so the <code>bicycle</code> type has two more
+parameters, and all three are independent of each other. The longest limit that <em>applies to a
+transfer</em> is used:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bicycle.maxDurationAllowAllModes</code></td>
+<td><code>duration</code></td>
+<td>The max duration between all stops. Shorter than the two others.</td>
+</tr>
+<tr>
+<td><code>bicycle.maxDuration</code></td>
+<td><code>duration</code></td>
+<td>The max duration between stops that allow bicycles.</td>
+</tr>
+<tr>
+<td><code>bicycle.maxDurationAllowsCar</code></td>
+<td><code>duration</code></td>
+<td>The max duration between stops that allow cars.</td>
+</tr>
+</tbody>
+</table>
+<p>If none of them is set, <code>maxDuration</code> is 30 minutes. <code>maxDurationAllowAllModes</code> must be shorter than
+<code>maxDuration</code> and <code>maxDurationAllowsCar</code>, if they are set. If <code>maxDurationAllowAllModes</code> is left
+out, there are only transfers between the stops that allow bicycles or cars:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&quot;bicycle&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;maxDurationAllowAllModes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20m&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;maxDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;maxDurationAllowsCar&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2h&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>car</code> type only has transfers between stops that allow cars, and none from or to other stops. No
+search is made from the other stops, which makes the graph faster to build:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&quot;car&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;maxDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3h&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>A car reaches a lot of stops in a short time, so a car search from all stops does not work, even for
+small deployments. The max duration only limits the street path search. A stored transfer is never
+dropped when it is re-calculated for a routing request, even if the request walks slower than the
+profile.</p>
+<p>Stops of a station that does not allow transfers have no transfers from or to them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The old transfer settings are replaced by the profile types, see
+<a href="#migrating-from-the-old-configuration">Migrating from the old configuration</a>.</p>
+</div>
+<h2 id="stops-with-transfers">Stops with transfers</h2>
+<p><strong>Transfers from a stop.</strong> A stop has transfers from it if its station allows transfers. If the
+feature <code>ConsiderPatternsForDirectTransfers</code> is off, that is all: every stop has transfers from it,
+also the stops that only real-time trips use. If the feature is on, which is the default, a stop
+must also be visited by a scheduled trip pattern. Stops that no scheduled trip visits have no
+transfers from them, unless the feature <code>IncludeStopsUsedRealTimeInTransfers</code> is on and the stop is
+likely to be used by real-time trips, see <a href="../Configuration/#otp-features">Configuration</a>.</p>
+<p><strong>Transfers to a stop.</strong> Any stop where the station allows transfers can be a transfer target. With
+the feature <code>ConsiderPatternsForDirectTransfers</code> only the closest stop of each trip pattern is a
+target, so there is a single transfer to each pattern.</p>
+<p>The data import issue for stops without transfers is reported for every stop that allows transfers
+if <code>ConsiderPatternsForDirectTransfers</code> is off. It is not reported if the feature is on, since many
+stops have no transfers then by design.</p>
+<h2 id="flex-and-via-transfers">Flex and via transfers</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flex.maxDuration</code></td>
+<td><code>duration</code></td>
+<td>The longest transfer between two stops, created for flex routing.</td>
+<td><code>"30m"</code></td>
+</tr>
+<tr>
+<td><code>flex.requests</code></td>
+<td><code>object[]</code></td>
+<td>The <a href="../RouteRequest/">routing requests</a> the flex transfers are created with. Only requests with street mode <code>WALK</code> are used.</td>
+<td>the default request</td>
+</tr>
+<tr>
+<td><code>via.maxDuration</code></td>
+<td><code>duration</code></td>
+<td>The longest transfer between a via coordinate and a stop.</td>
+<td><code>"30m"</code></td>
+</tr>
+</tbody>
+</table>
+<p>They replace the old <code>transferRequests</code> and <code>maxTransferDuration</code> of the build config, which are not
+read any more. The flex transfers are only created if the sandbox feature <code>FlexRouting</code> is on.</p>
+<p>A stop that is only used by flex trips has regular transfers from it, since every flex trip has a
+scheduled pattern. A regular stop that is only a member of a group stop is not visited by a pattern,
+so it has no regular transfers from it when <code>ConsiderPatternsForDirectTransfers</code> is on, but it can
+be a transfer target. See <a href="#stops-with-transfers">Stops with transfers</a>.</p>
+<h2 id="migrating-from-the-old-configuration-210-and-earlier">Migrating from the old configuration (2.10 and earlier)</h2>
+<p>The old transfer settings are not read anymore. OTP reports them as unexpected parameters when it
+starts, and creates the transfers with the defaults of the new configuration, so check the log. This
+is where each old setting went:</p>
+<table>
+<thead>
+<tr>
+<th>Old setting</th>
+<th>New setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maxTransferDuration</code></td>
+<td><code>walk.maxDuration</code>, <code>wheelchair.maxDuration</code>, <code>flex.maxDuration</code>.</td>
+</tr>
+<tr>
+<td><code>transferRequests</code> with the mode <code>WALK</code></td>
+<td>the <code>walk</code> block</td>
+</tr>
+<tr>
+<td><code>transferRequests</code> with <code>wheelchairAccessibility: { enabled: true }</code></td>
+<td>the <code>wheelchair</code> block</td>
+</tr>
+<tr>
+<td><code>transferRequests</code> with the mode <code>BICYCLE</code> or <code>CAR</code></td>
+<td>the <code>bicycle</code> or <code>car</code> block</td>
+</tr>
+<tr>
+<td>other parameters of a request in <code>transferRequests</code></td>
+<td>the <a href="#street-parameters">street parameters</a> of the type, only those can be set</td>
+</tr>
+<tr>
+<td><code>transferParametersForMode.CAR.carsAllowedStopMaxTransferDuration</code></td>
+<td><code>car.maxDuration</code></td>
+</tr>
+<tr>
+<td><code>transferParametersForMode.BICYCLE.bikesAllowedStopMaxTransferDuration</code></td>
+<td><code>bicycle.maxDuration</code></td>
+</tr>
+<tr>
+<td><code>disableDefaultTransfers</code></td>
+<td>leave out <code>bicycle.maxDurationAllowAllModes</code></td>
+</tr>
+<tr>
+<td><code>transit.transferCacheRequests</code> of <code>router-config.json</code></td>
+<td><code>warmup</code> entries, see <a href="#warmup">Warmup</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Configure every profile type that the clients use.</strong> A request for a transfer mode that is not
+configured is not supported. It fails with an error, there is no fallback. If clients ask for
+bicycle transfers, add a bicycle profile, for example a small set of paths between all stops:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&quot;bicycle&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;maxDurationAllowAllModes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;profiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bicycle&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;reuseLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15s + 0.05x&quot;</span><span class="w"> </span><span class="p">}]</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>The bicycle profile comes after the walk profiles, so it reuses the street paths of the walk profile
+where they are about as good, see <a href="#street-path-reuse">Street path reuse</a>. Bicycle is the most
+expensive type, so check the build time and the memory first. The default <code>walk</code> profile is only
+used if no profile type is configured at all. If you only configure <code>wheelchair</code> or <code>car</code>, there are
+no walk transfers.</p>
+<p><strong>The flex limit is separate now.</strong> The flex transfers used the walk limit, and now they use
+<code>transfers.flex.maxDuration</code>, <code>30m</code> by default. If your walk limit was longer, set it for flex too.</p>
+<p><strong>The wheelchair only uses the stops that are marked accessible</strong> by default. If the accessibility
+data of the stops is incomplete, most wheelchair transfers are lost, see
+<a href="#street-parameters">Street parameters</a>.</p>
+<p>When the server starts, OTP also warns about the street parameters of the transfers that differ from
+<code>routingDefaults</code> of <code>router-config.json</code>.</p>
+<p><strong>Running older versions of OTP with the same configuration.</strong> Older versions do not know the
+<code>transfers</code> section, see <a href="../Migrating-Configuration/">Migrating configuration</a>. They do not read
+<code>transfers.flex</code> and <code>transfers.via</code> either, so keep the old <code>transferRequests</code> and
+<code>maxTransferDuration</code> for flex and via while both versions run.</p>
+<h2 id="configuration-reference">Configuration reference</h2>
+<p>This is the reference of all the parameters in the <code>transfers</code> section of <code>build-config.json</code>. The
+profile type blocks <code>walk</code>, <code>wheelchair</code>, <code>bicycle</code> and <code>car</code> have the same parameters unless stated
+otherwise.</p>
+<!-- PARAMETERS-TABLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#transfers_bicycle">bicycle</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The configuration of the bicycle transfers.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_bicycle_maxDuration">maxDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The longest bicycle transfer, measured with the user preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_bicycle_maxDurationAllowAllModes">maxDurationAllowAllModes</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The longest bicycle transfer between any two stops.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_bicycle_maxDurationAllowsCar">maxDurationAllowsCar</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The longest bicycle transfer between stops that allow cars.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_bicycle_profiles">profiles</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>The bicycle transfer profiles.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_bicycle_profiles_0_id">id</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The id of the profile.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_bicycle_profiles_0_reuseLimit">reuseLimit</a></td>
+<td style="text-align: center;"><code>cost-linear-function</code></td>
+<td>How much more the path of an earlier profile may cost, to be used by this profile.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"10s + 0.01 t"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_bicycle_profiles_0_userPreferences">userPreferences</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Street-search preferences used to discover and cost this profile's paths.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for the cost of riding a bicycle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Bicycle speed, in meters per second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>5.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            <a href="#transfers_bicycle_profiles_0_userPreferences_optimize">optimize</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>How the route of the bicycle is optimized.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>               safety</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The importance of the safety, the safest streets.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>               slope</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The importance of the slope, the flattest streets.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>               time</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The importance of the time, the shortest duration.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            <a href="#transfers_bicycle_profiles_0_userPreferences_walk">walk</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The preferences for walking with the bicycle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>               <a href="#transfers_bicycle_profiles_0_userPreferences_walk_reluctance">reluctance</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for the cost of walking with the bicycle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>5.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>               speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The speed of walking with the bicycle, in meters per second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.35</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   walking</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Parameters for walking with the bicycle, on top of the <code>walk</code> user preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      mountDismountCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost of hopping on or off the bicycle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      mountDismountTime</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The time it takes the user to hop on or off the bicycle.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      stairsReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How bad is it to walk the bicycle up/down a flight of stairs, on top of the reluctance.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_bicycle_warmup">warmup</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>The user preferences to create the transfers for when the server starts.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td><a href="#transfers_car">car</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The configuration of the car transfers.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_car_maxDuration">maxDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The longest car transfer, measured with the user preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30M"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_car_profiles">profiles</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>The car transfer profiles.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_car_profiles_0_id">id</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The id of the profile.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_car_profiles_0_userPreferences">userPreferences</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Street-search preferences used to discover and cost this profile's paths.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for the cost of driving.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_car_warmup">warmup</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>The user preferences to create the transfers for when the server starts.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td><a href="#transfers_flex">flex</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The configuration of the transfers created for flex routing.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   maxDuration</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>Transfers up to this duration with a mode-specific speed value will be pre-calculated and included in the Graph.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30M"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_flex_requests">requests</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>Routing requests to use for pre-calculating stop-to-stop transfers.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>via</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The configuration of the transfers between a via coordinate and the stops.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   maxDuration</td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The longest transfer between a via coordinate and a stop.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30M"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td><a href="#transfers_walk">walk</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The configuration of the walk transfers.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_walk_maxDuration">maxDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The longest walk transfer, measured with the user preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30M"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   stairsReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier to specify how bad walking on stairs is, on top of the reluctance of the user preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   stairsTimeFactor</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much more time does it take to walk a flight of stairs compared to walking a similar horizontal length.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>3.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   escalator</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Escalator preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for how bad being in an escalator is compared to being in transit for equal lengths of time</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.5</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How fast does an escalator move horizontally, in m/s?</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.45</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_walk_profiles">profiles</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>The walk transfer profiles.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      { object }</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Nested object in array. The object type is determined by the parameters.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_walk_profiles_0_id">id</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The id of the profile.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_walk_profiles_0_userPreferences">userPreferences</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Street-search preferences used to discover and cost this profile's paths.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for the cost of walking.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            <a href="#transfers_walk_profiles_0_userPreferences_safetyFactor">safetyFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much the safety of the streets is considered.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Walking speed, in meters per second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.35</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      { object }</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Nested object in array. The object type is determined by the parameters.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_walk_profiles_1_id">id</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The id of the profile.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_walk_profiles_1_reuseLimit">reuseLimit</a></td>
+<td style="text-align: center;"><code>cost-linear-function</code></td>
+<td>How much more the path of an earlier profile may cost, to be used by this profile.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"10s + 0.01 t"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_walk_profiles_1_userPreferences">userPreferences</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Street-search preferences used to discover and cost this profile's paths.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for the cost of walking.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            <a href="#transfers_walk_profiles_1_userPreferences_safetyFactor">safetyFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much the safety of the streets is considered.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Walking speed, in meters per second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.35</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_walk_warmup">warmup</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>The user preferences to create the transfers for when the server starts.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_walk_warmup_0_id">id</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The id of the warmup entry.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_walk_warmup_0_userPreferences">userPreferences</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The user preferences to warm up.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for the cost of walking.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            <a href="#transfers_walk_warmup_0_userPreferences_safetyFactor">safetyFactor</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much the safety of the streets is considered.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Walking speed, in meters per second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.35</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td><a href="#transfers_wheelchair">wheelchair</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>The configuration of the wheelchair transfers.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   inaccessibleStreetReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The factor to multiply the cost of traversing a street edge that is not wheelchair-accessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>25.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_wheelchair_maxDuration">maxDuration</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The longest wheelchair transfer, measured with the user preferences.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT30M"</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_wheelchair_maxSlope">maxSlope</a></td>
+<td style="text-align: center;"><code>double</code></td>
+<td>The maximum slope as a fraction of 1.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>0.083</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   slopeExceededReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much streets with high slope should be avoided.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   stairsReluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>How much stairs should be avoided.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>100.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   elevator</td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for when to use inaccessible elevators.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      inaccessibleCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity which is know to be inaccessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>3600</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      onlyConsiderAccessible</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>false</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      unknownCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity with unknown accessibility information.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>20</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_wheelchair_profiles">profiles</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>The wheelchair transfer profiles.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_wheelchair_profiles_0_id">id</a></td>
+<td style="text-align: center;"><code>string</code></td>
+<td>The id of the profile.</td>
+<td style="text-align: center;"><em>Required</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>         <a href="#transfers_wheelchair_profiles_0_userPreferences">userPreferences</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Street-search preferences used to discover and cost this profile's paths.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            reluctance</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>A multiplier for the cost of traveling in a wheelchair.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>2.0</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>            speed</td>
+<td style="text-align: center;"><code>double</code></td>
+<td>Speed of a traveler in a wheelchair, in meters per second.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1.35</code></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_wheelchair_stop">stop</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Configuration for when to use inaccessible stops.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td>      inaccessibleCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity which is know to be inaccessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>3600</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      onlyConsiderAccessible</td>
+<td style="text-align: center;"><code>boolean</code></td>
+<td>Whether to only use this entity if it is explicitly marked as wheelchair accessible.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>true</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>      unknownCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>The cost to add when traversing an entity with unknown accessibility information.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>600</code></td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td>   <a href="#transfers_wheelchair_warmup">warmup</a></td>
+<td style="text-align: center;"><code>object[]</code></td>
+<td>The user preferences to create the transfers for when the server starts.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.10</td>
+</tr>
+</tbody>
+</table>
+<!-- PARAMETERS-TABLE END -->
+
+<!-- PARAMETERS-DETAILS BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<h3 id="transfers_bicycle">bicycle</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers </p>
+<p>The configuration of the bicycle transfers.</p>
+<p>The <code>profiles</code>, each a discovery search of transfers with its own preferences, the
+<code>maxDuration</code>, shared by all the profiles of the type, and the <code>warmup</code> entries.</p>
+<h3 id="transfers_bicycle_maxDuration">maxDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/bicycle </p>
+<p>The longest bicycle transfer, measured with the user preferences.</p>
+<p>How far from a stop the transfers are searched when the transfers are generated. It is
+shared by all the profiles of the type. The default is 30 minutes.</p>
+<p>There are transfers within the duration between the stops that allow bicycles.</p>
+<h3 id="transfers_bicycle_maxDurationAllowAllModes">maxDurationAllowAllModes</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/bicycle </p>
+<p>The longest bicycle transfer between any two stops.</p>
+<p>A bicycle can cover a long distance, so this is usually short. It must be shorter than
+<code>maxDuration</code> and <code>maxDurationAllowsCar</code>. If it is not set, there are only transfers
+between the stops that allow bicycles or cars, as set by <code>maxDuration</code> and
+<code>maxDurationAllowsCar</code>.</p>
+<h3 id="transfers_bicycle_maxDurationAllowsCar">maxDurationAllowsCar</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/bicycle </p>
+<p>The longest bicycle transfer between stops that allow cars.</p>
+<p>Used for the transfers between two stops that are visited by trips that allow cars, for
+example a car ferry, which a bicycle can use too. It must be longer than
+<code>maxDurationAllowAllModes</code>.</p>
+<h3 id="transfers_bicycle_profiles">profiles</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/bicycle </p>
+<p>The bicycle transfer profiles.</p>
+<p>Each profile needs an <code>id</code>, unique among all the profiles. The <code>userPreferences</code> of the
+profiles must be unique. A profile without <code>userPreferences</code> gets the default ones, and
+the values of the <code>userPreferences</code> that are not set are the defaults too. The profiles
+are generated in the order they are declared, and a profile reuses the paths of the
+earlier profiles that are about as good for it, see <code>reuseLimit</code>.</p>
+<h3 id="transfers_bicycle_profiles_0_id">id</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /transfers/bicycle/profiles/[0] </p>
+<p>The id of the profile.</p>
+<p>Identifies the profile in the logs and the issues reported. It must be unique among all the
+profiles. Any string is allowed.</p>
+<h3 id="transfers_bicycle_profiles_0_reuseLimit">reuseLimit</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"10s + 0.01 t"</code> <br />
+<strong>Path:</strong> /transfers/bicycle/profiles/[0] </p>
+<p>How much more the path of an earlier profile may cost, to be used by this profile.</p>
+<p>Each profile finds its own paths, but if a path of an earlier profile costs about the same
+for the profile, it uses the path of the earlier profile instead of storing its own. This
+saves memory. The profiles are generated in the order they are declared, the types in the
+order walk, wheelchair, bicycle and car, and the earlier profiles can be of any type. The
+paths are equivalent if the difference in generalized cost is within this limit, a linear
+function of the cost <code>x</code> of the path of the earlier profile, for example <code>10s + 0.01x</code>. If
+several paths are equivalent, the one that costs least for the profile is used. The limit
+applies to cost only, not to duration. A report is logged when the graph is built.</p>
+<p>Optional. The default is <code>10s + 0.01x</code>.</p>
+<h3 id="transfers_bicycle_profiles_0_userPreferences">userPreferences</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/bicycle/profiles/[0] </p>
+<p>Street-search preferences used to discover and cost this profile's paths.</p>
+<p>Optional. If it is not set, the defaults are used.</p>
+<h3 id="transfers_bicycle_profiles_0_userPreferences_optimize">optimize</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/bicycle/profiles/[0]/userPreferences </p>
+<p>How the route of the bicycle is optimized.</p>
+<p>The importance of the <code>time</code>, the <code>slope</code> and the <code>safety</code>. At least one must be set, and
+the values that are not set are 0.0. The values are relative to each other, for example
+<code>time: 0.1</code> is the same as <code>time: 1.0</code>, and they are rounded so they sum to 1.0. A <code>time</code> of
+1.0 is the shortest duration, a <code>slope</code> of 1.0 is the flattest streets, and a <code>safety</code> of
+1.0 is the safest streets.</p>
+<h3 id="transfers_bicycle_profiles_0_userPreferences_walk">walk</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/bicycle/profiles/[0]/userPreferences </p>
+<p>The preferences for walking with the bicycle.</p>
+<p>Used when the traveler pushes the bicycle, for example on stairs.</p>
+<h3 id="transfers_bicycle_profiles_0_userPreferences_walk_reluctance">reluctance</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>5.0</code> <br />
+<strong>Path:</strong> /transfers/bicycle/profiles/[0]/userPreferences/walk </p>
+<p>A multiplier for the cost of walking with the bicycle.</p>
+<p>A higher value avoids walking with the bicycle.</p>
+<h3 id="transfers_bicycle_warmup">warmup</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/bicycle </p>
+<p>The user preferences to create the transfers for when the server starts.</p>
+<p>Each entry needs an <code>id</code> and <code>userPreferences</code>. The <code>id</code> must be unique among all the
+profiles and warmup entries. The transfers for the <code>userPreferences</code> are created when
+the server starts, from the paths of the profile with the closest user preferences, so
+the first request with these preferences does not wait for them. No paths are searched
+for or stored for a warmup entry. Use warmup for preferences that are common in the
+requests, but are not worth a profile of their own.</p>
+<h3 id="transfers_car">car</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers </p>
+<p>The configuration of the car transfers.</p>
+<p>The <code>profiles</code>, each a discovery search of transfers with its own preferences, the
+<code>maxDuration</code>, shared by all the profiles of the type, and the <code>warmup</code> entries.</p>
+<h3 id="transfers_car_maxDuration">maxDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30M"</code> <br />
+<strong>Path:</strong> /transfers/car </p>
+<p>The longest car transfer, measured with the user preferences.</p>
+<p>How far from a stop the transfers are searched when the transfers are generated. It is
+shared by all the profiles of the type. The default is 30 minutes.</p>
+<p>There are transfers within the duration between the stops that allow cars only, and no
+transfers from or to other stops. A car reaches a lot of stops in a short time, so a car
+search from all stops does not work, even for small deployments. If there are too many stops
+that allow cars, fix the data, or let the OTP developers know the use case.</p>
+<h3 id="transfers_car_profiles">profiles</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/car </p>
+<p>The car transfer profiles.</p>
+<p>Each profile needs an <code>id</code>, unique among all the profiles. The <code>userPreferences</code> of the
+profiles must be unique. A profile without <code>userPreferences</code> gets the default ones, and
+the values of the <code>userPreferences</code> that are not set are the defaults too. The profiles
+are generated in the order they are declared, and a profile reuses the paths of the
+earlier profiles that are about as good for it, see <code>reuseLimit</code>.</p>
+<h3 id="transfers_car_profiles_0_id">id</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /transfers/car/profiles/[0] </p>
+<p>The id of the profile.</p>
+<p>Identifies the profile in the logs and the issues reported. It must be unique among all the
+profiles. Any string is allowed.</p>
+<h3 id="transfers_car_profiles_0_userPreferences">userPreferences</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/car/profiles/[0] </p>
+<p>Street-search preferences used to discover and cost this profile's paths.</p>
+<p>Optional. If it is not set, the defaults are used.</p>
+<h3 id="transfers_car_warmup">warmup</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/car </p>
+<p>The user preferences to create the transfers for when the server starts.</p>
+<p>Each entry needs an <code>id</code> and <code>userPreferences</code>. The <code>id</code> must be unique among all the
+profiles and warmup entries. The transfers for the <code>userPreferences</code> are created when
+the server starts, from the paths of the profile with the closest user preferences, so
+the first request with these preferences does not wait for them. No paths are searched
+for or stored for a warmup entry. Use warmup for preferences that are common in the
+requests, but are not worth a profile of their own.</p>
+<h3 id="transfers_flex">flex</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers </p>
+<p>The configuration of the transfers created for flex routing.</p>
+<p>These replace the old <code>maxTransferDuration</code> and <code>transferRequests</code> of the build config.</p>
+<h3 id="transfers_flex_requests">requests</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/flex ∙ <strong>See:</strong> <a href="../RouteRequest/">RouteRequest.md</a> </p>
+<p>Routing requests to use for pre-calculating stop-to-stop transfers.</p>
+<p>It will use the street network if OSM data has already been loaded into the graph. Otherwise it
+will use straight-line distance between stops.</p>
+<p>If not set, the default behavior is to generate stop-to-stop transfers using the default request
+with street mode set to WALK. Only the requests with street mode WALK are used.</p>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;transfers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">&quot;flex&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="nt">&quot;requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;modes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;modes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;wheelchairAccessibility&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}}</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="transfers_walk">walk</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers </p>
+<p>The configuration of the walk transfers.</p>
+<p>The <code>profiles</code>, each a discovery search of transfers with its own preferences, the
+<code>maxDuration</code>, shared by all the profiles of the type, and the <code>warmup</code> entries.</p>
+<h3 id="transfers_walk_maxDuration">maxDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30M"</code> <br />
+<strong>Path:</strong> /transfers/walk </p>
+<p>The longest walk transfer, measured with the user preferences.</p>
+<p>How far from a stop the transfers are searched when the transfers are generated. It is
+shared by all the profiles of the type. The default is 30 minutes.</p>
+<p>There are transfers between all stops within the duration.</p>
+<h3 id="transfers_walk_profiles">profiles</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/walk </p>
+<p>The walk transfer profiles.</p>
+<p>Each profile needs an <code>id</code>, unique among all the profiles. The <code>userPreferences</code> of the
+profiles must be unique. A profile without <code>userPreferences</code> gets the default ones, and
+the values of the <code>userPreferences</code> that are not set are the defaults too. The profiles
+are generated in the order they are declared, and a profile reuses the paths of the
+earlier profiles that are about as good for it, see <code>reuseLimit</code>.</p>
+<h3 id="transfers_walk_profiles_0_id">id</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /transfers/walk/profiles/[0] </p>
+<p>The id of the profile.</p>
+<p>Identifies the profile in the logs and the issues reported. It must be unique among all the
+profiles. Any string is allowed.</p>
+<h3 id="transfers_walk_profiles_0_userPreferences">userPreferences</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/walk/profiles/[0] </p>
+<p>Street-search preferences used to discover and cost this profile's paths.</p>
+<p>Optional. If it is not set, the defaults are used.</p>
+<h3 id="transfers_walk_profiles_0_userPreferences_safetyFactor">safetyFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
+<strong>Path:</strong> /transfers/walk/profiles/[0]/userPreferences </p>
+<p>How much the safety of the streets is considered.</p>
+<p>A value between 0.0 and 1.0. If it is 0.0, the safety is ignored. If it is 1.0, the safety
+factor of the street is applied in whole as a multiplier on the cost, on top of the
+reluctance.</p>
+<h3 id="transfers_walk_profiles_1_id">id</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /transfers/walk/profiles/[1] </p>
+<p>The id of the profile.</p>
+<p>Identifies the profile in the logs and the issues reported. It must be unique among all the
+profiles. Any string is allowed.</p>
+<h3 id="transfers_walk_profiles_1_reuseLimit">reuseLimit</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>cost-linear-function</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"10s + 0.01 t"</code> <br />
+<strong>Path:</strong> /transfers/walk/profiles/[1] </p>
+<p>How much more the path of an earlier profile may cost, to be used by this profile.</p>
+<p>Each profile finds its own paths, but if a path of an earlier profile costs about the same
+for the profile, it uses the path of the earlier profile instead of storing its own. This
+saves memory. The profiles are generated in the order they are declared, the types in the
+order walk, wheelchair, bicycle and car, and the earlier profiles can be of any type. The
+paths are equivalent if the difference in generalized cost is within this limit, a linear
+function of the cost <code>x</code> of the path of the earlier profile, for example <code>10s + 0.01x</code>. If
+several paths are equivalent, the one that costs least for the profile is used. The limit
+applies to cost only, not to duration. A report is logged when the graph is built.</p>
+<p>Optional. The default is <code>10s + 0.01x</code>.</p>
+<h3 id="transfers_walk_profiles_1_userPreferences">userPreferences</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/walk/profiles/[1] </p>
+<p>Street-search preferences used to discover and cost this profile's paths.</p>
+<p>Optional. If it is not set, the defaults are used.</p>
+<h3 id="transfers_walk_profiles_1_userPreferences_safetyFactor">safetyFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
+<strong>Path:</strong> /transfers/walk/profiles/[1]/userPreferences </p>
+<p>How much the safety of the streets is considered.</p>
+<p>A value between 0.0 and 1.0. If it is 0.0, the safety is ignored. If it is 1.0, the safety
+factor of the street is applied in whole as a multiplier on the cost, on top of the
+reluctance.</p>
+<h3 id="transfers_walk_warmup">warmup</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/walk </p>
+<p>The user preferences to create the transfers for when the server starts.</p>
+<p>Each entry needs an <code>id</code> and <code>userPreferences</code>. The <code>id</code> must be unique among all the
+profiles and warmup entries. The transfers for the <code>userPreferences</code> are created when
+the server starts, from the paths of the profile with the closest user preferences, so
+the first request with these preferences does not wait for them. No paths are searched
+for or stored for a warmup entry. Use warmup for preferences that are common in the
+requests, but are not worth a profile of their own.</p>
+<h3 id="transfers_walk_warmup_0_id">id</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /transfers/walk/warmup/[0] </p>
+<p>The id of the warmup entry.</p>
+<p>Identifies the entry in the logs. It must be unique among all the profiles.</p>
+<h3 id="transfers_walk_warmup_0_userPreferences">userPreferences</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/walk/warmup/[0] </p>
+<p>The user preferences to warm up.</p>
+<p>The values that are not set are the defaults.</p>
+<h3 id="transfers_walk_warmup_0_userPreferences_safetyFactor">safetyFactor</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>1.0</code> <br />
+<strong>Path:</strong> /transfers/walk/warmup/[0]/userPreferences </p>
+<p>How much the safety of the streets is considered.</p>
+<p>A value between 0.0 and 1.0. If it is 0.0, the safety is ignored. If it is 1.0, the safety
+factor of the street is applied in whole as a multiplier on the cost, on top of the
+reluctance.</p>
+<h3 id="transfers_wheelchair">wheelchair</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers </p>
+<p>The configuration of the wheelchair transfers.</p>
+<p>The <code>profiles</code>, each a discovery search of transfers with its own preferences, the
+<code>maxDuration</code>, shared by all the profiles of the type, and the <code>warmup</code> entries.</p>
+<h3 id="transfers_wheelchair_maxDuration">maxDuration</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30M"</code> <br />
+<strong>Path:</strong> /transfers/wheelchair </p>
+<p>The longest wheelchair transfer, measured with the user preferences.</p>
+<p>How far from a stop the transfers are searched when the transfers are generated. It is
+shared by all the profiles of the type. The default is 30 minutes.</p>
+<p>There are transfers between all stops within the duration.</p>
+<h3 id="transfers_wheelchair_maxSlope">maxSlope</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>double</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>0.083</code> <br />
+<strong>Path:</strong> /transfers/wheelchair </p>
+<p>The maximum slope as a fraction of 1.</p>
+<p>9 percent would be <code>0.09</code></p>
+<h3 id="transfers_wheelchair_profiles">profiles</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/wheelchair </p>
+<p>The wheelchair transfer profiles.</p>
+<p>Each profile needs an <code>id</code>, unique among all the profiles. The <code>userPreferences</code> of the
+profiles must be unique. A profile without <code>userPreferences</code> gets the default ones, and
+the values of the <code>userPreferences</code> that are not set are the defaults too. The profiles
+are generated in the order they are declared, and a profile reuses the paths of the
+earlier profiles that are about as good for it, see <code>reuseLimit</code>.</p>
+<h3 id="transfers_wheelchair_profiles_0_id">id</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
+<strong>Path:</strong> /transfers/wheelchair/profiles/[0] </p>
+<p>The id of the profile.</p>
+<p>Identifies the profile in the logs and the issues reported. It must be unique among all the
+profiles. Any string is allowed.</p>
+<h3 id="transfers_wheelchair_profiles_0_userPreferences">userPreferences</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/wheelchair/profiles/[0] </p>
+<p>Street-search preferences used to discover and cost this profile's paths.</p>
+<p>Optional. If it is not set, the defaults are used.</p>
+<h3 id="transfers_wheelchair_stop">stop</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/wheelchair </p>
+<p>Configuration for when to use inaccessible stops.</p>
+<p>The default is to only use the stops that are marked as wheelchair accessible. Many
+deployments have little accessibility information, and get almost no transfers with
+this default. Set <code>unknownCost</code> and <code>inaccessibleCost</code> to use the other stops with a
+cost.</p>
+<h3 id="transfers_wheelchair_warmup">warmup</h3>
+
+<p><strong>Since version:</strong> <code>2.10</code> ∙ <strong>Type:</strong> <code>object[]</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /transfers/wheelchair </p>
+<p>The user preferences to create the transfers for when the server starts.</p>
+<p>Each entry needs an <code>id</code> and <code>userPreferences</code>. The <code>id</code> must be unique among all the
+profiles and warmup entries. The transfers for the <code>userPreferences</code> are created when
+the server starts, from the paths of the profile with the closest user preferences, so
+the first request with these preferences does not wait for them. No paths are searched
+for or stored for a warmup entry. Use warmup for preferences that are common in the
+requests, but are not worth a profile of their own.</p>
+<!-- PARAMETERS-DETAILS END -->
+
+<h3 id="complete-example">Complete example</h3>
+<p>This example sets every parameter of the <code>transfers</code> section:</p>
+<!-- JSON-EXAMPLE BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// build-config.json</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;transfers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nt">&quot;walk&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="nt">&quot;profiles&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;walk&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">            </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.4</span><span class="p">,</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">            </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">            </span><span class="nt">&quot;safetyFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slow-walk&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">          </span><span class="nt">&quot;reuseLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s + 0.05x&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">            </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">            </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;40m&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">      </span><span class="nt">&quot;stairsTimeFactor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">      </span><span class="nt">&quot;escalator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="w">        </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="w">        </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="w">      </span><span class="nt">&quot;warmup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;avoid-walking&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a><span class="w">            </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.15</span><span class="p">,</span>
+<a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="w">            </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span>
+<a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="w">    </span><span class="nt">&quot;wheelchair&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a><span class="w">      </span><span class="nt">&quot;profiles&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wheelchair&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a><span class="w">            </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a><span class="w">            </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span>
+<a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20m&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a><span class="w">      </span><span class="nt">&quot;stop&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">900</span><span class="p">,</span>
+<a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7200</span>
+<a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a><span class="w">      </span><span class="nt">&quot;elevator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a><span class="w">        </span><span class="nt">&quot;onlyConsiderAccessible&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a><span class="w">        </span><span class="nt">&quot;unknownCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a><span class="w">        </span><span class="nt">&quot;inaccessibleCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1800</span>
+<a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a><span class="w">      </span><span class="nt">&quot;inaccessibleStreetReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span>
+<a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a><span class="w">      </span><span class="nt">&quot;maxSlope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span>
+<a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a><span class="w">      </span><span class="nt">&quot;slopeExceededReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span>
+<a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a><span class="w">      </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">150.0</span>
+<a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a><span class="w">    </span><span class="nt">&quot;bicycle&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a><span class="w">      </span><span class="nt">&quot;profiles&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-10-69" name="__codelineno-10-69" href="#__codelineno-10-69"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bicycle&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-70" name="__codelineno-10-70" href="#__codelineno-10-70"></a><span class="w">          </span><span class="nt">&quot;reuseLimit&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15s + 0.05x&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-71" name="__codelineno-10-71" href="#__codelineno-10-71"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-72" name="__codelineno-10-72" href="#__codelineno-10-72"></a><span class="w">            </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">6.0</span><span class="p">,</span>
+<a id="__codelineno-10-73" name="__codelineno-10-73" href="#__codelineno-10-73"></a><span class="w">            </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span>
+<a id="__codelineno-10-74" name="__codelineno-10-74" href="#__codelineno-10-74"></a><span class="w">            </span><span class="nt">&quot;optimize&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-75" name="__codelineno-10-75" href="#__codelineno-10-75"></a><span class="w">              </span><span class="nt">&quot;time&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<a id="__codelineno-10-76" name="__codelineno-10-76" href="#__codelineno-10-76"></a><span class="w">              </span><span class="nt">&quot;slope&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span>
+<a id="__codelineno-10-77" name="__codelineno-10-77" href="#__codelineno-10-77"></a><span class="w">              </span><span class="nt">&quot;safety&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span>
+<a id="__codelineno-10-78" name="__codelineno-10-78" href="#__codelineno-10-78"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-10-79" name="__codelineno-10-79" href="#__codelineno-10-79"></a><span class="w">            </span><span class="nt">&quot;walk&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-80" name="__codelineno-10-80" href="#__codelineno-10-80"></a><span class="w">              </span><span class="nt">&quot;speed&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span>
+<a id="__codelineno-10-81" name="__codelineno-10-81" href="#__codelineno-10-81"></a><span class="w">              </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">6.0</span>
+<a id="__codelineno-10-82" name="__codelineno-10-82" href="#__codelineno-10-82"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-10-83" name="__codelineno-10-83" href="#__codelineno-10-83"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-10-84" name="__codelineno-10-84" href="#__codelineno-10-84"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-85" name="__codelineno-10-85" href="#__codelineno-10-85"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-10-86" name="__codelineno-10-86" href="#__codelineno-10-86"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;25m&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-87" name="__codelineno-10-87" href="#__codelineno-10-87"></a><span class="w">      </span><span class="nt">&quot;maxDurationAllowAllModes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-88" name="__codelineno-10-88" href="#__codelineno-10-88"></a><span class="w">      </span><span class="nt">&quot;maxDurationAllowsCar&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-89" name="__codelineno-10-89" href="#__codelineno-10-89"></a><span class="w">      </span><span class="nt">&quot;walking&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-90" name="__codelineno-10-90" href="#__codelineno-10-90"></a><span class="w">        </span><span class="nt">&quot;stairsReluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">12.0</span><span class="p">,</span>
+<a id="__codelineno-10-91" name="__codelineno-10-91" href="#__codelineno-10-91"></a><span class="w">        </span><span class="nt">&quot;mountDismountTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20s&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-92" name="__codelineno-10-92" href="#__codelineno-10-92"></a><span class="w">        </span><span class="nt">&quot;mountDismountCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-10-93" name="__codelineno-10-93" href="#__codelineno-10-93"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-10-94" name="__codelineno-10-94" href="#__codelineno-10-94"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-10-95" name="__codelineno-10-95" href="#__codelineno-10-95"></a><span class="w">    </span><span class="nt">&quot;car&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-96" name="__codelineno-10-96" href="#__codelineno-10-96"></a><span class="w">      </span><span class="nt">&quot;profiles&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-97" name="__codelineno-10-97" href="#__codelineno-10-97"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-10-98" name="__codelineno-10-98" href="#__codelineno-10-98"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;car&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-99" name="__codelineno-10-99" href="#__codelineno-10-99"></a><span class="w">          </span><span class="nt">&quot;userPreferences&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-100" name="__codelineno-10-100" href="#__codelineno-10-100"></a><span class="w">            </span><span class="nt">&quot;reluctance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span>
+<a id="__codelineno-10-101" name="__codelineno-10-101" href="#__codelineno-10-101"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-10-102" name="__codelineno-10-102" href="#__codelineno-10-102"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-103" name="__codelineno-10-103" href="#__codelineno-10-103"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-10-104" name="__codelineno-10-104" href="#__codelineno-10-104"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2h&quot;</span>
+<a id="__codelineno-10-105" name="__codelineno-10-105" href="#__codelineno-10-105"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-10-106" name="__codelineno-10-106" href="#__codelineno-10-106"></a><span class="w">    </span><span class="nt">&quot;flex&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-107" name="__codelineno-10-107" href="#__codelineno-10-107"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;45m&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-108" name="__codelineno-10-108" href="#__codelineno-10-108"></a><span class="w">      </span><span class="nt">&quot;requests&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-109" name="__codelineno-10-109" href="#__codelineno-10-109"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-10-110" name="__codelineno-10-110" href="#__codelineno-10-110"></a><span class="w">          </span><span class="nt">&quot;modes&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span>
+<a id="__codelineno-10-111" name="__codelineno-10-111" href="#__codelineno-10-111"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-112" name="__codelineno-10-112" href="#__codelineno-10-112"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-10-113" name="__codelineno-10-113" href="#__codelineno-10-113"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-10-114" name="__codelineno-10-114" href="#__codelineno-10-114"></a><span class="w">    </span><span class="nt">&quot;via&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-115" name="__codelineno-10-115" href="#__codelineno-10-115"></a><span class="w">      </span><span class="nt">&quot;maxDuration&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20m&quot;</span>
+<a id="__codelineno-10-116" name="__codelineno-10-116" href="#__codelineno-10-116"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-117" name="__codelineno-10-117" href="#__codelineno-10-117"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-118" name="__codelineno-10-118" href="#__codelineno-10-118"></a><span class="p">}</span>
+</code></pre></div>
+<!-- JSON-EXAMPLE END -->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["toc.integrate", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
