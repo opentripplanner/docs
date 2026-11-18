@@ -3390,6 +3390,12 @@ to the main class you are running are specified separately. In the field for the
 want to put your maximum memory parameter (<code>-Xmx2G</code>, or whatever limit you want to place on JVM
 memory usage). The rest of the parameters to OTP itself will go in a different field with a name
 like "program arguments".</p>
+<p>The debug client is not checked in. Maven builds it in the <code>package</code> phase, so compiling in the IDE
+does not build it. If you start OTP from the IDE without having built it, OTP starts as usual but
+there is no debug client at <code>http://localhost:8080/</code>, and it logs a warning about it. Build it once
+with <code>mvn package -DskipTests -pl client -am</code>, which only builds the client. To work on the client
+itself, see the
+<a href="https://github.com/opentripplanner/OpenTripPlanner/blob/dev-2.x/client/README.md">client README</a>.</p>
 <h2 id="contributing-to-the-project">Contributing to the project</h2>
 <p>OpenTripPlanner is a community based open source project, and we welcome all who wish to contribute.
 There are several ways to get involved:</p>

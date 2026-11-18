@@ -3263,8 +3263,7 @@ display in web browsers.</p>
 <p>Broadly speaking there are two kinds of frontends for OTP: debug frontends and production frontends.</p>
 <p>A <strong>Debug frontend</strong> is included in the main OpenTripPlanner repository, and it is intended to work
 "out of the box" with little to no configuration. It is served by OTP itself or a simple local web
-server, or set up such that a single deployment is usable by anyone via a content delivery network
-(CDN). The primary purpose of debug frontends is to allow OTP developers (as well as people
+server. The primary purpose of debug frontends is to allow OTP developers (as well as people
 evaluating OpenTripPlanner for their organization) to observe, test, and debug an OTP instance
 they're working on. The debug frontend will expose some internal details of OTP operation such as
 graph nodes and edges, traversal permissions, or transit data entity identifiers. Their primary role
@@ -3278,10 +3277,15 @@ options and results to a non-technical audience of end users.</p>
 <h2 id="debug-frontends">Debug Frontends</h2>
 <p>OpenTripPlanner comes with an integrated debug web frontend. The frontend source code can be found
 at <a href="https://github.com/opentripplanner/OpenTripPlanner/tree/dev-2.x/client"><code>/client</code></a>.</p>
-<p>The current debug client is a React/TypeScript Single Page App (SPA) that can be served locally or
-accessed over a content delivery network (CDN). Unlike the original debug client, it connects to the
-OTP Java backend via the GraphQL API using the Transmodel vocabulary. By default, it is available at
-the root URL (<code>http://localhost:8080/</code> in local operation).</p>
+<p>The current debug client is a React/TypeScript Single Page App (SPA). The Maven build bundles it
+into the OTP jar, which serves it, so it needs no separate installation. Unlike the original debug
+client, it connects to the OTP Java backend via the GraphQL API using the Transmodel vocabulary. By
+default, it is available at the root URL (<code>http://localhost:8080/</code> in local operation).</p>
+<p>If OTP is served under another path or host, for example behind a proxy, two things need to be
+changed. The URLs of the map tiles are set with <code>vectorTilesBasePath</code> in the
+<a href="../DebugUiConfiguration/">Debug UI configuration</a>. The URLs of the API, the map style and GraphiQL
+are built into the client, and are set with the Maven properties <code>debugUi.apiUrl</code>,
+<code>debugUi.styleUrl</code> and <code>debugUi.graphiqlUrl</code> when OTP is built.</p>
 <h2 id="working-with-the-debug-frontend">Working with the Debug Frontend</h2>
 <p>While the debug frontend is enabled by default as of this writing, it may not be in the future, and
 you may wish to disable it if you've chosen to use a different frontend. The debug frontend and the
