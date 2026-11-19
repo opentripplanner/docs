@@ -3401,22 +3401,57 @@ while respecting capacity constraints, time windows, and route deviation budgets
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
 </code></pre></div>
+<p>Routing settings go in the <code>carpooling</code> section of <code>router-config.json</code>:</p>
+<!-- config BEGIN -->
+<!-- NOTE! This section is auto-generated. Do not change, change doc in code instead. -->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// router-config.json</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;carpooling&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;boardCost&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Config Parameter</th>
+<th style="text-align: center;">Type</th>
+<th>Summary</th>
+<th style="text-align: center;">Req./Opt.</th>
+<th>Default Value</th>
+<th style="text-align: center;">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boardCost</td>
+<td style="text-align: center;"><code>integer</code></td>
+<td>A cost added once to every carpool leg — direct, access and egress alike — for being picked up.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>1200</code></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+</tbody>
+</table>
+<!-- config END -->
+
 <p>To enable receiving carpooling data, add the <code>SiriETCarpoolingUpdater</code> to your <code>router-config.json</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-carpooling-updater&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;carpooling&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/siri-et&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15s&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;requestorRef&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTP&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="nt">&quot;blockReadinessUntilInitialized&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nt">&quot;producerMetrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;updaters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-carpooling-updater&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;carpooling&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/siri-et&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15s&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">&quot;requestorRef&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OTP&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="nt">&quot;blockReadinessUntilInitialized&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">&quot;producerMetrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
 </code></pre></div>
 <h4 id="configuration-parameters">Configuration Parameters</h4>
 <table>
@@ -3489,8 +3524,8 @@ carpool trips. The system maps SIRI-ET data as follows:</p>
 </ul>
 <p>The system supports multi-stop trips where drivers have already accepted multiple passengers.</p>
 <h4 id="booking-url-templates">Booking URL templates</h4>
-<p>A trip's <code>PublicContact/Url</code> is treated as a URL template. OTP expands two placeholders in it
-before returning the URL on the carpool leg's booking information:</p>
+<p>A trip's <code>PublicContact/Url</code> is treated as a URL template. OTP expands two placeholders in it before
+returning the URL on the carpool leg's booking information:</p>
 <table>
 <thead>
 <tr>
@@ -3509,30 +3544,29 @@ before returning the URL on the carpool leg's booking information:</p>
 </tr>
 </tbody>
 </table>
-<p>Each is replaced by <code>latitude,longitude</code> at six decimals, for example
-<code>59.911491,10.750184</code>. These are the points on the driver's route, which are generally <em>not</em> the
-passenger's requested origin and destination (the passenger walks to and from them) and not the
-driver's own origin and destination.</p>
+<p>Each is replaced by <code>latitude,longitude</code> at six decimals, for example <code>59.911491,10.750184</code>. These
+are the points on the driver's route, which are generally <em>not</em> the passenger's requested origin and
+destination (the passenger walks to and from them) and not the driver's own origin and destination.</p>
 <p>So a provider publishing</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>https://example.com/book/ENT:ServiceJourney:1?pickup={from}&amp;dropoff={to}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>https://example.com/book/ENT:ServiceJourney:1?pickup={from}&amp;dropoff={to}
 </code></pre></div>
 <p>receives</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>https://example.com/book/ENT:ServiceJourney:1?pickup=59.911491,10.750184&amp;dropoff=59.933077,10.784618
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>https://example.com/book/ENT:ServiceJourney:1?pickup=59.911491,10.750184&amp;dropoff=59.933077,10.784618
 </code></pre></div>
 <p>Notes:</p>
 <ul>
 <li><strong>The provider owns the URL.</strong> OTP does not choose the parameter names, their order, or where in
-  the URL the coordinates land. Placeholders are expanded wherever they appear — query string,
-  path segment or fragment — and every occurrence is expanded.</li>
+  the URL the coordinates land. Placeholders are expanded wherever they appear — query string, path
+  segment or fragment — and every occurrence is expanded.</li>
 <li><strong>Both placeholders are optional.</strong> A URL containing neither is passed through unchanged, so a
   provider that does not want the passenger's coordinates simply publishes a plain URL.</li>
-<li><strong>Names are case-sensitive.</strong> <code>{From}</code> is not recognised, and since curly braces are not legal
-  URI characters, its leftover braces would make the expanded URL unparseable.</li>
+<li><strong>Names are case-sensitive.</strong> <code>{From}</code> is not recognised, and since curly braces are not legal URI
+  characters, its leftover braces would make the expanded URL unparseable.</li>
 </ul>
 <h4 id="contact-validation">Contact validation</h4>
-<p>The booking URL of an incoming SIRI message is checked when the message is read: it must expand to
-a parseable URI. A URL that fails is logged and left off the trip; the trip itself is kept either
-way, and the booking information on the carpool leg advertises only the channels that survived.</p>
+<p>The booking URL of an incoming SIRI message is checked when the message is read: it must expand to a
+parseable URI. A URL that fails is logged and left off the trip; the trip itself is kept either way,
+and the booking information on the carpool leg advertises only the channels that survived.</p>
 <h2 id="features">Features</h2>
 <h3 id="trip-matching">Trip Matching</h3>
 <p>The carpooling service matches passengers with compatible carpool trips based on several criteria:</p>
