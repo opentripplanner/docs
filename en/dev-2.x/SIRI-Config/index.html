@@ -3381,9 +3381,9 @@ responds only with the newest data.</p>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
-<td>fuzzyTripMatching</td>
+<td><a href="#u__8__fuzzyTripMatching">fuzzyTripMatching</a></td>
 <td style="text-align: center;"><code>boolean</code></td>
-<td>If the fuzzy trip matcher should be used to match trips.</td>
+<td><strong>Deprecated</strong>, use <code>fuzzyMatching</code>. If the fuzzy trip matcher should be used to match trips.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
 <td style="text-align: center;">2.0</td>
@@ -3429,6 +3429,22 @@ responds only with the newest data.</p>
 <td style="text-align: center;">2.0</td>
 </tr>
 <tr>
+<td><a href="#u__8__fuzzyMatching">fuzzyMatching</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Enable the fuzzy trip matcher, with options.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+<tr>
+<td>   <a href="#u__8__fuzzyMatching_timeTolerance">timeTolerance</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The maximum difference between the scheduled and the aimed times.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+<tr>
 <td><a href="#u__8__headers">headers</a></td>
 <td style="text-align: center;"><code>map of string</code></td>
 <td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
@@ -3439,6 +3455,14 @@ responds only with the newest data.</p>
 </tbody>
 </table>
 <h5 id="parameter-details">Parameter details</h5>
+<h4 id="u__8__fuzzyTripMatching">fuzzyTripMatching</h4>
+
+<p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /updaters/[8] </p>
+<p><strong>Deprecated</strong>, use <code>fuzzyMatching</code>. If the fuzzy trip matcher should be used to match trips.</p>
+<p><code>true</code> is the same as <code>"fuzzyMatching" : {}</code>. This parameter is ignored if <code>fuzzyMatching</code> is
+set, so both can be set in a configuration used by OTP versions with and without
+<code>fuzzyMatching</code>.</p>
 <h4 id="u__8__url">url</h4>
 
 <p><strong>Since version:</strong> <code>2.0</code> ∙ <strong>Type:</strong> <code>string</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
@@ -3448,6 +3472,29 @@ responds only with the newest data.</p>
 loader will look for xml files: '*.xml' in the configured directory. The files are
 renamed by the loader when processed:</p>
 <p>&nbsp;&nbsp;&nbsp; <em>a.xml</em> &nbsp; ➞ &nbsp; <em>a.xml.inProgress</em> &nbsp; ➞ &nbsp; <em>a.xml.ok</em> &nbsp; or &nbsp; <em>a.xml.failed</em></p>
+<h4 id="u__8__fuzzyMatching">fuzzyMatching</h4>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[8] </p>
+<p>Enable the fuzzy trip matcher, with options.</p>
+<p>The fuzzy trip matcher identifies the scheduled trip of a SIRI-ET message by its last stop,
+line, service date and the aimed times of the first and last call. Use it for producers whose
+messages do not contain usable trip ids.</p>
+<p>If this parameter is set, fuzzy trip matching is enabled with the given options and the
+deprecated <code>fuzzyTripMatching</code> parameter is ignored. Use an empty object <code>{}</code> to enable fuzzy
+trip matching with the default options.</p>
+<p>If a trip matches the aimed times exactly, it is used. Otherwise, if more than one trip matches
+within the time tolerance, the message is rejected.</p>
+<h4 id="u__8__fuzzyMatching_timeTolerance">timeTolerance</h4>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /updaters/[8]/fuzzyMatching </p>
+<p>The maximum difference between the scheduled and the aimed times.</p>
+<p>A scheduled trip matches if its scheduled departure time at the first stop and its scheduled
+arrival time at the last stop differ from the SIRI aimed times by at most this duration. Use
+this if the producer sends aimed times in whole minutes, while the schedule contains seconds.
+The tolerance must be in whole seconds and less than 30 minutes. A larger tolerance increases
+the chance that more than one trip matches, in which case the message is rejected.</p>
 <h4 id="u__8__headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>2.3</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -3462,12 +3509,15 @@ renamed by the loader when processed:</p>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;feed_id&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;timeout&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30s&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Some-Token&quot;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;fuzzyMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;timeTolerance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;59s&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">&quot;Authorization&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Some-Token&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
 </code></pre></div>
 <!-- siri-et-updater END -->
 
@@ -3652,9 +3702,9 @@ GTFS-RT TripUpdates.</p>
 <td style="text-align: center;">2.7</td>
 </tr>
 <tr>
-<td>fuzzyTripMatching</td>
+<td><a href="#u__15__fuzzyTripMatching">fuzzyTripMatching</a></td>
 <td style="text-align: center;"><code>boolean</code></td>
-<td>If the fuzzy trip matcher should be used to match trips.</td>
+<td><strong>Deprecated</strong>, use <code>fuzzyMatching</code>. If the fuzzy trip matcher should be used to match trips.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
 <td style="text-align: center;">2.7</td>
@@ -3676,6 +3726,22 @@ GTFS-RT TripUpdates.</p>
 <td style="text-align: center;">2.7</td>
 </tr>
 <tr>
+<td><a href="#u__15__fuzzyMatching">fuzzyMatching</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Enable the fuzzy trip matcher, with options.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+<tr>
+<td>   <a href="#u__15__fuzzyMatching_timeTolerance">timeTolerance</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The maximum difference between the scheduled and the aimed times.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+<tr>
 <td><a href="#u__15__headers">headers</a></td>
 <td style="text-align: center;"><code>map of string</code></td>
 <td>HTTP headers to add to the request. Any header key, value can be inserted.</td>
@@ -3686,6 +3752,14 @@ GTFS-RT TripUpdates.</p>
 </tbody>
 </table>
 <h5 id="parameter-details_2">Parameter details</h5>
+<h4 id="u__15__fuzzyTripMatching">fuzzyTripMatching</h4>
+
+<p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /updaters/[15] </p>
+<p><strong>Deprecated</strong>, use <code>fuzzyMatching</code>. If the fuzzy trip matcher should be used to match trips.</p>
+<p><code>true</code> is the same as <code>"fuzzyMatching" : {}</code>. This parameter is ignored if <code>fuzzyMatching</code> is
+set, so both can be set in a configuration used by OTP versions with and without
+<code>fuzzyMatching</code>.</p>
 <h4 id="u__15__url">url</h4>
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>uri</code> ∙ <strong>Cardinality:</strong> <code>Required</code> <br />
@@ -3695,6 +3769,29 @@ GTFS-RT TripUpdates.</p>
 loader will look for xml files: '*.xml' in the configured directory. The files are
 renamed by the loader when processed:</p>
 <p>&nbsp;&nbsp;&nbsp; <em>a.xml</em> &nbsp; ➞ &nbsp; <em>a.xml.inProgress</em> &nbsp; ➞ &nbsp; <em>a.xml.ok</em> &nbsp; or &nbsp; <em>a.xml.failed</em></p>
+<h4 id="u__15__fuzzyMatching">fuzzyMatching</h4>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[15] </p>
+<p>Enable the fuzzy trip matcher, with options.</p>
+<p>The fuzzy trip matcher identifies the scheduled trip of a SIRI-ET message by its last stop,
+line, service date and the aimed times of the first and last call. Use it for producers whose
+messages do not contain usable trip ids.</p>
+<p>If this parameter is set, fuzzy trip matching is enabled with the given options and the
+deprecated <code>fuzzyTripMatching</code> parameter is ignored. Use an empty object <code>{}</code> to enable fuzzy
+trip matching with the default options.</p>
+<p>If a trip matches the aimed times exactly, it is used. Otherwise, if more than one trip matches
+within the time tolerance, the message is rejected.</p>
+<h4 id="u__15__fuzzyMatching_timeTolerance">timeTolerance</h4>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /updaters/[15]/fuzzyMatching </p>
+<p>The maximum difference between the scheduled and the aimed times.</p>
+<p>A scheduled trip matches if its scheduled departure time at the first stop and its scheduled
+arrival time at the last stop differ from the SIRI aimed times by at most this duration. Use
+this if the producer sends aimed times in whole minutes, while the schedule contains seconds.
+The tolerance must be in whole seconds and less than 30 minutes. A larger tolerance increases
+the chance that more than one trip matches, in which case the message is rejected.</p>
 <h4 id="u__15__headers">headers</h4>
 
 <p><strong>Since version:</strong> <code>2.7</code> ∙ <strong>Type:</strong> <code>map of string</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
@@ -3708,10 +3805,13 @@ renamed by the loader when processed:</p>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siri-et-lite&quot;</span><span class="p">,</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;feedId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sta&quot;</span><span class="p">,</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/siri-lite/estimated-timetable/xml&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">&quot;fuzzyMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">&quot;timeTolerance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;59s&quot;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
 </code></pre></div>
 <!-- siri-et-lite END -->
 

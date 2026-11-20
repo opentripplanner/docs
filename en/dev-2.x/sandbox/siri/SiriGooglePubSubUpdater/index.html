@@ -3301,9 +3301,9 @@ provided by a Google Cloud PubSub topic.</p>
 <td style="text-align: center;">2.1</td>
 </tr>
 <tr>
-<td>fuzzyTripMatching</td>
+<td><a href="#u__12__fuzzyTripMatching">fuzzyTripMatching</a></td>
 <td style="text-align: center;"><code>boolean</code></td>
-<td>If the trips should be matched fuzzily.</td>
+<td><strong>Deprecated</strong>, use <code>fuzzyMatching</code>. If the fuzzy trip matcher should be used to match trips.</td>
 <td style="text-align: center;"><em>Optional</em></td>
 <td><code>false</code></td>
 <td style="text-align: center;">2.1</td>
@@ -3356,6 +3356,22 @@ provided by a Google Cloud PubSub topic.</p>
 <td></td>
 <td style="text-align: center;">2.1</td>
 </tr>
+<tr>
+<td><a href="#u__12__fuzzyMatching">fuzzyMatching</a></td>
+<td style="text-align: center;"><code>object</code></td>
+<td>Enable the fuzzy trip matcher, with options.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td></td>
+<td style="text-align: center;">2.11</td>
+</tr>
+<tr>
+<td>   <a href="#u__12__fuzzyMatching_timeTolerance">timeTolerance</a></td>
+<td style="text-align: center;"><code>duration</code></td>
+<td>The maximum difference between the scheduled and the aimed times.</td>
+<td style="text-align: center;"><em>Optional</em></td>
+<td><code>"PT0S"</code></td>
+<td style="text-align: center;">2.11</td>
+</tr>
 </tbody>
 </table>
 <h5 id="parameter-details">Parameter details</h5>
@@ -3367,6 +3383,14 @@ provided by a Google Cloud PubSub topic.</p>
 <p>Optionally the updater can download the recent history of SIRI-ET messages from this URL.
 If this parameter is set, the updater will be marked as initialized (primed) only when
 the message history is fully downloaded and applied.</p>
+<h4 id="u__12__fuzzyTripMatching">fuzzyTripMatching</h4>
+
+<p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>boolean</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>false</code> <br />
+<strong>Path:</strong> /updaters/[12] </p>
+<p><strong>Deprecated</strong>, use <code>fuzzyMatching</code>. If the fuzzy trip matcher should be used to match trips.</p>
+<p><code>true</code> is the same as <code>"fuzzyMatching" : {}</code>. This parameter is ignored if <code>fuzzyMatching</code> is
+set, so both can be set in a configuration used by OTP versions with and without
+<code>fuzzyMatching</code>.</p>
 <h4 id="u__12__initialGetDataTimeout">initialGetDataTimeout</h4>
 
 <p><strong>Since version:</strong> <code>2.1</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT30S"</code> <br />
@@ -3391,6 +3415,29 @@ Google PubSub subscription.</p>
 to the PubSub topic that publishes SIRI-ET updates.
 This parameter specifies in which Google Cloud project the subscription will be created.
 The topic and the subscription can be hosted in two different projects.</p>
+<h4 id="u__12__fuzzyMatching">fuzzyMatching</h4>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>object</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> <br />
+<strong>Path:</strong> /updaters/[12] </p>
+<p>Enable the fuzzy trip matcher, with options.</p>
+<p>The fuzzy trip matcher identifies the scheduled trip of a SIRI-ET message by its last stop,
+line, service date and the aimed times of the first and last call. Use it for producers whose
+messages do not contain usable trip ids.</p>
+<p>If this parameter is set, fuzzy trip matching is enabled with the given options and the
+deprecated <code>fuzzyTripMatching</code> parameter is ignored. Use an empty object <code>{}</code> to enable fuzzy
+trip matching with the default options.</p>
+<p>If a trip matches the aimed times exactly, it is used. Otherwise, if more than one trip matches
+within the time tolerance, the message is rejected.</p>
+<h4 id="u__12__fuzzyMatching_timeTolerance">timeTolerance</h4>
+
+<p><strong>Since version:</strong> <code>2.11</code> ∙ <strong>Type:</strong> <code>duration</code> ∙ <strong>Cardinality:</strong> <code>Optional</code> ∙ <strong>Default value:</strong> <code>"PT0S"</code> <br />
+<strong>Path:</strong> /updaters/[12]/fuzzyMatching </p>
+<p>The maximum difference between the scheduled and the aimed times.</p>
+<p>A scheduled trip matches if its scheduled departure time at the first stop and its scheduled
+arrival time at the last stop differ from the SIRI aimed times by at most this duration. Use
+this if the producer sends aimed times in whole minutes, while the schedule contains seconds.
+The tolerance must be in whole seconds and less than 30 minutes. A larger tolerance increases
+the chance that more than one trip matches, in which case the message is rejected.</p>
 <h5 id="example-configuration">Example configuration</h5>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// router-config.json</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
@@ -3404,10 +3451,13 @@ The topic and the subscription can be hosted in two different projects.</p>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;subscriptionProjectName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;google_pubsub_subscription_project_name&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">&quot;topicName&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;estimated_timetables&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;dataInitializationUrl&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/some/path&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">&quot;fuzzyTripMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="nt">&quot;fuzzyMatching&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">&quot;timeTolerance&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;59s&quot;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
 </code></pre></div>
 <!-- siri-et-google-pubsub-updater END -->
 
